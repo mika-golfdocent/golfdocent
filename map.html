@@ -1,181 +1,93 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日本ゴルフ場マップ — MIKA</title>
+<title>방문 지도 — MIKA 일본골프 도슨트</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:    #f5f2ec;
-    --paper-2:  #ede9e0;
-    --ink:      #1c1c1a;
-    --ink-mid:  #3a3835;
-    --ink-soft: #6b6864;
-    --rule:     #c8c4bb;
-    --rule-dark:#a09c94;
-    --red:      #8b2020;
-    --gold:     #9a7a2e;
+    --paper:#f5f2ec; --paper-2:#ede9e0; --ink:#1c1c1a; --ink-mid:#3a3835;
+    --ink-soft:#6b6864; --rule:#c8c4bb; --rule-dark:#a09c94; --red:#8b2020; --gold:#9a7a2e;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Noto Sans KR', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+  html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink); font-family:'Noto Sans KR',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
 
-  /* ── 상단 빨간 라인 ── */
-  .top-rule { height:3px; background:var(--red); }
+  .top-rule { height:3px; background:var(--red); position:fixed; top:0; left:0; width:100%; z-index:1100; }
 
-  /* ── HEADER ── */
-  .map-header {
-    padding: 0 24px; height: 56px;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule-dark);
-    display: flex; align-items: center; gap: 14px;
-  }
-  .map-logo {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 20px; font-weight: 600;
-    color: var(--ink); text-decoration: none;
-    letter-spacing: 0.08em;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .map-logo .sep { color: var(--red); font-size: 14px; font-weight: 400; }
-  .map-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 13px; color: var(--ink-soft);
-    letter-spacing: 0.12em;
-  }
-  .back-btn {
-    margin-left: auto;
-    font-size: 11px; letter-spacing: 0.15em;
-    color: var(--ink-soft); text-decoration: none;
-    border: 1px solid var(--rule-dark); padding: 6px 14px;
-    transition: all 0.2s;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  .back-btn:hover { color: var(--ink); border-color: var(--ink); background: var(--paper-2); }
+  nav { position:fixed; top:3px; width:100%; background:var(--paper); border-bottom:1px solid var(--rule-dark);
+    padding:0 48px; height:56px; display:flex; justify-content:space-between; align-items:center; z-index:1000; }
+  .nav-logo { font-family:'Shippori Mincho',serif; font-size:20px; font-weight:600; letter-spacing:0.08em;
+    color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+  .nav-logo .sep { color:var(--red); font-size:14px; font-weight:400; }
+  .nav-logo .sub { font-family:'Noto Serif JP',serif; font-size:12px; font-weight:400; color:var(--ink-soft); letter-spacing:0.1em; }
+  .nav-links { display:flex; gap:26px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.06em; color:var(--ink-soft); text-decoration:none;
+    transition:color 0.2s; border-bottom:1px solid transparent; padding-bottom:2px; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--rule-dark); }
+  .lang-switcher { display:flex; align-items:center; gap:0; border:1px solid var(--rule-dark); }
+  .lang-btn { background:none; border:none; font-size:10px; letter-spacing:0.15em; color:var(--ink-soft);
+    cursor:pointer; padding:5px 10px; font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; border-right:1px solid var(--rule-dark); }
+  .lang-btn:last-child { border-right:none; }
+  .lang-btn:hover { background:var(--paper-2); color:var(--ink); }
+  .lang-btn.active { background:var(--ink); color:var(--paper); }
 
-  /* ── CONTROLS ── */
-  .map-controls {
-    padding: 12px 24px;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule-dark);
-    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
-  }
-  .filter-btn {
-    padding: 6px 14px;
-    font-size: 11px; letter-spacing: 0.1em;
-    border: 1px solid var(--rule-dark);
-    background: none; color: var(--ink-soft);
-    cursor: pointer; transition: all 0.2s; white-space: nowrap;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  .filter-btn:hover { border-color: var(--ink-soft); color: var(--ink); }
-  .filter-btn.active { border-color: var(--red); color: var(--paper); background: var(--red); }
-  .count-label {
-    margin-left: auto;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 12px; letter-spacing: 0.1em; color: var(--ink-soft);
-  }
+  .page-header { padding:120px 48px 30px; border-bottom:1px solid var(--rule-dark);
+    display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; }
+  .header-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--red);
+    margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .header-eyebrow::before { content:''; display:inline-block; width:16px; height:1px; background:var(--red); }
+  .header-title { font-family:'Shippori Mincho',serif; font-size:clamp(34px,4.8vw,56px); font-weight:600;
+    line-height:1.1; letter-spacing:0.02em; color:var(--ink); }
+  .header-title em { color:var(--red); font-style:italic; font-family:'IM Fell English',serif; font-weight:400; }
+  .header-desc { font-family:'Noto Serif KR',serif; font-size:14px; line-height:1.8; color:var(--ink-soft);
+    font-weight:400; margin-top:16px; grid-column:1; }
+  .header-meta { text-align:right; }
+  .header-meta .count { font-family:'Shippori Mincho',serif; font-size:44px; font-weight:700; color:var(--ink); line-height:1; display:block; }
+  .header-meta .count em { color:var(--red); font-style:normal; }
+  .header-meta .count-label { font-size:11px; color:var(--ink-soft); letter-spacing:0.12em; display:block; margin-top:4px; }
 
-  #map { width: 100%; height: calc(100vh - 133px); }
+  /* 지도 영역 */
+  .map-wrap { position:relative; }
+  #map { width:100%; height:calc(100vh - 220px); min-height:480px; background:var(--paper-2); z-index:1; }
 
-  /* ── 커스텀 마커 ── */
-  .mika-marker {
-    background: var(--ink);
-    color: var(--paper);
-    font-family: 'Shippori Mincho', serif;
-    font-size: 11px; font-weight: 600;
-    padding: 3px 7px; border-radius: 2px;
-    white-space: nowrap; cursor: pointer;
-    border: 1px solid var(--ink);
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 6px rgba(28,28,26,0.35);
-    transition: all 0.15s;
-  }
-  .mika-marker.visited { background: var(--ink); }
-  .mika-marker:hover { background: var(--red); border-color: var(--red); transform: scale(1.1); z-index: 50; }
+  /* 범례 */
+  .legend { position:absolute; top:16px; right:16px; z-index:500; background:rgba(245,242,236,0.95);
+    border:1px solid var(--rule-dark); padding:14px 16px; font-size:12px; max-width:200px; }
+  .legend-title { font-family:'Shippori Mincho',serif; font-size:13px; color:var(--ink); margin-bottom:10px;
+    padding-bottom:8px; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+  .legend-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer; color:var(--ink-mid); transition:color .15s; }
+  .legend-row:hover { color:var(--ink); }
+  .legend-row .dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; border:1.5px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.25); }
+  .legend-row .ct { margin-left:auto; color:var(--ink-soft); font-family:'IM Fell English',serif; }
+  .legend-note { margin-top:10px; padding-top:8px; border-top:1px solid var(--rule); font-size:10px; color:var(--ink-soft); line-height:1.5; }
 
-  /* ── 인포 패널 ── */
-  .info-panel {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: var(--paper);
-    border-top: 3px solid var(--red);
-    padding: 24px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 -8px 30px rgba(28,28,26,0.18);
-  }
-  .info-panel.open { transform: translateY(0); }
-  .info-close {
-    position: absolute; top: 16px; right: 20px;
-    background: none; border: none; color: var(--ink-soft);
-    font-size: 22px; cursor: pointer; line-height: 1;
-    transition: color 0.2s;
-  }
-  .info-close:hover { color: var(--red); }
-  .info-no {
-    font-family: 'IM Fell English', serif;
-    font-size: 11px; letter-spacing: 0.2em;
-    color: var(--red); margin-bottom: 6px;
-  }
-  .info-name {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--ink); margin-bottom: 5px; line-height: 1.25;
-  }
-  .info-region {
-    font-size: 10px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--ink-soft);
-    margin-bottom: 16px;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  .info-rating { display: flex; gap: 16px; margin-bottom: 16px; }
-  .rating-item { display: flex; flex-direction: column; gap: 3px; }
-  .rating-label {
-    font-size: 8px; letter-spacing: 0.2em;
-    color: var(--ink-soft); text-transform: uppercase;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  .rating-val {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 20px; color: var(--ink); font-weight: 700;
-  }
-  .info-mika {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 13px; line-height: 1.85;
-    color: var(--ink-mid); margin-bottom: 18px;
-    border-left: 3px solid var(--red);
-    padding-left: 14px;
-  }
-  .info-mika:lang(ja) { font-family: 'Noto Serif JP', serif; }
-  .info-btns { display: flex; gap: 8px; }
-  .info-btn {
-    flex: 1; padding: 11px;
-    font-size: 10px; letter-spacing: 0.12em;
-    text-align: center; text-decoration: none;
-    border: 1px solid; transition: all 0.2s; cursor: pointer;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  .btn-review { border-color: var(--ink); color: var(--paper); background: var(--ink); }
-  .btn-review:hover { background: var(--ink-mid); border-color: var(--ink-mid); }
-  .btn-map { border-color: var(--rule-dark); color: var(--ink-soft); background: none; }
-  .btn-map:hover { border-color: var(--ink); color: var(--ink); }
-  .btn-book { border-color: var(--rule-dark); color: var(--ink-soft); background: none; }
-  .btn-book:hover { border-color: var(--red); color: var(--red); }
+  /* 핀 팝업 */
+  .leaflet-popup-content-wrapper { border-radius:2px; background:var(--paper); border:1px solid var(--ink); box-shadow:0 6px 24px rgba(0,0,0,.18); }
+  .leaflet-popup-content { margin:14px 16px; font-family:'Noto Sans KR',sans-serif; }
+  .leaflet-popup-tip { background:var(--paper); border:1px solid var(--ink); }
+  .pop-region { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); margin-bottom:5px; }
+  .pop-name { font-family:'Shippori Mincho',serif; font-size:16px; font-weight:600; color:var(--ink); line-height:1.35; margin-bottom:3px; }
+  .pop-ja { font-family:'Noto Serif JP',serif; font-size:12px; color:var(--ink-soft); margin-bottom:12px; }
+  .pop-link { display:inline-flex; align-items:center; gap:6px; font-size:12px; letter-spacing:0.02em;
+    color:var(--ink-mid); text-decoration:none; border:1px solid var(--rule-dark); padding:7px 13px; transition:all .2s; }
+  .pop-link:hover { border-color:var(--ink); color:var(--ink); background:var(--paper-2); }
+  .pop-link .pin { color:var(--red); }
 
-  @media(min-width:768px) {
-    #map { height: calc(100vh - 110px); }
-    .info-panel {
-      left: auto; right: 20px; bottom: 20px; width: 380px;
-      border: 1px solid var(--rule-dark); border-top: 3px solid var(--red);
-      transform: translateX(440px);
-    }
-    .info-panel.open { transform: translateX(0); }
+  /* 커스텀 마커(원형 도트) */
+  .gp-marker { border-radius:50%; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.4); }
+
+  @media(max-width:768px){
+    nav { padding:0 16px; }
+    .nav-links { display:none; }
+    .nav-logo .sub { display:none; }
+    .page-header { padding:96px 16px 24px; grid-template-columns:1fr; }
+    .header-meta { text-align:left; }
+    .header-meta .count { font-size:34px; }
+    #map { height:calc(100vh - 250px); }
+    .legend { top:auto; bottom:16px; right:16px; max-width:160px; padding:11px 13px; }
   }
 </style>
 </head>
@@ -183,231 +95,211 @@
 
 <div class="top-rule"></div>
 
-<div class="map-header">
-  <a href="index.html" class="map-logo">MIKA <span class="sep">|</span></a>
-  <span class="map-title">日本ゴルフ場 マップ</span>
-  <a href="courses.html" class="back-btn">← リスト表示</a>
-</div>
-
-<div class="map-controls">
-  <button class="filter-btn active" onclick="filterRegion('all',this)">全国</button>
-  <button class="filter-btn" onclick="filterRegion('kyushu',this)">九州</button>
-  <button class="filter-btn" onclick="filterRegion('chugoku',this)">中国</button>
-  <button class="filter-btn" onclick="filterRegion('shikoku',this)">四国</button>
-  <button class="filter-btn" onclick="filterRegion('kinki',this)">近畿</button>
-  <button class="filter-btn" onclick="filterRegion('chubu',this)">中部</button>
-  <button class="filter-btn" onclick="filterRegion('kanto',this)">関東</button>
-  <button class="filter-btn" onclick="filterRegion('hokkaido',this)">北海道</button>
-  <span class="count-label" id="countLabel">72コース表示中</span>
-</div>
-
-<div id="map"></div>
-
-<!-- 인포 패널 -->
-<div class="info-panel" id="infoPanel">
-  <button class="info-close" onclick="closeInfo()">×</button>
-  <div class="info-no" id="infoNo"></div>
-  <div class="info-name" id="infoName"></div>
-  <div class="info-region" id="infoRegion"></div>
-  <div class="info-rating">
-    <div class="rating-item">
-      <span class="rating-label">MIKA RATING</span>
-      <span class="rating-val" id="infoRating"></span>
-    </div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    MIKA <span class="sep">|</span>
+    <span class="sub">日本ゴルフ道案内</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="courses.html" class="nav-txt" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">일본골프장 리뷰</a></li>
+    <li><a href="map.html" class="nav-txt active" data-ko="방문 지도" data-ja="訪問マップ" data-en="Visited Map">방문 지도</a></li>
+    <li><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門" data-en="Beginner's Guide">일본골프 첫걸음</a></li>
+    <li><a href="editorial.html" class="nav-txt" data-ko="에디토리얼" data-ja="エディトリアル" data-en="Editorial">에디토리얼</a></li>
+    <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
   </div>
-  <div class="info-mika" id="infoMika"></div>
-  <div class="info-btns">
-    <a class="info-btn btn-review" id="btnReview" href="#">レビューを読む</a>
-    <a class="info-btn btn-map" id="btnGmap" href="#" target="_blank">Google Map</a>
-    <a class="info-btn btn-book" id="btnBook" href="https://gora.golf.rakuten.co.jp" target="_blank">楽天GORA</a>
+</nav>
+
+<div class="page-header">
+  <div class="header-title-wrap">
+    <p class="header-eyebrow txt-i18n" data-ko="Visited Map — 발자취" data-ja="Visited Map — 足跡" data-en="Visited Map — Footprints">Visited Map — 발자취</p>
+    <h1 class="header-title txt-i18n" data-ko="골프클럽 들고 <em>다녀온 일본</em>" data-ja="クラブを手に <em>巡った日本</em>" data-en="Japan, <em>Walked With a Club</em>">골프클럽 들고 <em>다녀온 일본</em></h1>
+    <p class="header-desc txt-i18n" data-ko="홋카이도부터 가고시마까지, 직접 걸어본 일본 골프장입니다. 핀을 누르면 코스 정보와 길찾기가 열립니다." data-ja="北海道から鹿児島まで、自ら歩いた日本のゴルフ場です。ピンをタップするとコース情報とルート案内が開きます。" data-en="From Hokkaido to Kagoshima, courses I have walked myself. Tap a pin for course info and directions.">홋카이도부터 가고시마까지, 직접 걸어본 일본 골프장입니다. 핀을 누르면 코스 정보와 길찾기가 열립니다.</p>
+  </div>
+  <div class="header-meta">
+    <span class="count"><em>72</em> / 300</span>
+    <span class="count-label txt-i18n" data-ko="방문 / 목표" data-ja="訪問 / 目標" data-en="Visited / Goal">방문 / 목표</span>
   </div>
 </div>
 
+<div class="map-wrap">
+  <div id="map"></div>
+  <div class="legend">
+    <div class="legend-title txt-i18n" data-ko="지역" data-ja="地域" data-en="Region">지역</div>
+    <div id="legend-rows"></div>
+    <div class="legend-note txt-i18n" data-ko="핀 위치는 지역 기준 근사값입니다." data-ja="ピン位置は地域基準の概算です。" data-en="Pin positions are regional approximations.">핀 위치는 지역 기준 근사값입니다.</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const COURSES = [
-  {no:1,name:"琴平カントリー倶楽部",region:"shikoku",regionLabel:"四国",lat:34.19,lng:133.82,rating:"A-",mikaKo:'분당 구미동 야마다야 우동 얘기를 하다가 시작됐다. 그 우동의 본산지가 다카마쓰라고 했다. 그럼 가서 우동 먹고 골프도 치자. 그게 일본 골프 여행의 첫 시작이었다. 코로나가 잠잠',mikaJa:'分唐のうどん屋の話をしていて始まった。そのうどんの本場が高松だと聞いた。なら行って本物 を食べて、ゴルフもしてこよう。それが日本ゴルフ旅行の最初の一歩だった。 コロナが落ち着き、週2回は国内でゴルフを'},
-  {no:2,name:"志度カントリークラブ",region:"shikoku",regionLabel:"四国",lat:34.32,lng:134.17,rating:"B+",mikaKo:'일본 첫 자유여행이었다. 설레기도 했고 실수도 많았다. 아이언은 늘 들고 다녔는데 퍼터 챙기는 게 영 쉽지 않았다. 동반자들과 퍼터 때문에 많이 웃었다. 그래도 즐거운 첫 여행이었',mikaJa:'日本初の自由旅行だった。胸が高鳴ると同時に、ミスも多かった。アイアンは常に持ち歩いてい たが、パターを持参するのが難しかった。同伴者たちとパターのことで何度も笑い合った記憶が ある。それでも楽しい初旅'},
-  {no:3,name:"坂出カントリークラブ",region:"shikoku",regionLabel:"四国",lat:34.31,lng:133.87,rating:"B+",mikaKo:'첫 일본 골프 여행의 마지막 라운딩이었다. 매일 아침 세븐일레븐 커피를 찾아 편의점을 기웃거리던 기억이 아직 선명하다. 정신없이 흘러간 사흘이었지만, 20대 체력이 아니기에 오히려',mikaJa:'日本ゴルフ旅行初回の最終ラウンドだった。毎朝セブンイレブンのコーヒーを求めてコンビニをう ろついていた記憶が今も鮮明だ。あっという間に過ぎた3日間だったが、20代の体力ではないか らこそ、むしろ余裕を'},
-  {no:4,name:"ルスツカントリークラブ",region:"hokkaido",regionLabel:"北海道",lat:42.74,lng:140.89,rating:"A",mikaKo:'6월 초 홋카이도. 한국 초여름 날씨를 생각하고 가벼운 옷차림으로 갔다가 티박스에서 서늘한 바람에 깜짝 놀랐다. 비까지 조금 내렸다. 바람막이와 얇은 스웨터는 필수다. 뼈저리게 배',mikaJa:'6月初旬の北海道。韓国の初夏の気候を想定して薄着で行ったところ、ティボックスで冷たい風に 驚かされた。小雨まで降った。ウインドブレーカーと薄手のセーターは必須だ。身をもって学ん だ。 ルスツリゾートゴ'},
-  {no:5,name:"小野ゴルフ倶楽部",region:"shikoku",regionLabel:"四国",lat:33.93,lng:132.71,rating:"B+",mikaKo:'마쓰야마 시내에서 1시간 이상. 도착하는 순간 고요하고 평화로운 공기가 먼저 반긴다. 북적이는 관광지가 아니다. 발걸음 소리마저 선명하게 들릴 것 같은 소도시의 정취다. 27홀에 ',mikaJa:'松山市内から1時間以上。到着した瞬間、静かで穏やかな空気が迎えてくれる。賑やかな観光地 ではない。足音まではっきり聞こえそうな小さな町の情緒だ。 27ホール、昼食込みで8,200円。支払い金額を見て目'},
-  {no:6,name:"高原ゴルフ倶楽部",region:"shikoku",regionLabel:"四国",lat:33.87,lng:132.69,rating:"B",mikaKo:'마쓰야마 골프 여행에서 가장 기대했던 곳이었다. 10시 30분대 티오프를 잡았다는 것만 봐도 당시 일본 더위를 얼마나 몰랐는지 알 수 있다. 그래도 고원이라 살았다. 해발 600미',mikaJa:'松山ゴルフ旅行で最も楽しみにしていた場所だった。8月に10時30分台のティオフを選んだという ことだけで、当時日本の暑さをいかに知らなかったかがわかる。高原だったから助かった。 標高600メートル。山'},
-  {no:7,name:"松山国際ゴルフ倶楽部",region:"shikoku",regionLabel:"四国",lat:33.84,lng:132.76,rating:"A-",mikaKo:'마쓰야마 마지막 날이었다. 오후 비행기 시간이 빠듯해서 골프장 도착하자마자 스루플레이를 요청했다. 단호하게 안 된다고 했다. 아침 6시 20분인데도 사람이 한가득이었다. 주말이었다',mikaJa:'松山最終日だった。午後の飛行機の時間が迫っていたため、到着と同時にスループレーをお願 いした。きっぱりと断られた。朝6時20分なのに人で溢れていた。週末だった。 方法は二つ。前半だけプレーして空港へ向'},
-  {no:8,name:"二丈カントリークラブ",region:"kyushu",regionLabel:"九州",lat:33.52,lng:130.21,rating:"B+",mikaKo:'새벽 비행기. 공항에서 차로 50분. 그게 니조CC를 고른 이유의 전부였다. 아코디아 계열이다. 지금은 PGM에 인수됐지만 아코디아라는 이름을 그대로 쓰고 있다. 셀프 체크인 키오',mikaJa:'早朝便。空港から車で50分。それがニジョーCCを選んだ理由のすべてだった。 アコーディア系列だ。今はPGMに買収されたが、アコーディアという名称をそのまま使い続けて いる。セルフチェックインキオスクで'},
-  {no:9,name:"司ロイヤルカントリークラブ",region:"kyushu",regionLabel:"九州",lat:33.69,lng:130.62,rating:"A-",mikaKo:'입구부터 범상치 않다. 러시아 궁전을 연상케 하는 클럽하우스가 맨땅에 헤딩하듯 지어져 있다. 마치 놀이공원 입구 같은 컨셉이다. 일본 골프장에서 이런 외관은 흔하지 않다. 코스와 ',mikaJa:'入口からただならぬ雰囲気だ。ロシアの宮殿を思わせるクラブハウスが、ためらいなく建ち並ん でいる。遊園地の入口のようなコンセプトだ。日本のゴルフ場でこういう外観はなかなかお目にか かれない。  コースと'},
-  {no:10,name:"阿蘇東急ゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:32.89,lng:131.04,rating:"A",mikaKo:'아소 도큐 골프클럽. 지금은 트라이얼 그룹에 인수되어 이름이 바뀌었다. 방문 당시 클럽하우스와 스타트하우스는 아담하고 붐볐다. 도착하자마자 짐을 내리고 티오프 시간에 쫓겨 카트에 ',mikaJa:'阿蘇東急ゴルフクラブ。今はトライアルグループに買収され名称が変わっている。訪問当時のク ラブハウスとスタートハウスはこぢんまりとして混雑していた。到着後すぐに荷物を下ろし、ティオ フ時間に追われてカー'},
-  {no:11,name:"阿蘇グランヴィリオゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:32.91,lng:131.07,rating:"A-",mikaKo:'구마모토 시내 골목길이 상상 이상으로 좁았다. 큰 차들도 오가는 길에서 동반자가 조심스럽게 운전하다가 결국 왼쪽 사이드미러가 전봇대에 부딪혀 90도로 돌아가 버렸다. 일본 렌터카는',mikaJa:'熊本市内の路地は想像以上に狭かった。大型車も行き交う細い道を慎重に走っていたが、結局 左側のサイドミラーが電柱にぶつかって90度に折れてしまった。日本のレンタカーは必ずフルカ バー100%で契約すべき'},
-  {no:12,name:"筑紫野カントリークラブ",region:"kyushu",regionLabel:"九州",lat:33.52,lng:130.52,rating:"B+",mikaKo:'구마모토 가는 길에 중간에 들렀다. 골프장 자체는 꽤 좋았다. 사진이 딱 한 장 남아있을 뿐이지만, 코스의 기억은 좋게 남아있다. 라운딩 후 골프장 근처 맛집을 찾다가 일본인이 운',mikaJa:'福岡から熊本へ向かう途中に立ち寄った。ゴルフ場自体はなかなか良かった。写真は1枚しか 残っていないが、ラウンドの記憶は好印象のまま残っている。 ラウンド後、近くで食事処を探して日本人が営む洋食店に入っ'},
-  {no:13,name:"勝山御所カントリークラブ",region:"kyushu",regionLabel:"九州",lat:33.68,lng:130.74,rating:"B+",mikaKo:'새벽 4시에 일어나 인천공항으로 향했다. 한국도 비, 후쿠오카도 비. 치자 말자 고민하다가 골프장 가보고 결정하기로 했다. 결국 18홀 중 15홀을 비 맞으며 쳤다. 첫날 라운딩이',mikaJa:'朝4時に起きて仁川空港へ向かった。韓国も雨、福岡も雨。プレーするかどうか迷いながら、とり あえずゴルフ場まで行って決めることにした。結果、18ホール中15ホールを雨の中でプレーし た。 初日のラウンド'},
-  {no:14,name:"西日本カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:33.97,lng:131.12,rating:"A-",mikaKo:'이번 여행에서 가장 고대하던 라운딩이었다. 명문 구장에 대한 예의로 세미정장을 갖춰 입고 숙소를 나섰다.  라쿠텐 고라, 자란넷에서는 검색조차 안 됐다. 며칠을 뒤진 끝에 홈페이지',mikaJa:'今回の旅で最も楽しみにしていたラウンドだった。名門コースへの敬意を込め、セミフォーマルな 服装で宿を出た。それが正解だった。 楽天ゴルフやじゃらんでは検索すらできなかった。数日間探し続けた末に公式ホー'},
-  {no:15,name:"山陽国際カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.07,lng:131.18,rating:"B+",mikaKo:'3일차 밤, 잠자리에 들었는데 새벽에 지진 알람으로 잠이 깼다. 꽤 흔들렸다. 일본인의 일상이 쉽지 않겠다 싶었다. 그래도 골프는 쳤다. 아코디아 계열. 36홀 대형 골프장이다. ',mikaJa:'3日目の夜、床についたところで早朝に地震アラームで目が覚めた。かなり揺れた。日本の日常 は簡単ではないと感じた。それでもゴルフはした。 アコーディア系列。36ホールの大型ゴルフ場だ。東コースは7,00'},
-  {no:16,name:"周防灘カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:33.93,lng:131.28,rating:"B",mikaKo:'이번 여행 마지막 일정이었다. 라쿠텐으로 예약했더니 체크인 시 락커키 안쪽에 쪽지가 들어있었다. 홈페이지 직접 예약하면 1,200엔 더 저렴하다는 안내였다. 라쿠텐 수수료를 돌려주',mikaJa:'今回の旅の最終日程だった。楽天で予約したところ、チェックイン時にロッカーキーの中に紙が 入っていた。公式ホームページから直接予約すれば1,200円安くなるという案内だった。楽天の 手数料分を返す形の正'},
-  {no:17,name:"別府森ゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:33.28,lng:131.49,rating:"A-",mikaKo:'오이타, 벳푸 지역은 골프 비용이 전반적으로 저렴하다. 온천 성수기와 겹치지만 않으면 일본 전체에서도 합리적인 가격으로 칠 수 있는 지역이다. 벳푸 골프클럽과 벳푸 모리클럽이 그 ',mikaJa:'大分、別府エリアはゴルフ費用が全体的に安い。温泉のピークシーズンと重ならなければ、日本 全体でも手頃な価格でプレーできる地域だ。別府ゴルフクラブと別府森クラブがその代表格だ。 大きな期待はしていなかっ'},
-  {no:18,name:"別府ゴルフ倶楽部",region:"kyushu",regionLabel:"九州",lat:33.31,lng:131.52,rating:"B+",mikaKo:'비가 많이 왔다. 알다시피 일본 골프장에서 비를 이유로 그만두기는 쉽지 않다. 그냥 쳤다. 9홀을 마치고 점심을 먹으러 클럽하우스로 올라갔더니 식당이 닫혀 있었다. 점심 포함 플랜',mikaJa:'雨が激しく降った。ご存知の通り、日本のゴルフ場で雨を理由にやめるのは簡単ではない。その ままプレーした。 前半9ホールを終えてクラブハウスへ昼食を取りに上がると、レストランが閉まっていた。昼食込 みプ'},
-  {no:19,name:"由布高原ゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:33.21,lng:131.39,rating:"A",mikaKo:'첫날 벳푸 골프클럽, 둘째 날 벳푸 모리야마. 마지막 날은 유후고겐이었다. 앞 이틀 날씨가 좋지 않았는데 마지막 날 하늘이 보상을 해줬다. 구름 한 점 없었다.  해발 800미터.',mikaJa:'1日目は別府ゴルフクラブ、2日目は別府モリヤマ。最終日は由布高原だった。最初の2日間は天 気に恵まれなかったが、最終日は完璧な晴天で埋め合わせてくれた。雲ひとつなかった。 標高800メートル。設計は宮'},
-  {no:20,name:"JR内野カントリークラブ",region:"kyushu",regionLabel:"九州",lat:33.54,lng:130.44,rating:"B+",mikaKo:'JR. 이니셜이 궁금했다. 일본 철도 JR 큐슈가 운영하는 골프장이었다. 철도 회사가 운영하는 코스라니, 가는 길부터 묘한 기대감이 있었다. 들어서는 순간 그 기대가 흔들렸다. 기',mikaJa:'JR。このイニシャルが気になっていた。JR九州が運営するゴルフ場だった。鉄道会社が手がける コースというだけで、向かう道中から不思議な期待感があった。  入場した瞬間、その期待が揺らいだ。記録的な猛暑'},
-  {no:21,name:"ザ・クラシックゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:33.48,lng:130.56,rating:"A-",mikaKo:'전날 밤 1시까지 술을 마셨다. 새벽 5시에 눈이 떠졌다. 신라면으로 해장하고 골프장으로 향했다. 골프 여행이란 원래 이런 것이다. 골프장 앞 편의점에 들렀다가 음료 코너에서 오타',mikaJa:'前夜は1時まで飲んでいた。朝5時に目が覚めた。辛ラーメンで二日酔いを流し込み、そのままゴ ルフ場へ向かった。ゴルフ旅とはそういうものだ。 コース近くのコンビニに寄ったら、飲料コーナーで大谷翔平に出会っ'},
-  {no:22,name:"若宮コース",region:"kyushu",regionLabel:"九州",lat:33.74,lng:130.62,rating:"B+",mikaKo:'일요일 아침 8시 15분. 스타트하우스 앞에 카트들이 줄지어 있었다. 만원이었다. 이 골프장의 원래 이름은 와카미야GC였다. 2023년 트라이얼 그룹이 인수하면서 ‘트라이얼 & 리',mikaJa:'日曜日の朝8時15分。スタートハウスの前にカートが列を成していた。満員だった。 このコースはかつて「若宮GC」という名称だった。2023年にトライアルグループが買収し、「トライ アル&リゾート若宮コー'},
-  {no:23,name:"瀬戸内ゴルフクラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.37,lng:132.81,rating:"A-",mikaKo:'9월 하순, 히로시마 공항에 내리니 늦여름의 열기가 살짝 남아있었다. 탁 트인 하늘. 골프 치기엔 완벽한 날씨였다. 히로시마를 선택한 이유는 명확했다. 하루 2편 운항으로 도착 당',mikaJa:'9月下旬、広島空港に降り立つと夏の余韻がわずかに残っていた。抜けるような青空。ゴルフに は申し分ない天気だった。 広島を選んだ理由は明確だった。1日2便の運航で、到着当日の午後ラウンドと最終日の午前ラ'},
-  {no:24,name:"八千代カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.52,lng:132.64,rating:"B+",mikaKo:'항공권, 72홀 라운드, 숙박, 렌터카, 매일 밤 이자카야까지 전부 합쳐서 1인당 964,700원. 100만원이 안 넘었다. 내역은 이렇다. 왕복 항공권 210,700원, 골프 7',mikaJa:'往復航空券、72ホールのラウンド、宿泊、レンタカー、毎晩の居酒屋まですべて込みで1人あたり 964,700ウォン。100万ウォンを超えなかった。 内訳はこうだ。往復航空券210,700ウォン、ゴルフ7'},
-  {no:25,name:"呉カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.24,lng:132.56,rating:"B+",mikaKo:'쿠레. 히로시마현 남서부의 항구 도시. 조선업과 해군 기지로 이름났던 곳이다. 그 산등성이를 따라 다도해가 내려다보이는 골프장이 있다. 1971년 개장. 50년이 넘었다. 설계는 ',mikaJa:'呉。広島県南西部の港湾都市。造船業と海軍基地で名を馳せた場所だ。その山の稜線に沿っ て、多島海を見下ろすゴルフ場がある。 1971年開場。50年以上の歴史を持つ。設計はロバート・ムラシマ。山岳地形が海'},
-  {no:26,name:"白竜湖カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.58,lng:132.89,rating:"A-",mikaKo:'히로시마 골프 투어 마지막 날. 히로시마 공항에서 차로 15분. 그게 백룡호CC를 고른 이유였다. 공항 근처라 큰 기대 없이 시간 효율만 생각했다면 오산이다. 이름처럼 잔잔하고 넓',mikaJa:'広島ゴルフツアー最終日。広島空港から車で15分。それが白竜湖CCを選んだ理由だった。 空港近くだからと大した期待をせずに時間効率だけを考えていたなら、それは間違いだった。名 前のとおり、広く穏やかな湖'},
-  {no:27,name:"大村湾カントリークラブ OC",region:"kyushu",regionLabel:"九州",lat:32.94,lng:129.97,rating:"A",mikaKo:'대한항공이 인천-나가사키 직항을 재개했다. 친구들과 바로 비행기표를 끊었다. 원래 예약했던 오션팰리스, 페닌슐라오너즈는 외국인 예약이 안 된다는 걸 뒤늦게 알았다. 무심코 예약한 ',mikaJa:'大韓航空が仁川―長崎の直行便を再開した。すぐに航空券を手配した。当初予約していたオー シャンパレスとペニンシュラオーナーズは、外国人の直接予約が難しいことが後から判明した。 何気なく予約したのが大村湾'},
-  {no:28,name:"大村湾カントリークラブ NC",region:"kyushu",regionLabel:"九州",lat:32.94,lng:129.97,rating:"A-",mikaKo:'오무라만의 아침. 어제에 이어 오늘도 같은 바다가 우리를 맞아준다. 올드코스와 뉴코스는 아예 다른 골프장이다. 1994년 개장. 설계는 로널드 프림. 삼나무와 편백나무로 홀이 분리',mikaJa:'大村湾の朝。昨日に続き、今日も同じ海が出迎えてくれる。 オールドコースとニューコースはまったく別のゴルフ場だ。1994年開場。設計はロナルド・フリー ム。杉と檜でホールが仕切られ、フェアウェイには人工'},
-  {no:29,name:"チサンカントリークラブ森山",region:"kyushu",regionLabel:"九州",lat:32.87,lng:130.07,rating:"B+",mikaKo:'27홀에 점심까지 포함해서 9,800엔. 숫자부터 말하는 게 맞다. 치산 모리야마는 1970년대 일본 골프 대중화 시기에 문을 연 구장이다. PGM이 인수해 운영 중이다. 전통 있',mikaJa:'27ホール、昼食込みで9,800円。まず数字から言うべきだ。 千産モリヤマは1970年代の日本ゴルフ大衆化の時期に開場したコースだ。PGMが運営してい る。伝統あるコースレイアウトに現代的なシステムが'},
-  {no:30,name:"若木ゴルフ倶楽部",region:"kyushu",regionLabel:"九州",lat:33.11,lng:129.82,rating:"B+",mikaKo:'골프 코스 설계의 피카소. 데스몬드 뮤어헤드를 부르는 말이다. 세고비아의 기타 벙커, 후지클래식의 파도 벙커. 그리고 와카키의 용. 이 세 코스의 공통점은 뮤어헤드가 설계했다는 것',mikaJa:'ゴルフコース設計のピカソ。デズモンド・ミュアヘッドに与えられた称号だ。 セゴビアのギターバンカー、富士クラシックの波バンカー。そして若木の龍。三つのコースに共通 するのは、ミュアヘッドが設計したという'},
-  {no:31,name:"佐賀クラシックゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:33.18,lng:130.27,rating:"A-",mikaKo:'후쿠오카 근처에는 ‘클래식 매니지먼트 클럽’이 운영하는 세 곳이 있다. 니시니혼 컨트리클럽, 더클래식 골프클럽, 사가클래식 골프클럽. 각자의 컬러는 다르지만 코스에 서면 묘한 데자',mikaJa:'福岡近郊に、クラシックマネジメントクラブが運営する三つのコースがある。西日本カントリークラ ブ、ザ・クラシックゴルフクラブ、そして佐賀クラシックゴルフクラブ。それぞれに個性はあるが、 コースに立つとど'},
-  {no:32,name:"セゴビアゴルフクラブ",region:"kanto",regionLabel:"関東",lat:36.14,lng:140.12,rating:"A",mikaKo:'이바라키현. 그랜드 PGM 2박 3일. 비행기가 하루 한 편이라 라운딩은 이틀뿐이다. 깔끔하게 두 곳, 제대로 치고 온다는 계획이었다. 새벽 7시 7분 티오프. 세겹을 껴입고 나왔',mikaJa:'茨城県。グランドPGM、2泊3日。飛行機が1日1便しかないため、ラウンドは2日間のみ。良い コースを2つ、きっちり回ってくるという計画だった。 ティオフは朝7時7分。三枚重ね着で出発した。クラブハウス'},
-  {no:33,name:"千代田カントリークラブ",region:"kanto",regionLabel:"関東",lat:36.07,lng:140.07,rating:"B+",mikaKo:'첫날 7시 7분, 둘째날 7시 52분. 이틀 연속 겨울 이른 아침 티오프. 결론은 간단하다. 일본 겨울골프도 9시 티타임이 가장 좋다. 골프장 도착하니 담요를 손에 두른 직원들이 ',mikaJa:'1日目7時7分、2日目7時52分。冬の早朝ティオフが2日続いた。結論はシンプルだ。日本の冬ゴ ルフも、9時スタートが一番いい。 コースに到着すると、毛布を手に巻いたスタッフが出迎えてくれた。荷物を丁寧'},
-  {no:34,name:"成田東カントリークラブ",region:"kanto",regionLabel:"関東",lat:35.81,lng:140.39,rating:"B+",mikaKo:'이바라키의 여운이 채 가시기 전에 치바로 향했다. 골프장 천국. 뿌리칠 수가 없었다. 나리타히가시CC는 공항에서 20분. 아카디아 계열이다. 스루플레이라 출발 전 식사를 먼저 했다',mikaJa:'茨城の余韻が冷めやらぬうちに、千葉へ向かった。ゴルフ場の天国。抗えなかった。 成田東CCは空港から20分。アルカディア系列だ。スループレーのため、出発前に食事を済ませ た。新鮮で味も悪くなく、5日目に'},
-  {no:35,name:"創成ゴルフ倶楽部",region:"kanto",regionLabel:"関東",lat:36.18,lng:140.23,rating:"B",mikaKo:'1월의 교훈을 살렸다. 10시 15분 티오프. 아침을 여유롭게 먹고 출발했다. 나리타 시내 숙소에서 15분이면 닿는 거리. Grand PGM. 조건은 충분했다. 오늘도 바람이 분다',mikaJa:'1月の教訓を活かした。10時15分ティオフ。朝食をゆっくり取ってから出発した。成田市内の宿か ら15分の距離。グランドPGM。条件は揃っていた。 風は別の計画を持っていた。カートに置かれたパー3の距離'},
-  {no:36,name:"石岡ゴルフクラブ",region:"kanto",regionLabel:"関東",lat:36.19,lng:140.29,rating:"A-",mikaKo:'동반자가 1년 내내 입에 침이 마르도록 칭찬하던 곳이다. 나리타에서 1시간 30분. 거리가 있어도 이번 여행 일정에 넣었다. 결론부터 말하면, 칭찬이 과하지 않았다. 잭 니클라우스',mikaJa:'同伴者が1年間ずっと絶賛し続けていたコースだ。成田から1時間30分。距離があっても、今回の 旅程に組み込んだ。結論から言えば、その評価は誇張ではなかった。 ジャック・ニクラウスが設計した約400コース'},
-  {no:37,name:"マリアゴルフリンクス",region:"kanto",regionLabel:"関東",lat:36.22,lng:140.41,rating:"A+",mikaKo:'나리타에서 치바 남쪽으로 내려가는 길. 골프장 표지판이 끊이질 않는다. 일본 전체 골프장 2,200개. 국토의 3분의 2가 산지인 나라에서. 골프 사랑으로 따지면 한국과 일본은 비',mikaJa:'成田から千葉南部へ向かう道。ゴルフ場の案内標識が途切れない。日本全国に2,200のゴルフ 場。国土の3分の2が山地のこの国で。ゴルフへの情熱という点では、韓国と日本は同じ水準だ。 入口付近の植生が気候'},
-  {no:38,name:"成田さくらの里ゴルフクラブ",region:"kanto",regionLabel:"関東",lat:35.84,lng:140.42,rating:"B+",mikaKo:'치바현 주말 그린피는 평일의 두 배다. 그 이상인 곳도 많다. 그래도 좋은 골프장은 예약이 어렵다. 회원 동반 없이는 입장조차 안 되는 곳도 있다. 어찌 보면 회원들에게 감사해야 ',mikaJa:'千葉県の週末グリーンフィーは平日の約2倍だ。それ以上の差がある場所も少なくない。それで も評判の良いコースは予約が取りにくい。メンバー同伴がなければ入場すらできないところも多 い。ある意味、会員の方々'},
-  {no:39,name:"太平洋クラブ八千代コース",region:"kanto",regionLabel:"関東",lat:35.72,lng:140.09,rating:"A",mikaKo:'올해 세 번째 일본이다. 이번엔 도쿄에 사는 후배가 모든 일정을 짰다. 료칸, 골프, 맛집, 동선까지. 비행기표 하나만 들고 갔다. 지금까지 일본을 수없이 다녔는데 도쿄 시내는 이',mikaJa:'今年3回目の日本だ。今回は東京在住の後輩がすべてを手配してくれた。旅館、ゴルフ、グルメ、 移動動線まで。飛行機のチケット一枚だけ持って行った。これだけ日本に来ているのに、東京の 市街地に入ったのは今回'},
-  {no:40,name:"一宮カントリークラブ",region:"kanto",regionLabel:"関東",lat:35.38,lng:140.37,rating:"A-",mikaKo:'전날 늦게까지 마실 걸 알고 숙소에서 10~15분 거리 골프장으로 잡았다. 10시 티오프 덕에 아침이 여유로웠다. 숙소 아침 식사가 생각보다 근사했고, 근처 세븐일레븐에 산책 나가',mikaJa:'前夜が遅くなることを見越して、宿から10〜15分の距離にあるコースを選んだ。10時ティオフの おかげで朝はゆったりとしていた。宿の朝食が思いのほか豪華で、近くのセブンイレブンまで散 歩してコーヒーを一'},
-  {no:41,name:"東千葉カントリークラブ",region:"kanto",regionLabel:"関東",lat:35.62,lng:140.47,rating:"B+",mikaKo:'여행 사흘째. 일본에 사는 후배 얼굴이 아침부터 누렇다. 연 3일 골프는 처음이라고 한다. 미안하면서도 웃음이 난다. 언제 또 이렇게 불태워보겠냐는 생각에. 오늘 티오프 9시, 비',mikaJa:'3日目。東京在住の後輩は朝から顔色が悪い。3日連続のゴルフは初めてだという。申し訳ない 気もするが、笑いが止まらない。こんなに燃え尽きて遊べる機会がまたいつあるのかと思うと。  ティオフは9時、飛行機'},
-  {no:42,name:"ココパリゾートクラブ フェニックスGC",region:"kinki",regionLabel:"近畿・中部",lat:34.52,lng:136.54,rating:"A",mikaKo:'일본 연휴가 끝나고 미에현으로 향했다. 3박 4일, 4라운드. 26년까지 80곳을 목표로 하고 있으니 시간이 날 때마다 일본 지역 골프장을 샅샅이 뒤진다. 구글 리뷰, 골프장 홈페',mikaJa:'ゴールデンウィークの混雑が落ち着いた後、三重県へ向かった。3泊4日、4ラウンド。2026年末 までに80コースを目標にしているため、時間があればGoogleレビュー、コースのホームページ、 楽天GOR'},
-  {no:43,name:"セントレイクスゴルフクラブ",region:"kinki",regionLabel:"近畿・中部",lat:34.48,lng:136.62,rating:"A-",mikaKo:'미에현 4라운드 중 한 번은 제대로 된 골프장에서 쳐야겠다고 생각했다. 고르고 골라서 세인트레이크스로 왔다. 제대로 골랐다. 들어가는 길부터 달랐다. 클럽하우스는 크고 깔끔했다. ',mikaJa:'三重県4ラウンドのうち、一度はしっかりしたコースで打ちたいと思っていた。選びに選んでセント レイクスにした。正解だった。 アプローチ道路から違った。クラブハウスは大きく清潔感があった。PXGのゴルフボ'},
-  {no:44,name:"ネムゴルフクラブ",region:"kinki",regionLabel:"近畿・中部",lat:34.38,lng:136.82,rating:"A",mikaKo:'국립공원 안에 있는 골프장이다. 평일 8,800엔. 공기가 다르다. 일본 평일 그린피의 기준을 대략 잡아보면 점심 포함 6,000~8,000엔이면 싼 편, 8,000~10,000엔',mikaJa:'国立公園の中にあるゴルフ場だ。平日8,800円。空気が違う。 日本の平日グリーンフィーの目安をざっくりまとめると、昼食込みで6,000〜8,000円なら安い部 類、8,000〜10,000円が平均、1'},
-  {no:45,name:"エクセレントゴルフクラブ 伊勢大鳥居",region:"kinki",regionLabel:"近畿・中部",lat:34.51,lng:136.71,rating:"B+",mikaKo:'미에현 마지막 라운드. 18홀에 점심까지 포함해서 6,590엔. 우리 돈으로 6만원 남짓이다. 한국에서 카트비와 캐디피만 합쳐도 이미 그 금액을 넘긴다. 그 돈으로 여기서는 하루 ',mikaJa:'三重県最後のラウンド。18ホールに昼食まで含めて6,590円。日本円にしてこの金額だ。 韓国ではカート代とキャディフィを合わせるだけでその金額をゆうに超える。ここでは同じ金額で 一日中ゴルフをして、食'},
-  {no:46,name:"石岡ウエストゴルフクラブ",region:"kanto",regionLabel:"関東",lat:36.17,lng:140.27,rating:"A-",mikaKo:'45년 지기 친구들의 첫 일본 골프. 가이드 역할을 맡았다. 2박 3일, 54홀. 이시오카 웨스트, 마시코 PGA, 가누마 72. 타이트한 일정이었다. 처음 일본 골프를 경험하는 ',mikaJa:'45年来の友人たちにとって、初めての日本ゴルフ。ガイド役を務めた。2泊3日、54ホール。石岡 ウェスト、益子PGA、鹿沼72。タイトなスケジュールだった。 初めて日本ゴルフを経験する友人たちには、良い'},
-  {no:47,name:"太平洋クラブ益子PGAコース",region:"kanto",regionLabel:"関東",lat:36.46,lng:140.12,rating:"A",mikaKo:'마시코가 어떤 곳인지 전혀 몰랐다. 체크인하니 원하는 소품을 하나씩 고르라고 한다. 왜 주는지 물었더니 마시코가 도자기로 유명한 곳이라고 했다. 100년 넘게 이어온 도자기의 고장',mikaJa:'益子がどんな場所か、訪れる前はまったく知らなかった。チェックインすると、好きな小物を一つ 選んでほしいと言われた。理由を聞くと、益子は陶器で有名な土地だと教えてくれた。100年以上 続く陶芸の里。クラ'},
-  {no:48,name:"鹿沼72ゴルフクラブ",region:"kanto",regionLabel:"関東",lat:36.54,lng:139.74,rating:"B+",mikaKo:'2박 3일의 마지막 날이다. 나리타로 돌아가는 날. 가누마72라는 이름 때문에 72홀로 오해하기 쉽다. 실제로는 45홀이다. 쓰쿠바 18홀, 난타이 18홀, 후지 9홀. 도치기현 ',mikaJa:'2泊3日の最終日。成田へ戻る日だ。 「鹿沼72」という名前から72ホールと思いがちだが、実際は45ホール。筑波18ホール、男体18 ホール、富士9ホール。栃木県最大規模のゴルフ場だ。1975年開場、約'},
-  {no:49,name:"道場パインバレーゴルフ倶楽部",region:"kinki",regionLabel:"近畿・中部",lat:34.93,lng:135.19,rating:"A-",mikaKo:'8월 말, 간사이. 굳이 더운 계절에 더운 지방을 택한 데는 이유가 있었다. 고베의 지대가 높아 도심보다 쾌적하다는 계산이었다. 25년을 함께한 후배 둘과 3년 연속 여름 해외 골',mikaJa:'8月末、関西。あえて暑い季節に暑い地域を選んだのには理由があった。神戸は標高が高く、市 街地より涼しいという計算だ。25年来の後輩二人と、3年連続の真夏の海外ゴルフ。暑さへの耐 性はとっくに証明済みだ'},
-  {no:50,name:"宝塚高原ゴルフクラブ",region:"kinki",regionLabel:"近畿・中部",lat:34.82,lng:135.37,rating:"A",mikaKo:'일본 여름 골프. 홋카이도도 30도를 넘는다. 치바, 오사카, 나고야의 여름은 습도까지 더해져 지옥이다. 그나마 숨 쉴 수 있는 선택지는 고원 골프뿐이다. 기온은 2~3도 낮지만 ',mikaJa:'日本の夏ゴルフ。北海道でさえ30度を超える。千葉、大阪、名古屋の夏は湿度も加わって地獄 だ。それでも息ができる選択肢があるとすれば、高原ゴルフしかない。気温は2〜3度低いが、体 感では5度以上の差があ'},
-  {no:51,name:"藤ノ尾ゴルフクラブ",region:"kinki",regionLabel:"近畿・中部",lat:34.88,lng:135.12,rating:"B+",mikaKo:'약간의 숙취와 뻐근함. 그래도 발걸음은 가벼웠다. 3년 연속 8월 해외 골프. 이 몸들은 이미 단련됐다. 후지오노 골프클럽. 고베 오노시. 고원 골프장이라고 부르기에는 정확하지 않',mikaJa:'軽い二日酔いと体のこわばり。それでも足取りは軽かった。3年連続8月の海外ゴルフ。この身体 はもう慣れている。 藤おのゴルフクラブ、兵庫県小野市。高原ゴルフ場と呼ぶには正確ではない。山をなだらかに削 り'},
-  {no:52,name:"西脇カントリークラブ",region:"kinki",regionLabel:"近畿・中部",lat:34.98,lng:134.96,rating:"B+",mikaKo:'고베 골프 여행 마지막 날. 전날 밤 로컬 선술집에서 현지인과 생맥주를 부딪쳤던 여운과 가벼운 숙취가 교차하는 아침이다. 그래도 짐을 꾸려 나서는 발걸음은 가볍다. 1974년 개장',mikaJa:'神戸ゴルフ旅行の最終日。前夜、地元の居酒屋で地元の人と生ビールをぶつけ合った余韻と軽 い二日酔いが交差する朝だ。それでも荷物をまとめて出る足取りは軽い。 1974年開場。半世紀の歴史を持つ西脇カントリ'},
-  {no:53,name:"河口湖カントリークラブ富士",region:"chubu",regionLabel:"中部（富士）",lat:35.48,lng:138.72,rating:"A",mikaKo:'시즈오카 5라운드 중 개인적으로 가장 마음에 들었던 곳이다. 고라카단. 일본 최고의 하이엔드 료칸 브랜드. 그 이름을 단 골프장이다. 도착했을 때 클럽하우스가 공사 중이었다. 덕분',mikaJa:'静岡での5ラウンドの中で、個人的に最も心に残ったコースだ。 星野リゾート系列の高級旅館ブランド「強羅花壇」。その名を冠したゴルフ場だ。到着時、クラブハ ウスは工事中だった。おかげで、このレベルのゴルフ'},
-  {no:54,name:"富士クラシックカントリークラブ",region:"chubu",regionLabel:"中部（富士）",lat:35.41,lng:138.68,rating:"A-",mikaKo:'후지산 인생샷 하나 보고 예약했다. 결론은 짙은 안개와 비. 후지산의 ‘후’ 자도 못 봤다. 그래도 아깝지 않았다. 체크인하면서 웰컴 티를 받았다. 클럽하우스를 둘러보다 모자 디자',mikaJa:'富士山の写真一枚を見て予約した。当日は濃霧と雨。富士山の「ふ」の字も見えなかった。 それでも後悔はなかった。 チェックイン時にウェルカムティーをもらった。クラブハウスを見回っていたら帽子のデザインが気'},
-  {no:55,name:"富士天城ゴルフ倶楽部",region:"chubu",regionLabel:"中部（富士）",lat:34.97,lng:138.87,rating:"A-",mikaKo:'이번 여행에서 유일하게 후지산 남쪽으로 내려갔다. 주말인데도 8,500엔. 찾고 찾아서 골랐다. 평일은 5,200엔이다. 큰 기대는 접었다. 하지만 구글 리뷰에 골프장을 좀 다녀본',mikaJa:'今回の旅で唯一、富士山の南側へ下りた。週末なのに8,500円。探しに探して見つけた。平日は 5,200円だ。  大きな期待はしないようにした。しかしGoogleレビューで何か所か回ったことのある方が「'},
-  {no:56,name:"朝霧ジャンボリーゴルフクラブ",region:"chubu",regionLabel:"中部（富士）",lat:35.38,lng:138.57,rating:"A",mikaKo:'후지산을 보러 온 지 3일째. 서서히 모습을 드러내기 시작했다. 구름 낀 후지산이었지만 산의 기운을 제대로 받는 느낌이었다. 아사기리잼보리, 올해로 50년이 됐다. 50년 된 골프',mikaJa:'富士山を見に来て3日目。その朝、山がゆっくりと姿を現し始めた。雲に包まれた富士山だった が、山の気配をしっかりと感じる瞬間だった。 朝霧ジャンボリー、今年で50周年を迎えた。50年のゴルフ場。韓国にも'},
-  {no:57,name:"富士野宮ゴルフクラブ",region:"chubu",regionLabel:"中部（富士）",lat:35.22,lng:138.62,rating:"B+",mikaKo:'시즈오카 마지막 날. 공항으로 가는 길목에 있는 골프장을 골랐다. 누마즈 시내에서 시즈오카 공항 방향 중간에 위치한 후지노미야GC. 마지막 날의 동선을 고려한 선택이었다. 후지산 ',mikaJa:'静岡最終日。沼津市内から静岡空港へ向かう途中に位置するコースを選んだ。移動の動線を考 慮した選択だった。 富士宮GCはコース内のいくつかの地点から富士山を望める場所だ。早朝に到着すると、富士山 の全景'},
-  {no:58,name:"島津ゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:31.74,lng:130.72,rating:"A-",mikaKo:'미야자키, 가고시마는 1~2월에 한국 골퍼들이 가장 많이 찾는 지역이다. 한국에서 골프 치기 어려운 시기라서 그렇다. 하지만 시즌 중에 오면 더 좋다는 걸 각종 리뷰에서 확인했다.',mikaJa:'宮崎と鹿児島は、1〜2月に韓国のゴルファーが最も多く訪れる地域だ。韓国でゴルフが難しい時 期だからこそ訪れるわけだが、シーズン中に来ればさらに良いコースだということを各種レビュー で知った。12月にな'},
-  {no:59,name:"溝辺カントリークラブ",region:"kyushu",regionLabel:"九州",lat:31.81,lng:130.71,rating:"B+",mikaKo:'공항에서 가까운 미조베CC. 텐몬칸에서 다시 북쪽으로 올라갔다. 오늘 라운드를 마친 후 동반자 친구의 기리시마 별장에서 하룻밤 묵을 예정이었다. 크게 기대하지 않고 들어섰다. 클럽',mikaJa:'溝辺CCは空港に近い。天文館から再び北へ向かった。今日のラウンドを終えた後、同伴者の旧 友が霧島に持つ別荘で一泊する予定だった。 大きな期待はしていなかった。クラブハウスに入った瞬間、考えが変わった。'},
-  {no:60,name:"高千穂カントリークラブ",region:"kyushu",regionLabel:"九州",lat:31.78,lng:130.69,rating:"B+",mikaKo:'가고시마와 미야자키 경계, 기리시마 연봉 품에 안긴 골프장이다. 티박스에 서면 다카치호봉이 정면으로 펼쳐진다. 일본 건국 신화에서 신이 처음 지상으로 내려왔다는 천손강림의 성지다.',mikaJa:'鹿児島と宮崎の境、霧島連峰の懐に抱かれたゴルフ場だ。ティボックスに立つと、高千穂峰が正 面に広がる。日本の建国神話で神が初めて地上に降り立ったとされる天孫降臨の聖地だ。ボー ルを打つというより、大自然'},
-  {no:61,name:"知覧カントリークラブ",region:"kyushu",regionLabel:"九州",lat:31.54,lng:130.62,rating:"A-",mikaKo:'7시 전에 도착한 지란CC. 하늘에서 내려준 선물 같은 풍경이었다. 사진 한 장으로 다 표현하기 어렵지만, 그 한 장이 충분히 말해준다. 1991년 개장. 전장 7,059야드, 파',mikaJa:'7時前に到着した知覧CC。まるで天から与えられた贈り物のような風景だった。一枚の写真です べてを表現するのは難しいが、その一枚で十分に伝わる。 1991年開場。全長7,059ヤード、パー72。丘陵コー'},
-  {no:62,name:"トムワトソンゴルフコース",region:"kyushu",regionLabel:"九州",lat:31.97,lng:131.42,rating:"A",mikaKo:'가고시마 이후 계속된 장요근 문제. 톰왓슨에 도착해서 코스를 보는 순간 알았다. 정상 컨디션이 아니고서는 오늘 라운드가 힘들겠다는 걸. 예상보다 더 힘들게 18홀을 마쳤다. 미야자',mikaJa:'鹿児島以来続いていた腸腰筋の問題は解消していなかった。トムワトソンGCに到着してコースを 見た瞬間にわかった。万全のコンディションでなければ、今日のラウンドは厳しいと。予想以上に 苦しい18ホールにな'},
-  {no:63,name:"UMKカントリークラブ",region:"kyushu",regionLabel:"九州",lat:31.89,lng:131.38,rating:"B+",mikaKo:'이번 여행은 UMK 하나만으로도 충분했다. 미야자키에 JLPGA 대회가 열린 곳이 두 곳 있다. 그 중 하나가 UMK였다. 구글 지도로 코스를 미리 봤을 때부터 호기심이 생겼다. ',mikaJa:'今回の旅は、UMKだけで十分だった。 宮崎にはJLPGAのトーナメント開催コースが二つある。そのうちの一つがUMKだった。事 前にグーグルマップでコースを確認した時点から興味が湧いた。インコースが特に'},
-  {no:64,name:"ジャロン梅花ゴルフクラブ",region:"kyushu",regionLabel:"九州",lat:31.94,lng:131.31,rating:"B+",mikaKo:'미야자키 골프 이동의 최대 장점은 ETC 카드가 불필요하다는 점이다. 대부분 20~30분, 멀어야 1시간 이내에 골프장이 있다. 고속도로 요금 걱정 없이 움직일 수 있다. 지방 소',mikaJa:'宮崎でゴルフをする最大のメリットは、ETCカードが不要なことだ。ほとんどのコースが20〜 30分以内、遠くても1時間以内にある。高速道路料金を気にせず動ける。 地方の小都市のゴルフ場は、素朴で年季の入'},
-  {no:65,name:"グリーンパーク大山ゴルフコース",region:"chugoku",regionLabel:"中国・四国",lat:35.42,lng:133.47,rating:"A-",mikaKo:'전날 하루 종일 비가 내렸다. 첫 라운딩부터 수중전인가 걱정했는데 오전 8시부터 하늘이 열렸다. 귀신같은 타이밍이었다. 요나고를 찾는 한국 여행객은 대부분 관광 목적이다. 덕분에 ',mikaJa:'前日は一日中雨だった。初ラウンドからずぶ濡れかと心配したが、午前8時にぴたりと空が 開いた。絶妙なタイミングだった。 米子を訪れる韓国人旅行者は観光目的が多い。おかげでコースは貸し切りのように静か で'},
-  {no:66,name:"大山アークカントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:35.38,lng:133.52,rating:"A-",mikaKo:'6,500엔. 한국에서 스크린 골프 치고 밥 한 끼 먹을 돈으로 PGM의 정규 18홀 챔피언십 코스를 밟는다. 1991년 버블 경제의 정점에서 개장했다. 산인 지역 최고의 챔피언십',mikaJa:'6,500円。韓国でスクリーンゴルフをして食事をする程度の金額で、PGMの正規18ホール チャンピオンシップコースに立てる。 日本のゴルフ場建設ブームが頂点に達した1991年に開場した。山陰地域最高の'},
-  {no:67,name:"米子ゴルフ倶楽部",region:"chugoku",regionLabel:"中国・四国",lat:35.43,lng:133.34,rating:"B+",mikaKo:'귀국 날이다. 비행기는 오후 3시 50분. 남아있는 가장 빠른 티오프가 8시 7분이었다. 딱 30분만 일찍 쳤으면 완벽했을 텐데, 하는 불길한 직감은 결국 현실이 됐다. 요나고는 ',mikaJa:'帰国日だ。飛行機は午後3時50分。残っていた最も早いティオフが8時7分だった。あと30 分早ければ完璧だったのに、という不吉な直感は現実になった。 米子は日本の西の端、日本海に面した地域だ。大陸からの'},
-  {no:68,name:"関門菊川ゴルフクラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.01,lng:131.09,rating:"A-",mikaKo:'청주공항에서 이륙 후 50분이면 기타큐슈다. 비행시간만 보면 여기가 한국인지 일본인지 체감이 안 된다. 입국 수속도 빠르게 끝났다. 시간이 남아 골프장으로 직행해 클럽하우스에서 식',mikaJa:'清州空港から離陸して50分で北九州だ。飛行時間だけ見ると、ここが韓国なのか日本な のか体感できないほど近い。入国手続きも早く終わった。時間が余ったのでそのままゴル フ場へ向かい、クラブハウスで食事する'},
-  {no:69,name:"レイクスワンカントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.08,lng:131.14,rating:"B+",mikaKo:'공홈에서 직접 예약했다. 홈페이지만으로는 퀄리티 확인이 어려워 구글맵으로 검증했다. 관리 평판이 좋았다. 골프장에 들어서면 대략적인 와꾸가 나온다. 관리에 힘쓰는 곳인지 아닌지는 ',mikaJa:'公式ホームページから直接予約した。ホームページだけではクオリティの確認が難しいた め、Googleマップでも検証した。管理の評判が良かった。ゴルフ場に入るとだいたいの雰 囲気がわかる。管理に力を入れて'},
-  {no:70,name:"下関ゴールデンゴルフクラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.04,lng:130.98,rating:"A",mikaKo:'시모노세키에서 방문객이 접근할 수 있는 최고의 골프장이다. 전통의 시모노세키 골프클럽은 회원 동반이 필수다. 그래서 시모노세키 골든 GC가 답이다. 설계는 잭 니클라우스. 골든 베',mikaJa:'下関で訪問者がアクセスできる最高のゴルフ場だ。伝統の下関ゴルフクラブはメンバー同 伴が必須だ。だから下関ゴールデンGCが答えになる。 設計はジャック・ニクラウス。ゴールデンベアだ。クラブハウスのロビー'},
-  {no:71,name:"豊田湖ゴルフクラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.19,lng:131.19,rating:"A+",mikaKo:'야마구치현 시모노세키 안쪽 깊숙이 위치한 곳이다. 토요타코(豊田湖). 이름 그대로 호수를 끼고 있는 지형이다. 첫날 들렀던 간몬 키쿠가와와 같은 야마구치 레인보우 힐스 계열이다. ',mikaJa:'山口県下関の奥深くに位置する。豊田湖ゴルフクラブ。名前のとおり湖を抱えた地形だ。初 日に訪れた関門菊川と同じ山口レインボーヒルズ系列だ。 カウンターに4〜6月のイベントカレンダーが置いてある。平日6,'},
-  {no:72,name:"都カントリークラブ",region:"chugoku",regionLabel:"中国・四国",lat:34.12,lng:131.07,rating:"B+",mikaKo:'시모노세키 원정 마지막 날. 귀국 비행기 때문에 선택지는 조조 플레이뿐이었다. 기타큐슈 공항에서 가장 가까운 구장. 클럽하우스 도착은 새벽 4시 55분. 첫 팀이라 5시 10분으로',mikaJa:'下関遠征最終日。帰国便の都合でアーリーモーニングプレー一択だった。北九州空港から 最も近いコース。クラブハウスへの到着は午前4時55分。一番組だったため、5時10分に前 倒しでスタートした。 夜明け前'},
-];
+  var COURSES = [
+    {ja:"琴平カントリー倶楽部",ko:"고토히라 CC",region:"시코쿠·가가와",grp:"shikoku",lat:34.205,lng:133.82},
+    {ja:"志度カントリークラブ",ko:"시도 CC",region:"시코쿠·가가와",grp:"shikoku",lat:34.32,lng:134.18},
+    {ja:"坂出カントリークラブ",ko:"사카이데 CC",region:"시코쿠·가가와",grp:"shikoku",lat:34.3,lng:133.86},
+    {ja:"ルスツカントリークラブ",ko:"루스츠 CC",region:"홋카이도",grp:"hokkaido",lat:42.74,lng:140.9},
+    {ja:"小野ゴルフ倶楽部",ko:"오노 GC",region:"긴키·효고",grp:"kinki",lat:34.84,lng:134.93},
+    {ja:"高原ゴルフ倶楽部",ko:"고겐 GC",region:"규슈·구마모토",grp:"kyushu",lat:32.95,lng:131.05},
+    {ja:"松山国際ゴルフ倶楽部",ko:"마쓰야마 국제 GC",region:"시코쿠·에히메",grp:"shikoku",lat:33.78,lng:132.74},
+    {ja:"二丈カントリークラブ",ko:"니조 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.55,lng:130.1},
+    {ja:"司ロイヤルカントリークラブ",ko:"쓰카사 로열 CC",region:"규슈·구마모토",grp:"kyushu",lat:32.78,lng:130.72},
+    {ja:"阿蘇東急ゴルフクラブ",ko:"아소 도큐 GC",region:"규슈·구마모토",grp:"kyushu",lat:32.95,lng:131.1},
+    {ja:"阿蘇グランヴィリオゴルフクラブ",ko:"아소 그랑비리오 GC",region:"규슈·구마모토",grp:"kyushu",lat:32.92,lng:131.0},
+    {ja:"筑紫野カントリークラブ",ko:"치쿠시노 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.46,lng:130.55},
+    {ja:"勝山御所カントリークラブ",ko:"가쓰야마 고쇼 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.72,lng:130.95},
+    {ja:"西日本カントリークラブ",ko:"니시니혼 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.6,lng:130.65},
+    {ja:"山陽国際カントリークラブ",ko:"산요 국제 CC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.05,lng:131.4},
+    {ja:"周防灘カントリークラブ",ko:"스오나다 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.78,lng:131.05},
+    {ja:"別府森ゴルフクラブ",ko:"벳푸모리 GC",region:"규슈·오이타",grp:"kyushu",lat:33.32,lng:131.42},
+    {ja:"別府ゴルフ倶楽部",ko:"벳푸 GC",region:"규슈·오이타",grp:"kyushu",lat:33.28,lng:131.45},
+    {ja:"由布高原ゴルフクラブ",ko:"유후고겐 GC",region:"규슈·오이타",grp:"kyushu",lat:33.18,lng:131.38},
+    {ja:"JR内野カントリークラブ",ko:"JR우치노 CC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.58,lng:130.45},
+    {ja:"ザ・クラシックゴルフクラブ",ko:"더 클래식 GC",region:"규슈·후쿠오카",grp:"kyushu",lat:33.7,lng:130.62},
+    {ja:"若宮コース",ko:"와카미야 코스",region:"규슈·후쿠오카",grp:"kyushu",lat:33.72,lng:130.67},
+    {ja:"瀬戸内ゴルフクラブ",ko:"세토우치 GC",region:"주고쿠·히로시마",grp:"chugoku",lat:34.3,lng:132.8},
+    {ja:"八千代カントリークラブ",ko:"야치요 CC",region:"주고쿠·히로시마",grp:"chugoku",lat:34.62,lng:132.62},
+    {ja:"呉カントリークラブ",ko:"구레 CC",region:"주고쿠·히로시마",grp:"chugoku",lat:34.27,lng:132.62},
+    {ja:"白竜湖カントリークラブ",ko:"하쿠류코 CC",region:"주고쿠·히로시마",grp:"chugoku",lat:34.58,lng:132.95},
+    {ja:"大村湾カントリークラブ オールドコース",ko:"오무라완 CC 올드",region:"규슈·나가사키",grp:"kyushu",lat:32.95,lng:129.92},
+    {ja:"大村湾カントリークラブ ニューコース",ko:"오무라완 CC 뉴",region:"규슈·나가사키",grp:"kyushu",lat:32.97,lng:129.95},
+    {ja:"チサンカントリークラブ森山",ko:"치산 CC 모리야마",region:"규슈·나가사키",grp:"kyushu",lat:32.85,lng:130.02},
+    {ja:"若木ゴルフ倶楽部",ko:"와카키 GC",region:"규슈·사가",grp:"kyushu",lat:33.32,lng:130.05},
+    {ja:"佐賀クラシックゴルフクラブ",ko:"사가 클래식 GC",region:"규슈·사가",grp:"kyushu",lat:33.3,lng:130.18},
+    {ja:"セゴビアゴルフクラブ イン チヨダ",ko:"세고비아 GC 인 치요다",region:"간토·치바",grp:"kanto",lat:35.62,lng:140.32},
+    {ja:"千代田カントリークラブ",ko:"치요다 CC",region:"간토·이바라키",grp:"kanto",lat:36.18,lng:140.22},
+    {ja:"成田東カントリークラブ",ko:"나리타히가시 CC",region:"간토·치바",grp:"kanto",lat:35.78,lng:140.42},
+    {ja:"創成ゴルフ倶楽部",ko:"소세이 GC",region:"간토·치바",grp:"kanto",lat:35.7,lng:140.3},
+    {ja:"石岡ゴルフクラブ",ko:"이시오카 GC",region:"간토·이바라키",grp:"kanto",lat:36.18,lng:140.3},
+    {ja:"マリアゴルフリンクス",ko:"마리아 GL",region:"간토·이바라키",grp:"kanto",lat:36.22,lng:140.35},
+    {ja:"成田さくらの里ゴルフクラブ",ko:"나리타 사쿠라노사토 GC",region:"간토·치바",grp:"kanto",lat:35.8,lng:140.38},
+    {ja:"太平洋クラブ 八千代コース",ko:"다이헤이요 야치요 코스",region:"간토·치바",grp:"kanto",lat:35.72,lng:140.28},
+    {ja:"一宮カントリークラブ",ko:"이치노미야 CC",region:"간토·치바",grp:"kanto",lat:35.37,lng:140.37},
+    {ja:"東千葉カントリークラブ",ko:"히가시치바 CC",region:"간토·치바",grp:"kanto",lat:35.55,lng:140.28},
+    {ja:"ココパリゾートクラブ フェニックスゴルフコース",ko:"코코파리조트 피닉스 GC",region:"긴키·미에",grp:"kinki",lat:34.55,lng:136.3},
+    {ja:"セントレイクスゴルフクラブ",ko:"센트레이크스 GC",region:"간토·이바라키",grp:"kanto",lat:36.3,lng:140.4},
+    {ja:"ネムゴルフクラブ",ko:"네무 GC",region:"긴키·미에",grp:"kinki",lat:34.3,lng:136.8},
+    {ja:"エクセレントゴルフクラブ 伊勢大鳥居コース",ko:"엑셀런트 GC 이세오토리이",region:"긴키·미에",grp:"kinki",lat:34.5,lng:136.55},
+    {ja:"石岡ウエストゴルフクラブ",ko:"이시오카 웨스트 GC",region:"간토·이바라키",grp:"kanto",lat:36.22,lng:140.22},
+    {ja:"太平洋クラブ PGAマシココース",ko:"다이헤이요 PGA 마시코 코스",region:"간토·도치기",grp:"kanto",lat:36.47,lng:140.1},
+    {ja:"鹿沼72ゴルフクラブ",ko:"가누마72 GC",region:"간토·도치기",grp:"kanto",lat:36.55,lng:139.72},
+    {ja:"道場パインバレーゴルフ倶楽部",ko:"도조 파인밸리 GC",region:"긴키·효고",grp:"kinki",lat:34.85,lng:135.18},
+    {ja:"宝塚高原ゴルフクラブ",ko:"다카라즈카고겐 GC",region:"긴키·효고",grp:"kinki",lat:34.88,lng:135.3},
+    {ja:"藤ノ尾ゴルフクラブ",ko:"후지노오 GC",region:"긴키·효고",grp:"kinki",lat:34.95,lng:134.95},
+    {ja:"西脇カントリークラブ",ko:"니시와키 CC",region:"긴키·효고",grp:"kinki",lat:34.98,lng:134.97},
+    {ja:"河口湖カントリークラブ 富士",ko:"가와구치코 CC 후지",region:"주부·야마나시",grp:"chubu",lat:35.5,lng:138.78},
+    {ja:"富士クラシックカントリークラブ",ko:"후지 클래식 CC",region:"주부·야마나시",grp:"chubu",lat:35.47,lng:138.72},
+    {ja:"富士天城ゴルフ倶楽部",ko:"후지아마기 GC",region:"주부·시즈오카",grp:"chubu",lat:35.05,lng:138.92},
+    {ja:"朝霧ジャンボリーゴルフクラブ",ko:"아사기리 잠보리 GC",region:"주부·시즈오카",grp:"chubu",lat:35.4,lng:138.6},
+    {ja:"富士野宮ゴルフクラブ",ko:"후지노미야 GC",region:"주부·시즈오카",grp:"chubu",lat:35.27,lng:138.62},
+    {ja:"島津ゴルフクラブ",ko:"시마즈 GC",region:"규슈·가고시마",grp:"kyushu",lat:31.7,lng:130.55},
+    {ja:"溝辺カントリークラブ",ko:"미조베 CC",region:"규슈·가고시마",grp:"kyushu",lat:31.8,lng:130.68},
+    {ja:"高千穂カントリークラブ",ko:"다카치호 CC",region:"규슈·가고시마",grp:"kyushu",lat:31.85,lng:130.72},
+    {ja:"知覧カントリークラブ",ko:"치란 CC",region:"규슈·가고시마",grp:"kyushu",lat:31.38,lng:130.45},
+    {ja:"トムワトソンゴルフコース",ko:"톰왓슨 GC",region:"규슈·미야자키",grp:"kyushu",lat:31.92,lng:131.42},
+    {ja:"UMKカントリークラブ",ko:"UMK CC",region:"규슈·미야자키",grp:"kyushu",lat:31.95,lng:131.38},
+    {ja:"ジャロン梅花ゴルフクラブ",ko:"자론 바이카 GC",region:"규슈·미야자키",grp:"kyushu",lat:32.05,lng:131.3},
+    {ja:"グリーンパーク大山ゴルフコース",ko:"그린파크 다이센 GC",region:"주고쿠·돗토리",grp:"chugoku",lat:35.38,lng:133.5},
+    {ja:"大山アークカントリークラブ",ko:"다이센 아크 CC",region:"주고쿠·돗토리",grp:"chugoku",lat:35.4,lng:133.45},
+    {ja:"米子ゴルフ倶楽部",ko:"요나고 GC",region:"주고쿠·돗토리",grp:"chugoku",lat:35.42,lng:133.35},
+    {ja:"関門菊川ゴルフクラブ",ko:"간몬키쿠가와 GC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.05,lng:131.05},
+    {ja:"レイクスワンカントリークラブ",ko:"레이크스완 CC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.1,lng:131.2},
+    {ja:"下関ゴールデンゴルフクラブ",ko:"시모노세키 골든 GC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.0,lng:130.98},
+    {ja:"豊田湖ゴルフクラブ",ko:"도요타코 GC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.22,lng:131.12},
+    {ja:"都カントリークラブ",ko:"미야코 CC",region:"주고쿠·야마구치",grp:"chugoku",lat:34.02,lng:130.95}
+  ];
 
-let map, markersArr = [], currentFilter = 'all';
+  // 지역 그룹 색상 + 라벨(한/일/영)
+  var GROUPS = {
+    hokkaido:{color:"#3a6b8a", ko:"홋카이도", ja:"北海道", en:"Hokkaido"},
+    kanto:   {color:"#8b2020", ko:"간토", ja:"関東", en:"Kanto"},
+    chubu:   {color:"#9a7a2e", ko:"주부(후지)", ja:"中部(富士)", en:"Chubu (Fuji)"},
+    kinki:   {color:"#5a7d4e", ko:"긴키", ja:"近畿", en:"Kinki"},
+    chugoku: {color:"#7a5a8a", ko:"주고쿠", ja:"中国", en:"Chugoku"},
+    shikoku: {color:"#b5793a", ko:"시코쿠", ja:"四国", en:"Shikoku"},
+    kyushu:  {color:"#c0453a", ko:"규슈", ja:"九州", en:"Kyushu"}
+  };
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.5, lng: 136.5},
-    zoom: 6,
-    mapTypeId: 'terrain',
-    styles: [
-      {elementType:'geometry',stylers:[{color:'#e9e4da'}]},
-      {elementType:'labels.text.fill',stylers:[{color:'#6b6864'}]},
-      {elementType:'labels.text.stroke',stylers:[{color:'#f5f2ec'}]},
-      {featureType:'water',elementType:'geometry',stylers:[{color:'#cdd5d0'}]},
-      {featureType:'road',elementType:'geometry',stylers:[{color:'#dcd6ca'}]},
-      {featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#d2cabb'}]},
-      {featureType:'poi',stylers:[{visibility:'off'}]},
-      {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e4e0d2'}]},
-      {featureType:'administrative',elementType:'geometry.stroke',stylers:[{color:'#a09c94'}]},
-      {featureType:'administrative.country',elementType:'labels.text.fill',stylers:[{color:'#8b2020'}]},
-      {featureType:'administrative.province',elementType:'labels.text.fill',stylers:[{color:'#6b6864'}]}
-    ],
-    disableDefaultUI: false,
-    zoomControl: true,
-    mapTypeControl: false,
-    streetViewControl: false,
-    fullscreenControl: true
-  });
+  var map = L.map('map', { scrollWheelZoom:true, zoomControl:true }).setView([35.4, 134.5], 5);
 
-  COURSES.forEach(c => {
-    const div = document.createElement('div');
-    div.className = 'mika-marker visited';
-    div.textContent = c.rating;
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; OpenStreetMap &copy; CARTO',
+    subdomains:'abcd', maxZoom:19
+  }).addTo(map);
 
-    const overlay = new google.maps.OverlayView();
-    overlay.onAdd = function() {
-      this.getPanes().overlayMouseTarget.appendChild(div);
-    };
-    overlay.draw = function() {
-      const proj = this.getProjection();
-      const pos = proj.fromLatLngToDivPixel(new google.maps.LatLng(c.lat, c.lng));
-      div.style.position = 'absolute';
-      div.style.left = (pos.x - 16) + 'px';
-      div.style.top = (pos.y - 10) + 'px';
-    };
-    overlay.onRemove = function() {
-      div.parentNode && div.parentNode.removeChild(div);
-    };
-    overlay.setMap(map);
-    overlay._course = c;
-    overlay._div = div;
+  var LANG = localStorage.getItem('mika-lang') || 'ja';
+  var markers = [];
 
-    div.addEventListener('click', () => showInfo(c));
-    markersArr.push(overlay);
-  });
-}
+  function makeMarker(c){
+    var col = (GROUPS[c.grp]||{}).color || "#8b2020";
+    var icon = L.divIcon({
+      className:'',
+      html:'<div class="gp-marker" style="width:13px;height:13px;background:'+col+';"></div>',
+      iconSize:[13,13], iconAnchor:[6,6], popupAnchor:[0,-8]
+    });
+    var m = L.marker([c.lat,c.lng],{icon:icon});
+    m._course = c;
+    m.bindPopup(popupHTML(c));
+    return m;
+  }
 
-function showInfo(c) {
-  const lang = localStorage.getItem('mika-lang') || 'ja';
-  document.getElementById('infoNo').textContent = 'No. ' + String(c.no).padStart(2,'0');
-  document.getElementById('infoName').textContent = c.name;
-  document.getElementById('infoRegion').textContent = c.regionLabel;
-  document.getElementById('infoRating').textContent = c.rating;
-  const mikaEl = document.getElementById('infoMika');
-  mikaEl.textContent = (lang==='ja' ? c.mikaJa : c.mikaKo) + '...';
-  mikaEl.lang = (lang==='ja' ? 'ja' : 'ko');
-  document.getElementById('btnReview').href = 'courses.html#course-' + c.no;
-  document.getElementById('btnGmap').href = 'https://www.google.com/maps/search/' + encodeURIComponent(c.name + ' ゴルフ場');
-  document.getElementById('infoPanel').classList.add('open');
-  map.panTo({lat: c.lat, lng: c.lng});
-}
+  function popupHTML(c){
+    var g = GROUPS[c.grp]||{};
+    var rlabel = g[LANG] || c.region;
+    var name = (LANG==='ja') ? c.ja : c.ko;
+    var dirLabel = {ko:'구글지도에서 열기',ja:'Googleマップで開く',en:'Open in Google Maps'}[LANG];
+    var url = 'https://www.google.com/maps/search/'+encodeURIComponent(c.ja);
+    var jaLine = (LANG==='ja') ? '' : '<div class="pop-ja">'+c.ja+'</div>';
+    return '<div class="pop-region">'+c.region+'</div>'+
+           '<div class="pop-name">'+name+'</div>'+ jaLine +
+           '<a class="pop-link" href="'+url+'" target="_blank" rel="noopener"><span class="pin">📍</span>'+dirLabel+'</a>';
+  }
 
-function closeInfo() {
-  document.getElementById('infoPanel').classList.remove('open');
-}
+  COURSES.forEach(function(c){ var m=makeMarker(c); m.addTo(map); markers.push(m); });
 
-function filterRegion(region, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentFilter = region;
+  // 범례 렌더
+  function renderLegend(){
+    var order = ['hokkaido','kanto','chubu','kinki','chugoku','shikoku','kyushu'];
+    var counts = {};
+    COURSES.forEach(function(c){ counts[c.grp]=(counts[c.grp]||0)+1; });
+    var box = document.getElementById('legend-rows');
+    box.innerHTML = '';
+    order.forEach(function(g){
+      if(!counts[g]) return;
+      var info = GROUPS[g];
+      var row = document.createElement('div');
+      row.className='legend-row';
+      row.innerHTML = '<span class="dot" style="background:'+info.color+'"></span>'+
+                      '<span class="lg-label">'+info[LANG]+'</span>'+
+                      '<span class="ct">'+counts[g]+'</span>';
+      box.appendChild(row);
+    });
+  }
+  renderLegend();
 
-  let count = 0;
-  markersArr.forEach(o => {
-    const show = region === 'all' || o._course.region === region;
-    o._div.style.display = show ? '' : 'none';
-    if(show) count++;
-
-    if(region !== 'all' && show) {
-      const bounds = new google.maps.LatLngBounds();
-      markersArr.filter(x => x._course.region === region).forEach(x => {
-        bounds.extend(new google.maps.LatLng(x._course.lat, x._course.lng));
-      });
-      map.fitBounds(bounds, {top:60,right:40,bottom:100,left:40});
-    } else if(region === 'all') {
-      map.setCenter({lat:35.5,lng:136.5});
-      map.setZoom(6);
-    }
-  });
-  document.getElementById('countLabel').textContent = count + 'コース表示中';
-}
-
-// 언어 설정
-function setLang(lang) {
-  localStorage.setItem('mika-lang', lang);
-}
-const saved = localStorage.getItem('mika-lang');
-if(!saved) localStorage.setItem('mika-lang', 'ja');
+  // 언어 전환
+  function setLang(lang){
+    LANG = lang;
+    localStorage.setItem('mika-lang', lang);
+    var map3 = {ko:0,ja:1,en:2};
+    var btns = document.querySelectorAll('.lang-switcher .lang-btn');
+    btns.forEach(function(b){ b.classList.remove('active'); });
+    if(btns[map3[lang]]) btns[map3[lang]].classList.add('active');
+    document.querySelectorAll('.nav-txt').forEach(function(el){
+      var t=el.getAttribute('data-'+lang); if(t) el.textContent=t;
+    });
+    document.querySelectorAll('.txt-i18n').forEach(function(el){
+      var t=el.getAttribute('data-'+lang); if(t!=null) el.innerHTML=t;
+    });
+    // 팝업 다시 바인딩
+    markers.forEach(function(m){ m.setPopupContent(popupHTML(m._course)); });
+    renderLegend();
+  }
+  setLang(LANG);
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&language=ja" async defer></script>
-<!-- API 키 없이 테스트: key= 부분을 비워두면 워터마크 표시되지만 작동함 -->
 
 </body>
 </html>

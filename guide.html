@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일본골프 첫걸음 — MIKA 일본골프 도슨트</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:    #f5f2ec;
+    --paper-2:  #ede9e0;
+    --ink:      #1c1c1a;
+    --ink-mid:  #3a3835;
+    --ink-soft: #6b6864;
+    --rule:     #c8c4bb;
+    --rule-dark:#a09c94;
+    --red:      #8b2020;
+    --gold:     #9a7a2e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .top-rule { height:3px; background:var(--red); position:fixed; top:0; left:0; width:100%; z-index:300; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 3px; width: 100%;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule-dark);
+    padding: 0 48px; height: 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 200;
+  }
+  .nav-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--ink);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo .sep { color: var(--red); font-size: 14px; font-weight: 400; }
+  .nav-logo .sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px; font-weight: 400;
+    color: var(--ink-soft); letter-spacing: 0.1em;
+  }
+  .nav-links { display:flex; gap:26px; list-style:none; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.06em;
+    color: var(--ink-soft); text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent; padding-bottom: 2px; white-space: nowrap;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--rule-dark); }
+  .lang-switcher { display:flex; align-items:center; gap:0; border:1px solid var(--rule-dark); }
+  .lang-sep { display:none; }
+  .lang-btn {
+    background: none; border: none;
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--ink-soft); cursor: pointer;
+    padding: 5px 10px; font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s; border-right: 1px solid var(--rule-dark);
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover { background: var(--paper-2); color: var(--ink); }
+  .lang-btn.active { background: var(--ink); color: var(--paper); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 120px 48px 44px;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+  .header-inner { max-width: 920px; margin: 0 auto; }
+  .header-eyebrow {
+    font-size: 10px; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .header-eyebrow::before { content:''; display:inline-block; width:16px; height:1px; background:var(--red); }
+  .header-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(34px,4.8vw,56px);
+    font-weight: 600; line-height: 1.1; letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .header-title em {
+    color: var(--red); font-style: italic;
+    font-family: 'IM Fell English', serif; font-weight: 400;
+  }
+  .header-desc {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px; line-height: 1.8; color: var(--ink-soft);
+    font-weight: 400; margin-top: 16px;
+  }
+
+  /* CATEGORY TABS */
+  .cat-tabs {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule-dark);
+    padding: 0 48px;
+    display: flex; gap: 0; overflow-x: auto;
+    position: sticky; top: 59px; z-index: 100;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .cat-tabs::-webkit-scrollbar { display: none; }
+  .cat-tab {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+    color: var(--ink-soft); background: none;
+    border: none; border-bottom: 2px solid transparent;
+    padding: 16px 20px; cursor: pointer; white-space: nowrap;
+    margin-bottom: -1px; transition: all 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .cat-tab span { font-family: 'IM Fell English', serif; font-size: 12px; }
+  .cat-tab:hover { color: var(--ink); }
+  .cat-tab.active { color: var(--red); border-bottom-color: var(--red); font-weight: 500; }
+
+  .page-body { max-width: 920px; margin: 0 auto; padding: 52px 40px 100px; }
+  .category-section { display: none; }
+  .category-section.active { display: block; }
+
+  .cat-header {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 28px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .cat-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: 0.03em;
+  }
+  .cat-count {
+    margin-left: auto; font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 14px; color: var(--ink-soft);
+  }
+
+  /* ARTICLE LIST */
+  .article-item {
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer; transition: background 0.15s;
+  }
+  .article-item:hover { background: var(--paper-2); }
+  .article-item.open { background: var(--paper-2); }
+  .article-top {
+    padding: 22px 0;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+  }
+  .article-num {
+    font-family: 'IM Fell English', serif;
+    font-size: 11px; color: var(--red);
+    letter-spacing: 0.12em; margin-bottom: 6px; display: block;
+  }
+  .article-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px; font-weight: 600; color: var(--ink);
+    line-height: 1.4; letter-spacing: 0.02em;
+  }
+  .article-expand-icon {
+    width: 28px; height: 28px;
+    border: 1px solid var(--rule-dark); background: none;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px; transition: all 0.25s;
+    color: var(--ink-soft); font-size: 12px;
+  }
+  .article-item.open .article-expand-icon {
+    background: var(--ink); border-color: var(--ink);
+    color: var(--paper); transform: rotate(180deg);
+  }
+
+  .article-content { display: none; padding: 0 0 32px; }
+  .article-item.open .article-content { display: block; animation: expandIn 0.22s ease; }
+  @keyframes expandIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+
+  .lang-tabs {
+    display: flex; gap: 0; margin-bottom: 24px; margin-top: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lang-tab {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--ink-soft); background: none;
+    border: none; border-bottom: 2px solid transparent;
+    padding: 9px 16px; margin-bottom: -1px; cursor: pointer; transition: all 0.15s;
+  }
+  .lang-tab:hover { color: var(--ink); }
+  .lang-tab.active { color: var(--red); border-bottom-color: var(--red); }
+
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+
+  .article-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px; font-weight: 400; line-height: 1.95;
+    color: var(--ink-mid);
+  }
+  .lang-content[data-lang="ja"] .article-text { font-family: 'Noto Serif JP', serif; }
+
+  /* IMAGE GALLERY */
+  .article-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px; margin-top: 24px;
+  }
+  .article-img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
+
+  @media(max-width:768px) {
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .nav-logo .sub { display: none; }
+    .page-header { padding: 96px 16px 32px; }
+    .cat-tabs { padding: 0 16px; }
+    .cat-tab { padding: 14px 14px; font-size: 12px; }
+    .page-body { padding: 36px 16px 80px; }
+    .article-title { font-size: 16px; }
+    .article-text { font-size: 14px; line-height: 1.9; }
+    .article-images { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    MIKA <span class="sep">|</span>
+    <span class="sub">日本ゴルフ道案内</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="courses.html" class="nav-txt" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">일본골프장 리뷰</a></li>
+    <li><a href="guide.html" class="nav-txt active" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門ガイド" data-en="Japan Golf Guide">일본골프 첫걸음</a></li>
+    <li><a href="editorial.html" class="nav-txt" data-ko="골프 에디토리얼" data-ja="ゴルフエディトリアル" data-en="Editorial">골프 에디토리얼</a></li>
+    <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="header-inner">
+    <p class="header-eyebrow">Beginner's Guide — 일본골프 첫걸음</p>
+    <h1 class="header-title">일본골프 <em>첫걸음 가이드</em></h1>
+    <p class="header-desc">렌터카, 골프장 예약, 항공, 숙소까지.<br>처음 일본 골프를 준비하는 분들을 위한 실전 가이드입니다.</p>
+  </div>
+</div>
+<!-- CATEGORY TABS -->
+<div class="cat-tabs">
+  <button class="cat-tab active" onclick="switchCat(this,'rentacar')">렌터카편 <span style="color:var(--gold-light)">7</span></button>
+  <button class="cat-tab" onclick="switchCat(this,'golfcourse')">골프장편 <span style="color:var(--gold-light)">5</span></button>
+  <button class="cat-tab" onclick="switchCat(this,'flight')">항공편 <span style="color:var(--gold-light)">3</span></button>
+  <button class="cat-tab" onclick="switchCat(this,'hotel')">숙소편 <span style="color:var(--gold-light)">1</span></button>
+  <button class="cat-tab" onclick="switchCat(this,'qna')">Q&A편 <span style="color:var(--gold-light)">5</span></button>
+</div>
+
+<div class="page-body">
+
+  <!-- 렌터카편 -->
+  <div class="category-section active" id="cat-rentacar">
+    <div class="cat-header">
+      <span class="cat-title">렌터카편</span>
+      <span class="cat-count">7 articles</span>
+    </div>
+            <div class="article-list">
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 01</div>
+            <div class="article-title">일본골프 렌터카 첫 여행은 ‘도요타렌터카’ !</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">일본골프 렌터카 첫 여행은 ‘도요타렌터카’ !<br>사실, 당분간 제 블로그에는 일본 골프장 리뷰나 골프 전반적인 딥한 이야기를 연재할 계획이었습니다. 그런데 며칠 전 만난 친구들의 한마디가 제 기획을 완전히 뒤집어 놓았습니다.<br>​<br>일본 골프를 처음 갈려고 하는 사람들이 네 글을 읽기가 쉽지가 않다. 당장 일본 골프 여행을 가려고 하니까 '어떻게 시작해야 하는지' 떠먹여 주는 글이 없더라며, 유튜브는 너무 길고 파편화되어 있어서, 진짜 딱 필요한 것만 글로 잘 정리된 매뉴얼이 있는 일본골프의 바이블이 필요하다는 얘기를 하는것이었습니다<br>​<br>망치로 머리를 맞은 기분이었습니다. 맞습니다. 이미 다녀온 사람들에겐 쉬운 정보지만, 처음 자유여행을 준비하는 분들에게는 정보의 바다가 오히려 독이 되고 있었던 겁니다. 그래서 화려한 골프장 리뷰는 잠시 미뤄두고, 오직 제 생생한 현장 경험에서 우러나온 왕초보를 위한 팩트체크 실전 가이드를 시작하기로 했습니다.<br>​<br>일본골프 자유여행의 뼈대는 여권을 챙겨 비행기를 타고 도착해서, 차를 렌트하여 운전해서 골프장을 갔다가 숙소로 돌아온다. 요 네가지가 딱 끝입니다. 참 쉽죠?<br>하지만 단 하나, 우리를 가로막는 가장 거대한 장벽이 있습니다. 바로 한국과는 주행 방향이 반대인 운전입니다.<br>​<br>바로 일본 여행의 가장 거대한 장벽인 '운전(렌터카)' 이야기부터 꺼내보겠습니다.</p><p class="article-text" style="margin-top:16px">한국에서 잘하면 일본에서도 잘합니다<br>요즘 일본이 핫하대!<br>다음에 일본골프나 한번 가자!<br>야. 근데 거기 한국이랑 운전 반대 아니야?<br>아? 그래. 반대로 운전해야되?<br>잠시 정적이 흐른다.<br>그러면서 한 명이 얘기한다<br>그럼 패키지로 가면 되지!!<br>​<br>일본골프 자유여행을 가로막는 가장 큰 이유입니다<br>​<br>제가 그 자리에 있었다면 한마디 합니다<br>” 한국에서 운전 잘 하는 사람? “ 하고 물어보면,<br>다들 서로 잘한다고 난리법썩일겁니다 ( 그 부심 ㅎ)<br>​<br>그렇습니다.<br>한국에서 운전 잘하면 일본에서도 잘 합니다<br>간혹 잘하는걸 끼어들기, 과속, 기타 법규위반으로 생각하시는 분들 계시는데, 운전법규를 잘 지키는걸 말씀드리는것이라 다시 강조합니다.<br>​<br>운전석이 오른쪽에 있다고 해서 엑셀과 브레이크 위치가 바뀌는 게 아닙니다. 차폭감이나 코너링 같은 물리적인 운전 감각은 하루, 아니 반나절이면 금방 적응합니다. 깜빡이 켜려다 와이퍼 몇 번 작동시키는 건 애교로 넘어가면 그만입니다.</p><p class="article-text" style="margin-top:16px">처음부터 싸게 다녀올 생각은 접어두십시오<br>첫 번째 여행만큼은 무조건 가장 안전하고 검증된 곳에서 시작하십시오. 제가 콕 집어 추천해 드리는 곳은 일본 렌터카 업계의 1티어, 도요타 렌터카입니다.<br>물론, 도요타 같은 메이저 업체를 이용하면 최저가 로컬 업체와 비교했을 때 3박 4일, 4인 골프 여행 기준으로 1인당 약 5만 원에서 10만 원 정도 비용이 더 들 수 있습니다.<br>"안 그래도 돈 많이 드는데, 차라리 그 돈 아껴서 저녁에 야끼니꾸나 더 사 먹지!"라고 생각하실 수 있습니다. 하지만 이 5~10만 원의 차이는 단순한 렌트비가 아니라, 초보자가 현지에서 겪을 수 있는 수많은 돌발 변수를 차단해 주는 프리미엄 서비스 비용입니다.<br>  </p><p class="article-text" style="margin-top:16px">왜 첫 렌터카는<br>'도요타(메이저)'여야만 하는가?<br>  </p><p class="article-text" style="margin-top:16px">도요타 렌터카 같은 메이저 회사가 제공하는 '전문적인 서비스'의 질은 로컬 업체와 확연히 다릅니다. 이들이 왜 비싼 값을 하는지 팩트만 나열해 보겠습니다.<br>​<br>1.        압도적인 차량 컨디션과 정비 상태:<br>최저가 업체 중에는 주행거리가 10만 km가 훌쩍 넘은 낡은 차량이나 담배 냄새가 찌든 차를 배정하는 경우가 허다합니다. 반면, 메이저 업체는 철저하게 관리된 신차급 컨디션의 차량을 제공합니다. 잔고장 확률이 제로에 가깝습니다.<br>​<br>2.        외국인 응대 매뉴얼과 언어 지원:<br>공항 지점에는 외국인(한국인) 관광객을 매일 수백 명씩 상대하는 베테랑 직원들이 있습니다. 어설픈 일본어를 써도 찰떡같이 알아듣고, 한국어 안내문, 다국어 번역 태블릿, 한국어 지원 내비게이션(비록 구글 맵을 더 많이 쓰겠지만)이 기본으로 세팅되어 있습니다.<br>​<br>3.        가장 단순하고 완벽한 보험 체계:<br>'마법의 풀커버 보험' 가입 절차가 가장 직관적입니다. 이것저것 숨은 약관 없이 '안심 W 플랜' 하나만 체크하면 모든 골치 아픈 문제가 해결됩니다.<br>​<br>4.        공항과의 접근성 및 셔틀 시스템:<br>공항 도착 후 렌터카 지점까지 이동하는 과정이 매우 매끄럽습니다. 로컬 업체는 연락이 안 닿거나 한참을 기다려 봉고차를 타고 외곽으로 나가야 하는 경우가 많지만, 메이저 업체는 공항 내 전용 카운터가 있거나 셔틀버스가 쉴 새 없이 순환합니다.<br>​<br>5.        완벽한 사후 처리와 전국 네트워크:<br>일본 소도시 시골길 한가운데서 타이어가 펑크 나거나 가벼운 접촉 사고가 났다고 상상해 보십시오. 메이저 업체는 일본 전국 어디서든 즉각적인 긴급 출동 및 대차 서비스가 가장 빠르고 확실하게 이루어집니다.</p><p class="article-text" style="margin-top:16px">스텝 바이 스텝: 익숙해지면 넓혀가라<br>앞으로 일본 전역의 수많은 매력적인 소도시 골프장들을 정복해 나갈 계획이시라면, 첫 단추는 가장 편안하고 안전하게 끼우는 것이 맞습니다.<br>​<br>처음 한두 번의 여행은 도요타 같은 대형 메이저 업체를 통해 시스템에 완벽하게 적응하십시오. 우핸들과 일본 법규가 몸에 익고, 렌터카 인수 및 반납 절차가 눈감고도 할 수 있을 만큼 편안해졌을 때, 그때 가서 니혼 렌터카, 오릭스 같은 메이저나 저렴한 버짓(Budget), 로컬 마이너 업체로 선택의 폭을 넓혀가도 늦지 않습니다.<br>​<br>비용 몇 푼 아끼려다 공항 도착 첫날부터 진을 빼고 여행 기분을 망치는 우를 범하지 마십시오. 첫 여행의 목표는 '무사히, 편안하게' 다녀와서 "어? 생각보다 일본 렌터카 훌륭한데?"라는 자신감을 얻는 것입니다.<br>​<br>몇 편이 될지는 모르겠지만, 맨 마지막편은 첫 일본골프 자유여행 키워드 구성, 딱 알아야할것만 정리해서 던져드리겠습니다. 공 2개 던져드리면 한번에 다 못 받잖아요. 그냥 일단 편하게 읽으세요. 일주일안에 스카이스캐너에서 일본행 비행기표를 끊는 이웃님들 만들어드리겠습니다.<br>​<br>오늘의 키워드,<br>일본골프 렌터카 첫 여행은 ‘도요타렌터카’ !<br>​<br>한국에서 운전 잘하면 ? 일본이 더 쉽다 !<br>​<br>같이 읽으면 좋은 글입니다<br>https://m.blog.naver.com/golbaengi/224195000879</p>
+          <div class="article-images">
+            <img src="guide-images/img-000.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-001.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">The structure of a Japan golf self-trip is simple: get a passport, board a plane, rent a car, drive to the golf course, return to the hotel. Four steps. Easy enough.</p><p class="article-text" style="margin-top:16px">But there is one enormous obstacle: driving on the opposite side of the road.</p><p class="article-text" style="margin-top:16px">■ Good in Korea means good in Japan</p><p class="article-text" style="margin-top:16px">"Japan is hot right now." "Let us go play golf there." "But they drive on the other side, right?"</p><p class="article-text" style="margin-top:16px">Silence. Then: "Let us just do a package tour."</p><p class="article-text" style="margin-top:16px">This is the single biggest reason people never attempt a Japan golf self-trip.</p><p class="article-text" style="margin-top:16px">Here is the truth: if you drive well in Korea, you drive well in Japan. The accelerator and brake do not move because the steering wheel switched sides. Physical driving instincts adapt within a day, sometimes half a day. Hitting the wiper when you want the turn signal is a rite of passage.</p><p class="article-text" style="margin-top:16px">■ Do not start cheap</p><p class="article-text" style="margin-top:16px">For the first trip, use Toyota Rent a Car — the undisputed top tier of Japan's rental market.</p><p class="article-text" style="margin-top:16px">Yes, Toyota costs more than budget operators — roughly 5,000 to 10,000 yen more per person for a 3-night trip with four people. But this difference is not just rent. It is the cost of eliminating every variable that breaks a first-time trip.</p><p class="article-text" style="margin-top:16px">■ Why Toyota specifically</p><p class="article-text" style="margin-top:16px">① Vehicle condition: Near-new vehicles with thorough maintenance. Breakdown risk is effectively zero.</p><p class="article-text" style="margin-top:16px">② Foreign guest systems: Airport branch staff handle hundreds of foreign visitors daily. Korean-language documents and multilingual tablets are standard.</p><p class="article-text" style="margin-top:16px">③ Insurance simplicity: Check the "Anshin W Plan." One box. Everything covered.</p><p class="article-text" style="margin-top:16px">④ Airport access: Dedicated counter or shuttle bus. No waiting, no surprise offsite pickups.</p><p class="article-text" style="margin-top:16px">⑤ Nationwide emergency support: Flat tire in rural Kyushu? Toyota responds anywhere in Japan.</p><p class="article-text" style="margin-top:16px">■ Build up gradually</p><p class="article-text" style="margin-top:16px">Use a major operator for the first one or two trips. Once pickup and return feel automatic, then expand to Nippon Rent-A-Car, Orix, or budget operators.</p><p class="article-text" style="margin-top:16px">The goal of the first trip: come home thinking "that was easier than I expected." That confidence is worth every yen of the premium.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本ゴルフ自由旅行の骨格はシンプルです。パスポートを持って飛行機に乗り、到着したらレンタカーを借りて運転し、ゴルフ場へ行って宿に帰る。たったこれだけです。</p><p class="article-text" style="margin-top:16px">しかし、私たちの前に立ちはだかる最大の壁が一つあります。日本は韓国と逆側を走る、右ハンドル左側通行です。</p><p class="article-text" style="margin-top:16px">■ 韓国でうまければ、日本でもうまい</p><p class="article-text" style="margin-top:16px">「最近、日本がアツいらしいね」「今度、日本でゴルフでも行こうか」「でも、あっちって運転が逆じゃないの？」</p><p class="article-text" style="margin-top:16px">しばらくの沈黙の後、誰かが言います。「じゃあパッケージツアーで行けばいいじゃん！」</p><p class="article-text" style="margin-top:16px">これが、日本ゴルフ自由旅行を阻む最大の理由です。</p><p class="article-text" style="margin-top:16px">断言します。韓国で運転が得意なら、日本でも問題ありません。運転席が右側にあっても、アクセルとブレーキの位置は変わりません。車幅感覚やコーナリングは一日、いや半日もあれば慣れます。ウインカーを出そうとしてワイパーを動かしてしまうのはご愛嬌です。</p><p class="article-text" style="margin-top:16px">■ 最初から安く済ませようとしないこと</p><p class="article-text" style="margin-top:16px">最初の旅行だけは、必ず最も安全で実績のある「トヨタレンタカー」から始めてください。</p><p class="article-text" style="margin-top:16px">大手を使うと、最安値のローカル業者より3泊4日・4名の場合、1人あたり約5,000〜10,000円ほど高くなります。しかしこの差額は、初心者が現地で遭遇するトラブルを未然に防ぐためのプレミアム料金です。</p><p class="article-text" style="margin-top:16px">■ なぜ最初は「トヨタ（大手）」でなければならないか</p><p class="article-text" style="margin-top:16px">① 圧倒的な車両コンディション：大手は新車同等の整備済み車両を提供。故障リスクはほぼゼロです。</p><p class="article-text" style="margin-top:16px">② 外国人対応マニュアル：空港支店のスタッフは毎日外国人観光客を対応するベテランです。韓国語資料・多言語タブレット完備。</p><p class="article-text" style="margin-top:16px">③ 最もシンプルな保険体系：「安心Wプラン」にチェックするだけ。複雑な約款なし。</p><p class="article-text" style="margin-top:16px">④ 空港アクセス：専用カウンターまたはシャトルバスで空港から直結。ローカル業者のような待ち時間なし。</p><p class="article-text" style="margin-top:16px">⑤ 全国緊急サポート：地方の山道でトラブルが起きても、全国どこでも即座に対応。</p><p class="article-text" style="margin-top:16px">■ 慣れてから選択肢を広げる</p><p class="article-text" style="margin-top:16px">最初の1〜2回は大手で完全に慣れてから、ニッポンレンタカーやオリックスなどへ選択肢を広げてください。</p><p class="article-text" style="margin-top:16px">最初の旅の目標はただひとつ。「無事に、快適に」帰ってきて、「日本のレンタカー、思ったよりいいな」という自信を得ることです。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 02</div>
+            <div class="article-title">도요타 렌터카, 100% 완벽하게 예약하는 매뉴얼</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">도요타 렌터카, 100% 완벽하게 예약하는 매뉴얼<br>앞선 글에서 첫 렌터카는 무조건 대형 메이저인 '도요타 렌터카'로 하라고 강력하게 권해드렸습니다. 머리로 이해했으니 이제 실전으로 손을 움직일 차례입니다.<br>​<br>도요타 렌터카를 예약하는 방법은 크게 세 가지가 있습니다. 결론부터 말씀드리면, 초보자에게 가장 완벽한 방법은 단 하나, 공식 한국어 홈페이지를 이용하는 것입니다. 왜 그런지 팩트체크와 함께 스텝 바이 스텝 예약 매뉴얼을 정리해 드립니다.</p><p class="article-text" style="margin-top:16px">도요타 렌터카를<br>예약하는 3가지 경로 (팩트체크)<br>1. 도요타 렌터카 공식 홈페이지 (한국어 지원) - ★초보자 강력 추천★<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>• 장점: 중간 수수료가 없고, 원하는 차량 등급을 가장 정확하게 확보할 수 있습니다. 우리가 가장 중요하게 생각하는 풀커버 보험(안심 W 플랜)을 군더더기 없이 깔끔하게 클릭 한 번으로 선택할 수 있습니다.<br>​<br>• 단점: 일본 공식 사이트라 가입이나 화면 구성이 살짝 낯설 수 있지만, 한국어 번역이 완벽하게 지원되어 전혀 문제 되지 않습니다.</p><p class="article-text" style="margin-top:16px">2. 한국 내 도요타 렌터카 공식 대행사 (국내 여행사 등)<br>• 장점: 한국어로 된 완벽한 고객센터를 이용할 수 있고, 궁금한 점을 한국 전화로 물어볼 수 있어 심리적으로 매우 편안합니다.<br>​<br>• 단점: 대행 수수료가 일부 포함될 수 있고, 성수기에는 공식 홈페이지보다 재고가 늦게 반영될 때가 있습니다. (이 방법도 초보자에게는 훌륭한 대안입니다.)<br>​<br>3. 글로벌 가격 비교 사이트 (아고다, 스카이스캐너등) - 🚫초보자 절대 금지🚫<br>• 장점: 가격이 가장 저렴해 '보입니다.'<br>• 단점: 여기서 예약하면 가장 치명적인 문제가 발생합니다. 바로 보험입니다. 이 사이트들에서 제공하는 '자체 풀커버 보험'은 렌터카 회사의 보험이 아니라, 예약 사이트와 연계된 제3의 보험사일 가능성이 큽니다. 현지에서 사고가 나면, 내가 내 생돈으로 먼저 렌터카 회사에 50만 원을 물어주고, 나중에 한국에 돌아와서 복잡한 서류를 떼어 보험사에 청구해야 돈을 돌려받습니다. 초보자는 절대 피하는게 맞습니다.</p><p class="article-text" style="margin-top:16px">💻 실전 매뉴얼: 가장 추천하는 도요타 렌터카 공식 글로벌 사이트(한국어 설정)를 기준으로 예약하는 핵심 과정을 짚어드립니다. 일반 여행객과 '골퍼'의 예약은 체크해야 할 포인트가 완전히 다릅니다.<br>​<br>STEP 1: 지점 선택 (공항 픽업/반납이 진리)<br>공항에 도착하자마자 렌터카 카운터로 가서 차를 인수하고, 출국 날 공항 지점에 반납하는 공항 픽업/공항 반납 으로 설정하십시오. 동선 낭비가 0%입니다.<br>​<br>STEP 2: 차량 등급 선택 (골퍼의 생명은 트렁크 공간!)<br>일반 관광객은 연비 좋은 소형차를 고르지만, 우리는 거대한 '골프백'과 '캐리어'를 실어야 합니다.<br>• 2인 출발: 경차 충분합니다<br>• 3~4인 출발: 미니밴(W클래스: 7~8인승)으로 가야 합니다. 노아(Noah), 복시(Voxy), 시엔타(Sienta) 같은 박스형 미니밴을 빌려 3열을 접어야 골프백 4개와 짐 4개가 간신히 들어갑니다.<br>​<br>STEP 3: 마법의 보험 선택 (가장 중요)<br>차량을 골랐다면 옵션 선택 창에서 보험을 고르게 됩니다. 이때 다른 건 쳐다볼 필요도 없습니다. 가장 밑에 있는, 가장 비싼 '안심 W 플랜 (NOC 풀커버)' 박스에 체크하십시오. 앞선 글에서 귀에 못이 박히도록 강조한 바로 그 '평화 유지비'입니다.<br>​<br>STEP 4: 필수 추가 옵션 (ETC 카드)<br>일본 고속도로를 타려면 한국의 하이패스와 똑같은 ETC 카드가 필수입니다. 차량에는 단말기가 기본 장착되어 있지만, 카드는 옵션에서 'ETC 카드 대여(보통 1회 대여 330엔)'를 체크해야 현장에서 직원이 꽂아줍니다. 나중에 차를 반납할 때 그동안 쓴 통행료를 렌터카 지점에서 한 번에 카드로 결제하면 끝입니다.<br>​<br>STEP 5: 예약 확정 및 바우처 준비<br>개인 정보와 영문 이름, 이메일을 넣고 예약을 확정합니다. 결제는 보통 현지 렌터카 카운터에서 직접 신용카드로 진행합니다. 예약이 완료되면 이메일로 날아온 '예약 확정서(바우처)'를 반드시 한국에서 1장 출력해 가십시오. 스마트폰 화면을 보여주는 것보다, 종이 바우처와 여권, 국제운전면허증, 한국 면허증을 한 번에 직원에게 건네주는 것이 인수 속도를 2배 이상 빠르게 만듭니다.</p><p class="article-text" style="margin-top:16px">미카의 예약 실전 !<br>​<br>1. 초보자의 렌터카 예약은 무조건 공식 사이트 직접 예약<br>2. 공항 픽업/반납<br>3. 인원수보다 넉넉한 짐 공간(왜건/미니밴)<br>4. 안심 W 플랜(풀커버)<br>5. ETC 카드 대여.<br>​<br>이 공식만 그대로 따라 하시면,<br>렌터카 때문에 여행을 망칠 일은 0%에 수렴합니다</p>
+          <div class="article-images">
+            <img src="guide-images/img-002.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">The previous article made the case for Toyota Rent a Car as the only choice for a first Japan golf trip. Now it is time to actually book.</p><p class="article-text" style="margin-top:16px">There are three ways to book Toyota Rent a Car. The conclusion first: for beginners, there is only one correct method — the official global website.</p><p class="article-text" style="margin-top:16px">■ Three booking routes (fact check)</p><p class="article-text" style="margin-top:16px">① Official global website ★ Strongly recommended for beginners ★<br>Pros: No middleman fees. Best vehicle availability. Full-cover insurance (Anshin W Plan) selectable with one click.<br>Cons: Japanese interface, but browser translation handles it.</p><p class="article-text" style="margin-top:16px">② Korean domestic agents<br>Pros: Korean-language customer support by phone.<br>Cons: May include service fees. Inventory updates slower during peak season.</p><p class="article-text" style="margin-top:16px">③ Agoda, Skyscanner, etc. 🚫 Beginners: avoid entirely 🚫<br>Pros: Appears cheaper.<br>Cons: Third-party insurance complications. In an accident, you pay out of pocket first and claim reimbursement later. Not worth the risk.</p><p class="article-text" style="margin-top:16px">■ Step-by-step booking guide for golfers</p><p class="article-text" style="margin-top:16px">STEP 1: Branch selection (airport pickup and return is the only correct choice)<br>Pick up the car immediately on arrival. Return it at the airport on departure day. Zero wasted movement.</p><p class="article-text" style="margin-top:16px">STEP 2: Vehicle class (for golfers, trunk space is everything)<br>· 2 people: compact class is fine<br>· 3–4 people: minivan only (W class: Noah, Voxy, Sienta). Fold the third row and golf bags plus luggage will fit.</p><p class="article-text" style="margin-top:16px">STEP 3: Insurance (most important step)<br>Find the most expensive option at the bottom of the insurance screen: "Anshin W Plan (NOC full cover)." Check that box. Nothing else matters.</p><p class="article-text" style="margin-top:16px">STEP 4: ETC card (required add-on)<br>Japanese highways require an ETC card. Select "ETC card rental" (usually 330 yen). Pay the accumulated toll charges on return.</p><p class="article-text" style="margin-top:16px">STEP 5: Confirm and print the voucher<br>Print the confirmation email. Presenting a paper voucher plus passport plus international license plus Korean license as a set is twice as fast as showing a phone screen.</p><p class="article-text" style="margin-top:16px">■ MIKA's booking formula</p><p class="article-text" style="margin-top:16px">① Official website direct booking ② Airport pickup and return ③ Vehicle sized for your luggage ④ Anshin W Plan ⑤ ETC card</p><p class="article-text" style="margin-top:16px">Follow these five rules and the rental car will never be the reason a trip goes wrong.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">前の記事で、最初のレンタカーは必ず大手の「トヨタレンタカー」にするよう強くお勧めしました。頭では理解できたと思いますので、今度は実際に手を動かす番です。</p><p class="article-text" style="margin-top:16px">トヨタレンタカーを予約する方法は大きく3つあります。結論から言えば、初心者に最も完璧な方法はただひとつ、公式グローバルサイト（日本語設定）を使うことです。</p><p class="article-text" style="margin-top:16px">■ 予約3つのルート（ファクトチェック）</p><p class="article-text" style="margin-top:16px">① 公式グローバルサイト（日本語設定）★初心者に強く推奨★<br>メリット：中間手数料なし。希望車種を最も正確に確保できます。フルカバー保険（安心Wプラン）をワンクリックで選択可能。<br>デメリット：日本のサイトのため画面構成が慣れないことがありますが、ブラウザの翻訳機能で対応可能。</p><p class="article-text" style="margin-top:16px">② 韓国国内の公式代理店<br>メリット：韓国語カスタマーサポートあり。電話で相談可能。<br>デメリット：代行手数料が上乗せされる場合あり。繁忙期は在庫反映が遅れることも。</p><p class="article-text" style="margin-top:16px">③ アゴダ・スカイスキャナー等 🚫初心者絶対禁止🚫<br>メリット：価格が安く「見える」。<br>デメリット：保険が第三者保険になるケースが多く、事故時に自費で立て替えが必要。絶対に避けること。</p><p class="article-text" style="margin-top:16px">■ 実践マニュアル（ゴルファー向け5ステップ）</p><p class="article-text" style="margin-top:16px">STEP 1：支店選択（空港受取・空港返却が鉄則）<br>到着直後にカウンターで車を受け取り、出国日に空港支店に返却する設定に。移動ロスがゼロになります。</p><p class="article-text" style="margin-top:16px">STEP 2：車両クラス選択（ゴルファーの命はトランクスペース！）<br>・2名：コンパクトクラスで十分<br>・3〜4名：ミニバン（Wクラス：ノア・ヴォクシー・シエンタ）一択。3列シートを倒してゴルフバッグ4本と荷物が入ります。</p><p class="article-text" style="margin-top:16px">STEP 3：保険選択（最重要）<br>オプション画面で一番下の、一番高い「安心Wプラン（NOCフルカバー）」を選ぶこと。これだけです。</p><p class="article-text" style="margin-top:16px">STEP 4：ETCカード（必須オプション）<br>日本の高速道路にはETCカードが必須です。「ETCカード貸出」にチェックを入れてください（通常330円）。返却時に利用分をまとめて精算します。</p><p class="article-text" style="margin-top:16px">STEP 5：予約確定とバウチャー準備<br>予約完了後、メールで届く「予約確認書」を必ず1枚印刷して持参。スマートフォン画面より紙のバウチャー＋パスポート＋国際運転免許証＋韓国免許証をセットで渡す方が受け取りが2倍スムーズです。</p><p class="article-text" style="margin-top:16px">■ MIKAの予約の鉄則</p><p class="article-text" style="margin-top:16px">①公式サイト直接予約 ②空港受取・返却 ③荷物量に合わせた車種 ④安心Wプラン（フルカバー） ⑤ETCカード</p><p class="article-text" style="margin-top:16px">この5つを守れば、レンタカーで旅を台無しにすることは絶対にありません。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 03</div>
+            <div class="article-title">인원수별 (2인, 3인, 4인)도요타 렌터카 완벽 가이드</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">인원수별 (2인, 3인, 4인)도요타 렌터카 완벽 가이드<br>일반 관광객의 렌터카 예약과 골퍼의 렌터카 예약은 그 기준점부터가 완전히 다릅니다. 일반 여행객은 사람이 몇 명 타느냐를 보지만, 골퍼들은 무조건 골프백과 캐리어가 몇 개 실리느냐(적재 공간)입니다.<br>​<br>"5인승 승용차니까 4명이 타면 넉넉하겠지?"라고 생각하고 소형차를 예약했다가, 공항에서 트렁크에 골프백이 안 들어가 사람만 렌터카를 타고 짐은 따로 택시에 태워 보내는 촌극이 심심치 않게 벌어집니다.<br>​<br>수십 번의 일본 골프 여행을 다니며 직접 차에 짐을 욱여넣어 본 경험을 바탕으로, 인원수별 최적의 도요타 렌터카 차량 라인업을 '팩트'만 담아 정리해 드립니다.</p><p class="article-text" style="margin-top:16px">2인 골퍼;<br>콤팩트 클래스 VS 소형 SUV<br>콤팩트 클래스: 야리스(Yaris), 아쿠아(Aqua)<br>가장 저렴한 콤팩트 클래스(소형 해치백)입니다. 일반 2인 관광객에게도, 골퍼들에게는 좋은 차량입니다.<br>​<br>• 공간 팩트: 차가 작습니다. 2열 시트를 완전히 접어야만 간신히 골프백 2개가 겹쳐서 들어갑니다. 남자 2명은 전혀 문제가 되지 않습니다.<br>• 결론: 경비 절감이 최우선 목표이고, 일반 골프백 사용, 캐리어도 기내용 사이즈면 넉넉합니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>SUV 클래스 : 야리스 크로스, 코롤라 크로스<br>• 특징: 요즘 가장 인기 있는 소형/준중형 SUV입니다. 왜건보다 차고가 높아 운전 시야가 시원합니다.<br>• 적재: 트렁크 공간이 위아래로 높아 2인의 짐을 싣기에 충분하며, 일본의 좁은 시골길이나 주차장을 다닐 때 차 폭이 크지 않아 운전이 매우 편합니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">3인 골퍼:<br>스탠다드 클래스 VS W1 클래스<br>승용 라인업의 압도적 1티어: 프리우스<br>도요타 승용 라인업에서 3인 골퍼에게 단 하나의 차만 꼽으라면 주저 없이 '프리우스'입니다.<br>​<br>• 공간 팩트: 완벽한 세단 형태가 아니라 뒤태가 비스듬하게 떨어지는 '패스트백(해치백)' 스타일입니다. 트렁크 문을 열고 2열 시트를 앞으로 접으면, 트렁크부터 앞 좌석 뒤까지 광활하고 평평한 공간이 펼쳐집니다. 골프백 3개를 세로로 길게 밀어 넣고 캐리어 3개를 실어도 넉넉합니다.<br>• 주행 팩트: 도요타 하이브리드 기술의 결정체입니다. 외곽의 골프장들을 아무리 쏘다녀도 주유 게이지가 좀처럼 떨어지지 않는 마법을 경험할 수 있습니다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>가성비 추천: 시엔타 (Sienta / W1 클래스)<br>• 특징: 일본 국민 미니밴으로 불리는 소형 박스카입니다. 귀여운 외관과 달리 실내 공간이 엄청납니다.<br>• 적재: 3열 시트를 바닥으로 완전히 숨길 수 있습니다. 3열을 접고, 2열 시트의 한쪽(6:4 분할)을 접으면 골프백 3개를 세로로 길게 넣고, 남은 한자리에 3번째 사람이 편하게 탈 수 있습니다. 가성비가 가장 뛰어납니다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>4인 골퍼: W1 VS W2 VS W3<br>위에 설명한 3인 골퍼 시엔타도 세우면 가능합니다.<br>다만, 짐이 좀 있는 상황에서는 W2가 좋습니다.<br>​<br>국룰(표준) 추천: 노아, 보쿠시 (W2 클래스)<br>• 특징: 4인 골프 여행의 기준선입니다. 이수준이 가장<br>편안하고 좋습니다.<br>• 적재: 3열 시트를 양옆으로 들어 올려 고정하면 거대한 트렁크 공간이 나옵니다. 여기에 골프백 4개를 가로로 차곡차곡 쌓아 올리고, 빈틈에 캐리어를 끼워 넣는 고도의 '테트리스' 작업이 필요합니다. 짐을 실으면 룸미러로 안 보일 수 있으니 운전에 주의해야 합니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">럭셔리 &amp; 쾌적함 추천: 알파드, 벨파이어<br>• 특징: 일본 미니밴의 끝판왕이자 고급차의 대명사입니다. 회장님 차로 불립니다.<br>• 적재: 차체가 워낙 크고 넓어 테트리스를 대충 해도 4인의 짐이 다 들어갑니다. 게다가 비행기 비즈니스석 같은 2열 시트의 승차감은 라운딩 후 피로를 싹 날려줍니다. 렌트비는 비싸지만 4명이서 N분의 1을 한다면 충분히 투자할 가치가 있는, 가장 스트레스 없는 완벽한 선택입니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>본인의 짐과 예산에 맞춰서 차를 잘 선택하시면 될듯합니다.</p>
+          <div class="article-images">
+            <img src="guide-images/img-003.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-005.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-007.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-009.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-011.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-013.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">The criteria for booking a rental car as a golfer are completely different from a general tourist. Tourists ask how many people fit. Golfers ask how many golf bags and suitcases fit.</p><p class="article-text" style="margin-top:16px">"Five seats means four people fits comfortably" — this logic leads directly to the scene at the airport where the bags do not fit and everyone panics.</p><p class="article-text" style="margin-top:16px">■ 2 golfers</p><p class="article-text" style="margin-top:16px">Compact class (Yaris, Aqua)<br>The cheapest option. Fold the rear seats flat and two golf bags fit, just barely. Works if luggage is kept minimal.</p><p class="article-text" style="margin-top:16px">SUV class (Yaris Cross, Corolla Cross)<br>Popular small SUVs with taller cargo areas. Easier to load golf bags. Narrower width makes navigating rural Japanese roads more manageable.</p><p class="article-text" style="margin-top:16px">■ 3 golfers</p><p class="article-text" style="margin-top:16px">Prius (standard class) — the clear choice<br>The Prius fastback design creates a flat, expansive cargo floor when the rear seats fold. Three golf bags and three suitcases fit with room to spare. Hybrid fuel efficiency means the gauge barely moves regardless of distance.</p><p class="article-text" style="margin-top:16px">Sienta (W1 class)<br>Japan's most popular compact minivan. Third-row seats fold completely into the floor. Fold the third row and half the second row and three golf bags slide in lengthwise, with one remaining seat for the third passenger. Best value.</p><p class="article-text" style="margin-top:16px">■ 4 golfers</p><p class="article-text" style="margin-top:16px">Noah / Voxy (W2 class) ★ the standard for 4-person trips ★<br>The benchmark for four-person golf trips. Fold the third row sideways against the walls and a large flat cargo area opens. Four golf bags stack horizontally with suitcases squeezed into the gaps — it requires some Tetris skill. Note that rearward visibility may be blocked when fully loaded.</p><p class="article-text" style="margin-top:16px">Alphard / Vellfire (W3 class) ★ for those who want the best ★<br>The top of the Japanese minivan hierarchy. The oversized interior makes loading trivial. The second-row seats rival business class. Rental cost is higher, but split four ways, the comfort is worth it.</p><p class="article-text" style="margin-top:16px">Choose the vehicle that matches your group size and luggage volume.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">一般観光客とゴルファーのレンタカー予約は、基準からして全く異なります。一般旅行者は何人乗れるかを見ますが、ゴルファーは必ずゴルフバッグとキャリーケースが何個積めるか（積載スペース）で判断します。</p><p class="article-text" style="margin-top:16px">「5人乗りだから4名で余裕だろう」と思って小型車を予約し、空港でゴルフバッグがトランクに入らずに大騒ぎになるケースが後を絶ちません。</p><p class="article-text" style="margin-top:16px">■ 2名ゴルファー</p><p class="article-text" style="margin-top:16px">コンパクトクラス（ヤリス・アクア）<br>最安値のコンパクトクラスです。2列シートを完全に倒してゴルフバッグ2本がギリギリ入ります。荷物がコンパクトであれば問題なし。</p><p class="article-text" style="margin-top:16px">SUVクラス（ヤリスクロス・カローラクロス）<br>人気の小型SUV。トランクの縦方向に余裕があり、2名のゴルフ旅に最適。日本の細い道でも車幅が小さく運転しやすい。</p><p class="article-text" style="margin-top:16px">■ 3名ゴルファー</p><p class="article-text" style="margin-top:16px">プリウス（スタンダードクラス）<br>3名ゴルファーなら迷わずプリウス一択。ファストバックスタイルで2列を倒すと広大な平らなスペースが出現。ゴルフバッグ3本＋キャリー3個が余裕で収まります。燃費も最高クラスで、どれだけ遠出しても燃料計がなかなか下がりません。</p><p class="article-text" style="margin-top:16px">シエンタ（W1クラス）<br>日本の国民的ミニバン。3列シートを床に完全収納できます。3列を倒し、2列の片側（6:4分割）を倒せばゴルフバッグ3本を縦に入れ、残り1席に3人目が乗れます。コスパ最強。</p><p class="article-text" style="margin-top:16px">■ 4名ゴルファー</p><p class="article-text" style="margin-top:16px">ノア・ヴォクシー（W2クラス）★4名の定番★<br>4名ゴルフ旅行の基準。3列シートを両側に立てて固定すると広大なトランクスペースが出現。ゴルフバッグ4本を横に積み上げてキャリーをすき間に押し込む「テトリス作業」が必要です。荷物で後方視界が塞がる場合があるので運転注意。</p><p class="article-text" style="margin-top:16px">アルファード・ヴェルファイア（W3クラス）★ラグジュアリー派に★<br>日本のミニバンの最高峰。広大な車内でテトリスも楽々。さらにビジネスクラス並みの2列シートで、ラウンド後の疲れが消えます。レンタル費用は高めですが、4名で割ると十分に価値あり。</p><p class="article-text" style="margin-top:16px">予算と荷物量に合わせて最適な車種をお選びください。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 04</div>
+            <div class="article-title">일본어 까막눈도 괜찮다! 렌터카 '한국어 내비 &amp; 안전기능' 완벽 가이드</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">일본어 까막눈도 괜찮다! 렌터카 '한국어 내비 &amp; 안전기능' 완벽 가이드<br>일본 렌터카 여행, 특히 낯선 골프장을 찾아갈 때 가장 의지하게 되는 것이 바로 내비게이션입니다.<br>​<br>"일본어 까막눈인데 길을 잃으면 어쩌나?"<br>"한국어 지원은 제대로 될까?"<br>운전대는 잡기로 마음먹었지만 길 찾기 걱정이 산더미이실 텐데요. 결론부터 말씀드리면, 최근 도요타 렌터카의 차량 지원 기능은 한국인 여행객에게 상상 이상으로 친절하게 진화했습니다.<br>​<br>잘 모르는 분들을 위해, 길 찾기 스트레스를 0으로 만들어줄 스마트폰 연동 기능부터 운전을 돕는 첨단 안전 기능까지 아주 자세하고 풍부하게 팩트체크 해드립니다.</p><p class="article-text" style="margin-top:16px">애플 카플레이 &amp; 안드로이드 오토<br>(가장 중요한 포인트!)<br>가장 확실한 해결책부터 말씀드립니다.<br>최근 도요타의 신형 차량(코롤라, 프리우스, 야리스 크로스, 노아 등)들은 대부분 애플 카플레이와 안드로이드 오토를 지원합니다.<br>​<br>• 왜 이게 중요한가? 차량에 내장된 복잡한 일본 내비게이션을 만질 필요가 전혀 없기 때문입니다. 스마트폰을 차에 연결하는 순간, 내 폰 화면이 아니라 자동차의 디스플레이에 우리가 평소 쓰던 구글 맵이 뜹니다.<br>​<br>• 한국어 완벽 지원: 아이폰이든 갤럭시든 스마트폰 설정이 한국어로 되어 있다면, 화면의 메뉴, 지명 검색, 심지어 "200m 앞 좌회전입니다"라는 익숙한 음성 안내까지 100% 한국어로 나옵니다.<br>​<br>• 음성 인식의 위력: 운전 중 목적지를 바꿀 때도 핸들에 있는 음성 인식 버튼을 누르고 "시리야" 또는 "오케이 구글, ㅇㅇ 컨트리클럽 안내해 줘"라고 말하면 끝납니다. 일본어 지명을 몰라도 한국어로 척척 찾아줍니다.<br>​<br>https://youtu.be/P5M3qipklWQ?si=ZlL6kGWgkPdKjXQ3<br>​</p><p class="article-text" style="margin-top:16px">정품 USB 케이블 필수<br>무선 연결이 안 되는 차량이 아직 많습니다. 본인 폰에 맞는 데이터 전송이 가능한 정품 USB 케이블을 반드시 챙겨가셔야합니다. 길거리에서 파는 '충전 전용' 싸구려 선을 가져가면 먹통이 되니 주의하셔야 합니다.</p><p class="article-text" style="margin-top:16px">순정 내비게이션의 한국어 지원<br>(스마트폰 연동이 안 될 경우)<br>만약 배정받은 차가 구형 모델이거나, 데이터 로밍 문제로 스마트폰 맵을 쓰기 어렵다면 차에 내장된 '순정 내비게이션'을 써야 합니다. 걱정하지 마세요. 이것도 한국어가 됩니다.<br>​<br>• 한국어 메뉴 &amp; 음성: 도요타 렌터카 공식 홈페이지를 통해 예약한 차량은 대부분 다국어 지원 모델입니다. 차를 인수할 때 직원에게 설정 변경을 요청하면 메뉴와 안내 음성이 한국어로 나옵니다.<br>​<br>• 검색의 한계와 해결책: 메뉴는 한국어지만, 목적지를 '한국어 이름'으로 검색하는 것은 취약합니다. 이때 필요한 것이 바로 전화번호와 맵코드입니다. 예전에는 이걸로 다 진행했습니다.<br>​<br>• 전화번호: 골프장의 전화번호 10자리를 꾹꾹 누르면 거의 100프로 정확하게 찾아줍니다.<br>​<br>• 맵코드: 일본 특유의 위치 식별 번호입니다. 라쿠텐 고라 예약 확인서에 보통 적혀 있으며, 전화번호가 없는 장소나 정확한 입구를 찾을 때 매우 유용합니다.</p><p class="article-text" style="margin-top:16px">안전 운전 지원 기능<br>(도요타 세이프티 센스)<br>운전 부심 있는 분들도 우핸들이 처음이면 당황해서 차선을 넘나들거나 앞차와의 거리를 놓치기 쉽습니다. 이때 도요타의 첨단 안전 기능(Toyota Safety Sense)이 든든한 백기사가 되어줍니다.<br>​<br>• 차선 이탈 경고 (LDA): 차선을 살짝만 밟아도 "삐빅" 소리와 함께 핸들에 진동이나 미세한 보정력이 들어옵니다. 좌측통행이 낯설어 자꾸 도로 왼쪽으로 붙으려는 초보자들에게는 생명줄 같은 기능입니다.<br>​<br>• 어댑티브 크루즈 컨트롤 (ACC): 고속도로에서 앞차와의 거리를 유지하며 알아서 속도를 조절해 줍니다. 장거리 소도시 골프 여행에서 오른쪽 발목의 피로도를 획기적으로 줄여줍니다.<br>​<br>• 후방 카메라 &amp; 주차 보조: 일본 골프장의 주차 칸은 한국보다 좁은 경우가 많습니다. 도요타 차량은 기본적으로 후방 카메라 화질이 좋고, 핸들 방향에 따라 가이드라인이 정확하게 움직여 주차 시 큰 도움을 줍니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">미카의 실전 요약 가이드<br>​<br>1. 도요타 렌터카 예약 화면에서 디스플레이 오디오 탑재 차량인지 확인하세요. 이 기능이 있으면 스마트폰 연동이 가능합니다.<br>​<br>2. 성능 좋은 정품 USB 케이블과 에어컨 송풍구에 꽂을 스마트폰 거치대를 하나 챙기세요. 차량 디스플레이를 쓰더라도, 스마트폰 화면을 서브로 켜두면 심리적으로 훨씬 안정됩니다.<br>​<br>3. 내비 설정 요청: 차를 인수하자마자 직원에게 "코리안 셋팅, 플리즈" 라고 당당하게 말씀하세요. 알아서 척척 한국어로 바꿔줍니다.<br>​<br>4. 백업 플랜: 카플레이/안드로이드 오토를 믿되, 만약의 상황을 대비해 방문할 골프장과 숙소의 전화번호는 스마트폰 메모장에 미리 적어두자.<br>​<br>차량쪽으로 내용을 잘 모르신다면, 렌터카 인수후에 절대로 급하다고 빨리 출발하지 마시고, 천천히 하나하나씩 다 챙겨보고 완료되었을시 출발하시기 바랍니다</p>
+          <div class="article-images">
+            <img src="guide-images/img-014.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-015.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">When driving to unfamiliar golf courses in Japan, navigation is everything.</p><p class="article-text" style="margin-top:16px">"I cannot read Japanese at all. What if I get lost?"<br>"Will Korean language support actually work?"</p><p class="article-text" style="margin-top:16px">The answer to both questions: recent Toyota rental vehicles are significantly more foreigner-friendly than most people expect.</p><p class="article-text" style="margin-top:16px">■ Apple CarPlay and Android Auto (the most important feature)</p><p class="article-text" style="margin-top:16px">The simplest solution first. Most recent Toyota models — Corolla, Prius, Yaris Cross, Noah — support Apple CarPlay and Android Auto.</p><p class="article-text" style="margin-top:16px">Why does this matter? Because you never need to touch the Japanese built-in navigation system. Connect your smartphone and the car's display shows the Google Maps you already know how to use.</p><p class="article-text" style="margin-top:16px">If your phone language is set to Korean, every element — menus, place name searches, turn-by-turn voice guidance — comes out in Korean. Works the same with iPhone or Galaxy.</p><p class="article-text" style="margin-top:16px">■ Backup knowledge: Japanese navigation basics</p><p class="article-text" style="margin-top:16px">In case your vehicle is an older model without CarPlay:</p><p class="article-text" style="margin-top:16px">The most reliable search method is phone number search. Search the golf course on Google Maps → find its phone number → enter that number into the car's navigation phone search field → destination set. No Japanese reading required. A phone number gets you anywhere.</p><p class="article-text" style="margin-top:16px">■ Three safety features worth knowing</p><p class="article-text" style="margin-top:16px">① Lane Tracing Assist (LTA): Automatically corrects steering when the car begins to drift from its lane. Useful insurance when adapting to left-side driving.</p><p class="article-text" style="margin-top:16px">② Pre-Collision System (PCS): Detects vehicles and obstacles ahead, applies automatic braking. Significantly reduces rear-end collision risk.</p><p class="article-text" style="margin-top:16px">③ Radar Cruise Control: Maintains a set following distance from the car ahead automatically. Dramatically reduces fatigue on long highway stretches.</p><p class="article-text" style="margin-top:16px">No Japanese reading ability required. One smartphone is all it takes. Navigation is a solved problem before you even leave the airport.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本レンタカー旅行で、見知らぬゴルフ場を目指す時に最も頼りになるのがカーナビゲーションです。</p><p class="article-text" style="margin-top:16px">「日本語が全く読めないけど、道に迷ったらどうしよう？」<br>「韓国語対応はちゃんとできるのか？」</p><p class="article-text" style="margin-top:16px">結論から言います。最近のトヨタレンタカーの車両サポート機能は、外国人旅行者にとって想像以上に親切に進化しています。</p><p class="article-text" style="margin-top:16px">■ Apple CarPlay・Android Auto（最重要ポイント）</p><p class="article-text" style="margin-top:16px">最も確実な解決策から話します。最近のトヨタ新型車（カローラ・プリウス・ヤリスクロス・ノアなど）のほとんどがApple CarPlayとAndroid Autoに対応しています。</p><p class="article-text" style="margin-top:16px">なぜ重要か？複雑な日本語カーナビを操作する必要が一切なくなるからです。スマートフォンを車に接続した瞬間、自動車のディスプレイに普段使い慣れたGoogleマップが表示されます。</p><p class="article-text" style="margin-top:16px">スマートフォンの言語設定が韓国語になっていれば、画面のメニュー・地名検索・「200m先、左折です」という音声案内まで100％韓国語で案内されます。iPhoneでも、Galaxyでも同様です。</p><p class="article-text" style="margin-top:16px">■ 万が一のための知識：日本語カーナビの基本操作</p><p class="article-text" style="margin-top:16px">カーナビが古く、CarPlayに対応していない旧型車に当たった場合のために。</p><p class="article-text" style="margin-top:16px">最も確実な検索方法は「電話番号検索」です。Googleマップでゴルフ場名を検索→ゴルフ場の電話番号を確認→その番号をカーナビの電話番号検索欄に入力→目的地設定完了。日本語が読めなくても電話番号さえあれば、どこにでも辿り着けます。</p><p class="article-text" style="margin-top:16px">■ 知っておくと便利な安全機能3つ</p><p class="article-text" style="margin-top:16px">① レーントレーシングアシスト（LTA）：車線逸脱時にハンドルが自動修正。慣れない左側通行で車線をはみ出しそうになった時の保険。</p><p class="article-text" style="margin-top:16px">② プリクラッシュセーフティ（PCS）：前方の車や障害物を検知して自動ブレーキ。追突リスクを大幅に低減。</p><p class="article-text" style="margin-top:16px">③ レーダークルーズコントロール：前車との車間距離を自動維持。高速道路での長距離移動で疲労を大幅に軽減。</p><p class="article-text" style="margin-top:16px">日本語が読めなくても、スマートフォン1台あれば道に迷う心配はありません。準備さえ整えれば、ナビは完全に解決済みです。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 05</div>
+            <div class="article-title">일본 렌터카, ETC 카드가 '선택'이 아닌 '생존'인 이유</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">일본 렌터카, ETC 카드가 '선택'이 아닌 '생존'인 이유<br>일본 골프 여행을 위해 렌터카를 예약할 때, 많은 분들이 마지막 결제 창에서 멈칫하며 묻습니다.<br>"굳이 고속도로 안 타도 되는데, ETC 카드(하이패스)를 꼭 빌려야 할까요?"<br>결론부터 아주 단호하게 말씀드립니다. 당신이 가는 목적지에 고속도로가 있든 없든, 첫 방문이라면 묻지도 따지지도 말고 일단 '무조건' 빌리십시오. ETC 카드는 단순한 결제 수단이 아닙니다. 초행길 렌터카 운전자들을 지옥에서 구출해 줄 '단돈 330엔짜리 궁극의 리스크 헷지(Risk Hedge) 보험'입니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">구글맵의 배신: "어? 왜 파란불(톨게이트)이 보이지?"<br>한국에서 여행 계획을 세울 때는 누구나 완벽합니다. 구글맵으로 '무료 도로' 코스를 수십 번 시뮬레이션하죠. 하지만 실전은 다릅니다. 운전석 위치도 반대고, 차선도 반대인 낯선 일본 도로에서 식은땀을 흘리며 운전하다 보면, 내비게이션에서 '유료 도로 제외' 버튼을 깜빡하는 실수를 흔하게 저지릅니다. 혹은 헷갈리는 교차로에서 길을 한 번 잘못 들어 나도 모르게 고속도로 진입로로 빨려 들어가는 일은 비일비재합니다.<br>​<br>이때 ETC 카드가 차량에 꽂혀 있다면 가벼운 해프닝으로 끝납니다. 하지만 카드가 없다면? 그 순간부터 여행은 재난 영화로 바뀝니다.</p><p class="article-text" style="margin-top:16px">'ETC 전용' 출구의 공포: 오도가도 못하는 진퇴양난<br>요즘 일본의 고속도로 톨게이트 무인화는 한국보다 훨씬 매섭게 진행 중입니다. 가장 큰 문제는 길을 잘못 들어서 다음 출구(IC)로 빠져나가려 할 때 발생합니다.<br>최근 일본 지방 도로의 출구 중 상당수는 현금 결제가 아예 불가능한 스마트 IC (ETC 전용 출구)로만 운영됩니다. 현금이나 신용카드로 통행료를 내고 싶어도 사람이 없고 정산 기계조차 없습니다.<br>ETC 카드가 없으면 이 출구로 나갈 수가 없으니, 결국 울며 겨자 먹기로 현금 정산소가 있는 다음 톨게이트까지 수 킬로미터를 더 달려야 합니다. 시간은 시간대로 날리고, 살인적인 일본 고속도로 통행료는 눈덩이처럼 불어납니다.</p><p class="article-text" style="margin-top:16px">330엔으로 사는 '완벽한 리스크 헷지'<br>렌터카 예약 시 ETC 카드 대여료는 보통 1회(여행 기간 전체)에 약 330엔~550엔 수준입니다. 커피 한 잔 값도 안 되는 돈이죠.<br>여행 내내 렌터카로 국도만 달려서 ETC 카드를 단 한 번도 쓰지 않았다고 억울해할 필요가 전혀 없습니다. 길을 잃었을 때 발생할 엄청난 통행료 바가지와 멘탈 붕괴, 스케줄 지연을 막아준 '안전핀' 역할을 한 셈이니까요. 이보다 더 완벽한 리스크 헷지는 없습니다.</p><p class="article-text" style="margin-top:16px">생명수 같은 ETC 전용 '자동 할인 혜택'<br>리스크를 막아주는 것을 넘어, ETC 카드는 실제로 오너의 장부를 넉넉하게 만들어주는 훌륭한 재테크 수단이기도 합니다. 일본 고속도로는 오직 'ETC 장착 차량'에게만 다음과 같은 할인을 자동으로 해줍니다.<br>• 주말/공휴일 할인 (약 30%): 토, 일, 공휴일에 지방 고속도로를 이용하면 통행료가 무조건 약 30% 할인됩니다. 이동이 잦은 주말 골퍼들에겐 그야말로 생명수 같은 혜택입니다.<br>• 심야 할인 (약 30%): 자정부터 새벽 4시 사이에 톨게이트를 통과하면 역시 30%가 할인됩니다. 저렴한 새벽 티타임 라운딩을 위해 일찍 숙소를 나서는 부지런한 골퍼들이라면 반드시 챙겨야 할 옵션입니다.</p><p class="article-text" style="margin-top:16px">이용 방법은 너무나 간단합니다.<br>1.        예약 시: 렌터카를 온라인으로 예약할 때, 옵션 선택란에서 ETC 카드 대여를 반드시 체크하세요.<br>2.        운전 시: 렌터카 직원이 차량 단말기에 카드를 꽂아줍니다. 톨게이트를 지날 때 파란색 ETC 전용차로로 시속 20km 이하로 천천히 통과하시면 됩니다.<br>3.        정산 시: 렌터카를 반납할 때, 직원이 칩을 빼서 내역을 조회합니다. 이때 누적된 통행료만 카운터에서 신용카드나 현금으로 일괄 정산하면 끝납니다.</p><p class="article-text" style="margin-top:16px">초행길에 장부는 보수적으로 써라<br>일본 골프 여행에서 렌터카 운전대는 내가 쥐고 있지만, 도로의 변수는 내가 통제할 수 없습니다.<br>렌터카 여행이 처음이시라면, 나의 시간과 멘탈, 그리고 지갑을 완벽하게 방어해 줄 ETC 카드를 반드시 챙겨서 떠나시길 바랍니다!<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-016.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">When booking a Japan golf rental car, many people hesitate at the final payment screen. "Do I really need to rent an ETC card if I might not use the highway?"</p><p class="article-text" style="margin-top:16px">The answer: rent it without question.</p><p class="article-text" style="margin-top:16px">■ Why the ETC card is not optional</p><p class="article-text" style="margin-top:16px">Reason 1: Japanese highways are built around ETC<br>At most interchanges, ETC-only lanes vastly outnumber cash lanes. Without an ETC card, you will find yourself in the wrong lane at the exit, searching for a cash booth while holding up traffic.</p><p class="article-text" style="margin-top:16px">Reason 2: Rural golf courses require highways<br>Golf courses are typically located in the mountains, away from city centers. Routes that appear drivable on surface roads almost always have highway alternatives that Google Maps recommends. Without ETC, you take the detour and lose significant time.</p><p class="article-text" style="margin-top:16px">Reason 3: 330 yen for unlimited peace of mind<br>ETC card rental costs 330 yen. Against the cost of green fees in the tens of thousands of yen, this is noise. The freedom to use any highway route without hesitation is worth multiples of that amount.</p><p class="article-text" style="margin-top:16px">■ How to use the ETC card (extremely simple)</p><p class="article-text" style="margin-top:16px">① At pickup, the staff inserts the ETC card into the in-car unit.<br>② Drive into the ETC lane at the highway entrance. The gate opens automatically.<br>③ At return, the staff reviews your toll history and charges the total to your credit card in one transaction.</p><p class="article-text" style="margin-top:16px">There is no handing over a card at the entrance, no paying cash at the exit. The gate opens and you drive through.</p><p class="article-text" style="margin-top:16px">Do not skip the ETC card to save 330 yen and disrupt the flow of an entire trip. It is the most reliable small investment in Japan golf travel.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本ゴルフ旅行のためにレンタカーを予約する際、最後の決済画面で多くの方が戸惑います。「高速道路を使わないかもしれないのに、ETCカードを借りる必要はあるの？」</p><p class="article-text" style="margin-top:16px">答えは一言。絶対に借りてください。</p><p class="article-text" style="margin-top:16px">■ なぜETCカードは必須なのか</p><p class="article-text" style="margin-top:16px">理由① 日本の高速道路は「ETC専用レーン」が主流<br>多くのインターチェンジでは、一般レーン（現金払い）は数えるほどしかありません。ETC専用レーンの比率が圧倒的に多く、これを知らずに高速に乗ると、出口で焦って一般レーンを探すことになります。</p><p class="article-text" style="margin-top:16px">理由② 田舎道にこそ高速が必要<br>ゴルフ場は往々にして街から離れた山の中にあります。一見「下道で行けそう」に見えても、Googleマップが高速ルートを推奨するケースがほとんど。ETCなしでは迂回ルートを走ることになり、大幅なタイムロスが発生します。</p><p class="article-text" style="margin-top:16px">理由③ 330円で無限の安心を買える<br>ETCカードのレンタル料はわずか330円。コース代の数万円と比べれば誤差の範囲内です。これで高速道路を自由に使えるようになるなら、使わない理由がありません。</p><p class="article-text" style="margin-top:16px">■ ETCの使い方（超簡単）</p><p class="article-text" style="margin-top:16px">① 車を受け取る際、スタッフがETC車載器にカードを挿し込んでくれます。<br>② 高速のETCレーンに進入。バーが自動で上がります。<br>③ 返却時、スタッフが利用履歴を確認し、合計通行料をクレジットカードで一括精算。</p><p class="article-text" style="margin-top:16px">「入り口でカードを出す」「出口で現金を払う」という作業は一切不要です。バーが上がったら通過するだけ。</p><p class="article-text" style="margin-top:16px">ETCカードをケチって旅の動線を乱さないこと。330円は、確実に元が取れる投資です。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 06</div>
+            <div class="article-title">혼자 긁어도 경찰부터 불러라! (도요타 렌터카 사고 대처법)</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">혼자 긁어도 경찰부터 불러라! (도요타 렌터카 사고 대처법)<br>우핸들과 좌측통행. 지레 겁먹을 필요는 없다. 하지만 사고는 늘 가장 방심한 순간, 어이없는 곳에서 터지기 마련이다. 한국식 잣대를 들이댔다가 생돈 수십만 원, 많게는 수백만 원을 허공에 날린다</p><p class="article-text" style="margin-top:16px">"이 정도 살짝 긁힌 건 괜찮겠지?"<br>[사례: 주차장 스크래치 사건]<br>기분 좋게 18홀 라운딩을 마치고 차를 빼던 중이었다. 좁은 주차장 연석에 앞 범퍼가 닿으며 약하게 '찌직' 소리가 났다. 내려서 보니 눈에 띌 듯 말 듯 한 미세한 스크래치다. 한국이었다면 십중팔구 이렇게 생각한다.<br>"렌터카인데 이 정도는 뭐. 닦으면 티도 잘 안 나겠네. 괜히 복잡해지니까 반납할 때 그냥 모른 척 넘어가자." 그리고 쿨하게 시동을 걸고 숙소로 출발한다.<br>​<br>[팩트: 그 행동의 치명적 결과]<br>귀국 당일, 렌터카를 반납하는 순간 지옥문이 열린다. 직원의 눈은 매의 눈이다. 귀신같이 긁힌 자국을 찾아내고는 미소 띤 얼굴로 묻는다.<br>"고객님, 혹시 경찰에 신고하셨습니까?"<br>당연히 안 했다. 직원의 미소는 그대로 유지된 채, 한 장의 청구서가 당신 앞에 놓인다. 차량 수리비 전액 + 휴차 보상료(NOC) 최소 2만 엔~5만 엔. 억울하다고 따져봐야 소용없다. 아무리 비싼 풀커버(안심 플랜) 보험에 가입했어도 결과는 똑같다. 일본 렌터카 시스템의 철칙은 단 하나다. 아무리 작은 스크래치나 혼자 낸 단독 사고라도 경찰의 사고 증명서가 없다면, 당신이 들었던 그 비싼 보험은 그 즉시 휴지 조각으로 돌변한다.</p><p class="article-text" style="margin-top:16px">사고 발생 시 완벽 대처 프로세스<br>(무조건 외우세요)<br>일본은 매뉴얼의 나라입니다. 아무리 작은 흠집, 혼자 전봇대를 박은 단독 사고라도 다음 프로세스를 밟지 않으면 보험 처리가 절대 불가능합니다.<br>​<br>STEP 1. 일단 정지 후, 무조건 경찰(110)에 신고해라<br>• 사람을 쳤든, 차를 박았든, 혼자 벽을 긁었든 차를 세우십시오.<br>• 일본어를 못해도 괜찮습니다. 110번을 누르고 "코리안, 플리즈"라고 하거나 "지코(사고)"라고 말하면 통역이 연결되거나 경찰이 GPS를 찍고 출동합니다.<br>​<br>STEP 2. 렌터카 회사(보험사) 콜센터에 전화해라<br>• 도요타 렌터카 등 대형 업체를 이용했다면 24시간 한국어 지원 콜센터 번호가 서류에 적혀 있습니다. 경찰이 오기 전이나 경찰 조사가 끝난 직후 바로 전화해서 사고 접수를 해야 합니다.<br>​<br>STEP 3. 경찰 사고 처리 및 '사고 증명서' 발급<br>• 경찰이 오면 여권, 국제운전면허증, 렌터카 계약서를 보여줍니다. 경찰이 현장을 확인하고 조서를 꾸밉니다. 이 조서가 있어야 나중에 렌터카 회사에서 보험 처리를 해줍니다.<br>​<br>STEP 4. 안심하고 남은 일정 즐기기 (풀커버일 경우)<br>• 차가 굴러가는 데 문제가 없다면, 남은 여행과 라운딩을 즐기고 반납하면 됩니다. 차가 퍼졌다면 렌터카 회사에서 견인해 가고 대체 차량을 줍니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">도요타 렌터카 보험, '안심 W 플랜'의 진실<br>도요타 렌터카를 예약할 때, 요금제(보험)는 크게 세 단계로 나뉩니다. 여기서 두 번째 단계인 CDW에 속으면 안 됩니다.<br>​<br>1. 기본 요금 (절대 금지)<br>• 팩트: 사고 나면 대물/차량 수리비에 대한 '면책금(본인 부담금)' 5만 엔~10만 엔을 토해내야 하고, 휴차 보상료(NOC) 2만 엔~5만 엔도 따로 내야 합니다. 그냥 무보험이나 다름없습니다.<br>​<br>2. 면책보상제도 / CDW (가장 많이 당하는 함정)<br>• 팩트: 하루 1,100엔 정도를 추가하는 옵션입니다. 사고 시 5~10만 엔 하던 수리비 본인 부담금(면책금)을 '0원'으로 만들어 줍니다.<br>• 함정: 수리비만 안 낼 뿐, 차를 수리하는 동안 도요타가 영업을 못 하는 손실금, 즉 NOC(휴차 보상료) 2만 엔~5만 엔은 고객이 그대로 물어내야 합니다. 주차장 연석에 범퍼를 살짝 긁어도 최소 2만 엔(약 20만 원)이 날아갑니다.<br>​<br>3. 안심 W 플랜 / 풀커버 (첫 방문의 필수 생명줄)<br>• 팩트: 하루 1,650엔 정도를 추가하는 도요타 렌터카의 끝판왕 보험입니다. 수리비 면책금 0원은 기본이고, NOC(휴차 보상료) 2~5만 엔까지 완벽하게 면제해 줍니다.<br>• 플러스 혜택: 골프장 가는 시골길에서 타이어에 못이 박혀 펑크가 나거나, 휠캡을 분실해도 수리비나 타이어 교체 비용을 전액 무료로 보상해 줍니다.<br>​<br>[결론] 하루 500엔(약 4,500원) 차이입니다. 커피 한 잔 값 아끼겠다고 CDW만 들지 마시고, 묻지도 따지지도 말고 무조건 안심 W 플랜을 선택하십시오.<br>​</p><p class="article-text" style="margin-top:16px">"우핸들 운전, 낯선 소도시의 좁은 골프장 진입로. 불안함을 안고 핸들을 잡으면 18홀 내내 멘탈이 흔들립니다. 도요타 렌터카의 안심 W 플랜은 차를 위한 보험이 아니라, 당신의 평화로운 스윙과 멘탈을 지키기 위한 가장 저렴한 입장료입니다.<br>​<br>사고 나면 당황하지 말고<br>​<br>① 110번 경찰<br>② 도요타 한국어 콜센터,<br>​<br>딱 두 가지만 기억하십시오."</p><p class="article-text" style="margin-top:16px">​<br>​<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-017.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-018.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Right-hand drive, left-side traffic. No need to be excessively afraid. But accidents happen at the moment of lowest attention, in the most unexpected places. Apply Korean-instinct responses and you can lose tens of thousands of yen, sometimes far more.</p><p class="article-text" style="margin-top:16px">"This scratch is small enough to ignore."</p><p class="article-text" style="margin-top:16px">That thought is the trap.</p><p class="article-text" style="margin-top:16px">■ The three non-negotiable rules for accidents in Japan</p><p class="article-text" style="margin-top:16px">① Call the police (mandatory, no exceptions)<br>Even for a solo accident with no other party — a parking lot wall scratch, for example — call the police. The officer issues an "accident certificate" (交通事故証明書) that is the foundation of every insurance claim. Without it, no insurance coverage applies, regardless of what plan you purchased.</p><p class="article-text" style="margin-top:16px">② Contact Toyota Rent a Car (mandatory)<br>Call Toyota's emergency line (0800-7000-111). Say: "I was in an accident. I called the police." That is all. Staff will handle everything from there.</p><p class="article-text" style="margin-top:16px">③ Exchange documents only if another party is involved<br>Collect: name, phone number, license plate, and insurance company name. Do not agree to any private settlement. Do not offer cash. Attempting to resolve the situation on the spot is the single most effective way to void your insurance coverage.</p><p class="article-text" style="margin-top:16px">■ What the Anshin W Plan covers</p><p class="article-text" style="margin-top:16px">With full Anshin W Plan enrollment:<br>· Repair costs: covered<br>· NOC (non-operation charge, typically 20,000–50,000 yen per day): covered<br>· Third-party liability: covered</p><p class="article-text" style="margin-top:16px">Call the police, contact the rental company, and your out-of-pocket cost is effectively zero.</p><p class="article-text" style="margin-top:16px">Skip the full-cover plan to save a few thousand yen and a minor scratch becomes a personal bill of tens of thousands. The Anshin W Plan is not expensive. It is the price of actually being covered.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">右ハンドル、左側通行。必要以上に恐れることはありません。しかし事故は、最も油断した瞬間、予想外の場所で起きるものです。韓国式の感覚で対処しようとすると、数万円、場合によっては数十万円を失うことになります。</p><p class="article-text" style="margin-top:16px">「この程度の擦り傷なら大丈夫だろう」</p><p class="article-text" style="margin-top:16px">これが最大の罠です。</p><p class="article-text" style="margin-top:16px">■ 日本の事故対処「鉄の三原則」</p><p class="article-text" style="margin-top:16px">① 警察を呼ぶ（必須・絶対）<br>たとえ相手がいない単独事故（駐車場の壁への接触など）でも、必ず警察を呼んでください。警察が来て「交通事故証明書」を発行してもらうことが、すべての保険処理の出発点になります。この書類なしでは、どんなにしっかりした保険に入っていても補償が受けられません。</p><p class="article-text" style="margin-top:16px">② レンタカー会社に連絡（必須）<br>トヨタレンタカーの緊急連絡先（0800-7000-111）に電話。「事故が起きました。警察を呼びました」と伝えるだけでOK。あとはスタッフが全て指示してくれます。</p><p class="article-text" style="margin-top:16px">③ 相手とは書類のみやり取り（相手がいる場合）<br>名前、電話番号、車のナンバー、任意保険会社名を交換するだけ。「示談」や「現金払い」は絶対にしないこと。その場で解決しようとする行為は、保険が使えなくなる最大のリスクです。</p><p class="article-text" style="margin-top:16px">■ 安心Wプランで何がカバーされるか</p><p class="article-text" style="margin-top:16px">安心Wプラン（NOCフルカバー）に加入していれば：<br>・修理費用：カバー<br>・NOC（休車補償）：カバー（通常1日あたり2万〜5万円）<br>・対人・対物賠償：カバー</p><p class="article-text" style="margin-top:16px">つまり、警察を呼んでレンタカー会社に連絡さえすれば、あとは実質ゼロ円で解決します。</p><p class="article-text" style="margin-top:16px">保険料をケチって安いプランに入った場合、軽い擦り傷でも数万円の自己負担が発生します。「安心Wプランは高い」ではなく「安心Wプランだから安心できる」のです。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">렌터카 · 07</div>
+            <div class="article-title">"방금 나한테 쌍라이트 쏜 거야?" 일본 렌터카, 초보자 멘탈 털리는 3가지 상황</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">"방금 나한테 쌍라이트 쏜 거야?" 일본 렌터카, 초보자 멘탈 털리는 3가지 상황</p><p class="article-text" style="margin-top:16px">우핸들? 와이퍼 켜려다 깜빡이 켜는 실수? 이건 애교다. 무서운 건 핸들의 위치가 아니라, 도로 위 암묵적 룰이다. 한적한 풍경에 취해 방심하다가, 식은땀을 흘리게 되는 진짜 아찔한 순간들이 있었다. 한국 운전 습관으로는 절대 이해 못 할 일본 도로의 팩트 3가지를 이야기해 보겠다.<br>​<br>깜빡이는 장식인가? 심장 덜컹거리는 '닌자 턴'<br>1차선 도로를 여유롭게 달리고 있을 때였다. 앞차가 속도를 줄이지도 않고 가길래 무심코 거리를 따라갔다. 그런데 갑자기 앞차가 브레이크를 콱 밟더니, 깜빡이를 켜는 것과 거의 동시에 로손 편의점 주차장으로 휙 사라져 버렸다. 하마터면 뒤에서 그대로 들이받을 뻔했다.<br>한국은 한참전부터 깜빡이를 켜서 "나 들어갈 거요~" 하고 동네방네 소문을 내지만, 일본은 진입 '직전'에 깜박이를 켠다. 일본은 도로 구조상 아무 곳에서나 좌우회전이 가능한 경우가 많아서, 늦게 켜는 경향이 있다.<br>그러니 일본에서는 앞차가 언제 급정거하며 핸들을 꺾을지 모른다는 생각으로, 무조건 안전거리를 넉넉하게 벌려야 한다. 붙어 가다가는 남의 나라에서 100% 독박 추돌 사고를 낸다.</p><p class="article-text" style="margin-top:16px">감히 중앙선을 넘어? &amp; 쌍라이트의 배신<br>반대편 차로에 기가 막힌 라멘집이 하나 보였다. 그런데 바닥을 보니 떡하니 '빨간색 실선' 중앙선이 그어져 있다. 한국이라면 당연히 직진해서 유턴할 곳을 찾겠지만, 일본에서는 굳이 그럴 필요가 없다.<br>횡단 금지 표지판만 없다면, 실선 중앙선을 넘어 가게로 바로 진입해도된다. 문제는 반대편에서 차가 올 때다. 라멘집에 들어가려고 중앙선에 걸친 채 멈춰 서 있으면 내 뒤로 직진하려는 차들이 좀 있다. 한국이었으면 빵빵거리고 난리가 났겠지만, 일본은 다들 조용히 기다려 준다. 그런데 반대편에서 달려오던 차가 갑자기 나를 향해 하이빔(쌍라이트)을 쏜다.<br>한국식 멘탈로는 "야! 나 지나갈 거니까 대가리 밀어 넣지 마!"라는 강력한 경고다. 하지만 움찔해서 가만히 서 있으면 반대편 차도 가만히 나를 쳐다본다. 그렇다. 일본 도로에서 상대가 쏘는 하이빔은 "내가 멈출 테니 잽싸게 먼저 들어가라"는 최고의 양보 시그널이다. 이 사실을 모르면 도로 한가운데서 서로 길을 막고 눈싸움만 하게 된다. 들어갈때 고개 한번 숙여주면 된다.</p><p class="article-text" style="margin-top:16px">암흑천지가 되는 밤의 고속도로와 시골길<br>가장 곤란하고 피곤한 건 바로 야간 운전이다. 한국의 도로는 어디든 가로등이 대낮처럼 밝혀져 있다. 하지만 일본은 다르다. 번화가나 역 주변을 조금만 벗어나거나 고속도로에 올리면, 가로등이 거의 없어 그야말로 '칠흑 같은 어둠'이 펼쳐진다.<br>게다가 가로등이 없으니 좁은 국도에서는 마주 오는 차들이 기본적으로 하이빔을 켜고 달리는 경우가 엄청나게 많다. (기본 상향이 원칙) 가뜩이나 낯선 초행길인데, 암흑 속에서 갑자기 강렬한 빛이 눈을 때리면 순간적으로 시야가 하얗게 멀어버린다. 나는 빛 번짐에 약하고 난시가 있기에 밤에 운전할때 엄청 피곤하면서 스트레스를 많이 받았다<br>​<br>라운딩 끝났다고 먼 곳까지 차 끌고 맛집 찾아다니지 마라. 해가 지기 전, 렌터카는 무조건 호텔 주차장에 고이 모셔두는 게 상책이다. 저녁과 술은 숙소 근처 도보권에서 해결하는 것이 당신의 안전을 지키는 가장 현명한 팩트다.</p><p class="article-text" style="margin-top:16px">[일본 골프 첫걸음: 골프장편] 일본 골프 예약 플랫폼 총정리 (feat. 초보자는 라쿠텐 고라만 패라)<br>비행기 표를 끊고, 가장 큰 장벽이었던 렌터카 예약까지 무사히 마쳤습니까? 자유여행의 뼈대는 모두 완성되었네요. 이제 남은 건 이 여행의 진짜 목적, 드넓은 일본의 잔디를 밟기 위한 '골프장 예약'입니다.<br>​<br>그런데 막상 검색창을 여는 순간, 기대감은 곧 당혹감으로 바뀝니다. 아코디아? PGM? GDO? 자란넷? 라쿠텐 고라? 한국의 '스마트스코어'나 '카카오골프'처럼 하나로 깔끔하게 통일되어 있으면 좋으련만, 생전 처음 보는 일본의 브랜드와 플랫폼들이 쏟아져 나옵니다. 여기서 길을 잃고 헤매다 "아, 역시 예약은 너무 복잡해"라며 다시 비싼 여행사 패키지를 기웃거리는 초보자들이 수두룩한데, 초보자에게 쓸데없는 시간 낭비와 감정 소모는 질색이다. 첫걸음을 떼는 당신이 왜 다른 곳은 다 무시하고 딱 한 곳만 파야 하는지 냉정하고 직관적으로 팩트체크해 드립니다.</p><p class="article-text" style="margin-top:16px">골프장 프랜차이즈 직접 예약<br>(아코디아, PGM 등)<br>일본에는 무려 2,000개가 넘는 골프장이 있다. 과거 버블 붕괴 때 도산한 골프장들을 통째로 사들여 거대한 프랜차이즈로 만든 기업들이 있는데, 그 양대 산맥이 바로 Accordia와 PGM이다.<br>​<br>최근 PGM의 모회사(헤이와)가 라이벌이던 아코디아를 무려 4조 원대에 인수합병하며 사실상 '한 지붕 한 가족'이 되었다. 하지만 흥미롭게도 합병 후 브랜드는 통합하지 않고, 기존의 '아코디아'와 'PGM' 브랜드를 각각 독립적으로 유지하고 있다. 그 이유는 두 브랜드의 성격이 확연히 다르기 때문이다.<br>​<br>Accordia Golf: 골프계의 패스트푸드<br>• 압도적으로 싸다. 평일 기준 점심밥까지 주는데 6만원이면 치는 곳도 널렸다. 박리다매 수익형이다. 여성우호 골프장이다. 잘 고르면 좋은 골프장도 구할수 있지만, B급 수준의 골프장이 대부분이다. 그래도 한국10만원대 초중반 골프장 수준은 한다<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>PGM : 조금 더 신경 쓴 라이벌<br>• 아코디아보다는 코스나 진행 관리에 예산을 더 쓴다. 특히 이름 앞에 '그랜드 PGM(Grand PGM)'이라는 타이틀이 붙은 구장들은 명문 구장 부럽지 않은 프리미엄 컨디션을 자랑한다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">왜 초보자는 직접 예약을 피해야 하는가?<br>"공식 홈페이지가 제일 싸지 않을까?". 일부 그렇다.운 좋으면 대행 플랫폼보다 몇천 원 더 쌀 때도 있다. 하지만 초보자는 절대 공식 홈페이지를 쳐다보지도 마라.<br>이 사이트들은 철저히 '일본 내국인' 기준이다. 회원가입을 하려면 당신의 이름을 '가타카나'로 변환해서 넣어야 하고, 일본 현지 주소와 우편번호, 심지어 본인 인증이 가능한 일본 전화번호를 요구하기도 한다. 단돈 만 원 아끼려다 번역기 돌려가며 가입 창에서 마우스를 집어 던지게 될 거다. 첫 여행부터 그런 스트레스받을 이유가 없다. 시간이 돈이다</p><p class="article-text" style="margin-top:16px">종합 예약 플랫폼 (GDO, 자란 골프 등)<br>호텔 예약할 때 아고다나 익스피디아를 쓰듯, 골프장도 모아놓고 파는 '플랫폼'이 있다.<br>​<br>GDO: 정보의 과부하<br>• 일본 전통의 1위 골프 포털이다. 예약은 물론이고, 골프채 쇼핑, 레슨, 뉴스까지 다 때려 박아 놨다.<br>• 문제점: 사이트가 너무 무겁다. 밥 먹으러 식당에 갔는데 주방장이 자꾸 골프 잡지 읽으라고 들이미는 격이다. 외국인이 직관적으로 예약 버튼만 찾아 누르기에 화면 UI가 은근히 피곤하다.<br>​<br>자란 골프 : 2% 부족한 디테일<br>• 숙박,렌터카 예약 사이트로 유명한 '자란넷'의 골프 버전이다. 일본 여행을 자주 다녀서 자란넷 포인트가 쏠쏠하게 쌓여있다면 나쁘지 않은 선택이다.<br>• 문제점: 1위 업체들에 비해 등록된 골프장 수가 묘하게 적다. 대도시는 괜찮지만, 우리가 지향하는 소도시의 숨겨진 로컬 구장들을 뒤질 때는 데이터베이스의 한계가 명확하게 드러난다.</p><p class="article-text" style="margin-top:16px">초보자여, '라쿠텐 고라' 하나만 패라<br>앞서 말한 거 다 잊어라. 아코디아가 어떻고 GDO가 어떤지 머릿속에서 포맷해라.<br>당신의 첫 일본 골프 여행, 예약 사이트는 무조건 '라쿠텐 고라(Rakuten GORA)' 딱 하나로 종결한다. 왜 라쿠텐 고라여야만 하는지 명확한 팩트를 제시한다.<br>​<br>1) 압도적인 구장 수와 소도시 최적화<br>일본 전국 1,900여 개의 골프장이 깔려 있다. 대도시 명문 구장은 물론이고, 산속에 숨어있는 가성비 로컬 구장까지 싹 다 잡힌다. 선택지가 많다는 건, 내가 짜둔 렌터카 동선에 딱 맞는 골프장을 고를 확률이 그만큼 높아진다는 뜻이다.<br>​<br>2) 외국인에게 가장 자비로운 UI (크롬 번역의 마법)<br>라쿠텐 고라는 구글 크롬 브라우저의 '한국어 자동 번역'을 켰을 때, 가장 에러 없이 찰떡같이 번역되는 사이트다. GDO처럼 번역기가 엉뚱한 외계어를 뱉어내지 않는다. 날짜, 지역, 가격순 필터링이 한국 사이트 뺨치게 직관적이다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">이것저것 비교한답시고 브라우저 탭 10개씩 띄워놓고 시간 낭비하지 마라. 어차피 플랫폼 간의 골프장 가격 차이는 캔커피 하나 값도 안 난다.<br>가장 쉽고, 가장 크고, 가장 대중적인 곳에서 일단 한 번 예약을 끝내보는 게 중요하다. 한 우물만 파서 라쿠텐 시스템에 완벽하게 익숙해져라. 다른 사이트 기웃거리는 건 일본 골프 10번쯤 다녀온 뒤에 해도 늦지 않다.<br>예약의 뼈대는 다 발라냈다.<br>다음 편에서는 이 라쿠텐 고라에서 외국인 구박 안 받고, 내 입맛에 맞는 꿀 가성비 플랜을 단 10분 만에 예약 확정 짓는 실전 클릭 매뉴얼을 다뤄 보겠다.<br>​<br>골프 예약은 뭐다?<br>‘첫 방문은 라쿠텐고라다 !</p>
+          <div class="article-images">
+            <img src="guide-images/img-019.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-020.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-021.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Right-hand drive? Hitting the wiper when you want the turn signal? That is the beginner tax — everyone pays it and it passes quickly. What actually catches drivers off guard is not the steering wheel position. It is the unspoken rules of Japanese roads. Three situations reliably produce cold sweats.</p><p class="article-text" style="margin-top:16px">■ Situation 1: The car behind you flashes its headlights</p><p class="article-text" style="margin-top:16px">On Japanese national highways and expressways, the passing lane (right lane) is strictly for overtaking. Once you have passed, you return to the driving lane (left lane) immediately.</p><p class="article-text" style="margin-top:16px">Stay in the right lane without actively overtaking and the car behind will flash its headlights. This is not aggression — it is the standard signal for "please move over." In Korea this scenario is less common, but in Japan it is simply how the road works. Move left calmly and the situation resolves instantly.</p><p class="article-text" style="margin-top:16px">■ Situation 2: You pushed through a yellow light and received looks</p><p class="article-text" style="margin-top:16px">In Korea, the yellow light carries an implicit "accelerate" reading for many drivers. In Japan, yellow means stop — if it is safe to do so, you stop. This is not just convention; it is the legal rule.</p><p class="article-text" style="margin-top:16px">Running a yellow light in Japan draws cold looks from surrounding drivers. It also qualifies as a traffic violation and can result in a ticket.</p><p class="article-text" style="margin-top:16px">■ Situation 3: Head-on encounter on a narrow mountain road to the golf course</p><p class="article-text" style="margin-top:16px">Roads leading to rural golf courses frequently narrow to 1.5-lane width. When two cars meet head-on, one must reverse to a wider section.</p><p class="article-text" style="margin-top:16px">The basic convention: the downhill vehicle waits, the uphill vehicle advances. In practice, whoever can reach a wider section faster goes first. No frustration required. Back up slowly, smile if the windows are open, and the other driver — who has done this many times — will handle the rest.</p><p class="article-text" style="margin-top:16px">Know these three situations and the probability of serious trouble on Japanese roads drops to near zero. More than the mechanics of driving, understanding road culture is the real preparation for a Japan golf self-trip.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">右ハンドル？ウインカーを出そうとしてワイパーを動かす失敗？これは序の口です。本当に怖いのはハンドルの位置ではなく、道路上の暗黙のルールです。のどかな風景に気を取られて油断した瞬間、冷や汗をかくことになる3つの場面があります。</p><p class="article-text" style="margin-top:16px">■ 場面① 後ろからパッシング（ヘッドライト点滅）された！</p><p class="article-text" style="margin-top:16px">日本の幹線道路や高速道路では「追越車線（右車線）は追い越す時だけ使う」が鉄則です。追い越し終わったら速やかに走行車線（左車線）に戻らなければなりません。</p><p class="article-text" style="margin-top:16px">知らずに追越車線をのんびり走っていると、後ろの車からパッシング（ヘッドライトを連続点滅）が飛んできます。「どけ」という合図です。</p><p class="article-text" style="margin-top:16px">韓国では考えにくいシチュエーションですが、日本では当然のマナー。パッシングされたら慌てず、速やかに左車線に移れば問題ありません。</p><p class="article-text" style="margin-top:16px">■ 場面② 黄色信号で突っ込んだら睨まれた</p><p class="article-text" style="margin-top:16px">韓国では黄色信号は「急げ」のサイン、という感覚の方も多いかと思いますが、日本では黄色信号は「止まれ」です。安全に停止できる場合は必ず止まる。これが日本の交通ルールです。</p><p class="article-text" style="margin-top:16px">黄色信号を無視して交差点に突っ込むと、周囲のドライバーから冷たい視線を浴びます。それどころか、信号無視として取り締まりの対象にもなります。</p><p class="article-text" style="margin-top:16px">■ 場面③ ゴルフ場の細い道で対向車と鉢合わせ</p><p class="article-text" style="margin-top:16px">地方のゴルフ場へ向かう山道は、しばしば1.5車線ほどの細い道になります。対向車が来たとき、どちらかが道幅の広いところまでバックしなければなりません。</p><p class="article-text" style="margin-top:16px">基本ルールは「下り側が待つ、上り側が進む」。しかし実際には、どちらが先に広い場所に戻れるかで判断します。焦らず、笑顔でゆっくりバックすればOK。相手も慣れています。</p><p class="article-text" style="margin-top:16px">この3つさえ知っておけば、日本の道路で大きなトラブルに遭う確率は激減します。運転そのものより、道路の文化と慣習を知ることが日本ドライブの本当の準備です。</p></div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- 골프장편 -->
+  <div class="category-section" id="cat-golfcourse">
+    <div class="cat-header">
+      <span class="cat-title">골프장편</span>
+      <span class="cat-count">6 articles</span>
+    </div>
+            <div class="article-list">
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">골프장 · 01</div>
+            <div class="article-title">라쿠텐고라 완벽 회원가입 가이드 (feat. 70세도 따라할수 있는 10분컷 회원가입)</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">라쿠텐고라 완벽 회원가입 가이드 (feat. 70세도 따라할수 있는 10분컷 회원가입)<br> 프로파일 </p><p class="article-text" style="margin-top:16px"> 일본골프 도슨트 MIKA ・ 2026. 4. 19. 9:36<br>URL 복사  통계<br> <br>본문 기타 기능<br>저도 가입한지가 꽤 된지라 기억이 가물가물. 이 글을 쓰기위해서 회원아이디도 새로 파서 6분안에 성공했다<br>제일 중요한건 정확한 팩트니까.. 근데 이렇게 써도 질문하는 분들은 언제나 있기마련이니 ㅎㅎ 그래도 최대한 알기쉽게 정리하겠다. 무조건 따라하시면 된다</p><p class="article-text" style="margin-top:16px">회원가입은<br>라쿠텐 글로벌(Rakuten Global)<br>회원가입을 라쿠텐고라로 안하는 이유가 있다<br>일본어를 쓰지 않아도 된다는 점이다.<br>라쿠텐글로벌과는 통합되어있으니 걱정말라<br>​<br>https://grp01.id.rakuten.co.jp/rms/nid/registfwd<br>​<br>위 링크를 클릭해라. 혹여나 링크가 안되면 구글에서 라쿠텐글로벌 검색하면 된다. 이 매뉴얼을 따라 하기 전 필수 무기가 하나 있다. 스마트폰이든 PC든 브라우저는 무조건 '구글 크롬'을 써라. 크롬의 '한국어 자동 번역' 기능이 켜져 있어야 이 매뉴얼이 작동한다.<br>​<br>자 지금부터 시작한다<br>​<br>모두 다 채울려고 하지말아라. [Required] 라고 된 부분만 채우면 된다 그럼 그게 뭐가 있나?<br>1) 이메일주소<br>2) 이메일주소 리엔터<br>3) 사용자 아이디 (6자이상 영문숫자포함)<br>4) 사용자 패스워드 (6자이상 영문숫자포함)<br>5) 성, 이름 기입<br>6) 생년월일 기입<br>7) 성별기입<br>​<br>이게 1차로 끝이다. [Required]만 반드시 쓴다<br>​<br>  </p><p class="article-text" style="margin-top:16px">  </p><p class="article-text" style="margin-top:16px">  </p><p class="article-text" style="margin-top:16px">회원가입이 완료된다 ( 아직 끝 아니다 )<br>적어둔 이메일로 확인메일이 온다<br>​<br>  </p><p class="article-text" style="margin-top:16px">이거까지 마무리하고, 라쿠텐고라로 넘어간다.<br>라쿠텐고라가서 두가지 더 해야할 사항이 있다<br>아이디, 패스워드를 쓰고 들어가면 추가정보<br>요청한다<br>​<br>여기서 우리를 가장 좌절하게 만드는데 바로 전화번호와 주소를 쓰는데 계속해서 reject를 당하기때문이다</p><p class="article-text" style="margin-top:16px">전화전호와 주소 정보는<br>예약한 호텔, 렌터카회사로 !<br>인증 문자는 오지 않는다. 예약은 '이메일'이 전부다.<br>라쿠텐고라는 이메일과 신용카드만 믿는다 라쿠텐 고라는 한국처럼 스마트폰으로 '인증번호 6자리'를 보내 본인 확인을 하는 시스템이 아니다. 전화번호는 그저 고객 DB를 채우기 위한 형식적인 칸일 뿐이다. 예약 확정 바우처와 취소 안내 등 모든 연락은 오직 가입한 이메일로만 온다. 해결책은 예약한 호텔 또는 렌터카 지점 전화번호를 넣으면 100프로 해결된다. 비짓재팬을 쓰신분들은 우편번호 기입시 주소자동입력을 경험해봤을거다. 라쿠텐에서도 자동기입되며, 나중에 건물만 추가로 입력하면 된다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">오늘은 키워드<br>​<br>회원가입은 라쿠텐글로벌로 간단하게,<br>정보기입은 Required 된것만,<br>전화번호와 주소는 일본호텔이나 렌터카회사로</p><p class="article-text" style="margin-top:16px">​</p>
+          <div class="article-images">
+            <img src="guide-images/img-022.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-023.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-024.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-025.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-026.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">I registered Rakuten GORA a long time ago, so I created a brand-new account specifically for this article to verify the process. Completed in under 6 minutes.</p><p class="article-text" style="margin-top:16px">■ Register through Rakuten Global, not Rakuten GORA</p><p class="article-text" style="margin-top:16px">The reason: you can complete the process without reading Japanese. Rakuten Global and Rakuten GORA share the same account system.</p><p class="article-text" style="margin-top:16px">Registration link: https://grp01.id.rakuten.co.jp/rms/nid/registfwd</p><p class="article-text" style="margin-top:16px">One non-negotiable requirement before starting: use Google Chrome as your browser. Chrome's automatic translation feature must be active for this process to work.</p><p class="article-text" style="margin-top:16px">■ Step 1: Required fields only</p><p class="article-text" style="margin-top:16px">Do not try to fill in every field. Only complete items marked "Required":</p><p class="article-text" style="margin-top:16px">1) Email address<br>2) Email address (re-enter)<br>3) User ID (6+ characters, letters and numbers)<br>4) Password (6+ characters, letters and numbers)<br>5) First and last name<br>6) Date of birth<br>7) Gender</p><p class="article-text" style="margin-top:16px">That completes the first stage.</p><p class="article-text" style="margin-top:16px">After submitting, a confirmation email arrives at the address you provided. Click the link in that email, then proceed to Rakuten GORA.</p><p class="article-text" style="margin-top:16px">■ Phone number and address: the common sticking point</p><p class="article-text" style="margin-top:16px">This is where most people get stuck. The phone number and address fields keep rejecting Korean inputs.</p><p class="article-text" style="margin-top:16px">The solution is straightforward: enter the phone number of your booked hotel or rental car company. No verification SMS will be sent. Rakuten GORA communicates exclusively by email. For the address, use the hotel or rental car company's Japanese address. This passes 100% of the time.</p><p class="article-text" style="margin-top:16px">■ Today's key points</p><p class="article-text" style="margin-top:16px">Register through Rakuten Global. Fill in Required fields only. Use a Japanese hotel or rental car company's phone number and address.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">私自身、登録してからかなり経つので記憶が薄れていました。この記事を書くために新しいIDを作り直し、6分以内に完了することを確認しました。</p><p class="article-text" style="margin-top:16px">■ 会員登録は「楽天グローバル」から</p><p class="article-text" style="margin-top:16px">楽天GORAではなく楽天グローバルで登録する理由がひとつあります。日本語を使わなくていいからです。楽天グローバルと楽天GORAはアカウントが統合されているので安心してください。</p><p class="article-text" style="margin-top:16px">登録リンク：https://grp01.id.rakuten.co.jp/rms/nid/registfwd</p><p class="article-text" style="margin-top:16px">このマニュアルを実行する前に、必ず守ることが一つあります。スマートフォンでもPCでも、ブラウザは必ず「Google Chrome」を使ってください。Chromeの「自動翻訳機能」が有効になっていることが前提です。</p><p class="article-text" style="margin-top:16px">■ ステップ1：入力項目</p><p class="article-text" style="margin-top:16px">全部埋めようとしないでください。「Required（必須）」の項目だけ入力すれば完了です。</p><p class="article-text" style="margin-top:16px">1）メールアドレス<br>2）メールアドレス（確認）<br>3）ユーザーID（6文字以上、英数字）<br>4）パスワード（6文字以上、英数字）<br>5）姓名<br>6）生年月日<br>7）性別</p><p class="article-text" style="margin-top:16px">これで1次登録は完了です。</p><p class="article-text" style="margin-top:16px">登録完了後、入力したメールアドレスに確認メールが届きます。メール内のリンクをクリックしてから楽天GORAに移動してください。</p><p class="article-text" style="margin-top:16px">■ GORAで電話番号・住所を入力する際の注意点</p><p class="article-text" style="margin-top:16px">ここで多くの方が躓きます。電話番号と住所を入力しても「拒否」され続けるからです。</p><p class="article-text" style="margin-top:16px">解決策は簡単です。電話番号には予約したホテルまたはレンタカー会社の番号を入力してください。認証SMSは届きません。楽天GORAの連絡手段はメールだけです。住所も日本のホテルまたはレンタカー会社の住所を入力すれば100%通ります。</p><p class="article-text" style="margin-top:16px">■ 本日のキーワード</p><p class="article-text" style="margin-top:16px">会員登録は楽天グローバルでシンプルに。入力はRequiredのみ。電話番号と住所は日本のホテルかレンタカー会社のものを使用。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">골프장 · 02</div>
+            <div class="article-title">라쿠텐 고라로 일본 골프 예약하기 1탄: 체크박스 이해하기</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">라쿠텐 고라로 일본 골프 예약하기 1탄: 체크박스 이해하기<br>일단 일본어로 되어있는걸 한국어로 변환해라<br>제일 먼저 우리가 맞닿은 곳은 여기다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>에어리어(지역) &amp; 경기일(날짜): 기본 중의 기본. 여기서 여행지 선택하지 말자. 비행기 예약후 선택.<br>• 플레이 요금: 체크 굳이 필요없다.<br>• 출발 시간: 일간 일본골프의 스탠다드, 점심포함까지의 플레이를 권한다.</p><p class="article-text" style="margin-top:16px">위의 것이 마무리되면, 검색 필터를 해야한다. 사실 초보때는 안해도 그만이지만, 그래도 해두면 원하는<br>내용만 나오는지라 선택이 빨라지는 장점은 있다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>예를 들어보자. 부부 2명 플레이 예정이다. 체크박스에서 가장 중요한게 뭘까? 2명 추가금액없음? 2명보증? 결국 2명이 칠수 있는지 여부다. 근데 일단 쳐야하니 그냥 2인보증이 제일 중요하다.<br>2인보증안에 다양한 플랜이 있을거다. 아님 한가지만 있을수도 있고.. 점심포함 시킬건지? 스루플레이(18홀 쉬지않고 플레이) ? 를 할건지는 골프장이 결정한다<br>시간 남는 분들은 이것도 저것도 다 시도해봐라. 결국 다 자기것으로 되는거니까, 추후 일본이 더 수월해진다<br>  </p><p class="article-text" style="margin-top:16px">돋보기표시의 주황색 검색하다 글씨를 누르고 들어가면.. 지역, 날짜, 원하는 내용이 아래와같이 필터링되어서 필요한 내용만 나온다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>종류가 다양하다.<br>접객, 설비, 식사, 가성비, 코스유지보수등에 따라서 제일 인기있는것이 앞페이지에 리스트업된다<br>​<br>다만, 리스트업의 맨위쪽은 항상 [PR]이 위치하니 이건 거르기 바란다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>그렇다면 일본 처음 가는 사람들은 뭘 클릭해야하나?<br>​<br>1. 가장 안전한 정답: '종합 평점이 높은 순'<br>일본 골퍼들의 리뷰 평점은 한국보다 훨씬 냉정하고 짜다. 여기서 '종합 평점 4.0 이상'을 유지하는 구장이라면 코스 관리, 식사 퀄리티, 직원의 접객 태도까지 이미 수만 명에게 검증이 끝났다는 뜻이다.<br>어디를 가야 할지 전혀 모르겠다면, '종합 평점이 높은 순'으로 정렬한 뒤 맨 위에서부터 내 예산과 동선에 맞는 구장을 골라 담으면 실패할 확률은 0%에 수렴한다.<br>​<br>2. 한국인 맞춤형 치트키: '[페어웨이] 넓은 순'<br>이건 일본 산악 지형을 뼈저리게 겪어본 사람만 아는 고급 정렬 기능이다. 일본 로컬 구장들은 산을 깎아 만든 곳이 많아 페어웨이가 개미허리처럼 좁고, OB 구역이 타이트한 곳이 수두룩하다. 한국에서 치던 대로 드라이버를 휘둘렀다가 전반에만 공 10개를 잃어버리고 멘탈이 바사삭 부서지는 한국인들이 태반이다.<br>​<br>첫 일본 원정에서 스코어를 방어하고 스트레스 없는 힐링 골프를 원한다면, 주저 없이 '[페어웨이] 넓은 순'을 선택해라. 탁 트인 평지형 코스들이 우선적으로 리스트업 될 것이다.<br>​<br>페어웨이냐? 종합평점이냐? 둘중에 하나 선택후 서칭후 여러개중에서 원하는 골프장 클릭해서 예약하면된다. 예약완료까지의 상황이 남아있는데, 이건 다음회차에 따로 설명하겠다.</p><p class="article-text" style="margin-top:16px">오늘의 키워드<br>예약에 필요한 체크박스를 제대로 활용하자 !</p>
+          <div class="article-images">
+            <img src="guide-images/img-027.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-028.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-029.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-030.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Start by setting the site to display in your preferred language using Chrome's translation feature.</p><p class="article-text" style="margin-top:16px">The first screen you encounter is the search interface.</p><p class="article-text" style="margin-top:16px">· Area and date: the basics. Set these after booking flights.<br>· Play fee: no need to filter.<br>· Start time: select time slots that include a lunch plan.</p><p class="article-text" style="margin-top:16px">Search filters:</p><p class="article-text" style="margin-top:16px">For example, if two people are playing, what is the most important checkbox? "No surcharge for 2 players"? "2-player guaranteed"? The answer: being able to play at all is the priority. "2-player guaranteed" is the essential filter.</p><p class="article-text" style="margin-top:16px">■ How to sort search results</p><p class="article-text" style="margin-top:16px">Two recommended approaches for beginners:</p><p class="article-text" style="margin-top:16px">① "Sort by overall rating (high to low)" — the safest choice<br>Japanese golfer reviews are significantly more critical than Korean equivalents. A course maintaining a 4.0+ overall rating has already been verified by tens of thousands of players across course maintenance, food quality, and staff service. If you have no other criteria, sort by overall rating and work from the top down. The failure rate approaches zero.</p><p class="article-text" style="margin-top:16px">② The insider filter for Korean golfers: "Sort by fairway width (wide to narrow)"<br>Many Japanese local courses were carved into mountain terrain. Fairways are often extremely narrow. Playing with the same swing tempo as a Korean course can result in losing ten balls in the front nine. If you want to protect your score, sort by fairway width.</p><p class="article-text" style="margin-top:16px">Pick one — fairway width or overall rating — filter by that criterion, and click through to book your selected course. The booking completion process will be covered in the next article.</p><p class="article-text" style="margin-top:16px">■ Today's key point</p><p class="article-text" style="margin-top:16px">Use the search filters correctly to find the right course for your first round.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">まず、日本語表示を韓国語（または英語）に翻訳しておいてください。</p><p class="article-text" style="margin-top:16px">最初に目にするのが検索画面です。</p><p class="article-text" style="margin-top:16px">・エリア（地域）と競技日（日付）：基本中の基本。フライト予約後に決定すること。<br>・プレー料金：チェック不要。<br>・出発時間：昼食込みのプランを含む時間帯がおすすめ。</p><p class="article-text" style="margin-top:16px">検索フィルターの活用：</p><p class="article-text" style="margin-top:16px">たとえば夫婦2名でプレー予定の場合、チェックボックスで最も重要なのは何でしょうか。「2名割増なし」？「2名保証」？結論として、プレーできるかどうかが最優先なので「2名保証」が一番重要です。</p><p class="article-text" style="margin-top:16px">■ 検索結果の並び替え方</p><p class="article-text" style="margin-top:16px">初心者へのおすすめは2つ。</p><p class="article-text" style="margin-top:16px">① 「総合評点が高い順」が最も安全<br>日本のゴルファーのレビューは韓国より格段に辛口です。「総合評点4.0以上」を維持しているコースは、コース管理・食事の質・スタッフの接客に至るまで、数万人に検証済みということ。どこを選べばいいかわからなければ、「総合評点が高い順」で並び替えて上から順に予算と動線に合う場所を選べば失敗確率はほぼゼロです。</p><p class="article-text" style="margin-top:16px">② 韓国人向けの裏技：「フェアウェイが広い順」<br>日本の地方コースは山を削って作ったものが多く、フェアウェイが非常に狭い場所が多数あります。韓国でのペースでドライバーを振って前半だけでボール10個失うケースも珍しくありません。スコアを守りたいなら「フェアウェイが広い順」を選択してください。</p><p class="article-text" style="margin-top:16px">「フェアウェイ優先」か「総合評点優先」か、どちらかで絞り込んでから希望のゴルフ場をクリックして予約してください。予約完了までの流れは次回の記事で説明します。</p><p class="article-text" style="margin-top:16px">■ 本日のキーワード</p><p class="article-text" style="margin-top:16px">予約に必要なチェックボックスを正しく活用しよう！</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">골프장 · 03</div>
+            <div class="article-title">실패 확률 제로! 라쿠텐 고라 '가성비 골프장' 고르는 4가지 철칙</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">실패 확률 제로! 라쿠텐 고라 '가성비 골프장' 고르는 4가지 철칙</p><p class="article-text" style="margin-top:16px">라쿠텐 고라에 접속해 수십, 수백 개의 구장 리스트를 보다 보면 서서히 눈이 돌아간다. "기왕 비행기 타고 일본까지 가는 거, 무조건 제일 비싸고 좋은 명문 구장으로 가야지!" 초보자들이 가장 많이 빠지는 착각이다.<br>​<br>팩트부터 때려 박는다. 일본은 어딜 골라도 기본 이상은 한다. 첫 일본 원정에서 골프장 선택에 실패할 확률은 30% 미만이다. 첫술에 배부르려 하지 마라. 첫 단추를 가장 현명하게 끼우는 구장 선택의 기술을 냉정하게 팩트체크해 드린다.</p><p class="article-text" style="margin-top:16px">라쿠텐 고라 실패 없는<br>골프장 픽(Pick) 노하우<br>초보자의 스위트스팟: 평점 3.8~4.2 / 요금 6~8천 엔<br>처음부터 1만 5천 엔이 넘어가는 구장, 평점 4.5 이상의 최상급 구장을 고집할 필요가 전혀 없다. 초보자의 첫 일본 구장은 평점 3.8에서 4.2 사이, 6,000엔~8,000엔대가 가장 무난하고 완벽한 타겟이다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>이 정도면 한국의 'B급 퍼블릭 구장' 정도의 컨디션보다 좀 나은수준이다. "에이, 기껏 일본 갔는데 B급?"이라고 실망할 필요 없다. 그 가격에 잔디 밟고, 카트 몰고, 밥까지 먹는다는 사실 자체가 이미 한국에서는 상상할 수 없는 'A급 가성비'다. 좋은 구장은 이번에 시스템을 익힌 뒤, 다음 여행부터 차고 넘치게 갈 수 있다.<br>​<br>평점 맹신 금지: '손품' 파는 자가 스코어를 지킨다<br>최근 라쿠텐 고라의 평점이 약간 들쭉날쭉한 경향이 있다. 4.0이라고 무작정 믿고 결제 버튼을 누르지 마라. 돈은 아껴도 시간과 노력은 아끼면 안 된다. 번역기를 돌려서라도 일본인들의 최근 리뷰를 읽어봐야 한다. "그린이 파였다", "진행이 너무 밀린다" 같은 생생한 현장 반응을 체크해라. 그리고 골프장 상세 페이지에서 제공하는 코스 레이아웃(맵)을 훑어보며 페어웨이가 너무 좁지 않은지, 도그렉이나 해저드가 너무 많지 않은지 미리 파악하는 노력은 필수다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>독박 예약을 피해라 (동반자 할당제)<br>이건 골프장 컨디션보다 더 중요한 '여행의 멘탈'을 위한 팩트다. 여행 총무를 맡았다고 3~4일 치 라운딩을 혼자서 다 고르지 마라. 무조건 동반자들에게 구장을 하나씩 의무적으로 고르게 만들어라.<br>• 이유 1 (뒷말 방지): 혼자 다 골랐다가 하루라도 구장 상태가 안 좋으면 모든 원망을 독박 쓴다. 본인이 고른 구장이면 불평 없이 치게 되어 있다.<br>• 이유 2 (최고의 안주거리): 저녁 뒷풀이 이자카야에서 나오는 얘기의 9할은 그날 쳤던 골프장 이야기다. "네가 고른 구장은 벙커가 왜 그따위냐", "내가 고른 곳 뷰가 예술이지 않았냐" 하며 동반자들이 직접 선택 과정에 참여했을 때 여행의 만족도와 이야깃거리가 폭발적으로 늘어난다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>문화 체험의 진리: '점심 포함 플랜'은 필수다<br>스루 플레이(쉬지 않고 18홀)가 시간 아끼고 좋은 것 같지만, 첫 방문이라면 일정 중 최소 하루 정도는 무조건 '점심 식사 포함 플랜을 선택하길 강력히 권한다.<br>전반 9홀을 마치고 클럽하우스 식당에 앉아 동반자들과 시원한 나마비루(생맥주) 한 잔에 퀄리티 높은 덮밥이나 소바를 먹어봐야 한다. 이게 바로 한국 골프장에서는 쫓기듯 먹어야 했던 밥을 여유롭게 즐기는, '진짜 일본 골프의 맛'을 제대로 느끼는 순간이다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>결론을 요약한다.<br>첫 일본 골프의 목적은 '최고급 잔디'가 아니라 '새로운 시스템 적응과 힐링'이다. 6~8천 엔대 구장들을 동반자들과 사이좋게 하나씩 나눠서 고르고, 점심에 생맥주 한 잔 부딪히는 로망을 실현해라. 그것만으로도 당신의 첫 원정은 120점짜리 여행이 될 것이다.<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-031.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-032.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-033.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Browsing hundreds of courses on Rakuten GORA produces a predictable thought: "I flew all the way to Japan — I need to go to the most prestigious, most expensive course available." This is the most common beginner mistake.</p><p class="article-text" style="margin-top:16px">The fact: Japan does not have bad golf courses at standard price points. The probability of selecting a genuinely disappointing course on a first Japan trip is under 30%. Stop trying to start at the top.</p><p class="article-text" style="margin-top:16px">■ Rule 1: The beginner's sweet spot — rating 3.8–4.2, fee 6,000–8,000 yen</p><p class="article-text" style="margin-top:16px">There is no reason to insist on courses over 15,000 yen or ratings above 4.5 from the beginning. The optimal target for a first Japan round is a course rated 3.8–4.2 with fees between 6,000 and 8,000 yen.</p><p class="article-text" style="margin-top:16px">"This sounds like a B-grade course for a trip to Japan." Not correct. Playing on manicured fairways, using a cart, and having lunch included at this price point is something Korean golf pricing makes entirely impossible. That is A-grade value.</p><p class="article-text" style="margin-top:16px">■ Rule 2: Do not blindly trust ratings — read the recent reviews</p><p class="article-text" style="margin-top:16px">Rakuten GORA ratings have become somewhat inconsistent. Do not confirm payment based on the number alone. Use a translation tool and read recent Japanese reviews. Look specifically for comments like "the greens were in poor condition" or "pace of play was very slow." This research takes five minutes and prevents hours of frustration.</p><p class="article-text" style="margin-top:16px">■ Rule 3: Do not book all the rounds yourself</p><p class="article-text" style="margin-top:16px">Do not select every course for a 3–4 day trip alone. Assign one round to each person in the group.</p><p class="article-text" style="margin-top:16px">Reason 1 (eliminate complaints): if you booked everything and one course disappoints, all frustration lands on you. When each person picks their own course, they own the outcome.</p><p class="article-text" style="margin-top:16px">Reason 2 (the best dinner conversation): the evening izakaya will be entirely about that day's golf. "The bunkers at your course were a disaster." "The view at mine was unbelievable." Group involvement in the selection process multiplies satisfaction and stories.</p><p class="article-text" style="margin-top:16px">■ Rule 4: The lunch plan is a mandatory cultural experience</p><p class="article-text" style="margin-top:16px">Skipping lunch for an uninterrupted 18 holes sounds efficient. For the first trip, select the lunch plan at least one day.</p><p class="article-text" style="margin-top:16px">Sit in the clubhouse restaurant after the front nine. Order a cold draft beer. Eat a bowl of soba or a donburi. This is what Japanese golf actually is.</p><p class="article-text" style="margin-top:16px">■ Summary</p><p class="article-text" style="margin-top:16px">The goal of the first Japan golf trip is not the finest turf in the country. It is adapting to a new system and enjoying the experience. Find a 6,000–8,000 yen course, split the selection among your group, and have a beer with lunch. That formula makes any first trip a 120-point success.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">楽天GORAで何十、何百ものコースリストを眺めていると、こんな思考に陥ります。「せっかく飛行機に乗って日本まで来たんだから、一番高くて格式ある名門コースに行かなきゃ！」これが初心者が最もよく犯す誤りです。</p><p class="article-text" style="margin-top:16px">まずファクトを叩きつけます。日本はどこを選んでも基本水準以上です。初めての日本遠征でゴルフ場の選択に失敗する確率は30%未満。最初から完璧を求めないでください。最初のボタンを最も賢く留める、コース選択の技術を冷静にファクトチェックします。</p><p class="article-text" style="margin-top:16px">■ 鉄則1：初心者のスイートスポット：評点3.8〜4.2 / 料金6,000〜8,000円</p><p class="article-text" style="margin-top:16px">最初から1万5千円超のコースや評点4.5以上の最上級コースにこだわる必要はまったくありません。初心者の最初の日本コースは評点3.8〜4.2、6,000〜8,000円帯が最も無難で完璧なターゲットです。</p><p class="article-text" style="margin-top:16px">「せっかく日本に来たのにB級？」と思わないでください。その価格で芝を踏み、カートに乗り、ランチまで食べられるという事実自体が、韓国では想像できない「A級コスパ」なのです。</p><p class="article-text" style="margin-top:16px">■ 鉄則2：評点を맹신しない：「手間」をかけた者がスコアを守る</p><p class="article-text" style="margin-top:16px">最近、楽天GORAの評点は若干ばらつきがあります。4.0だからと即決済しないでください。翻訳ツールを使ってでも、日本人の最近のレビューを読んでください。「グリーンが荒れていた」「進行が詰まる」といったリアルな現場反応を確認することが必須です。</p><p class="article-text" style="margin-top:16px">■ 鉄則3：独り占め予約を避けろ（同行者割当制）</p><p class="article-text" style="margin-top:16px">旅行の幹事だからといって3〜4日分のラウンドをひとりで全部選ばないでください。必ず同行者に1コースずつ義務的に選ばせてください。</p><p class="article-text" style="margin-top:16px">理由1（後の文句防止）：全部ひとりで選んで、1日でもコンディションが悪かったら全員の不満を一人で引き受けます。自分で選んだコースなら文句も出ません。</p><p class="article-text" style="margin-top:16px">理由2（最高の酒の肴）：夜のイザカヤでの話題の9割は、その日のゴルフ場の話です。「お前が選んだコース、バンカーはなんだあれ」「俺が選んだところの景色は最高だったろ」と、同行者が選択に参加したときの旅の満足度と話題量は爆発的に増えます。</p><p class="article-text" style="margin-top:16px">■ 鉄則4：「ランチ込みプラン」は必須の文化体験</p><p class="article-text" style="margin-top:16px">スルーで18ホール回るのが時間節約になるようで、初回は少なくとも1日だけでも必ず「ランチ付きプラン」を選んでください。</p><p class="article-text" style="margin-top:16px">前半9ホールを終えてクラブハウスのレストランに座り、同行者と冷えた生ビール一杯に丼やそばを食べる。これが日本ゴルフの「本当の味」です。</p><p class="article-text" style="margin-top:16px">■ まとめ</p><p class="article-text" style="margin-top:16px">最初の日本ゴルフの目的は「最高の芝」ではなく「新しいシステムへの適応とヒーリング」です。6,000〜8,000円帯のコースを同行者と分担して選び、ランチにビールを一杯。それだけで最初の遠征は120点の旅になります。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">골프장 · 04</div>
+            <div class="article-title">어글리 코리안은 사절합니다. 일본 골프 핵심 매너 7선!</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">어글리 코리안은 사절합니다. 일본 골프 핵심 매너 7선!<br>단카이 세대(일본의 베이비붐 세대)가 은퇴하면서 깐깐하고 보수적이던 일본 클럽하우스의 분위기도 조금씩 캐주얼하게 변하고 있다. 한여름에는 재킷 착용을 면제해 주는 곳도 많아졌다. 하지만 '분위기'가 부드러워졌다고 '기본기'까지 사라진 건 아니다. 특히 한국인 단체 골퍼들이 몰려오면서 현지 구장들의 경계심이 꽤 높아진 상태다. 100% 노캐디 시스템에서 당신의 품격과 매너를 보여줄, 절대 타협 불가능한 7가지를 냉정하게 팩트체크한다.</p><p class="article-text" style="margin-top:16px">이것만은 제발 지키자:<br>일본 골프 핵심 매너 7선<br>1. 티오프 시간이 아니라 '도착 시간'을 지켜라<br>라쿠텐 고라 예약 내역을 보면 티오프 시간 외에 골프장에서 요구하는 '체크인(도착) 시간'이 명시되어 있다. 보통 티오프 30~40분 전이다. 노캐디 시스템에서는 플레이어가 직접 카트에 짐을 싣고 코스로 이동해야 한다. 늦게 도착해 허둥지둥하면 뒤 팀의 하루 일정을 도미노처럼 망가뜨린다. 외국인일수록 이 시간 약속은 칼<br>같이 지켜야 한다.<br>  </p><p class="article-text" style="margin-top:16px">2. 한국에서 보기 흉한 옷은, 일본에서도 흉하다<br>드레스 코드가 완화되었다고 해서 등산복이나 깃 없는 티셔츠, 카고 바지, 슬리퍼 끌고 클럽하우스에 들어와도 된다는 뜻이 아니다. 골프장에서 요청하는 복장 규정이 있다면 무조건 따라라. 명문 구장일수록 아직도 반바지 착용 시 무릎까지 오는 니삭스를 요구하는 곳이 있다. 상식선에서 깔끔하게 입어라.<br>  </p><p class="article-text" style="margin-top:16px">3. 식당에서 모자 좀 벗어라 (그리고 제발 쉿!)<br>일본 골프장 직원들이 꼽는 한국인 진상 매너 1위다. 전반전을 마치고 클럽하우스 레스토랑에 들어갈 때는 반드시 모자를 벗어서 손에 들거나 의자에 걸어둬야 한다. 땀에 전 모자를 쓴 채로 밥을 먹는 건 일본에서 상상 초월의 비매너다. 특히 3~4팀씩 온 단체팀들, 식당에서 테이블 넘나들며 큰 소리로 떠들고 건배사 하지 마라. 여긴 한국의 고깃집이 아니다. 주변 일본인들의 불편한 시선이 꽂히는 걸 느끼기 싫다면 목소리 볼륨을 절반으로 줄여라.<br>  </p><p class="article-text" style="margin-top:16px">4. 앞 팀 뒷통수에 대고 치지 마라 (feat. 남의 공 터치 금지)<br>노캐디의 가장 큰 위험은 '타구 사고'다. 앞 팀 카트가 안전거리 밖으로 완전히 벗어난 것을 육안으로, 혹은 GPS 패드로 반드시 확인하고 샷을 해라. 장타자라면 특히 더 보수적으로 거리를 계산해야 한다. 필드에 떨어져 있는 '로스트볼'은 절대 줍지 마라. 옆 홀에서 넘어온 다른 플레이어의 공일 확률이 높다. 남의 공을 건드리는 건 일본 골프에서 가장 치욕스러운 룰 위반 중 하나다. 내 공 아니면 쳐다보지도 마라.<br>  </p><p class="article-text" style="margin-top:16px">5. 골프백 네임택은 '영문+한자'가 생명줄이다<br>한국처럼 캐디가 카트에 백을 척척 실어주는 게 아니다. 내가 직접 백 드롭에 내린 가방을 직원들이 카트 번호에 맞춰 배정한다. 네임택에 한글만 달랑 적혀있으면 대참사가 일어난다. 직원이 이름을 못 읽어서 내 백이 미아 상태로 방치된다. 특히 코스가 36홀, 54홀씩 되는 대형 리조트 구장에서는 내 가방이 어느 코스 카트에 쳐박혀 있을지 아무도 모른다. 반드시 여권 영문명과 한자가 병기된 네임택을 달아라.</p><p class="article-text" style="margin-top:16px">6. 라커 앞에서 팬티 바람으로 돌아다니지 마라<br>한국 골퍼들이 가장 많이 하는 치명적인 실수다. 라운딩 후 라커룸을 열고 거기서 훌렁훌렁 옷을 벗고 알몸으로 대욕장까지 걸어가는 문화는 한국에만 있다.일본의 라커룸은 짐만 보관하는 곳이다. 라커에서는 갈아입을 속옷과 옷을 가방이나 파우치에 챙겨서 '대욕장 탈의실(바구니 있는 곳)'까지 입고 간 뒤, 거기서 옷을 벗어야 한다. 라커룸 복도에서 맨살을 드러내는 건 굉장한 실례다.<br>  </p><p class="article-text" style="margin-top:16px">7. 내 똥은 내가 치운다 (노캐디의 기본)<br>캐디가 벙커 정리해주고, 디봇에 모래 채워주던 온실 속 화초 마인드는 버려라. 파3 티샷 후 파인 자국(디봇)은 옆에 비치된 모래(모래통)로 반드시 덮어라. 벙커에 들어갔다 나왔다면 고무갈퀴로 발자국을 처음처럼 평평하게 밀어놓고 나와야 한다. 당신이 남긴 흔적을 치워줄 사람은 아무도 없다.<br>  </p><p class="article-text" style="margin-top:16px">"돈 내고 치러 왔는데 뭐 어때?"라는 마인드라면 당장 비행기 표를 취소해라. 100% 셀프 플레이가 기본인 일본 골프는 철저한 '자율'과 그에 따르는 '책임'으로 굴러간다. 이 7가지 불변의 팩트만 명심해도, 당신은 현지인들에게 존중받는 라운딩을 즐길 수 있다.<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-034.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-035.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-036.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-037.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Japan's clubhouse atmosphere has loosened as the older generation retires. Jacket requirements have been relaxed at many courses in summer. But a more relaxed atmosphere does not mean the fundamentals have disappeared. Particularly as Korean group golfers have become more common, local courses have become more alert. Seven non-negotiable standards of conduct in a 100% caddy-free system.</p><p class="article-text" style="margin-top:16px">■ Manner 1: The check-in time, not the tee time</p><p class="article-text" style="margin-top:16px">Your Rakuten GORA booking shows a check-in arrival time separate from the tee time — typically 30 to 40 minutes earlier. In a caddy-free system, you load your own bags and drive to the first tee. Arriving late and rushing through setup disrupts every group behind you for the rest of the day. Foreign visitors especially must treat this as absolute.</p><p class="article-text" style="margin-top:16px">■ Manner 2: Clothing that looks bad in Korea looks bad in Japan</p><p class="article-text" style="margin-top:16px">The relaxed dress code does not permit hiking clothes, collarless shirts, cargo pants, or sandals in the clubhouse. Follow whatever dress code the course specifies. At traditional courses, knee-high socks may still be required with shorts. Dress cleanly and within common sense.</p><p class="article-text" style="margin-top:16px">■ Manner 3: Remove the cap in the restaurant and lower the volume</p><p class="article-text" style="margin-top:16px">The number one complaint from Japanese golf course staff about Korean visitors. When entering the clubhouse restaurant after the front nine, remove your cap. Eating with a sweat-soaked hat on is considered a serious breach of manners in Japan. Group parties should not move between tables, shout across the room, or conduct loud toasts. This is not a Korean barbecue restaurant.</p><p class="article-text" style="margin-top:16px">■ Manner 4: Do not hit toward the group ahead. Do not touch anyone else's ball.</p><p class="article-text" style="margin-top:16px">The primary safety risk in caddy-free play is errant shots hitting other players. Visually confirm — or confirm via GPS — that the group ahead has cleared the safe zone before hitting. Never pick up a ball on the fairway. Touching another player's ball is among the most serious rule violations in Japanese golf.</p><p class="article-text" style="margin-top:16px">■ Manner 5: The bag name tag must be in English and kanji — not Korean</p><p class="article-text" style="margin-top:16px">Staff sort bags by reading name tags and matching them to cart numbers. A Korean-script-only tag creates a logistical crisis. At courses with 36 or 54 holes, a bag with an unreadable tag may be on the wrong course entirely. Use a name tag displaying your passport English name alongside kanji characters.</p><p class="article-text" style="margin-top:16px">■ Manner 6: Do not walk around the locker area undressed</p><p class="article-text" style="margin-top:16px">The most common serious breach by Korean golfers. Undressing at the locker and walking nude to the bath area is a Korean golf club convention — it does not exist in Japan. The locker is for storing belongings. Take your change of clothes to the bath area changing room (the area with baskets) fully dressed, then undress there. Exposing skin in the locker corridor is a significant breach of etiquette.</p><p class="article-text" style="margin-top:16px">■ Manner 7: Clean up after yourself — this is caddy-free golf</p><p class="article-text" style="margin-top:16px">Leave behind the expectation that someone else will fill your divots and rake your bunkers. After a par-3 tee shot, fill the divot mark with sand from the provided container. After exiting a bunker, rake the sand smooth. No one will clean up what you leave behind.</p><p class="article-text" style="margin-top:16px">If your approach is "I paid to play, so I can do as I like" — cancel the flight. Follow these seven standards and you will receive the respect that Japanese golf culture extends to players who earn it.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">団塊の世代が引退し、かつて堅苦しかった日本のクラブハウスの雰囲気も少しずつカジュアルになっています。真夏はジャケット着用を免除するコースも増えました。しかし「雰囲気」が和らいだからといって「基本」まで消えたわけではありません。特に韓国人グループゴルファーが増えるにつれ、現地コースの警戒心はかなり高まっています。100%ノーキャディのシステムで、あなたの品格とマナーを証明すべき、絶対に妥協できない7つを冷静にファクトチェックします。</p><p class="article-text" style="margin-top:16px">■ マナー1：ティーオフ時間ではなく「到着時間」を守れ</p><p class="article-text" style="margin-top:16px">楽天GORAの予約内容を見ると、ティーオフ時間とは別に「チェックイン（到着）時間」が明記されています。通常はティーオフの30〜40分前です。ノーキャディシステムでは、プレーヤーが自分でカートに荷物を積んでコースに向かわなければなりません。遅れてきてバタバタすると、後ろの組の一日をドミノ倒しにします。外国人であるほど、この時間厳守は鉄則です。</p><p class="article-text" style="margin-top:16px">■ マナー2：韓国で見苦しい服装は、日本でも見苦しい</p><p class="article-text" style="margin-top:16px">ドレスコードが緩和されたからといって、登山服やカラーのないTシャツ、カーゴパンツ、サンダルでクラブハウスに入ってよいわけではありません。コースのドレスコードがあれば必ず従ってください。格式あるコースでは半ズボン着用時にニーソックスを要求するところもあります。常識の範囲でスマートに。</p><p class="article-text" style="margin-top:16px">■ マナー3：食堂ではキャップを脱げ（そして声のボリュームを落とせ）</p><p class="article-text" style="margin-top:16px">日本のゴルフ場スタッフが挙げる「韓国人の困ったマナー」第1位です。前半を終えてクラブハウスのレストランに入る際は、必ずキャップを脱いで手に持つか椅子に掛けること。汗で濡れたキャップをかぶったまま食事をするのは、日本では想像を絶するマナー違反です。また、3〜4組でのグループは、テーブルを行き来して大声で騒いだり乾杯したりしないでください。ここは韓国の焼肉店ではありません。</p><p class="article-text" style="margin-top:16px">■ マナー4：前の組の背中に向かって打つな（他人のボールに触るな）</p><p class="article-text" style="margin-top:16px">ノーキャディ最大のリスクは「打球事故」です。前の組のカートが安全圏外に完全に出たことを目視またはGPSパッドで必ず確認してからショットしてください。フィールドに落ちている「ロストボール」は絶対に拾わないこと。他のプレーヤーのボールに触れることは、日本ゴルフで最も恥ずべきルール違反の一つです。</p><p class="article-text" style="margin-top:16px">■ マナー5：ゴルフバッグのネームタグは「英文+漢字」が命綱</p><p class="article-text" style="margin-top:16px">韓国のようにキャディがカートにバッグを積んでくれるわけではありません。スタッフがネームタグを読んでカート番号に振り分けます。ハングルだけのネームタグでは大惨事が起きます。特に36ホール、54ホールの大型コースでは、バッグがどのカートに入ったか誰にもわかりません。必ずパスポートの英文名と漢字を併記したネームタグをつけてください。</p><p class="article-text" style="margin-top:16px">■ マナー6：ロッカーの前でパンツ一丁で歩き回るな</p><p class="article-text" style="margin-top:16px">韓国のゴルファーが最も多くやる致命的なミスです。ラウンド後にロッカーを開けてそこで脱いで裸のまま大浴場まで歩く文化は韓国特有のものです。日本のロッカールームは荷物を保管する場所です。着替えは「大浴場の脱衣所（かごのある場所）」まで服を着たまま行ってから脱いでください。ロッカー廊下で肌を露出させることは大変な失礼にあたります。</p><p class="article-text" style="margin-top:16px">■ マナー7：自分のあとは自分で片づける（ノーキャディの基本）</p><p class="article-text" style="margin-top:16px">キャディがバンカーを均し、ディボットに砂を入れてくれた温室育ちのマインドは捨てること。パー3のティーショット後のディボット跡は、横に置いてある砂（砂箱）で必ず埋めてください。バンカーから出たらゴムレーキで足跡を平らにしてから出ること。あなたが残した痕跡を片づけてくれる人は誰もいません。</p><p class="article-text" style="margin-top:16px">「お金を払ってプレーしに来たのだから何でもいいだろう」という考えなら、今すぐ航空券をキャンセルしてください。この7つを守るだけで、現地のプレーヤーに尊重されるラウンドが楽しめます。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">골프장 · 05</div>
+            <div class="article-title">텐키, 야후, 윈디, 고루텐: 일본골프 노캐디 '생존용' 날씨 앱 4선"</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">텐키, 야후, 윈디, 고루텐: 일본골프 노캐디 '생존용' 날씨 앱 4선"<br>상황별 맞춤형 활용 가이드<br>​<br>1. 여행 전 큰 틀에서 날씨를 확인할 때: tenki.jp<br>• 용도: 출국 3-7일 전, 전반적인 기상 흐름 파악.<br>• 이유: 일본 기상청 데이터를 바탕으로 한 가장 보수적이고 정확한 '정석' 예보입니다. 일본 소도시 날씨는 구글이나 한국 앱이 절대 못 따라갑니다. 옷차림을 결정하고 여행의 전반적인 분위기를 파악하는 용도로 가장 신뢰할 만합니다.<br>  </p><p class="article-text" style="margin-top:16px">​<br>2. 비가 올 때 (언제 멈추고 언제 쏟아질까?): 야후 재팬 날씨. weather.yahoo.co.jp/weather/zoomradar<br>​<br>• 용도: 당일, 비구름의 이동 경로 5분 단위 추적.<br>• 이유: 야후의 '비구름 레이더'는 경이로울 정도입니다. "10분 뒤에 비가 시작되어 30분간 내리고 그친다"는 정보를 줍니다. 중간 휴식이 없는 스루플레이에서 카트에 비닐을 씌울지, 비옷을 입을지 결정하는 골든타임을 잡아줍니다. 위 링크 꼭 저장해놓으세요<br>  </p><p class="article-text" style="margin-top:16px">3. 바람이 불 때 (클럽 선택의 오차 줄이기): Windy<br>• 용도: 티박스에 서기 전, 골프장 상공의 바람길 확인.<br>• 이유: 노캐디 라운드에서 가장 막막한 게 바람입니다. 윈디는 바람의 흐름을 그래픽으로 보여줍니다. 단순 풍속이 아니라 바람의 '결'을 읽게 해주므로, 앞바람인지 뒷바람인지 헷갈리는 산악 지형 코스에서 탄도와 클럽 선택에 확신을 줍니다. 백돌이는 그냥 치세요 ^^<br>  </p><p class="article-text" style="margin-top:16px">4. 골프 칠 때 가장 유용한 마스터 툴: 고루텐 ゴル天 - www.golfweather.info<br>• 용도: 티오프부터 18홀 홀아웃까지의 시간대별 정밀 타격 예보.<br>• 이유: 일반 날씨 앱은 '도시'를 보지만, 고루텐은 '골프장 위경도'를 봅니다. 골프장 고도에 따른 기온 차이와 풍속을 1시간 단위로 쪼개서 보여줍니다. "9홀 지나면 바람이 터지겠구나" 혹은 "후반엔 기온이 급격히 떨어지겠구나"를 미리 알고 체력을 안배할 수 있게 해주는, 골퍼에게 가장 친절한 사이트입니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>  </p><p class="article-text" style="margin-top:16px">날씨 앱은 예언서가 아니라 장비입니다.<br>​<br>• 라운드 전날 고루텐으로 전략을 짜고, 라운드 중에는 야후 레이더를 켜놓습니다. 데이터가 일치하면 100% 믿고, 갈리면 가장 보수적인 예보에 맞춰 준비합니다.<br>• 노캐디 라운드는 비바람을 피할 그늘집이 없습니다. 앱에서 풍속 5m/s 이상, 강수량 1mm 이상이 찍히면 낭만은 버리고 비옷, 수건, 여분 장갑부터 챙기는 게 하드 팩트입니다.<br>​<br>일본 골프 날씨 앱/사이트 랭킹 (실전 유용성 순)<br>​<br>1위: 고루텐 – "골프장 핀포인트 데이터의 끝판왕"<br>2위: 야후 재팬 날씨 – "비구름 레이더의 정밀함"<br>3위: 윈디 – "바람을 시각화하는 기술"<br>4위: 텐키 – "일본 기상청의 정석 데이터"<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-038.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-039.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-040.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-041.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">■ 1. Checking weather before the trip: tenki.jp</p><p class="article-text" style="margin-top:16px">Use: 3–7 days before departure, to understand overall weather patterns.<br>Why: The most conservative and accurate forecast available, based on Japan Meteorological Agency data. Google and Korean apps cannot compete with this for Japanese rural areas. Use it to decide on clothing and set expectations for the trip.</p><p class="article-text" style="margin-top:16px">■ 2. When rain is possible (when does it start and stop?): Yahoo Japan Weather — weather.yahoo.co.jp/weather/zoomradar</p><p class="article-text" style="margin-top:16px">Use: Track rain cloud movement on the day of play, updated every 5 minutes.<br>Why: Yahoo Japan's rain radar is remarkably accurate. It will tell you "rain begins in 10 minutes and lasts 30 minutes." In a no-rest through-play round, this gives you the decision window to cover the cart or put on a rain jacket before it starts. Save this link.</p><p class="article-text" style="margin-top:16px">■ 3. When it is windy (reducing club selection uncertainty): Windy</p><p class="article-text" style="margin-top:16px">Use: Check wind patterns over the course before stepping onto the first tee.<br>Why: The wind is the hardest variable to manage without a caddy. Windy visualizes airflow graphically. Rather than just wind speed, it shows the direction and movement pattern — invaluable for judging headwind versus tailwind on mountain terrain courses where the wind shifts between holes.</p><p class="article-text" style="margin-top:16px">■ 4. The master tool for day-of golf: Goluten — www.golfweather.info</p><p class="article-text" style="margin-top:16px">Use: Hour-by-hour forecast specifically for your tee time through the 18th hole.<br>Why: General weather apps show city-level data. Goluten uses the GPS coordinates of the specific golf course. It accounts for the altitude-related temperature difference and shows wind speed hourly. You can plan: "wind picks up after the 9th," or "temperature drops sharply on the back nine." No other tool is more useful for a golfer.</p><p class="article-text" style="margin-top:16px">■ Practical usage summary</p><p class="article-text" style="margin-top:16px">The night before: use Goluten to build a strategy. During the round: keep Yahoo radar open. If both sources agree, trust them completely. If they conflict, prepare for the more conservative forecast.</p><p class="article-text" style="margin-top:16px">There is no shelter from rain on a caddy-free course. When wind exceeds 5 m/s or precipitation exceeds 1mm, romance is irrelevant. Pack the rain jacket, extra towels, and spare gloves.</p><p class="article-text" style="margin-top:16px">Ranked by real-world usefulness:<br>1st: Goluten — pinpoint course data, the definitive tool<br>2nd: Yahoo Japan Weather — rain radar precision<br>3rd: Windy — wind visualization<br>4th: tenki.jp — meteorological authority data</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">■ 1. 旅行前に全体の天気を確認する：tenki.jp</p><p class="article-text" style="margin-top:16px">用途：出国3〜7日前、全体的な気象の流れを把握。<br>理由：日本気象庁データをベースにした最も保守的で正確な「正統派」予報です。日本の地方都市の天気はGoogleや韓国のアプリでは絶対に追いつきません。服装を決めて旅全体の雰囲気を把握するのに最も信頼できます。</p><p class="article-text" style="margin-top:16px">■ 2. 雨が降るとき（いつ止んで、いつ降り出す？）：Yahoo!天気 weather.yahoo.co.jp/weather/zoomradar</p><p class="article-text" style="margin-top:16px">用途：当日の雨雲の移動経路を5分単位で追跡。<br>理由：ヤフーの「雨雲レーダー」は圧巻の精度です。「10分後に雨が降り始め、30分降ってやむ」という情報を提供してくれます。スループレー（休憩なし）で、カートにレインカバーをかけるか、レインウェアを着るかの決断タイムを逃しません。このリンクは必ず保存しておいてください。</p><p class="article-text" style="margin-top:16px">■ 3. 風が吹くとき（クラブ選択の誤差を줄이기）：Windy</p><p class="article-text" style="margin-top:16px">用途：ティーボックスに立つ前に、コース上空の風向きを確認。<br>理由：ノーキャディラウンドで最も困るのが風です。Windyは風の流れをグラフィックで表示します。単純な風速だけでなく風の「流れ」を読めるため、向かい風か追い風かわかりにくい山岳地形コースで、弾道とクラブ選択に確信を持てます。</p><p class="article-text" style="margin-top:16px">■ 4. ゴルフ中に最も有用なマスターツール：ゴル天 www.golfweather.info</p><p class="article-text" style="margin-top:16px">用途：ティーオフから18ホールアウトまでの時間帯別精密予報。<br>理由：一般の天気アプリは「都市」を見ますが、ゴル天は「ゴルフ場の緯度経度」を見ます。ゴルフ場の標高による気温差と風速を1時間単位で表示します。「9ホール過ぎたら風が強まりそうだな」「後半は気温が急激に下がりそうだな」を事前に把握して体力を配分できる、ゴルファーに最も親切なサイトです。</p><p class="article-text" style="margin-top:16px">■ 天気アプリの使い方まとめ</p><p class="article-text" style="margin-top:16px">ラウンド前日にゴル天で戦略を立て、ラウンド中はヤフーレーダーを起動しておきます。データが一致したら100%信頼し、割れたら最も保守的な予報に備えます。</p><p class="article-text" style="margin-top:16px">ノーキャディラウンドには雨を避ける場所がありません。風速5m/s以上、降水量1mm以上が出たらロマンより実利優先でレインウェア・タオル・予備グローブを先に用意するのがハードファクトです。</p><p class="article-text" style="margin-top:16px">実戦有用性ランキング：<br>1位：ゴル天（ゴルフ場ピンポイントデータの最終兵器）<br>2位：ヤフー天気（雨雲レーダーの精密さ）<br>3位：Windy（風を視覚化する技術）<br>4位：tenki.jp（気象庁の正統データ）</p></div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- 항공편 -->
+  <div class="category-section" id="cat-flight">
+    <div class="cat-header">
+      <span class="cat-title">항공편</span>
+      <span class="cat-count">3 articles</span>
+    </div>
+            <div class="article-list">
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">항공 · 01</div>
+            <div class="article-title">"비행기 표가 없다고요?" 첫 원정, 항공권 수수료 아끼려다 골프장 못 가는 팩트체크</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">"비행기 표가 없다고요?" 첫 원정, 항공권 수수료 아끼려다 골프장 못 가는 팩트체크<br>일본 골프 자유여행, 과연 어떤 분들이 갈까 생각해봤다. 패키지여행의 산전수전을 다 겪고 독립하시는 분들도 있겠지만, 태어나서 처음으로 직접 렌터카를 빌리고, 골프장을 예약하고, 항공권과 호텔까지 스스로 해결해야 하는 '완전 초보'분들도 수두룩하다.<br>​<br>이분들에게는 그저 "항공권 싸게 끊으세요"라는 말 한마디가 너무나 막막하다. 이전 포스팅에서 첫 일본 드라이빙은 이것저것 잴 것 없이 무조건 '도요타 렌터카'의 풀커버를 이용하라고 말씀드렸다. 두세번 정도 다니시면 그때 가서 중저가 업체를 찾으면 된다.<br>비행기도 똑같다. 가장 첫 단추인 항공편 예약, 실패 없는 완벽한 선택지를 냉정하게 팩트체크해 드린다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">초보자의 가장 완벽한 생명줄: '항공사 공식 홈페이지'<br>첫 방문이라면 스카이스캐너 같은 플랫폼에서 헤매지 마라. 내가 가려는 지역(오사카, 후쿠오카, 요나고 등)에 취항하는 항공사(대한항공, 아시아나, 제주항공, 에어서울 등)의 공식 홈페이지나 앱에서 직접 결제하는 것이 정답이다.<br>​<br>• 100% 탑승 보장 (오버부킹 방어): 예약과 동시에 내 자리가 항공사 전산에 확정된다. 대행사를 거치지 않으므로 전산 누락이나 예약 대기 상태로 불안해할 필요가 없다.<br>• 유연한 대처와 환불: 태풍으로 비행기가 결항되거나 일정을 바꿔야 할 때 진가가 발휘된다. 대행사를 끼면 취소 수수료 폭탄을 맞거나 콜센터 연결에만 며칠이 걸리지만, 공식 홈페이지 예약자는 항공사에서 가장 먼저 대체 편을 마련해 주고 수수료 없이 즉각 환불해 준다.<br>​<br>• 가격의 압박: 플랫폼 최저가보다 보통 2~3만 원에서 많게는 5만 원 이상 비쌀 때가 있다. 다만, 공식 홈페이지도 잘 뒤져보면 신규 회원 가입 할인 쿠폰이나, 특정 카드 결제 시 10프로 할인, 2-3만원 할인 프로모션을 수시로 진행한다. 이것만 잘 챙겨도 플랫폼 최저가와 가격 차이가 거의 없어진다.<br>  </p><p class="article-text" style="margin-top:16px">이제 항공권 예약 시스템이 눈에 들어오고, 최적의 시간대와 최저가를 조합하고 싶은 분들은 스카이스캐너나 구글 플라이트를 이용하면 된다.<br>하지만 여기서 명심해야 할 절대 철칙이 있다. 스카이스캐너에서 검색된 가장 싼 티켓을 덥석 물면 안 된다. 판매처의 평점이 무조건 '4.0 이상'인 곳이나 우수판매사라고 적혀진 곳에서 결제해라.<br>  </p><p class="article-text" style="margin-top:16px">가수 케이윌의 '유령 항공권' 사건을 아는가?<br>최근 가수 케이윌이 일본 여행 당일, 인천공항에서 비행기를 타지 못한 끔찍한 사건이 있었다. 글로벌 여행 플랫폼(대행사)을 통해 비행기 표를 결제하고 확정 메일도 받았는데, 정작 공항 카운터에 가니 항공사로 결제 내역이 안 넘어와서 발권이 안 된다는 통보를 받은 것이다. 심지어 비행기는 만석이었고, 그는 누군가 취소하기를 기다렸다가 편도만 60만 원을 주고 간신히 일본에 갔다. 대행사 고객센터는 연결도 안 되고, "전산 오류일 뿐 100% 환불은 어렵다"며 배짱을 부렸지만, 결국 3개월 만에 환불을 받긴 했다.<br>  </p><p class="article-text" style="margin-top:16px">이런 글로벌 저가 OTA(온라인 여행사)들은 평점이 2점~3점대다. 단돈 2만 원 싸게 사려다가 이런 곳에 걸리면, 공항에서 골프백을 끌어안고 하늘만 쳐다보는 대참사가 벌어진다. 예약 관리도 안 되고, 문제가 생겼을 때 책임도 지지 않는다.</p><p class="article-text" style="margin-top:16px">일본 골프 자유여행은 톱니바퀴처럼 맞물려 있다. 비행기 도착 시간에 맞춰 렌터카 예약이 되어 있고, 그 시간에 맞춰 골프장 티오프 시간이 정해져 있다. 첫 단추인 '항공편'이 꼬이면 그 뒤의 일정은 도미노처럼 박살 난다. 항공권에서 2~3만 원 아끼는 것은 가성비가 아니다. 첫 원정이라면 가격표보다 안전하고 확실하게 그 날짜, 그 시간에 나를 일본에 데려다주는 것에 투자해라. 항공사 직접 결제, 혹은 평점 높은 우량 대행사 이용. 이 팩트만 명심하시면 당신의 일본 골프 여행은 이륙 전부터 이미 성공한 것이나 다름없다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>오늘의 키워드<br>첫방문은 항공사홈페이지<br>몇번 경험있으면 스카이스캐너 4.0이상 대행사</p>
+          <div class="article-images">
+            <img src="guide-images/img-042.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-043.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-044.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-045.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">There is a specific mistake that appears repeatedly in first-time Japan golf planning: trying to save on booking fees and ending up unable to make the round.</p><p class="article-text" style="margin-top:16px">■ The rule: book flights early, directly, through the official site</p><p class="article-text" style="margin-top:16px">First-time Japan golf travelers often delay booking flights or choose complex connections through comparison sites to save money. This is the first error.</p><p class="article-text" style="margin-top:16px">Japanese golf courses have strict penalty structures for same-day cancellations and changes. Protecting yourself from flight delays and cancellations means choosing direct flights.</p><p class="article-text" style="margin-top:16px">■ Flight selection criteria for golfers</p><p class="article-text" style="margin-top:16px">① Choose direct flights: Connections multiply time risk and dramatically increase the chance of golf bag loss in transit.</p><p class="article-text" style="margin-top:16px">② Avoid evening departures: An early morning flight that arrives midday allows for an afternoon round on the first day. An evening departure eliminates the first day entirely.</p><p class="article-text" style="margin-top:16px">③ Avoid the last return flight: If you want to play on the departure day, the last evening flight leaves no margin. A mid-afternoon flight — 2:00 to 3:00 PM — is the practical target.</p><p class="article-text" style="margin-top:16px">④ Target smaller regional airports: Routes into Fukuoka, Kitakyushu, Nagasaki, Kumamoto, and Miyazaki allow immediate car pickup and driving to the course. Regional airports are vastly more efficient for golf trips than major hub airports.</p><p class="article-text" style="margin-top:16px">■ When to book</p><p class="article-text" style="margin-top:16px">During peak periods — Golden Week, Obon, year-end, weekends — flights fill two to three months in advance. Once the dates are set, secure the flights before booking anything else.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本ゴルフの計画を立てた瞬間、多くの人がやる誤りがあります。航空券の手数料を節約しようとして、気づけばゴルフ場に行けなくなるパターンです。</p><p class="article-text" style="margin-top:16px">■ 航空券は「早く・直接・公式サイトで」が鉄則</p><p class="article-text" style="margin-top:16px">初めての日本ゴルフ遠征で、航空券の購入を後回しにしたり、第三者の比較サイトで複雑な乗り継ぎ便を選んだりする方がいます。これが最初のミスです。</p><p class="article-text" style="margin-top:16px">日本のゴルフ場は、当日キャンセル・変更に対するペナルティが厳しく設定されています。フライトが遅延・欠航した場合に備え、直行便を選ぶことが大原則です。</p><p class="article-text" style="margin-top:16px">■ ゴルファーに適した航空券選びの基準</p><p class="article-text" style="margin-top:16px">① 直行便を選ぶ：乗り継ぎ便は時間のリスクが高い。ゴルフバッグの紛失リスクも上がります。</p><p class="article-text" style="margin-top:16px">② 出発は夕方以降を避ける：早朝フライトで現地に着いたその日の午後にラウンドするのがベストパターン。夕方発では初日が完全に潰れます。</p><p class="article-text" style="margin-top:16px">③ 帰りは最終便を避ける：帰国日もラウンドしたい場合、最終便では時間的余裕がありません。午後2〜3時以降の便が理想です。</p><p class="article-text" style="margin-top:16px">④ 小型空港を狙う：福岡・北九州・長崎・熊本・宮崎など地方空港発着の路線は、到着後すぐにレンタカーを借りて移動できる好条件です。大都市ハブ空港より地方直行便の方がゴルフ旅行に圧倒的に有利です。</p><p class="article-text" style="margin-top:16px">■ 予約のタイミング</p><p class="article-text" style="margin-top:16px">繁忙期（GW・お盆・年末年始・週末）は2〜3ヶ月前から航空券が埋まります。日程が決まったら、ゴルフ場の予約より先に航空券を押さえてください。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">항공 · 02</div>
+            <div class="article-title">판교·수원·동탄 골퍼들 주목! '청주공항' 출발 일본골프 장점 5가지 !</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">판교·수원·동탄 골퍼들 주목! '청주공항' 출발 일본골프 장점 5가지 !<br>위치청주국제공항<br>일본으로 골프 라운드를 떠나실 때, 습관적으로 인천공항행 리무진을 타거나 영종도로 향하고 계실텐데요. 만약 여러분의 거주지가 판교, 분당, 수원(신갈), 동탄 등 경부고속도로 IC 인근이라면 이야기가 달라집니다. 이 지역 거주자분들에게는 오히려 밑으로 내려가는 청주국제공항이 훨씬 합리적이고 편안한 대안이 될 수 있거든요. (물론 항공 가격의 경쟁력이 있다면요! 같은 가격도 괜찮구요)<br>일본 현지의 숨은 명문 구장들을 찾아다니며 느끼는 점이지만, 첫날부터 이동으로 진을 빼면 라운드내내 피곤함이 가시질 않습니다. 그래서 당장 다음 주에 떠나는 저의 기타큐슈 골프 일정도 어김없이 청주공항 출발을 택했습니다. 왜 경부라인 거주자에게 청주공항이 대안도 될수 있는지 그 이유와 항공권 예약 시 주의할 점까지 정리해 드립니다.</p><p class="article-text" style="margin-top:16px">판교·수원·동탄 IC에서 바로 쏘세요!<br>경부고속도로 라인에 거주하는 분들이라면, 굳이 꽉 막히는 수도권 제1순환고속도로나 막막한 올림픽대로를 뚫고 인천까지 갈 이유가 없습니다.<br>​<br>판교 출발 기준 인천공항: 약 1시간 내외 소요<br>판교 출발 기준 청주공항: 약 1시간 20분 내외 소요<br>​<br>판교 IC를 기준으로 봐도 실제 운전 시간은 약 20분 정도밖에 차이가 나지 않습니다. 동탄이나 오산쯤 거주하신다면 오히려 청주가 더 가까워지죠. 경부고속도로를 타고 밑으로 시원하게 내려가는 길이 심리적으로나 육체적으로 훨씬 쾌적합니다.<br>  </p><p class="article-text" style="margin-top:16px">( 어린이날이다보니 용인쪽은 엄청 막히네요~ )</p><p class="article-text" style="margin-top:16px">무거운 골프백? 출국장 프리패스로 피로도 제로<br>인천공항의 가장 큰 단점은 엄청난 인파와 어마어마한 동선입니다. 무거운 골프백을 끌고 주차, 체크인, 수하물 위탁까지 거치고, 출국심사에, 탑승까지 최소 40-50분이상 시간을 보내다보면 비행기를 타기도 전에 방전되기 십상입니다. 하지만 청주공항은 규모가 콤팩트해서 동선이 매우 짧습니다. 수속에 걸리는 시간이 인천공항 대비 최소 30분 이상 단축되죠. 도로에서 더 쓴 20분의 시간을 공항 수속에서 완벽하게 보상받고도 남습니다. 출국 때 힘 빼지 않고 여유롭게 커피 한잔하며 탑승을 기다릴 수 있는 건, 골퍼들에게 엄청난 메리트입니다.<br>  </p><p class="article-text" style="margin-top:16px">생각보다 빵빵한 일본 노선<br>청주공항엔 비행기가 별로 없지 않나? 라고 생각하셨다면 오산입니다. 현재 청주공항의 일본 정기 노선은 무려 8개로 김해공항과 동일한 수준입니다.<br>​<br>[청주공항 일본 정기 노선 8곳]<br>• 도쿄 (나리타)<br>• 오사카 (간사이)<br>• 후쿠오카<br>• 삿포로 (신치토세)<br>• 나고야 (주부)<br>• 이바라키<br>• 히로시마<br>• 오키나와<br>​<br>여기에 시즌에 맞춰 마쓰야마, 마쓰모토, 하나마키, 기타큐슈 등 매력적인 소도시 부정기편도 활발하게 뜹니다. 번잡한 대도시를 벗어나 일본 로컬 특유의 고즈넉한 골프장을 선호하시는 분들께는 청주공항의 노선망이 그야말로 최적입니다.<br>  </p><p class="article-text" style="margin-top:16px">특가 항공권 득템 확률 UP! (수하물 규정 필독)<br>최근 청주공항을 거점으로 하는 에어로케이 등에서 매력적인 일본 특가 프로모션을 자주 진행합니다. 인천공항 출발 특가 항공권은 그야말로 전국구 단위의 치열한 경쟁이지만, 청주 출발 노선은 상대적으로 경쟁자가 적어 훌륭한 가격에 득템할 확률이 월등히 높습니다.<br>하지만 여기서 아주 중요한 주의점이 있습니다. 가끔 가격이 파격적으로 저렴한 특가 항공권이 나오는데, 이때 '위탁수하물'이 포함된 가격인지 반드시 꼼꼼하게 확인하셔야 합니다. 우리는 무조건 무거운 골프백을 실어야 하므로, 예약 단계에서 15kg 위탁수하물과 10kg 기내수하물 포함 여부 및 규정을 놓치지 말고 체크하시기 바랍니다. 비행기 값보다 현장에서 추가하는 수하물 요금이 더 나오는 불상사를 막아야 하니까요.<br>​<br>  </p><p class="article-text" style="margin-top:16px">하루 1만 원의 합리적인 주차비 &amp; 발렛 제휴카드 !<br>장박으로 골프 여행을 다녀올 때 가장 신경 쓰이는 주차비. 청주공항은 주차장이 여객터미널과 바로 맞닿아 있어 접근성이 훌륭할 뿐만 아니라, 주차비도 착합니다.<br>  </p><p class="article-text" style="margin-top:16px">• 제1, 2주차장: 1일 최대 10,000원<br>• 제3, 4주차장: 1일 최대 6,000원<br>​<br>인천공항 갈 때 프리미엄 신용카드 혜택으로 무료 발렛 파킹 많이 쓰시죠? 인천공항처럼 발렛 무료 제휴카드가 있었네요. 제가 가지고 있지 않아서 없다고 생각했는데, 하긴 카드가 한정적이긴합니다. 다만, 공식 주차대행이용시에 주차요금이 40프로 할인이 되니까 4박이상이면 주차대행이 편하지 않을까 생각합니다. 무료 제휴 안된다고 스트레스 받지 마시기바랍니다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​</p><p class="article-text" style="margin-top:16px">경부라인 인근에 거주하신다면, 다음 일본 골프 투어를 계획하실 때 꼭 항공권 앱에서 출발지를 청주(CJJ)로 설정해 보세요. 막히는 도로에서 버리는 시간, 넓은 공항에서 낭비하는 체력을 아껴서 일본 현지의 푸른 페어웨이에 온전히 쏟아부으실 수 있을 겁니다. 다음 주에는 청주공항을 거쳐 다녀온 시모노세키 골프장의 18홀 코스 분석과 생생한 스토리 사진들로 꽉 채운 후기로 돌아오겠습니다!</p>
+          <div class="article-images">
+            <img src="guide-images/img-046.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-047.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-048.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-049.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">If you are based in southern Seoul — Pangyo, Suwon, Dongtan, Cheonan, or Sejong — there is an argument that Cheongju Airport is the superior choice for Japan golf trips.</p><p class="article-text" style="margin-top:16px">■ Five advantages of Cheongju Airport</p><p class="article-text" style="margin-top:16px">① Dramatically faster access from southern Seoul<br>From Pangyo or Suwon, Incheon Airport takes over an hour each way. Cheongju is 30 to 40 minutes by car. That is two to three hours saved in total, just on the airport commute.</p><p class="article-text" style="margin-top:16px">② Parking is completely solved<br>Cheongju has extensive parking with no shortage. Long-term parking is inexpensive. For a 4–5 day trip, leave the car without concern.</p><p class="article-text" style="margin-top:16px">③ The airport itself is fast<br>Small airports win on movement efficiency. Check-in to departure gate takes 30 to 40 minutes. Against Incheon's long corridors, shuttle trains, and crowds, Cheongju means effectively leaving earlier.</p><p class="article-text" style="margin-top:16px">④ No duty-free temptation<br>This is not a joke. Korean golfers consistently overspend at Incheon duty-free shops and arrive in Japan with a compressed budget. Cheongju has no such trap. Redirect those savings to green fees.</p><p class="article-text" style="margin-top:16px">⑤ Excellent alignment with Kyushu routes<br>Cheongju routes connect well with Fukuoka and Saga flights. Land, pick up the rental car, and drive directly to the course — the logistics are seamless.</p><p class="article-text" style="margin-top:16px">If you are based in southern Seoul, try Cheongju Airport for the next Japan golf trip.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">仁川・金浦空港一択だと思っていませんか？実は清州空港が、首都圏南部（板橋・水原・東灘・天安・世宗周辺）のゴルファーにとって最強の選択肢になりえます。</p><p class="article-text" style="margin-top:16px">■ 清州空港発の5つのメリット</p><p class="article-text" style="margin-top:16px">① 首都圏南部からのアクセスが圧倒的に速い<br>板橋・水原・東灘エリアからなら、仁川空港へは1時間以上かかります。清州空港なら車で30〜40分。往復で節約できる時間は2〜3時間以上。これだけで旅の疲れがまるで違います。</p><p class="article-text" style="margin-top:16px">② 주차 완전 해결<br>清州空港には広大な駐車場があり、仁川のような駐車場難民になりません。長期駐車も格安で、4〜5日の旅行でも安心して車を預けられます。</p><p class="article-text" style="margin-top:16px">③ 공항 자체가 작아서 빠르다<br>小型空港の最大の武器は「動線の短さ」です。到着から出国まで30〜40分で完了します。仁川の長い廊下・シャトル・移動時間を考えると、清州の方が実質的に「出発が早い」感覚になります。</p><p class="article-text" style="margin-top:16px">④ 복잡한 仁川 면세점에 유혹받지 않는다<br>これは冗談ではありません。仁川の免税店で散財して旅行予算が崩れる韓国人ゴルファーが後を絶ちません。清州ならその誘惑がありません。節約できた分をグリーンフィーや夕食のビールに充てましょう。</p><p class="article-text" style="margin-top:16px">⑤ 福岡・佐賀・北九州方面へのルートと相性抜群<br>清州発は九州路線との相性が良い。特に福岡・佐賀空港便は、着陸後即レンタカーで出発できる最高の動線を提供します。</p><p class="article-text" style="margin-top:16px">首都圏南部のゴルファーは、次の日本ゴルフ遠征から清州空港を一度試してみてください。</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">항공 · 03</div>
+            <div class="article-title">26년 5월 항공사 프로모션</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">26년 5월 항공사 프로모션<br>앞으로 일본 관련 항공사 뉴스는 이슈 있을때마다 이 카테고리로 알려드리도록 하겠습니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>2026년 5월 셋째 주 기준, 국내 대형항공사(FSC) 및 저비용항공사(LCC)의 일본 노선 주요 프로모션과 이벤트 소식을 정리해 드립니다.<br>​<br>현재 항공업계는 유류할증료 인상에 따른 소비자 부담을 줄이기 위해 카드사 결제 할인과 여름휴가 대비 얼리버드 특가를 적극적으로 진행하고 있습니다.</p><p class="article-text" style="margin-top:16px">대형항공사(FSC) 프로모션<br>​<br>대한항공 (Korean Air)<br>결제 수단에 따른 즉시 할인과 마일리지 차감 프로모션이 돋보입니다.<br>• 삼성카드 LINK 할인: 일본행 항공권 결제 시 8% 할인 (2026년 5월 31일까지).<br>• 카카오페이 할인: 일부 일본 노선 결제 시 10% 할인.<br>• 보너스 핫픽: 5월 6일부터 진행 중인 마일리지 프로모션으로, 일본 노선 보너스 항공권 발권 시 편도 5,000마일, 왕복 10,000마일을 할인해 줍니다.</p><p class="article-text" style="margin-top:16px">아시아나항공 (Asiana Airlines)<br>• 후쿠오카 노선 증편 특가: 후쿠오카-인천 노선 증편을 기념하여 특별 운임을 제공합니다. 단, 해당 프로모션은 일본(후쿠오카)에서 출발하는 항공권에 주로 적용되므로, 귀국편 분리 발권 시 유용합니다 (판매: ~5월 31일, 탑승: ~10월 24일)</p><p class="article-text" style="margin-top:16px">저비용항공사(LCC) 프로모션<br>​<br>티웨이항공 (T'way Air)<br>이번 주 가장 촘촘한 할인 타임라인을 운영 중입니다.<br>• 국제선 얼리버드 특가: 일본 노선을 포함해 최대 11% 추가 할인이 적용됩니다 (5월 20일까지).<br>• 라스트 클리어런스: 최대 44% 할인 혜택을 제공하는 마감 특가가 시작되었습니다 (5월 18일 ~ 7월 31일).<br>• 결제 할인 혜택: 카드 및 간편결제 이용 시 최대 25,000원 추가 할인 (5월 23일까지).<br>​<br>제주항공 (Jeju Air)<br>7월과 8월 여름휴가 수요를 겨냥한 얼리버드 특가에 집중하고 있습니다.<br>• 여름휴가 얼리버드: 도쿄, 오사카, 후쿠오카는 물론 마쓰야마, 히로시마, 시즈오카 등 일본 중소도시 노선의 7~8월 항공권을 할인 판매 중입니다.<br>• 사전 수하물 할인: 8월 탑승 고객을 대상으로 '사전 수하물 50% 할인 쿠폰'을 지급하여 위탁 수하물 부담을 크게 낮췄습니다.<br>​<br>에어서울 (Air Seoul)<br>항공권 자체의 가격 할인보다는 제휴 혜택과 방한객 대상 프로모션이 눈에 띕니다.<br>• 돈키호테 제휴 할인: 에어서울 탑승객은 일본 전역의 돈키호테 매장에서 면세 10% 혜택에 더해 구매 금액에 따라 5~7% 추가 할인을 받을 수 있습니다 (5월 31일까지).<br>• 일본발 가족 동반 특가: 3인 이상 예약 시 1인당 최대 2,000엔을 할인해 줍니다. 아시아나와 마찬가지로 일본 출발편을 대상으로 합니다 (탑승: ~7월 31일)<br>​<br>이외에도 에어로케이등 많은 항공사들이 알음알음 프로모션을 하고 있으니 계획 있으신분들은 better price로 티켓 구하시길 바랍니다.<br>​<br>오늘 발표된 유류 할증료에 대한 뉴스도 관심있게 봐야할것 같습니다. 어느때 예약하는것이 더 좋을지 말입니다<br>​<br>https://naver.me/xZKVwsEd</p><p class="article-text" style="margin-top:16px">​</p>
+          <div class="article-images">
+            <img src="guide-images/img-050.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-051.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-052.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-053.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">As of May 2026, here is a summary of notable airline promotions on Japan routes (Fukuoka, Osaka, Tokyo, Nagoya, etc.).</p><p class="article-text" style="margin-top:16px">Promotion information changes frequently. Always verify the latest details directly on each airline's official website.</p><p class="article-text" style="margin-top:16px">■ Key factors to check</p><p class="article-text" style="margin-top:16px">· Early booking discounts: Purchasing 2–3 months in advance often yields significant savings.<br>· Mileage award tickets: If you have accumulated miles, check award availability before paying cash.<br>· LCC sales: Jeju Air, T'way, Air Busan, and similar carriers run periodic flash sales. Email alert registration is recommended.<br>· Golf bag baggage policy: Always confirm LCC baggage rules before booking. Oversize charges can significantly affect the trip budget.</p><p class="article-text" style="margin-top:16px">■ MIKA recommends: Major carriers for the first two or three trips</p><p class="article-text" style="margin-top:16px">For an initial Japan golf trip, choose a reliable carrier such as Air Busan, Korean Air, or Asiana. LCCs offer price advantages, but the complexity of baggage policies and the limited support in cancellation or delay situations make established carriers the better choice for the first few trips.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">2026年5月時点で、日本路線（福岡・大阪・東京・名古屋など）で注目すべき航空会社のプロモーション情報をまとめます。</p><p class="article-text" style="margin-top:16px">プロモーション情報は頻繁に変更されます。必ず各航空会社の公式サイトで最新情報を確認してください。</p><p class="article-text" style="margin-top:16px">■ チェックすべきポイント</p><p class="article-text" style="margin-top:16px">・早割（早期予約割引）：出発の2〜3ヶ月前に購入すると大幅に安くなるケースが多い。<br>・マイル特典航空券：マイルが溜まっている方は特典航空券を優先的に検討。<br>・LCC（格安航空会社）のセール：ジェジュエア・ティーウェイ・エアプサンなどが不定期にセールを実施。メールアラート登録推奨。<br>・ゴルフバッグの預け荷物規定：LCC利用時は必ず事前確認。超過料金が旅行費を圧迫するケースも。</p><p class="article-text" style="margin-top:16px">■ MIKA推奨：最初の2〜3回は大手キャリアで</p><p class="article-text" style="margin-top:16px">初めての日本ゴルフ遠征では、エアプサン・大韓航空・アシアナなどの信頼できる航空会社を選ぶことをお勧めします。LCCは価格面では魅力ですが、欠航・遅延時のサポートや荷物規定の複雑さを考えると、初回は大手の安心感を選ぶべきです。</p></div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- 숙소편 -->
+  <div class="category-section" id="cat-hotel">
+    <div class="cat-header">
+      <span class="cat-title">숙소편</span>
+      <span class="cat-count">1 article</span>
+    </div>
+            <div class="article-list">
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">숙소 · 01</div>
+            <div class="article-title">호텔비 아껴서 그린피에 보태라! 동반자별 맞춤 호텔 가이드</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">호텔비 아껴서 그린피에 보태라! 동반자별 맞춤 호텔 가이드<br>비행기, 렌터카, 골프장 예약까지 마쳤다면 이제 '잠자리'를 정할 시간이다. 일본 골프 자유여행에서 숙소의 본질은 딱 두 가지다. 얼마나 잘 씻고 회복할 수 있는가와 렌터카 주차가 얼마나 편한가이다. 지금까지 다녀본 모든 일본호텔의 공통점은 온수가 아주 잘 나와서 대욕장이 없는곳이면 방 욕실에서 피로풀면서 20-30분정도 넷플보는것도 참 좋은시간인듯하다<br>​<br>잠을 자는 일정외 2-3시간 정도 호텔에 머무는데 5성급 럭셔리 호텔은 돈 낭비다. 하지만 누구와 가느냐에 따라 우선순위는 달라져야 한다. 부부끼리 갈 때(10만원 중후반)와 친구들끼리 갈 때(8만원-10만원) 가성비 프랜차이즈 6곳을 팩트체크해 드린다. 사실 더 좋은곳 가셔도 상관없다. ^^ 참고로 저는 잠자리가 전혀 민감하지않고 같이 다니는 메이트들도 비슷한지라 지금은 일박에 4-5만원대 다니고 있다. 나중에 노하우 버전으로 포스팅하겠다<br>  </p><p class="article-text" style="margin-top:16px">부부 동반: "쾌적함과 힐링이 생명이다"<br>아무리 가성비 여행이라도 배우자와 함께라면 최소한의 '분위기'와 '청결도'는 양보할 수 없다. 좁은 방에서 얼굴 붉히기 싫다면 아래 세 곳이 정답이다.<br>​<br>• 다이와 로이넷 (Daiwa Roynet): 일본 비즈니스호텔 중 방 사이즈가 가장 넉넉하다. 캐리어 두 개를 펼쳐놓고도 골프백 정리가 가능하다. 화장실과 욕실이 분리된 곳이 많아 부부가 각자 준비하기에 매우 쾌적하다.<br>​<br>• 도미인 (Dormy Inn): '대욕장(온천)' 퀄리티가 압도적이다. 라운딩 후 부부가 함께 온천에서 피로를 풀고, 밤 9시 넘어서 공짜로 주는 요나키 소바(라멘) 한 그릇 하면 료칸 부럽지 않은 만족도가 나온다<br>.<br>• 칸데오 호텔 (Candeo Hotels): 3성급 가격에 4성급 감성을 낸다. 주로 꼭대기 층에 '스카이 스파'가 있어 도시 야경을 보며 노천탕을 즐길 수 있다. 인테리어가 세련되어 배우자에게 "숙소 잘 골랐다"는 소리를 듣기에 가장 좋다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">친구 동반: "주차 편하고 술 마시기 좋으면 장땡이다"<br>친구들과의 원정은 철저히 실용주의다. 골프장 이동이 편해야 하고, 저녁에 이자카야에서 생맥주 한잔하기 좋은 위치면 끝이다.<br>​<br>• 루트인 (Route Inn): 골퍼들의 성지다. 시내가 아닌 국도변이나 IC 근처에 있어 주차장이 광활하고 무료인 경우가 많다. 렌터카 이동이 가장 편하며, 무료 대욕장에서 남자들끼리 뜨끈하게 지지기 딱이다.<br>​<br>• 슈퍼 호텔 (Super Hotel): '가성비의 왕'이다. 베개를 직접 고를 수 있는 서비스가 있어 내일 라운딩을 위한 숙면에 최적화되어 있다. 조식이 유기농 위주로 알차게 나와 새벽 티오프 전 배 채우기 좋다.<br>​<br>• 토요코인 (Toyoko Inn): 가장 저렴하고 예측 가능하다. 전국 어디나 구조가 똑같아 적응할 필요도 없다. 무료 조식으로 아침값을 아껴서 저녁 뒷풀이 안주 하나 더 시키는 게 친구들과의 의리다.ㅎ<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>예약은? 아고다, 부킹닷컴, 트립닷컴 삼각 편대<br>호텔 브랜드를 정했다면 이제 결제창을 열어야 한다. 일본 호텔 예약에서 세 사이트에서 비교해보고 결제하는 것이다. 정말 예측불가다.<br>​<br>아고다 (Agoda): 일본 숙소 물량이 가장 많고 '오늘만 특가'가 자주 뜬다. 단, 최종 결제 금액에 세금이 포함되었는지 반드시 확인해라.<br>​<br>​<br>부킹닷컴 (Booking.com): '무료 취소' 옵션이 가장 잘 되어 있다. 일정이 유동적일 때 일단 잡아두기 좋다.<br>​<br>트립닷컴 (Trip.com): 가끔 아시아권 항공권과 연계해 말도 안 되는 호텔 특가를 낼 때가 있다. 요즘 특가가 생각보다 많이 나온다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>세 사이트를 동시에 띄워놓고 최종 결제 금액(세금/봉사료 포함)을 비교해라. 10만 원대 호텔이라도 사이트별로 만 원에서 2만 원까지 차이가 난다. 이 돈 아껴서 골프장 점심때 '나마비루' 한 잔 더 마셔야한다</p>
+          <div class="article-images">
+            <img src="guide-images/img-054.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-055.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-056.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-057.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">The correct mindset for Japan golf travel accommodation: it is a place to sleep. Every yen spent upgrading a hotel is a yen removed from the green fee budget.</p><p class="article-text" style="margin-top:16px">■ The baseline rule: city-center business hotels</p><p class="article-text" style="margin-top:16px">For a first Japan golf trip, base yourself in a city-center business hotel rather than near the golf course or in the mountains. Three reasons:</p><p class="article-text" style="margin-top:16px">① Dining options: The evening izakaya meal is one of the defining pleasures of a Japan golf trip. Outside the city center, those options disappear.</p><p class="article-text" style="margin-top:16px">② Simplified routing: A city-center base means highway access to the next day's course in one straightforward drive.</p><p class="article-text" style="margin-top:16px">③ Lower risk: In the event of illness or emergency, city-center accommodation puts you within reach of medical facilities and convenience stores.</p><p class="article-text" style="margin-top:16px">■ Recommendations by group type</p><p class="article-text" style="margin-top:16px">Two people: Toyoko Inn or Daiwa Roynet Hotel<br>Single rooms or a twin. Clean, functional, sufficient. 6,000–9,000 yen per room per night. The savings versus a premium hotel go directly toward better golf.</p><p class="article-text" style="margin-top:16px">Three to four people: APA Hotel or Route Inn<br>Wide twin-plus-single combinations or triple-capable chain hotels. 7,000–10,000 yen per person. Many locations include large communal baths — ideal for recovery after a full day of golf.</p><p class="article-text" style="margin-top:16px">Couples: Daiwa Roynet or Comfort Hotel<br>Well-maintained facilities and attentive service. If tourism is part of the trip, look for locations adjacent to sightseeing areas.</p><p class="article-text" style="margin-top:16px">■ Compare three booking sites</p><p class="article-text" style="margin-top:16px">Open Rakuten Travel, Jalan, and Booking.com simultaneously and compare the final price including tax and service charges. The same hotel often varies by 1,000–2,000 yen between platforms. That difference covers the evening beer.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本ゴルフ旅行のホテルは「寝るだけの場所」と割り切るのが正解です。豪華なホテルにお金をかけた分だけ、グリーンフィーの予算が削られます。</p><p class="article-text" style="margin-top:16px">■ 基本原則：市内のビジネスホテルを選べ</p><p class="article-text" style="margin-top:16px">初めての日本ゴルフ遠征では、ゴルフ場の近くや山の中ではなく、市内のビジネスホテルを拠点にしてください。理由は3つです。</p><p class="article-text" style="margin-top:16px">① 食事の選択肢が多い：ラウンド後の夕食は居酒屋で食べるのが日本ゴルフ旅の醍醐味です。市内でなければ選択肢がありません。</p><p class="article-text" style="margin-top:16px">② 翌日の動線が楽：市内を拠点にすれば、次の日のゴルフ場へのルートも高速道路で一本です。</p><p class="article-text" style="margin-top:16px">③ もしものリスクが低い：体調不良や緊急事態の際、市内なら医療機関やコンビニへのアクセスが確保されています。</p><p class="article-text" style="margin-top:16px">■ 同行者タイプ別おすすめ</p><p class="article-text" style="margin-top:16px">【2名】東横インまたはダイワロイネットホテル<br>シングル2室かツイン1室。清潔で過不足なし。1泊6,000〜9,000円台。ここで節約した分でグリーンフィーと夕食の差がつきます。</p><p class="article-text" style="margin-top:16px">【3〜4名】アパホテルまたはルートイン<br>広めのツイン＋シングルの組み合わせ、またはトリプルルーム対応のチェーンホテル。1人あたり7,000〜10,000円台。大浴場付きが多く、ラウンド後の疲労回復に最適。</p><p class="article-text" style="margin-top:16px">【カップル・夫婦】ダイワロイネット・コンフォートホテル<br>設備がきれいで接客が丁寧。観光もセットにしたいなら、観光地隣接のホテルを選択。</p><p class="article-text" style="margin-top:16px">■ 予約サイトは3つを比較せよ</p><p class="article-text" style="margin-top:16px">楽天トラベル・じゃらん・Booking.comを同時に開いて最終金額（税・サービス料込み）を比較してください。同じホテルでも1,000〜2,000円の差が出ることがあります。その分を生ビールに充てましょう。</p></div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- Q&A편 -->
+  <div class="category-section" id="cat-qna">
+    <div class="cat-header">
+      <span class="cat-title">Q&A편</span>
+      <span class="cat-count">5 articles</span>
+    </div>
+            <div class="article-list">
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">Q&A · 01</div>
+            <div class="article-title">항공, 숙소, 렌터카, 골프장... 도대체 예약 순서가 어떻게 되요?</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">항공, 숙소, 렌터카, 골프장... 도대체 예약 순서가 어떻게 되요?<br>완벽한 동선을 위한 '예약 순서' 팩트체크<br>일본 골프 자유여행, 가기로 마음먹고 렌터카 운전까지 결심하셨습니까? 이제 가장 큰 허들은 넘으셨습니다.<br>그런데 막상 컴퓨터 앞에 앉아 예약을 하려고 하면 머리가 하얘집니다. 항공권, 골프장, 렌터카, 호텔. 이 네 가지를 도대체 어떤 순서로 예약해야 톱니바퀴가 완벽하게 맞물려 돌아갈까요?<br>​<br>수십 번의 시행착오 끝에 얻어낸, 시간과 돈을 가장 아껴주는 완벽한 예약의 순서를 스텝 바이 스텝으로 팩트체크해 드립니다. 이 순서만 따라 하시면 절대 동선이 꼬일 일이 없습니다.</p><p class="article-text" style="margin-top:16px">1순위: 항공권 (여행의 뼈대 잡기)<br>당연한 이야기 같지만, 여행의 뼈대를 잡는 출발일과 도착일을 확정 짓는 항공권 예매가 무조건 1순위입니다. 렌터카, 골프장, 숙소는 아직까지 예매취소 수수료가 없지만, 비행기는 예매취소수수료가 발생합니다. 첫 일본 골프 여행이라면 복잡하고 사람 많은 도쿄나 오사카 같은 대도시보다, 여유롭고 진짜 일본스러운 분위기를 느낄 수 있는 '소도시' 직항 노선을 공략하는 것이 훨씬 유리합니다. 소도시 공항을 기점으로 삼아야 첫번째 렌터카 운전도 한결 수월하고 가성비 좋은 구장들을 만나기 쉽습니다.</p><p class="article-text" style="margin-top:16px">2순위: 렌터카 (발이 묶이면 여행은 끝이다)<br>항공권을 끊었다면 그 즉시, 골프장이나 숙소를 보기도 전에 '렌터카'부터 무조건 예약해야 합니다. 이게 초보자들이 가장 많이 하는 실수입니다. 골프장과 숙소는 대안이 많지만, 소도시 공항의 렌터카(특히 우리가 원하는 큰 사이즈의 차량이나 특정 메이저 업체의 차량)는 수량이 한정되어 있어 순식간에 동이 납니다. 비행기 표는 있는데 렌터카가 없어서 여행을 망치는 경우가 비일비재합니다. 앞서 강조했듯, 초보자라면 도요타 렌터카 같은 메이저 업체에서 '풀커버 보험(NOC 안심 플랜)'을 넣고 빠르게 차부터 확보하십시오.</p><p class="article-text" style="margin-top:16px">3순위: 골프장 (동선의 핵심)<br>비행기(시간)와 렌터카(이동 수단)가 확정되었다면, 이제 이 여행의 메인이벤트인 골프장을 고를 차례입니다.<br>여기서부터는 철저한 '거리 계산'이 들어갑니다. 구글 맵을 켜고 공항에서 골프장까지의 이동 시간, 골프장에서 다음 날 칠 골프장까지의 거리 등을 고려해 동선을 짜야 합니다. 예약은 복잡하게 여러 사이트 돌아다닐 필요 없이, 다음 편에서 자세히 다룰 '라쿠텐 고라(Rakuten GORA)' 하나만 파고들면 충분합니다.</p><p class="article-text" style="margin-top:16px">4순위: 숙소 (가능한 시내로)<br>가장 마지막에 예약하는 것이 바로 숙소(호텔)입니다. 골프장 예약이 완료되어 전체적인 이동 동선이 지도 위에 그려지면, 그 동선 상에서 가장 효율적인 거점에 위치한 숙소를 잡는 것이 논리적인 순서입니다.<br>​<br>다만, 경험이 쌓이면 시내가 아니더라도 숙박이 가능한곳도 있지만, 일단 첫번째라면 이것저것 고려하지말고 시내로 결정하는것이 좋다<br>​<br>자! 여행 준비는 어떻게 ?<br>항공권=&gt;렌터카=&gt;골프장=&gt;숙소 순으로 합니다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>  </p><p class="article-text" style="margin-top:16px">​</p>
+          <div class="article-images">
+            <img src="guide-images/img-058.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-059.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-060.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">You have committed to the Japan golf self-trip and decided you will handle the driving. Now you are at the computer, ready to start booking. The question: flights, golf courses, rental car, hotel — what is the correct sequence?</p><p class="article-text" style="margin-top:16px">The order that prevents scheduling conflicts and saves both time and money, from dozens of trips of trial and error.</p><p class="article-text" style="margin-top:16px">■ Priority 1: Flights (establish the framework)</p><p class="article-text" style="margin-top:16px">The flight dates are the skeleton of the trip. Book these first without exception. Rental cars, golf courses, and hotels can be cancelled without fees at this stage. Flights cannot.</p><p class="article-text" style="margin-top:16px">■ Priority 2: Rental car (no car, no trip)</p><p class="article-text" style="margin-top:16px">Immediately after booking flights — before looking at golf courses or hotels — book the rental car. This is the mistake beginners make most consistently. Regional airport rental fleets, especially large vehicles, are limited and fill quickly.</p><p class="article-text" style="margin-top:16px">■ Priority 3: Golf courses (the core of the itinerary)</p><p class="article-text" style="margin-top:16px">With flights (timing) and rental car (transportation) confirmed, now select the golf courses. Open Google Maps. Calculate drive times from the airport to each course, and between courses. Build the routing before committing to specific courses.</p><p class="article-text" style="margin-top:16px">■ Priority 4: Hotel (book last)</p><p class="article-text" style="margin-top:16px">Hotel booking comes last. Once golf courses are confirmed and the overall routing is visible on a map, select a hotel positioned efficiently within that routing.</p><p class="article-text" style="margin-top:16px">The correct sequence:<br>Flights → Rental car → Golf courses → Hotel</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">日本ゴルフ自由旅行、行くと決めてレンタカー運転も覚悟した。あとはパソコンの前に座って予約するだけ。でも、航空券・ゴルフ場・レンタカー・ホテル、この4つをどの順番で予約すればギアがかみ合うのか。</p><p class="article-text" style="margin-top:16px">数十回の試行錯誤の末に得た、時間とお金を最も節約できる完璧な予約順序をステップごとにファクトチェックします。</p><p class="article-text" style="margin-top:16px">■ 第1優先：航空券（旅の骨格を作る）</p><p class="article-text" style="margin-top:16px">旅の骨格となる出発日と到着日を確定させる航空券の予約が絶対に1番です。レンタカー・ゴルフ場・ホテルはまだキャンセル手数料がかかりませんが、飛行機は手数料が発生します。</p><p class="article-text" style="margin-top:16px">■ 第2優先：レンタカー（足がなければ旅は終わり）</p><p class="article-text" style="margin-top:16px">航空券を押さえたら即座に、ゴルフ場や宿より先に「レンタカー」を予約してください。これが初心者が最もよくするミスです。地方空港のレンタカー（特に大型車）は台数が限られており、あっという間に埋まります。</p><p class="article-text" style="margin-top:16px">■ 第3優先：ゴルフ場（動線のコア）</p><p class="article-text" style="margin-top:16px">フライト（時間）とレンタカー（移動手段）が確定したら、いよいよ旅のメインイベントであるゴルフ場を選びます。Googleマップで空港からゴルフ場までの移動時間、ゴルフ場間の距離を計算しながら動線を組んでください。</p><p class="article-text" style="margin-top:16px">■ 第4優先：ホテル（一番最後でよい）</p><p class="article-text" style="margin-top:16px">最後に予約するのがホテルです。ゴルフ場が確定して全体の動線が地図上に描かれたら、その動線上で最も効率的な場所のホテルを選んでください。</p><p class="article-text" style="margin-top:16px">予約順序のまとめ：<br>航空券→レンタカー→ゴルフ場→ホテル</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">Q&A · 02</div>
+            <div class="article-title">초보자를 위한 일본 카트 옵션 완벽 가이드 (feat. 리모컨을 찾아라)</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">초보자를 위한 일본 카트 옵션 완벽 가이드 (feat. 리모컨을 찾아라)<br>결론부터 말한다. 우리가 다니는 일본 골프장은 거의 99프로 노캐디다. 한국처럼 캐디가 알아서 운전하고 채 갖다주는 온실 속 화초 같은 골프가 아니다. 당신이 직접 운전기사 노릇을 해야 한다. 카트 옵션을 잘못 고르면 한적한 소도시 힐링 골프가 18홀짜리 유격 훈련으로 바뀐다.ㅎ<br>​<br>라쿠텐 고라 카트 3대장 완벽 해독<br>예약 화면에 보이는 [장바구니 | 0000] 옵션을 잘 봐야 한다. 여기서 당신의 체력 소모량이 결정된다 ㅎ</p><p class="article-text" style="margin-top:16px">수동 운전 카트<br>(화면 표기: GPS / 승입 가능)<br>  </p><p class="article-text" style="margin-top:16px">• 작동 방식: 100% 당신이 직접 엑셀 밟고 핸들 돌려야 하는 자동차다. 선로 없이 그냥 맨땅을 달린다.<br>• 팩트: '승입 가능(페어웨이 진입)'이라는 강력한 장점이 있다. 하지만 단점이 크다. 누군가는 반드시 운전대를 잡아야 하니 동선이 꼬인다. 산악 지형에서는 가파를 경사와 함께 운전 미숙으로 사고가 심심찮게 일어난다. 게다가 페어웨이 진입은 그날 아침 이슬만 좀 맺혀도 "오늘은 안 됩니다" 하고 막아버리거나 추가금을 받는 경우가 태반이다.</p><p class="article-text" style="margin-top:16px">버튼식 자동 카트<br>(화면 표기: 원격 제어 GPS)<br>  </p><p class="article-text" style="margin-top:16px">• 작동 방식: 바닥에 깔린 선을 따라 기차처럼 움직인다. 카트 안쪽에 있는 '초록색 버튼'을 누르면 출발하고, 다시 누르면 멈춘다.<br>• 팩트: 수동 운전의 위험성은 없다. 알아서 코스를 따라가니까. 문제는 '리모컨'이 없다는 거다. 공을 치고 나서 카트를 출발시키려면, 누군가 한 명은 다시 카트 도로까지 걸어와서 버튼을 눌러야 한다. 체력좋은자가 맡아서 해야한다 ^^ 은근히 귀찮다.</p><p class="article-text" style="margin-top:16px">휴대용 리모컨 카트<br>(화면 표기: 리모콘, GPS)<br>  </p><p class="article-text" style="margin-top:16px">• 작동 방식: 자동 카트 기능에 '주머니에 넣을 수 있는 무선 리모컨'이 추가된 형태다.<br>• 팩트: 가장 추천한다. 셀프 플레이의 신(神)이다. 운전석에 갈 필요가 없다. 페어웨이 한가운데서 공을 치고 주머니에서 리모컨 버튼만 딸깍 누르면 카트가 강아지처럼 내 쪽 도로를 따라 졸졸 굴러온다. 리모컨을 허리춤에 차는게 제일 편하고, 체력 소모를 획기적으로 줄여주는 최고의 옵션이다.</p><p class="article-text" style="margin-top:16px">예약할 때 골프장 카트 옵션을 확인해라.<br>무조건 '리모콘' 글자가 박힌 곳을 1순위로 잡아라. 페어웨이 진입의 로망? 낯선 일본 우핸들 렌터카 몰고 온 것도 피곤한데, 골프장 안에서까지 운전대 잡고 신경 곤두세울 필요 없다. 리모컨 하나 쥐고 산책하듯 여유롭게 걷는 것이 일본 골프를 우아하게 즐기는 팩트다.<br>​<br>오늘의 키워드<br>리모컨 있는 구장의 카트를 찾아라 !</p>
+          <div class="article-images">
+            <img src="guide-images/img-061.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-062.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-063.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">The conclusion first: virtually every Japanese golf course we visit operates without caddies. No one drives the cart for you, hands you clubs, or rakes your bunkers. You are the caddy. Select the wrong cart option and a relaxed rural healing round becomes an 18-hole endurance exercise.</p><p class="article-text" style="margin-top:16px">■ The three cart options on Rakuten GORA</p><p class="article-text" style="margin-top:16px">① Manual drive cart (GPS / fairway-access possible)<br>Operation: You drive it yourself — accelerator, steering wheel, the works.<br>Reality: The fairway access feature sounds appealing. But someone must always be at the wheel, accident risk on mountain terrain is real, and the fairway access is routinely blocked after morning dew. More trouble than it sounds.</p><p class="article-text" style="margin-top:16px">② Button-operated automatic cart (remote GPS)<br>Operation: Follows a track embedded in the cart path, like a rail system. Push the green button inside the cart to start, push again to stop.<br>Reality: No driving risk. But without a remote, someone must walk back to the cart after every shot to push the button. Quietly exhausting over 18 holes.</p><p class="article-text" style="margin-top:16px">③ Handheld remote cart (remote control + GPS) ★ the only correct choice ★<br>Operation: Automatic cart system plus a pocket-sized wireless remote.<br>Reality: The definitive option. Pull the remote from your pocket, press the button, and the cart follows you like a trained dog. This single feature transforms the physical experience of a caddy-free round.</p><p class="article-text" style="margin-top:16px">■ The booking rule</p><p class="article-text" style="margin-top:16px">When browsing courses, search specifically for "リモコン (remote control)" in the cart description and prioritize those courses above all others. The romance of driving a cart across the fairway is not worth the fatigue. The remote control is how Japan golf is meant to be played.</p><p class="article-text" style="margin-top:16px">Today's key point: find a course with a remote-control cart.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">結論から言います。私たちが行く日本のゴルフ場はほぼ99%ノーキャディです。韓国のようにキャディが運転してクラブを持ってきてくれる温室育ちのゴルフではありません。あなたが自分で運転手になる必要があります。カートオプションを間違えると、のどかな地方ヒーリングゴルフが18ホールの体力消耗戦になります。</p><p class="article-text" style="margin-top:16px">■ 楽天GORAのカート3大選択肢</p><p class="article-text" style="margin-top:16px">① 手動運転カート（GPS/乗入可能）<br>操作方法：100%自分でアクセルを踏んでハンドルを回す車タイプ。<br>ファクト：「乗入可能（フェアウェイ進入）」という強みがありますが、誰かが必ず運転しなければならず、山岳地形での事故リスクも高い。朝露があるだけで「今日は不可」となる場合も多い。</p><p class="article-text" style="margin-top:16px">② ボタン式自動カート（リモコンGPS）<br>操作方法：床に敷いたレールに沿って電車のように動く。車内のボタンを押すと出発、また押すと止まる。<br>ファクト：運転リスクはなし。しかし「リモコン」がないため、ショット後にカートを動かすには誰かが道路まで戻ってボタンを押す必要がある。地味に体力を使う。</p><p class="article-text" style="margin-top:16px">③ 携帯リモコンカート（リモコン、GPS）★最推奨★<br>操作方法：自動カートにポケットサイズの無線リモコンが追加された形。<br>ファクト：最もお勧めです。ポケットからリモコンを取り出してボタンを押すだけで、カートが犬のように付いてきます。体力消耗を劇的に減らす最高のオプションです。</p><p class="article-text" style="margin-top:16px">■ 予約時の鉄則</p><p class="article-text" style="margin-top:16px">「リモコン」という文字が入っているコースを第一優先にしてください。フェアウェイ進入のロマンより、リモコンを握って散歩するように歩く余裕の方が、日本ゴルフを上品に楽しむ正解です。</p><p class="article-text" style="margin-top:16px">本日のキーワード：リモコンのあるコースのカートを探せ！</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">Q&A · 03</div>
+            <div class="article-title">라쿠텐고라 첫페이지부터 문젠데요! 팝업창 체크박스에 체크가 안되요 ?</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">라쿠텐고라 첫페이지부터 문젠데요! 팝업창 체크박스에 체크가 안되요 ?<br>이 질문 꽤 많이 하시고 저도 처음에 이게 잘 안되서 고생한적이 있습니다. 아래 사진보면 하단이 활성화가 안되어있죠? 아주 간단하게 들어갈수 있습니다<br>  </p><p class="article-text" style="margin-top:16px">​<br>​<br>먼저 언어를 한국어에서 일본어로 변경하면 아래와 같이 활성화가 됩니다. 반드시 옆의 안내문을 하단까지 스크롤해주셔야합니다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>I Agree를 누르면 일본어로 된 사이트가 나옵니다<br>(일본어로 선택했으니까요 ㅎ)<br>마우스 우측을 클릭하면 아래와 같이 나옵니다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>중간에 한국어로 번역이 나옵니다.<br>그걸 클릭해주시면 이렇게 주요 예약부분은 한글로 나옵니다. 한줄 설명을 이렇게 길게 쓰는 재주도 있네요<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>오늘의 키워드<br>첫페이지 체크박스는 언어를 일본어로 바꿔라</p>
+          <div class="article-images">
+            <img src="guide-images/img-064.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-065.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-066.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-067.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-068.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-069.png" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-071.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">This question comes up frequently. I had the same problem on my first attempt. The fix is anticlimactically simple.</p><p class="article-text" style="margin-top:16px">■ The problem</p><p class="article-text" style="margin-top:16px">When accessing Rakuten GORA for the first time, a terms of service popup appears. The agreement checkbox at the bottom appears greyed out and unclickable.</p><p class="article-text" style="margin-top:16px">■ The solution (two steps)</p><p class="article-text" style="margin-top:16px">Step 1: Change the language from Korean to Japanese<br>In the popup language selector, choose Japanese. This single action activates the checkbox.</p><p class="article-text" style="margin-top:16px">Step 2: Scroll to the bottom of the terms document<br>The checkbox only becomes clickable after scrolling completely through the terms text. Scroll all the way to the bottom.</p><p class="article-text" style="margin-top:16px">After clicking "I Agree," the site displays in Japanese. Right-click anywhere on the page and select "Translate to Korean" (or your preferred language). The core booking sections will display in Korean.</p><p class="article-text" style="margin-top:16px">Today's key point: the checkbox activates when you switch the language to Japanese.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">この質問はかなり多くいただきます。私も最初は苦労しました。解決方法は拍子抜けするほど簡単です。</p><p class="article-text" style="margin-top:16px">■ 問題の状況</p><p class="article-text" style="margin-top:16px">楽天GORAに初めてアクセスすると、利用規約のポップアップが表示されます。下部の同意チェックボックスをクリックしようとしても、グレーアウトされて押せない状態になっています。</p><p class="article-text" style="margin-top:16px">■ 解決策（2ステップ）</p><p class="article-text" style="margin-top:16px">ステップ1：言語を韓国語から日本語に変更する<br>ポップアップ内の言語選択で「日本語」を選択してください。これだけでチェックボックスがアクティブになります。</p><p class="article-text" style="margin-top:16px">ステップ2：規約文書を最下部までスクロールする<br>必ず規約の文章を最下部までスクロールしてください。スクロールが完了するとチェックボックスが押せるようになります。</p><p class="article-text" style="margin-top:16px">「I Agree」を押すと日本語表示のサイトが表示されます。その状態でマウスを右クリックして「日本語から韓国語に翻訳」を選択すれば、主要な予約部分が韓国語で表示されます。</p><p class="article-text" style="margin-top:16px">■ 本日のキーワード</p><p class="article-text" style="margin-top:16px">最初のページのチェックボックスは言語を日本語に切り替えれば解決！</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">Q&A · 04</div>
+            <div class="article-title">첫 일본골프 여행준비물 체크리스트</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">첫 일본골프 여행준비물 체크리스트<br>일본 골프 첫 여행 뭘 준비해야지? 이것저것 찾아보던 시절이 있었는데..내가 이렇게 알려주는 시절이 오네요<br>​<br>지인들이 동의할지는 모르겠지만 ㅎ. 제가 평범하고 무던한 스타일인지라.. 깔끔하신 스타일이신분들은 저보다는 좀 더 챙겨야 할겁니다.<br>​<br>일본골프 체크리스트, 20가지 뭐가 있을까요?</p><p class="article-text" style="margin-top:16px">1. 일단 제일 중요한건 여권. 당연히 있지라고 하시는분들 유효기간 6개월이내일시에는 가능한 재발급 받으시는게 안전하다. 국제면허증도 잘 챙기자<br>​<br>2. 3가지 장점이 있는 트래블카드 ( 환전수수료 0원, 해외결제수수료 0원, 현지 ATM수수료 0원 ) 챙기고, 혹시 모르니 현금, 신용카드도 준비하자<br>​<br>3. 출발전에 비짓재팬 등록하고, QR은 캡쳐하여 저장해놓자. 주소쓸때 우편번호만 적으면 알아서 필인.<br>​<br>4. 공항 상황이 어떨지 모르니 스마트패스도 해놓고 최소한 2시간전에 공항 도착하자<br>​<br>5. 발렛주차 이용할거면 미리 예약하자. 또한 무료발렛되는 카드도 챙기자<br>​<br>6. 집에서 미리 짐무게 챙기자. LCC는 15키로 위탁, 10키로 기내수하물이다.<br>​<br>7. 여행자보험 가능한 들자. 핸드폰, 골프채 파손뿐 아니라 골프장 사고도 2만원 비용으로 다 해결해준다<br>​<br>8. 거리측정기는 필수다. 보통 거리목보다 대부분 길게 찍힌다. 20미터 정도 차이도 난다.<br>​<br>9. 아침 티옵일때는 볼 타월 필수다. 골프공은 넘 많이 가져가지 말자. 경험상 생각보다 덜 쓴다.<br>​<br>10. 색이 바랜 의류, 오래된 신발등 앞으로 안쓸 것을 가져가서 버리고 오는것도 올때 짐 부담이 없다<br>​<br>11. 골프장에는 우산이 비치되어있다. 우산 별도 필요없다. 가져가더라도 소형으로.<br>​<br>12. 해안가쪽 라운드시 바람막이 추천한다.<br>​<br>13. 일본이 한국보다 강수량이 많다. 날씨에 비소식 있으면 방수우비 챙겨라.<br>​<br>14. 호텔에서 어메니티에 치약, 칫솔이 대부분 포함되어있다. 민감하지 않으면 그대로 써도 된다. 호텔 지원 리스트들을 확인가능하다<br>​<br>15. 5일 라운딩시에는 3일치 옷만 준비해라. 코인런더리에서 세탁 및 건조 가능하다.<br>​<br>16. 보조배터리, 멀티어댑터, 돼지코 110v 준비해라.<br>​<br>17. 본인이 먹는 약은 정말 중요하다. 여권만큼 잘 챙겨라. 그리고 비상약은 반드시 챙기자. 소화, 두통, 종합감기등<br>​<br>18. 용량은 반드시 체크하자. 잘못 챙겨서 세관에서 뺏기는 일이 없도록 하자.<br>​<br>19. 로밍. 유심, 이심중에 선택을 잘 하자. 다만, 첫 여행은 로밍이 비싸도 제일 쉽고 깔끔하다.<br>​<br>20. 골프장에 까마귀가 꽤 많다. 귀중품은 카트에 놓지말고 반드시 골프백에 넣어놓고 자크로 닫아놓자.<br>  </p><p class="article-text" style="margin-top:16px">혹시라도 제가 놓친게 있으면 댓글로 알려주세요.<br>감사합니다.</p>
+          <div class="article-images">
+            <img src="guide-images/img-072.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-073.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-074.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">First Japan golf trip preparation: 20 items drawn from experience.</p><p class="article-text" style="margin-top:16px">1. Passport (verify validity: 6+ months remaining) + international driving permit</p><p class="article-text" style="margin-top:16px">2. Travel card (zero currency exchange, zero foreign transaction fee, zero ATM fee) + cash and credit card as backup</p><p class="article-text" style="margin-top:16px">3. Visit Japan Web registration + screenshot the QR code. Postal code entry auto-fills the address.</p><p class="article-text" style="margin-top:16px">4. Smart Pass Plus registration. Arrive at the airport at least 2 hours before departure.</p><p class="article-text" style="margin-top:16px">5. Pre-book valet parking if using it. Check which cards include complimentary valet.</p><p class="article-text" style="margin-top:16px">6. Luggage weight management: most LCCs allow 15kg checked and 10kg carry-on.</p><p class="article-text" style="margin-top:16px">7. Travel insurance is mandatory: covers phone and club damage, golf course accidents — typically under 20,000 won.</p><p class="article-text" style="margin-top:16px">8. Distance measuring device: Japanese yardage markers often read short. Real distances can be 20 meters longer than posted.</p><p class="article-text" style="margin-top:16px">9. Ball towel for early morning rounds. Do not over-pack golf balls — you will use fewer than expected.</p><p class="article-text" style="margin-top:16px">10. Bring old clothes and worn-out shoes to discard in Japan. Return luggage becomes significantly lighter.</p><p class="article-text" style="margin-top:16px">11. Umbrellas are available at golf courses. If bringing one, a compact folding umbrella is sufficient.</p><p class="article-text" style="margin-top:16px">12. Windbreaker recommended for coastal courses.</p><p class="article-text" style="margin-top:16px">13. Japan has high annual rainfall. If rain appears in the forecast, pack a rain jacket — not optional.</p><p class="article-text" style="margin-top:16px">14. Hotel amenities typically include toothbrush and toothpaste. Confirm with the specific property.</p><p class="article-text" style="margin-top:16px">15. For a 5-day trip, 3 days of clothing is sufficient. Coin laundry facilities are widely available.</p><p class="article-text" style="margin-top:16px">16. Portable battery, multi-adapter, and 100V plug adapter.</p><p class="article-text" style="margin-top:16px">17. Personal medications are critical — same priority level as the passport. Pack standard OTC drugs: antacid, pain reliever, cold medicine.</p><p class="article-text" style="margin-top:16px">18. Verify liquid volume restrictions. Customs confiscation of travel items ruins packing plans.</p><p class="article-text" style="margin-top:16px">19. Choose between roaming, SIM, or eSIM. For a first trip, roaming is the simplest option.</p><p class="article-text" style="margin-top:16px">20. Beware of crows. Japanese golf courses have significant crow populations. Keep valuables inside your golf bag with the zipper closed, not on the cart.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">初めての日本ゴルフ旅行、何を準備すればいいのか。経験から絞り込んだ20項目のチェックリストです。</p><p class="article-text" style="margin-top:16px">1. パスポート（有効期限6ヶ月以上か確認）＋国際運転免許証</p><p class="article-text" style="margin-top:16px">2. トラベルカード（両替手数料・海外決済手数料・ATM手数料すべてゼロ）+ 現金・クレジットカードも念のため準備</p><p class="article-text" style="margin-top:16px">3. Visit Japan Web登録＋QRコードをスクリーンショット保存。郵便番号入力で住所自動入力が便利</p><p class="article-text" style="margin-top:16px">4. スマートパスプラスも登録しておく。出発の最低2時間前には空港到着</p><p class="article-text" style="margin-top:16px">5. バレーパーキングを使う場合は事前予約。無料バレーが使えるカードも確認</p><p class="article-text" style="margin-top:16px">6. 荷物の重量管理：LCCは受託15kg・機内持込10kgが多い</p><p class="article-text" style="margin-top:16px">7. 海外旅行保険に必ず加入：携帯・ゴルフクラブの破損、ゴルフ場事故まで2,000円程度でカバー可能</p><p class="article-text" style="margin-top:16px">8. 距離測定器は必須：日本の距離表示は実際より短いケースが多い。20m前後の誤差も</p><p class="article-text" style="margin-top:16px">9. 早朝ティーオフ時はボールタオル必須。ゴルフボールは多く持ち込みすぎない（思ったより使わない）</p><p class="article-text" style="margin-top:16px">10. 古くなった服・古い靴を持参して現地で処分。帰りの荷物が格段に軽くなる</p><p class="article-text" style="margin-top:16px">11. 傘はゴルフ場に備え付けあり。持参するなら折り畳み傘で十分</p><p class="article-text" style="margin-top:16px">12. 海沿いコースでは防風ジャケット推奨</p><p class="article-text" style="margin-top:16px">13. 日本は降水量が多い。天気予報で雨マークがあればレインウェア必携</p><p class="article-text" style="margin-top:16px">14. ホテルのアメニティに歯ブラシ・歯磨き粉は通常付属。ホテルに確認を</p><p class="article-text" style="margin-top:16px">15. 5日旅行なら服は3日分で十分。コインランドリーで洗濯・乾燥が可能</p><p class="article-text" style="margin-top:16px">16. モバイルバッテリー・マルチアダプター・100V対応プラグ（豚の鼻型）を準備</p><p class="article-text" style="margin-top:16px">17. 持病の薬は最重要。パスポートと同等の優先度で管理。市販の常備薬（消化・頭痛・風邪）も必ず</p><p class="article-text" style="margin-top:16px">18. 液体物の容量制限を必ず確認。税関で没収されないよう</p><p class="article-text" style="margin-top:16px">19. 通信手段：ローミング・SIM・eSIMから選択。初回はローミングが最もシンプル</p><p class="article-text" style="margin-top:16px">20. カラスに注意。日本のゴルフ場はカラスが多い。カート上の貴重品は必ずゴルフバッグのチャックの中へ</p></div>
+        </div>
+      </div>
+      <div class="article-item" onclick="toggleArticle(this)">
+        <div class="article-top">
+          <div>
+            <div class="article-num">Q&A · 05</div>
+            <div class="article-title">골퍼를 위한 궁극의 트래블카드는! (feat;아침 편의점부터 저녁 이자카야까지)</div>
+          </div>
+          <span class="article-expand-icon">↓</span>
+        </div>
+        <div class="article-content">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang(event,this,'ko')">한국어</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'en')">English</button>
+            <button class="lang-tab" onclick="switchLang(event,this,'ja')">日本語</button>
+          </div>
+          <div class="lang-content active" data-lang="ko">
+            <p class="article-text">골퍼를 위한 궁극의 트래블카드는! (feat;아침 편의점부터 저녁 이자카야까지)<br>아직도 공항 환전소에서 줄을 서거나 지갑에 신용카드 하나 달랑 꽂고 출국장을 나서는가? 수십만 원짜리 그린피와 식비를 결제하면서 은행과 카드사에 꼬박꼬박 수수료를 헌납하는 멍청한짓은 이제 끝낼 때가 왔다.<br>렌터카를 몰고 일본의 로컬 코스들을 누비기 위해 반드시 장착해야 할 필수 무기, '트래블카드'의 모든 것을 정리하겠다</p><p class="article-text" style="margin-top:16px">Q1. 도대체 '트래블카드'가 정확히 뭔가요?<br>A. 내 스마트폰으로 직접 환율을 통제하는 '외화 선불 충전 카드'다.<br>원리는 간단하다. 스마트폰 앱을 통해 내가 원할 때, 환율이 유리할 때 내 원화 통장에서 돈을 빼 외화(엔화)로 충전해 둔다. 그리고 현지에서 그 카드로 수수료 없이 결제하거나, 현지 ATM에서 현금을 뽑아 쓰는 시스템이다. 은행이라는 중간 관리자를 거치지 않고 내가 직접 환전소가 되는 마법이다.</p><p class="article-text" style="margin-top:16px">Q2. 기존에 쓰던 신용카드 가져가면 안 되나요?<br>A. 카드사에 수수료 뜯기고 싶다면 그렇게 해라.<br>신용카드를 해외에서 긁으면 세 가지 지옥이 열린다.<br>​<br>1.수수료 지옥: 국제브랜드(Visa 등) 수수료와 국내 카드사 수수료가 이중으로 붙어 결제액의 약 1.2~2.5%가 날아간다. 트래블카드는 이 해외 결제 수수료가 100% 면제다.<br>​<br>2.환율 변동 지옥: 신용카드는 내가 긁은 날이 아니라 며칠뒤 카드사에 전표가 접수되는 날,환율을 적용한다. 트래블카드는 내가 쌀 때 미리 사둔 환율로 고정된다.<br>​<br>3.이중 환전 지옥: 멋모르고 원화로 결제했다가 3~5% 수수료를 추가로 맞는 사기 수법이다. 트래블카드는 외화 통장에서 돈이 빠져나가니 위험이 원천 차단된다.</p><p class="article-text" style="margin-top:16px">Q3. 그냥 현찰 두둑하게 환전해 가는 게 낫지 않나요?<br>A. 동전 지옥을 맛보고 싶다면 말리지 않겠다.<br>​<br>아날로그의 낭만은 비용 앞에서 무너진다. 은행이나 명동에서 지폐를 바꿀 때는 살 때와 팔 때의 가격 차이때문에 무조건 손해를 본다. 트래블카드는 이 환전 수수료 자체가 100% 무료다. 게다가 현금으로 계산하다 보면 여행 마지막 날 카트 수납함이 1엔, 10엔짜리 동전 쓰레기장으로 변한다. 카드로 깔끔하게 결제하고, 현금이 꼭 필요할 때만 현지 편의점에서 무료로 쏙쏙 뽑아 쓰는 것이 훨씬 스마트하다.<br>​<br>  </p><p class="article-text" style="margin-top:16px">Q4. 시장을 지배하는 4대 트래블카드는 무엇인가요?<br>A. 장단점이 명확한 4대장, 본인의 취향껏 골라라.<br>• 하나 트래블로그 (접근성 1티어): 일본 전역에 널린 '세븐일레븐' ATM에서 인출 수수료가 무료다. 단, 남은 돈 환불 시 1% 수수료가 있다.<br>• 신한 SOL트래블 (강력한 후발주자): '로손' 편의점 ATM 무료. 환불 수수료도 없고, 연 2회 전 세계 공항 라운지 무료 혜택까지 준다.<br>• 토스뱅크 외화통장 (심플함의 끝): 카드 한 장으로 원화/외화 자동 결제. 세븐일레븐, 로손 다 무료 인출이 가능하지만, 기기 자체 수수료가 가끔 튀어나온다.<br>• 트래블월렛 (원조의 굴욕): 환불 수수료도 없고 깔끔하지만, 무료 인출이 '이온뱅크'에서만 가능하다. 소도시로 나갈수록 ATM 찾기가 사막에서 바늘 찾기라 치명적이다.<br>  </p><p class="article-text" style="margin-top:16px">Q5. 그렇다면 일본 로컬 코스를 다니는 골퍼에게 가장 맞는 카드는요?<br>A. [하나 트래블로그]와 [신한 SOL트래블] 두 개를 다 챙기는 '투트랙 전략'이 정답이다.<br>​<br>일본의 숨겨진 로컬 코스나 외곽의 노포 이자카야는 여전히 현금만 받는 곳이 수두룩하다. 아침에 렌터카를 몰고 가다 초록색 간판의 세븐일레븐이 보이면 하나 트래블로그로 현금을 두둑이 뽑아라. 만약 숙소 앞 편의점이 파란색 로손이라면 신한 SOL트래블을 꺼내면 된다. 수수료 몇 푼에 벌벌 떨며 ATM 기계를 찾아 헤매는 건 골퍼의 폼이 아니다. 동선에 걸리는 편의점 색깔에 맞춰 무기를 바꿔 드는 것이 진정한 1%의 세팅이다.<br>  </p><p class="article-text" style="margin-top:16px">  </p><p class="article-text" style="margin-top:16px">Q6. 내일 출국인데 은행 창구 가면 만들어 주나요?<br>A. 창구 번호표 뽑고 기다리는 짓은 당장 그만둬라.<br>​<br>트래블카드는 철저하게 스마트폰 앱(하나머니, 신한 SOL뱅크 등)으로만 가입하고 신청하는 시스템이다.<br>방구석 소파에 앉아서 3분이면 뚝딱 신청이 끝난다.<br>하지만 여기서 가장 중요한 팩트 하나. 편의점 ATM에서 돈을 뽑으려면 스마트폰 페이가 아니라 반드시 플라스틱 실물 카드가 필요하다. 이 카드가 집으로 배송 오기까지 최소 3일에서 7일이 걸린다. 출국 하루 전날 신청해 놓고 발을 동동 구르지 말고, 최소 2주 전에는 미리 발급받길 추천한다<br>​<br>  </p><p class="article-text" style="margin-top:16px">​<br>​</p>
+          <div class="article-images">
+            <img src="guide-images/img-075.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-076.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-077.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-078.jpg" alt="guide image" class="article-img" loading="lazy">
+            <img src="guide-images/img-079.jpg" alt="guide image" class="article-img" loading="lazy">
+          </div>
+          </div>
+          <div class="lang-content" data-lang="en"><p class="article-text">Are you still standing in the airport currency exchange line? Leaving for Japan with one credit card in your wallet? The practice of paying bank and card company fees on every green fee and restaurant bill ends here.</p><p class="article-text" style="margin-top:16px">■ What exactly is a travel card?</p><p class="article-text" style="margin-top:16px">A foreign currency prepaid card controlled through a smartphone app. You charge yen when the exchange rate is favorable, then pay in Japan with zero transaction fees.</p><p class="article-text" style="margin-top:16px">■ Why a standard credit card is the wrong tool</p><p class="article-text" style="margin-top:16px">① Fee compounding: International brand fee plus domestic card company fee — approximately 1.2–2.5% disappears on every transaction.<br>② Exchange rate risk: Credit cards apply the rate from when the transaction processes, days after you actually pay.<br>③ Dynamic currency conversion trap: Choosing to pay in Korean won at the terminal adds a 3–5% penalty instantly.</p><p class="article-text" style="margin-top:16px">■ The four major travel cards compared</p><p class="article-text" style="margin-top:16px">① Hana TravelLog: Free withdrawal at 7-Eleven ATMs. 1% fee on remaining balance refunds.<br>② Shinhan SOL Travel: Free at Lawson ATMs. No refund fee. Two complimentary airport lounge visits per year.<br>③ Toss Bank foreign currency account: Streamlined design. Works at both 7-Eleven and Lawson, but occasional machine-side fees.<br>④ Travel Wallet: No refund fee. Limited to Aeon ATMs — becomes impractical in rural areas.</p><p class="article-text" style="margin-top:16px">■ The optimal setup for golfers: carry both Hana and Shinhan</p><p class="article-text" style="margin-top:16px">Many izakayas and restaurants near rural Japanese golf courses still operate cash-only. When a 7-Eleven appears, use the Hana card. When a Lawson appears, use the Shinhan card. This two-card setup is the definitive financial configuration for rural Japan golf travel.</p><p class="article-text" style="margin-top:16px">■ Application timing note</p><p class="article-text" style="margin-top:16px">All travel cards are applied for through smartphone apps only. ATM cash withdrawals require the physical card, which ships to your home in 3–7 days. Apply at least two weeks before departure.</p></div>
+          <div class="lang-content" data-lang="ja"><p class="article-text">まだ空港の両替所に並んでいますか？財布に信用카드を一枚だけ入れて出国していませんか？数十万円規模のグリーンフィーや食事代を決済しながら、銀行とカード会社に手数料をせっせと献上するのは今日で終わりにしましょう。</p><p class="article-text" style="margin-top:16px">■ トラベルカードとは正確に何ですか？</p><p class="article-text" style="margin-top:16px">スマートフォンのアプリで直接為替レートをコントロールする「外貨プリペイドチャージカード」です。為替レートが有利な時に원화口座から円にチャージしておき、現地で手数料ゼロで決済する仕組みです。</p><p class="article-text" style="margin-top:16px">■ なぜ従来のクレジットカードではダメなのか</p><p class="article-text" style="margin-top:16px">① 手数料地獄：国際ブランド手数料＋国内カード会社手数料で決済額の約1.2〜2.5%が飛ぶ。<br>② 為替変動地獄：クレジットカードは数日後の伝票処理日の為替レートが適用される。<br>③ 二重両替地獄：원화決済を選択するだけで3〜5%の追加手数料が発生する。</p><p class="article-text" style="margin-top:16px">■ 4大トラベルカード比較</p><p class="article-text" style="margin-top:16px">① ハナ・トラベルログ：セブンイレブンATMで手数料無料。残高返金時1%手数料あり。<br>② 신한 SOLトラベル：ローソンATMで無料。返金手数料なし。空港ラウンジ年2回無料。<br>③ トスバンク外貨口座：シンプル設計。セブン・ローソン両方無料だが機器手数料が発生することも。<br>④ トラベルウォレット：返金手数料なし。しかしイオンATM専用のため地方では使いにくい。</p><p class="article-text" style="margin-top:16px">■ ゴルファーへの最適解：ハナ＋신한の2枚持ち</p><p class="article-text" style="margin-top:16px">日本の地方コースの近くは、まだ現金のみ対応の居酒屋や食堂が多数あります。セブンイレブンが見えたらハナカード、ローソンが見えたら신한カードでATM引き出し。これが地方ゴルフを制覇するための最強の金融セッティングです。</p><p class="article-text" style="margin-top:16px">■ 発行に関する注意</p><p class="article-text" style="margin-top:16px">トラベルカードはすべてスマートフォンアプリで申し込みます。現地ATMで引き出すには実物カードが必要で、自宅への配送に3〜7日かかります。出発2週間前には必ず発行申請してください。</p></div>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+<!-- /page-body -->
+
+<script>
+  function switchCat(btn, catId) {
+    document.querySelectorAll('.cat-tab').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.category-section').forEach(function(s){ s.classList.remove('active'); });
+    var target = document.getElementById('cat-' + catId);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleArticle(item) {
+    var isOpen = item.classList.contains('open');
+    item.classList.toggle('open', !isOpen);
+    if (!isOpen && window._mikaLang && window._mikaLang !== 'ko') {
+      var content = item.querySelector('.article-content');
+      content.querySelectorAll('.lang-tab').forEach(function(t){ t.classList.remove('active'); });
+      content.querySelectorAll('.lang-content').forEach(function(c){ c.classList.remove('active'); });
+      var tab = [].slice.call(content.querySelectorAll('.lang-tab')).find(function(t){
+        return t.getAttribute('onclick').indexOf("'" + window._mikaLang + "'") !== -1;
+      });
+      var lc = content.querySelector('[data-lang="' + window._mikaLang + '"]');
+      if (tab) tab.classList.add('active');
+      if (lc) lc.classList.add('active');
+    }
+  }
+
+  function switchLang(e, btn, lang) {
+    e.stopPropagation();
+    var content = btn.closest('.article-content');
+    content.querySelectorAll('.lang-tab').forEach(function(t){ t.classList.remove('active'); });
+    btn.classList.add('active');
+    content.querySelectorAll('.lang-content').forEach(function(c){ c.classList.remove('active'); });
+    var target = content.querySelector('[data-lang="' + lang + '"]');
+    if (target) target.classList.add('active');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('mika-lang', lang);
+    window._mikaLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+    });
+    // nav 메뉴 텍스트 전환
+    document.querySelectorAll('.nav-txt').forEach(function(el){
+      var t = el.getAttribute('data-' + lang);
+      if (t) el.textContent = t;
+    });
+    // 열려있는 아티클의 본문 언어도 함께 전환
+    document.querySelectorAll('.article-item.open').forEach(function(item){
+      var content = item.querySelector('.article-content');
+      content.querySelectorAll('.lang-tab').forEach(function(t){ t.classList.remove('active'); });
+      content.querySelectorAll('.lang-content').forEach(function(c){ c.classList.remove('active'); });
+      var tab = [].slice.call(content.querySelectorAll('.lang-tab')).find(function(t){
+        return t.getAttribute('onclick').indexOf("'" + lang + "'") !== -1;
+      });
+      var lc = content.querySelector('[data-lang="' + lang + '"]');
+      if (tab) tab.classList.add('active');
+      if (lc) lc.classList.add('active');
+    });
+  }
+
+  function detectLang() {
+    var saved = localStorage.getItem('mika-lang');
+    var lang = saved ? saved : 'ja';
+    window._mikaLang = lang; setLang(lang);
+  }
+  detectLang();
+</script>
+
+</body>
+</html>

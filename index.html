@@ -1,506 +1,289 @@
 <!DOCTYPE html>
-<!-- saved from url=(0121)file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html -->
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MIKA — 일본골프 도슨트</title>
-<link href="./MIKA — 일본골프 도슨트_files/css2" rel="stylesheet">
+<title>MIKA 일본골프 도슨트 — 日本ゴルフ道案内</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a18;
-    --offwhite: #fafaf8;
-    --gold: #b8963e;
-    --gold-light: #d4aa55;
-    --burgundy: #8b3a2a;
-    --ash: #8a8880;
-    --ash-dim: #4a4a48;
+    --paper:    #f5f2ec;
+    --paper-2:  #ede9e0;
+    --ink:      #1c1c1a;
+    --ink-mid:  #3a3835;
+    --ink-soft: #6b6864;
+    --rule:     #c8c4bb;
+    --rule-dark:#a09c94;
+    --red:      #8b2020;
+    --gold:     #9a7a2e;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body {
-    background: var(--ink);
-    color: var(--offwhite);
+    background: var(--paper);
+    color: var(--ink);
     font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    min-height: 100vh;
   }
+  body[data-lang="ja"], body[data-lang="ja"] .hero-desc,
+  body[data-lang="ja"] .article-text { font-family: 'Noto Sans KR', sans-serif; }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.4;
-  }
+  .top-rule { height:3px; background:var(--red); position:fixed; top:0; left:0; width:100%; z-index:300; }
 
+  /* NAV */
   nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 24px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: linear-gradient(to bottom, rgba(26,26,24,0.95) 0%, transparent 100%);
+    position: fixed; top: 3px; width: 100%;
+    background: rgba(245,242,236,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule-dark);
+    padding: 0 48px; height: 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 200;
   }
-
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ash);
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--ink);
     text-decoration: none;
-    transition: color 0.3s;
+    display: flex; align-items: center; gap: 10px;
   }
+  .nav-logo .sep { color: var(--red); font-size: 14px; font-weight: 400; }
+  .nav-logo .sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px; font-weight: 400;
+    color: var(--ink-soft); letter-spacing: 0.1em;
+  }
+  .nav-links { display:flex; gap:26px; list-style:none; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.06em;
+    color: var(--ink-soft); text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent; padding-bottom: 2px; white-space: nowrap;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--rule-dark); }
+  .lang-switcher { display:flex; align-items:center; gap:0; border:1px solid var(--rule-dark); }
+  .lang-sep { display:none; }
+  .lang-btn {
+    background: none; border: none;
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--ink-soft); cursor: pointer;
+    padding: 5px 10px; font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s; border-right: 1px solid var(--rule-dark);
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover { background: var(--paper-2); color: var(--ink); }
+  .lang-btn.active { background: var(--ink); color: var(--paper); }
 
-  .nav-links a:hover { color: var(--offwhite); }
-
+  /* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 48px 80px;
+    padding: 120px 48px 60px;
+    display: grid; grid-template-columns: 1fr 0.8fr;
+    gap: 40px; align-items: center;
+    border-bottom: 1px solid var(--rule-dark);
     overflow: hidden;
   }
-
-  .map-bg {
-    position: absolute;
-    right: -5%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 55%;
-    opacity: 0.06;
-    pointer-events: none;
-  }
-
-  .hero-rule {
-    position: absolute;
-    left: 48px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--gold-light) 30%, var(--gold-light) 70%, transparent);
-    opacity: 0.3;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-    padding-left: 36px;
-  }
-
+  .hero-rule { display: none; }
+  .map-bg { display: none; }
+  .hero-content { max-width: 620px; z-index: 2; }
   .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
+    font-size: 10px; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--red);
     margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.2s;
+    display: flex; align-items: center; gap: 8px;
   }
-
+  .hero-eyebrow::before { content:''; display:inline-block; width:16px; height:1px; background:var(--red); }
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    line-height: 1.05;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.4s;
+    font-family: 'Shippori Mincho', serif;
+    line-height: 1.05; letter-spacing: 0.02em; margin-bottom: 28px;
   }
-
   .hero-title .line1 {
-    font-size: clamp(52px, 7vw, 88px);
-    color: var(--offwhite);
-    display: block;
-    letter-spacing: -0.02em;
+    display: block; font-size: clamp(44px,7vw,76px);
+    font-weight: 700; color: var(--ink);
   }
-
   .hero-title .line2 {
-    font-size: clamp(52px, 7vw, 88px);
-    color: var(--gold);
-    display: block;
-    font-style: italic;
-    letter-spacing: -0.02em;
+    display: block; font-size: clamp(44px,7vw,76px);
+    font-weight: 700; color: var(--red);
+    font-family: 'IM Fell English', serif; font-style: italic;
   }
-
   .hero-title .line3 {
-    font-size: clamp(28px, 3.5vw, 44px);
-    color: var(--ash);
-    display: block;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-top: 8px;
+    display: block; font-size: clamp(14px,1.6vw,17px);
+    font-weight: 400; color: var(--ink-soft);
+    font-family: 'Noto Serif KR', serif;
+    margin-top: 18px; letter-spacing: 0.02em; line-height: 1.6;
   }
-
   .hero-desc {
     font-family: 'Noto Serif KR', serif;
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--ash);
-    font-weight: 300;
-    max-width: 440px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.6s;
+    font-size: 15px; line-height: 1.9; color: var(--ink-mid);
+    margin-bottom: 36px;
   }
-
   .counter-block {
-    display: flex;
-    align-items: flex-end;
-    gap: 0;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.7s;
+    display: flex; align-items: baseline; gap: 12px;
+    font-family: 'Shippori Mincho', serif;
   }
-
-  .counter-visited {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(64px, 8vw, 96px);
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    letter-spacing: -0.03em;
+  .counter-visited { font-size: 56px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .counter-divider { font-size: 36px; color: var(--rule-dark); }
+  .counter-goal { font-size: 36px; font-weight: 500; color: var(--ink-soft); }
+  .counter-labels { display: flex; gap: 44px; margin-top: 8px; }
+  .counter-label-visited, .counter-label-goal {
+    font-size: 11px; color: var(--ink-soft); letter-spacing: 0.1em;
   }
-
-  .counter-divider {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5vw, 60px);
-    color: var(--ash-dim);
-    line-height: 1.1;
-    margin: 0 8px;
-    font-weight: 300;
-  }
-
-  .counter-goal {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5vw, 60px);
-    font-weight: 300;
-    color: var(--ash-dim);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .counter-labels {
-    display: flex;
-    gap: 0;
-    margin-top: 8px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.75s;
-  }
-
-  .counter-label-visited {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.7;
-    min-width: 120px;
-  }
-
-  .counter-label-goal {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ash-dim);
-    padding-left: 24px;
-  }
-
   .progress-bar {
-    width: 320px;
-    height: 1px;
-    background: var(--ash-dim);
-    margin-bottom: 48px;
-    position: relative;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.8s;
+    margin: 22px 0 36px; position: relative;
+    height: 4px; background: var(--rule); max-width: 320px;
   }
-
-  .progress-fill {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(to right, var(--gold), var(--gold-light));
-    animation: progressGrow 1.5s ease forwards 1.2s;
-  }
-
-  @keyframes progressGrow {
-    to { width: 24%; }
-  }
-
-  .progress-label {
-    position: absolute;
-    right: 0;
-    top: -18px;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    color: var(--ash-dim);
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 16px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.9s;
-  }
-
-  .btn-primary {
-    padding: 14px 32px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s;
+  .progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 24%; background: var(--red); }
+  .progress-label { font-family: 'IM Fell English', serif; font-size: 11px; color: var(--red); display:block; margin-bottom: 6px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; letter-spacing: 0.04em;
+    text-decoration: none; padding: 13px 26px; transition: all 0.2s;
   }
+  .btn-primary { background: var(--red); color: var(--paper); border: 1px solid var(--red); }
+  .btn-primary:hover { background: #741a1a; border-color: #741a1a; }
+  .btn-secondary { background: none; color: var(--ink-mid); border: 1px solid var(--rule-dark); }
+  .btn-secondary:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-2); }
 
-  .btn-primary:hover {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  .btn-secondary {
-    padding: 14px 32px;
-    border: 1px solid var(--ash-dim);
-    color: var(--ash);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--offwhite);
-    color: var(--offwhite);
-  }
-
-  .map-container {
-    position: absolute;
-    right: 48px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42%;
-    max-width: 520px;
-    opacity: 0;
-    animation: fadeIn 1.2s ease forwards 1s;
-  }
-
-  .map-svg-wrap { position: relative; }
+  /* MAP */
+  .map-container { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+  .map-svg-wrap { width: 100%; max-width: 380px; }
   .map-svg-wrap svg { width: 100%; height: auto; }
-
-  .map-legend {
-    display: flex;
-    gap: 24px;
-    margin-top: 20px;
-    justify-content: flex-end;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--ash);
-  }
-
-  .legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .legend-dot.visited { background: var(--gold); }
-
-  .latest-section {
-    padding: 80px 48px;
-    border-top: 1px solid var(--ash-dim);
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 40px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--ash);
-  }
-
-  .section-link {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--ash-dim);
-  }
-
-  .card {
-    background: var(--ink);
-    padding: 32px;
-    transition: background 0.3s;
-    cursor: pointer;
-  }
-
-  .card:hover { background: #222220; }
-
-  .card-no {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-    opacity: 0.7;
-  }
-
-  .card-region {
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ash);
-    margin-bottom: 8px;
-  }
-
-  .card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--offwhite);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .card-quote {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 12px;
-    line-height: 1.8;
-    color: var(--ash);
-    font-weight: 300;
-    font-style: italic;
-    margin-bottom: 24px;
-  }
-
-  .card-ratings { display: flex; gap: 16px; }
-
-  .rating-item { text-align: center; }
-
-  .rating-label {
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    color: var(--ash-dim);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .rating-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    color: var(--gold);
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+  .map-legend { margin-top: 20px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-soft); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .legend-dot.visited { background: var(--red); }
 
   .scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    left: 48px;
-    padding-left: 36px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ash-dim);
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 1.5s;
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: 0.25em; color: var(--ink-soft); text-transform: uppercase;
   }
+  .scroll-line { width: 1px; height: 36px; background: var(--rule-dark); }
 
-  .scroll-line {
-    width: 40px;
-    height: 1px;
-    background: var(--ash-dim);
-    animation: scrollPulse 2s ease-in-out infinite 2s;
+  /* TIMELINE */
+  .timeline-section { max-width: 1100px; margin: 0 auto; padding: 90px 40px; }
+  .timeline-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 56px; padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink); gap: 24px; flex-wrap: wrap;
   }
-
-  @keyframes scrollPulse {
-    0%, 100% { width: 40px; opacity: 0.4; }
-    50% { width: 60px; opacity: 0.8; }
+  .timeline-eyebrow {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 14px; color: var(--red); letter-spacing: 0.06em; margin-bottom: 12px;
   }
+  .timeline-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(26px,3.6vw,40px); font-weight: 600;
+    color: var(--ink); line-height: 1.15;
+  }
+  .timeline-title em { color: var(--red); font-style: italic; font-family: 'IM Fell English', serif; font-weight: 400; }
+  .timeline-total { text-align: right; }
+  .timeline-num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 48px; font-weight: 700; color: var(--ink); line-height: 1; display: block;
+  }
+  .timeline-unit { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.1em; }
 
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-content { padding-left: 20px; }
-    .hero-rule { left: 24px; }
+  .timeline-track { position: relative; }
+  .timeline-year-block { margin-bottom: 48px; }
+  .timeline-year-label {
+    font-family: 'IM Fell English', serif;
+    font-size: 28px; color: var(--red); margin-bottom: 20px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+  .timeline-trips {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .timeline-trip {
+    border: 1px solid var(--rule); padding: 18px 18px 16px;
+    background: var(--paper); position: relative; transition: border-color 0.2s;
+  }
+  .timeline-trip:hover { border-color: var(--rule-dark); }
+  .timeline-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+    position: absolute; top: 20px; right: 18px;
+  }
+  .timeline-trip-info { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+  .trip-date { font-family: 'IM Fell English', serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.04em; }
+  .trip-region { font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .trip-count { font-size: 11px; color: var(--red); letter-spacing: 0.04em; }
+  .trip-courses { font-family: 'Noto Serif JP', serif; font-size: 12px; color: var(--ink-soft); line-height: 1.5; padding-top: 8px; border-top: 1px dotted var(--rule); }
+  .year-badge, .year-subtotal { font-size: 11px; color: var(--ink-soft); }
+
+  .timeline-cta { text-align: center; margin-top: 16px; }
+
+  /* LATEST REVIEWS */
+  .latest-section { max-width: 1100px; margin: 0 auto; padding: 20px 40px 100px; }
+  .section-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--ink);
+  }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: 0.03em;
+  }
+  .section-link { font-size: 12px; color: var(--red); text-decoration: none; letter-spacing: 0.04em; }
+  .section-link:hover { text-decoration: underline; }
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;
+  }
+  .card {
+    border: 1px solid var(--rule); padding: 22px; background: var(--paper);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: var(--rule-dark); box-shadow: 0 2px 12px rgba(28,28,26,0.05); }
+  .card-no { font-family: 'IM Fell English', serif; font-size: 12px; color: var(--red); letter-spacing: 0.1em; margin-bottom: 8px; }
+  .card-region { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; margin-bottom: 8px; }
+  .card-name { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 14px; }
+  .card-quote {
+    font-family: 'Noto Serif KR', serif; font-size: 13px; line-height: 1.7;
+    color: var(--ink-mid); font-style: italic;
+    padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 14px;
+  }
+  .card-ratings { display: flex; gap: 16px; }
+  .card-ratings span { font-size: 12px; color: var(--ink-soft); }
+  .card-ratings strong { font-family: 'Shippori Mincho', serif; color: var(--red); font-weight: 700; }
+
+  @media(max-width:900px) {
+    .hero { grid-template-columns: 1fr; padding: 110px 24px 60px; }
     .map-container { display: none; }
+    .nav-links { display: none; }
+  }
+  @media(max-width:768px) {
+    nav { padding: 0 16px; }
+    .nav-logo .sub { display: none; }
+    .hero { padding: 100px 16px 60px; min-height: auto; }
+    .counter-visited { font-size: 44px; }
+    .timeline-section { padding: 64px 16px; }
+    .timeline-trips { grid-template-columns: 1fr; }
+    .latest-section { padding: 16px 16px 80px; }
     .cards-grid { grid-template-columns: 1fr; }
-    .latest-section { padding: 60px 24px; }
-    .scroll-hint { left: 24px; padding-left: 20px; }
   }
 </style>
 </head>
-<body>
+<body data-lang="ja">
+
+<div class="top-rule"></div>
 
 <nav>
-  <div class="nav-logo">MIKA</div>
+  <a href="index.html" class="nav-logo">
+    MIKA <span class="sep">|</span>
+    <span class="sub">日本ゴルフ道案内</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">코스 리뷰</a></li>
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">첫걸음 가이드</a></li>
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">투어 분석</a></li>
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">에디토리얼</a></li>
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">한국골프</a></li>
-    <li><a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#">About</a></li>
+    <li><a href="courses.html" class="nav-txt" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">日本ゴルフ場レビュー</a></li>
+    <li><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門ガイド" data-en="Japan Golf Guide">日本ゴルフ入門ガイド</a></li>
+    <li><a href="editorial.html" class="nav-txt" data-ko="골프 에디토리얼" data-ja="ゴルフエディトリアル" data-en="Editorial">ゴルフエディトリアル</a></li>
+    <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">MIKAについて</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
 </nav>
 
 <section class="hero">
@@ -508,10 +291,10 @@
 
   <div class="map-bg">
     <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M200 20 C180 30 160 50 155 80 C150 110 165 130 170 160 C175 190 160 210 155 240 C148 270 150 300 160 320 C170 340 185 350 190 370 C195 390 185 410 180 430 C175 450 178 470 185 490 C192 510 200 520 205 540 C210 560 208 575 205 590" stroke="#fafaf8" stroke-width="0.5" opacity="0.3"></path>
-      <path d="M120 380 C110 370 95 365 85 375 C75 385 80 400 90 410 C100 420 115 415 125 405 C135 395 130 390 120 380Z" stroke="#fafaf8" stroke-width="0.5" opacity="0.3"></path>
-      <path d="M155 310 C145 305 135 310 130 320 C125 330 130 345 142 348 C154 351 162 342 163 330 C164 318 160 312 155 310Z" stroke="#fafaf8" stroke-width="0.5" opacity="0.3"></path>
-      <path d="M210 30 C195 20 175 15 165 25 C155 35 160 55 175 60 C190 65 210 55 220 45 C230 35 225 40 210 30Z" stroke="#fafaf8" stroke-width="0.5" opacity="0.3"></path>
+      <path d="M200 20 C180 30 160 50 155 80 C150 110 165 130 170 160 C175 190 160 210 155 240 C148 270 150 300 160 320 C170 340 185 350 190 370 C195 390 185 410 180 430 C175 450 178 470 185 490 C192 510 200 520 205 540 C210 560 208 575 205 590" stroke="#1c1c1a" stroke-width="0.5" opacity="0.3"/>
+      <path d="M120 380 C110 370 95 365 85 375 C75 385 80 400 90 410 C100 420 115 415 125 405 C135 395 130 390 120 380Z" stroke="#1c1c1a" stroke-width="0.5" opacity="0.3"/>
+      <path d="M155 310 C145 305 135 310 130 320 C125 330 130 345 142 348 C154 351 162 342 163 330 C164 318 160 312 155 310Z" stroke="#1c1c1a" stroke-width="0.5" opacity="0.3"/>
+      <path d="M210 30 C195 20 175 15 165 25 C155 35 160 55 175 60 C190 65 210 55 220 45 C230 35 225 40 210 30Z" stroke="#1c1c1a" stroke-width="0.5" opacity="0.3"/>
     </svg>
   </div>
 
@@ -519,12 +302,18 @@
     <p class="hero-eyebrow">Docent MIKA — Japan Golf</p>
 
     <h1 class="hero-title">
-      <span class="line1">일본골프</span>
-      <span class="line2">도슨트</span>
-      <span class="line3">골프클럽 들고 일본을 가장 깊이 다녀온 사람</span>
+      <span class="line1 txt" data-ko="일본골프" data-ja="日本ゴルフ" data-en="Japan Golf">일본골프</span>
+      <span class="line2 txt" data-ko="도슨트" data-ja="ドーセント" data-en="Docent">도슨트</span>
+      <span class="line3 txt"
+        data-ko="골프클럽 들고 일본을 가장 깊이 다녀온 사람"
+        data-ja="クラブを持って、日本を最も深く旅した人"
+        data-en="The one who traveled Japan deepest, club in hand">골프클럽 들고 일본을 가장 깊이 다녀온 사람</span>
     </h1>
 
-    <p class="hero-desc">
+    <p class="hero-desc txt"
+      data-ko="단순한 리뷰가 아닙니다.<br>코스를 읽고, 지형을 기억하고,<br>설계가의 의도를 몸으로 확인하는 여정입니다."
+      data-ja="単なるレビューではありません。<br>コースを読み、地形を記憶し、<br>設計者の意図を体で確かめる旅です。"
+      data-en="Not just reviews.<br>Reading the course, memorizing the terrain,<br>feeling the architect's intent with every step.">
       단순한 리뷰가 아닙니다.<br>
       코스를 읽고, 지형을 기억하고,<br>
       설계가의 의도를 몸으로 확인하는 여정입니다.
@@ -537,8 +326,8 @@
     </div>
 
     <div class="counter-labels">
-      <span class="counter-label-visited">Visited</span>
-      <span class="counter-label-goal">Ultimate Goal</span>
+      <span class="counter-label-visited txt" data-ko="방문 완료" data-ja="訪問済み" data-en="Visited">방문 완료</span>
+      <span class="counter-label-goal txt" data-ko="최종 목표" data-ja="最終目標" data-en="Ultimate Goal">최종 목표</span>
     </div>
 
     <div class="progress-bar">
@@ -547,107 +336,107 @@
     </div>
 
     <div class="hero-cta">
-      <a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#" class="btn-primary">코스 아카이브</a>
-      <a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#" class="btn-secondary">About MIKA</a>
+      <a href="courses.html" class="btn-primary txt" data-ko="코스 아카이브" data-ja="コースアーカイブ" data-en="Course Archive">코스 아카이브</a>
+      <a href="#" class="btn-secondary txt" data-ko="About MIKA" data-ja="About MIKA" data-en="About MIKA">About MIKA</a>
     </div>
   </div>
 
   <div class="map-container">
     <div class="map-svg-wrap">
       <svg viewBox="0 0 500 750" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M280 60 C265 50 245 45 235 60 C225 75 230 95 240 110 C250 125 260 130 265 150 C270 170 260 190 255 215 C248 240 245 265 250 285 C255 305 268 315 272 335 C276 355 268 375 262 395 C256 415 255 435 260 455 C265 475 272 490 275 510 C278 530 275 550 272 565" stroke="#fafaf8" stroke-width="1.5" stroke-linecap="round" opacity="0.15"></path>
-        <path d="M185 500 C172 490 155 485 145 498 C135 511 140 530 152 540 C164 550 180 545 190 533 C200 521 195 510 185 500Z" stroke="#fafaf8" stroke-width="1.5" opacity="0.15"></path>
-        <path d="M222 415 C210 408 198 413 193 425 C188 437 194 453 208 456 C222 459 232 448 233 434 C234 420 230 418 222 415Z" stroke="#fafaf8" stroke-width="1.5" opacity="0.15"></path>
-        <path d="M295 55 C278 42 255 38 243 50 C231 62 237 85 253 91 C269 97 292 86 300 73 C308 60 305 65 295 55Z" stroke="#fafaf8" stroke-width="1.5" opacity="0.15"></path>
+        <path d="M280 60 C265 50 245 45 235 60 C225 75 230 95 240 110 C250 125 260 130 265 150 C270 170 260 190 255 215 C248 240 245 265 250 285 C255 305 268 315 272 335 C276 355 268 375 262 395 C256 415 255 435 260 455 C265 475 272 490 275 510 C278 530 275 550 272 565" stroke="#1c1c1a" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+        <path d="M185 500 C172 490 155 485 145 498 C135 511 140 530 152 540 C164 550 180 545 190 533 C200 521 195 510 185 500Z" stroke="#1c1c1a" stroke-width="1.5" opacity="0.15"/>
+        <path d="M222 415 C210 408 198 413 193 425 C188 437 194 453 208 456 C222 459 232 448 233 434 C234 420 230 418 222 415Z" stroke="#1c1c1a" stroke-width="1.5" opacity="0.15"/>
+        <path d="M295 55 C278 42 255 38 243 50 C231 62 237 85 253 91 C269 97 292 86 300 73 C308 60 305 65 295 55Z" stroke="#1c1c1a" stroke-width="1.5" opacity="0.15"/>
 
         <!-- Fukuoka -->
-        <circle cx="162" cy="498" r="4" fill="#b8963e" opacity="0.9"><animate attributeName="r" values="4;5.5;4" dur="3s" repeatCount="indefinite"></animate></circle>
-        <circle cx="168" cy="492" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="158" cy="505" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="172" cy="504" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="155" cy="496" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="162" cy="498" r="4" fill="#8b2020" opacity="0.9"><animate attributeName="r" values="4;5.5;4" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="168" cy="492" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="158" cy="505" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="172" cy="504" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="155" cy="496" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Hiroshima -->
-        <circle cx="218" cy="430" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="224" cy="422" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="212" cy="426" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="220" cy="438" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="218" cy="430" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="224" cy="422" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="212" cy="426" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="220" cy="438" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Nagasaki -->
-        <circle cx="142" cy="515" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="136" cy="508" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="148" cy="522" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="142" cy="515" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="136" cy="508" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="148" cy="522" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Saga -->
-        <circle cx="155" cy="510" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="150" cy="516" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="155" cy="510" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="150" cy="516" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Kumamoto -->
-        <circle cx="170" cy="525" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="175" cy="518" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="170" cy="525" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="175" cy="518" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Kagoshima -->
-        <circle cx="178" cy="548" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="172" cy="542" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="184" cy="554" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="170" cy="552" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="178" cy="548" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="172" cy="542" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="184" cy="554" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="170" cy="552" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Miyazaki -->
-        <circle cx="195" cy="535" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="200" cy="528" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="190" cy="542" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="195" cy="535" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="200" cy="528" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="190" cy="542" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Kobe -->
-        <circle cx="240" cy="385" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="246" cy="378" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="234" cy="391" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="248" cy="390" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="240" cy="385" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="246" cy="378" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="234" cy="391" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="248" cy="390" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Shizuoka -->
-        <circle cx="292" cy="330" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="298" cy="323" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="286" cy="336" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="300" cy="335" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="294" cy="342" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="292" cy="330" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="298" cy="323" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="286" cy="336" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="300" cy="335" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="294" cy="342" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Chiba -->
-        <circle cx="322" cy="278" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="328" cy="271" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="316" cy="284" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="330" cy="283" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="324" cy="290" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="322" cy="278" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="328" cy="271" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="316" cy="284" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="330" cy="283" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="324" cy="290" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Ibaraki -->
-        <circle cx="330" cy="258" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="336" cy="251" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="324" cy="264" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="338" cy="263" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="330" cy="258" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="336" cy="251" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="324" cy="264" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="338" cy="263" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Tochigi -->
-        <circle cx="318" cy="248" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="312" cy="255" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="318" cy="248" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="312" cy="255" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Mie -->
-        <circle cx="262" cy="368" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="268" cy="361" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="256" cy="374" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="270" cy="373" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="262" cy="368" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="268" cy="361" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="256" cy="374" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="270" cy="373" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Oita -->
-        <circle cx="188" cy="510" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="194" cy="504" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="182" cy="516" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="188" cy="510" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="194" cy="504" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="182" cy="516" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Yonago -->
-        <circle cx="232" cy="358" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="238" cy="351" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="226" cy="364" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="232" cy="358" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="238" cy="351" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="226" cy="364" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Shimonoseki -->
-        <circle cx="200" cy="458" r="4" fill="#b8963e" opacity="0.9"></circle>
-        <circle cx="206" cy="452" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="194" cy="464" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="208" cy="463" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="202" cy="470" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="200" cy="458" r="4" fill="#8b2020" opacity="0.9"/>
+        <circle cx="206" cy="452" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="194" cy="464" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="208" cy="463" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="202" cy="470" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Hokkaido -->
-        <circle cx="270" cy="72" r="4" fill="#b8963e" opacity="0.9"></circle>
+        <circle cx="270" cy="72" r="4" fill="#8b2020" opacity="0.9"/>
         <!-- Takamatsu -->
-        <circle cx="216" cy="445" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="210" cy="452" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="222" cy="451" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="216" cy="445" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="210" cy="452" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="222" cy="451" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Matsuyama -->
-        <circle cx="204" cy="440" r="3.5" fill="#b8963e" opacity="0.85"></circle>
-        <circle cx="198" cy="446" r="3" fill="#b8963e" opacity="0.8"></circle>
-        <circle cx="210" cy="435" r="3" fill="#b8963e" opacity="0.8"></circle>
+        <circle cx="204" cy="440" r="3.5" fill="#8b2020" opacity="0.85"/>
+        <circle cx="198" cy="446" r="3" fill="#8b2020" opacity="0.8"/>
+        <circle cx="210" cy="435" r="3" fill="#8b2020" opacity="0.8"/>
         <!-- Pulse on Shimonoseki (most recent) -->
-        <circle cx="200" cy="458" r="8" fill="none" stroke="#b8963e" stroke-width="1" opacity="0">
-          <animate attributeName="r" values="5;14;5" dur="2.5s" repeatCount="indefinite"></animate>
-          <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite"></animate>
+        <circle cx="200" cy="458" r="8" fill="none" stroke="#8b2020" stroke-width="1" opacity="0">
+          <animate attributeName="r" values="5;14;5" dur="2.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite"/>
         </circle>
       </svg>
     </div>
@@ -661,21 +450,257 @@
 
   <div class="scroll-hint">
     <div class="scroll-line"></div>
-    <span>Scroll</span>
+    <span class="txt" data-ko="Scroll" data-ja="スクロール" data-en="Scroll">Scroll</span>
+  </div>
+</section>
+
+<!-- ── JOURNEY TIMELINE ── -->
+<section class="timeline-section">
+  <div class="timeline-header">
+    <div class="timeline-header-left">
+      <p class="timeline-eyebrow">Journey Log — 2023–2026</p>
+      <h2 class="timeline-title txt" data-ko="3년, <em>72곳</em>의 기록" data-ja="3年間、<em>72コース</em>の記録" data-en="3 Years, <em>72 Courses</em>">3년, <em>72곳</em>의 기록</h2>
+    </div>
+    <div class="timeline-header-right">
+      <div class="timeline-total">
+        <span class="timeline-num">72</span>
+        <span class="timeline-unit txt" data-ko="곳 방문" data-ja="コース訪問" data-en="Courses">곳 방문</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-track">
+
+    <div class="timeline-year-block">
+      <div class="timeline-year-label">2023</div>
+      <div class="timeline-trips">
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">04.11–04.13</span>
+            <span class="trip-region txt" data-ko="다카마쓰 · 시코쿠" data-ja="高松・四国" data-en="Takamatsu · Shikoku">다카마쓰 · 시코쿠</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">琴平CC · 志度CC · 坂出CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">06.01</span>
+            <span class="trip-region txt" data-ko="홋카이도" data-ja="北海道" data-en="Hokkaido">홋카이도</span>
+            <span class="trip-count txt" data-ko="1곳" data-ja="1コース" data-en="1 course">1곳</span>
+          </div>
+          <div class="trip-courses">ルスツCC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">08.25–08.27</span>
+            <span class="trip-region txt" data-ko="마쓰야마 · 에히메" data-ja="松山・愛媛" data-en="Matsuyama · Ehime">마쓰야마 · 에히메</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">小野GC · 高原GC · 国際GC</div>
+        </div>
+      </div>
+      <div class="year-subtotal txt" data-ko="7곳" data-ja="7コース" data-en="7 courses">7곳</div>
+    </div>
+
+    <div class="timeline-year-block">
+      <div class="timeline-year-label">2024</div>
+      <div class="timeline-trips">
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">01.09–01.13</span>
+            <span class="trip-region txt" data-ko="후쿠오카 · 구마모토" data-ja="福岡・熊本" data-en="Fukuoka · Kumamoto">후쿠오카 · 구마모토</span>
+            <span class="trip-count txt" data-ko="5곳" data-ja="5コース" data-en="5 courses">5곳</span>
+          </div>
+          <div class="trip-courses">二丈CC · 司ロイヤルCC · 阿蘇東急GC · 阿蘇グランヴィリオGC · 筑紫野CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">04.15–04.18</span>
+            <span class="trip-region txt" data-ko="후쿠오카 · 야마구치" data-ja="福岡・山口" data-en="Fukuoka · Yamaguchi">후쿠오카 · 야마구치</span>
+            <span class="trip-count txt" data-ko="4곳" data-ja="4コース" data-en="4 courses">4곳</span>
+          </div>
+          <div class="trip-courses">勝山御所CC · 西日本CC · 山陽国際CC · 周防灘CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">05.27–05.29</span>
+            <span class="trip-region txt" data-ko="오이타 · 벳푸" data-ja="大分・別府" data-en="Oita · Beppu">오이타 · 벳푸</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">別府森GC · 別府GC · 由布高原GC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">08.22–08.24</span>
+            <span class="trip-region txt" data-ko="후쿠오카" data-ja="福岡" data-en="Fukuoka">후쿠오카</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">JR内野CC · ザクラシックGC · 若宮コース</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">09.24–09.27</span>
+            <span class="trip-region txt" data-ko="히로시마" data-ja="広島" data-en="Hiroshima">히로시마</span>
+            <span class="trip-count txt" data-ko="4곳" data-ja="4コース" data-en="4 courses">4곳</span>
+          </div>
+          <div class="trip-courses">瀬戸内GC · 八千代CC · 呉CC · 白竜湖CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">11.25–11.29</span>
+            <span class="trip-region txt" data-ko="나가사키 · 사가" data-ja="長崎・佐賀" data-en="Nagasaki · Saga">나가사키 · 사가</span>
+            <span class="trip-count txt" data-ko="5곳" data-ja="5コース" data-en="5 courses">5곳</span>
+          </div>
+          <div class="trip-courses">大村湾CC オールド·ニュー · チサンCC · 若木GC · 佐賀クラシックGC</div>
+        </div>
+      </div>
+      <div class="year-subtotal txt" data-ko="24곳" data-ja="24コース" data-en="24 courses">24곳</div>
+    </div>
+
+    <div class="timeline-year-block">
+      <div class="timeline-year-label">2025</div>
+      <div class="timeline-trips">
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">01.15–01.16</span>
+            <span class="trip-region txt" data-ko="이바라키" data-ja="茨城" data-en="Ibaraki">이바라키</span>
+            <span class="trip-count txt" data-ko="2곳" data-ja="2コース" data-en="2 courses">2곳</span>
+          </div>
+          <div class="trip-courses">セゴビアGC · 千代田CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">02.18–02.22</span>
+            <span class="trip-region txt" data-ko="치바 · 이바라키" data-ja="千葉・茨城" data-en="Chiba · Ibaraki">치바 · 이바라키</span>
+            <span class="trip-count txt" data-ko="5곳" data-ja="5コース" data-en="5 courses">5곳</span>
+          </div>
+          <div class="trip-courses">成田東CC · 創成GC · 石岡GC · マリアGC · 千葉桜の里CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">04.18–04.20</span>
+            <span class="trip-region txt" data-ko="치바" data-ja="千葉" data-en="Chiba">치바</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">太平洋クラブ八千代CC · 一宮CC · 東千葉CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">05.13–05.16</span>
+            <span class="trip-region txt" data-ko="미에" data-ja="三重" data-en="Mie">미에</span>
+            <span class="trip-count txt" data-ko="4곳" data-ja="4コース" data-en="4 courses">4곳</span>
+          </div>
+          <div class="trip-courses">ココパリゾートGC · セントレイクスGC · ネムGC · エクセレントGC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">06.12–06.14</span>
+            <span class="trip-region txt" data-ko="이바라키 · 도치기" data-ja="茨城・栃木" data-en="Ibaraki · Tochigi">이바라키 · 도치기</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">石岡ウエストGC · 太平洋クラブ益子PGA · 鹿沼72GC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">08.21–08.24</span>
+            <span class="trip-region txt" data-ko="고베 · 효고" data-ja="神戸・兵庫" data-en="Kobe · Hyogo">고베 · 효고</span>
+            <span class="trip-count txt" data-ko="4곳" data-ja="4コース" data-en="4 courses">4곳</span>
+          </div>
+          <div class="trip-courses">道場パインバレーGC · 宝塚高原GC · 藤ノ尾GC · 西脇CC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">09.18–09.22</span>
+            <span class="trip-region txt" data-ko="시즈오카 · 후지" data-ja="静岡・富士" data-en="Shizuoka · Fuji">시즈오카 · 후지</span>
+            <span class="trip-count txt" data-ko="5곳" data-ja="5コース" data-en="5 courses">5곳</span>
+          </div>
+          <div class="trip-courses">河口湖CC富士 · 富士クラシックCC · 富士天城GC · 朝霧ジャンボリーGC · 富士野宮GC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">11.24–11.27</span>
+            <span class="trip-region txt" data-ko="가고시마" data-ja="鹿児島" data-en="Kagoshima">가고시마</span>
+            <span class="trip-count txt" data-ko="4곳" data-ja="4コース" data-en="4 courses">4곳</span>
+          </div>
+          <div class="trip-courses">島津GC · 溝辺CC · 高千穂CC · 知覧CC</div>
+        </div>
+      </div>
+      <div class="year-subtotal txt" data-ko="30곳" data-ja="30コース" data-en="30 courses">30곳</div>
+    </div>
+
+    <div class="timeline-year-block active">
+      <div class="timeline-year-label">2026 <span class="year-badge txt" data-ko="진행중" data-ja="進行中" data-en="In Progress">진행중</span></div>
+      <div class="timeline-trips">
+        <div class="timeline-trip">
+          <div class="timeline-dot pulse"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">01.06–01.08</span>
+            <span class="trip-region txt" data-ko="미야자키" data-ja="宮崎" data-en="Miyazaki">미야자키</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">トムワトソンGC · UMK CC · ジャロン梅花GC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">03.26–03.28</span>
+            <span class="trip-region txt" data-ko="요나고 · 돗토리" data-ja="米子・鳥取" data-en="Yonago · Tottori">요나고 · 돗토리</span>
+            <span class="trip-count txt" data-ko="3곳" data-ja="3コース" data-en="3 courses">3곳</span>
+          </div>
+          <div class="trip-courses">グリーンパーク大山GC · 大山アークCC · 米子GC</div>
+        </div>
+        <div class="timeline-trip">
+          <div class="timeline-dot pulse"></div>
+          <div class="timeline-trip-info">
+            <span class="trip-date">05.11–05.15</span>
+            <span class="trip-region txt" data-ko="시모노세키 · 야마구치" data-ja="下関・山口" data-en="Shimonoseki · Yamaguchi">시모노세키 · 야마구치</span>
+            <span class="trip-count txt" data-ko="5곳" data-ja="5コース" data-en="5 courses">5곳</span>
+          </div>
+          <div class="trip-courses">関門菊川GC · レイクスワンCC · 下関ゴールデンGC · 豊田湖GC · 都CC</div>
+        </div>
+      </div>
+      <div class="year-subtotal txt" data-ko="11곳" data-ja="11コース" data-en="11 courses" style="color:var(--red)">11곳</div>
+    </div>
+
+  </div>
+
+  <div class="timeline-footer">
+    <a href="courses.html" class="timeline-cta">전체 코스 아카이브 →</a>
   </div>
 </section>
 
 <section class="latest-section">
   <div class="section-header">
-    <span class="section-title">Latest Reviews</span>
-    <a href="file:///C:/Users/USER/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/index.html#" class="section-link">전체 보기 →</a>
+    <span class="section-title txt" data-ko="최신 리뷰" data-ja="最新レビュー" data-en="Latest Reviews">최신 리뷰</span>
+    <a href="courses.html" class="section-link txt" data-ko="전체 보기 →" data-ja="すべて見る →" data-en="View All →">전체 보기 →</a>
   </div>
   <div class="cards-grid">
     <div class="card">
       <div class="card-no">No. 72</div>
       <div class="card-region">야마구치현 · 시모노세키</div>
       <div class="card-name">미야코<br>컨트리클럽</div>
-      <div class="card-quote">"새벽 5시 10분 티오프, 7,300엔, 2홀 스킵. 일본 골프의 마지막 페이지도 이랬다."</div>
+      <div class="card-quote txt"
+        data-ko='"새벽 5시 10분 티오프, 7,300엔, 2홀 스킵. 일본 골프의 마지막 페이지도 이랬다."'
+        data-ja='"夜明け前5時10分のティオフ、7,300円、2ホールスキップ。日本ゴルフの最終章もこうだった。"'
+        data-en='"5:10am tee-off, ¥7,300, 2 holes skipped. Japan golf's last page read the same way."'>
+        "새벽 5시 10분 티오프, 7,300엔, 2홀 스킵. 일본 골프의 마지막 페이지도 이랬다."</div>
       <div class="card-ratings">
         <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
         <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A-</span></div>
@@ -686,7 +711,11 @@
       <div class="card-no">No. 71</div>
       <div class="card-region">야마구치현 · 시모노세키</div>
       <div class="card-name">도요타코<br>골프클럽</div>
-      <div class="card-quote">"8,700엔에 27홀, 사슴, 폭포, 수련. 거품을 뺀 골프가 이런 것이다."</div>
+      <div class="card-quote txt"
+        data-ko='"8,700엔에 27홀, 사슴, 폭포, 수련. 거품을 뺀 골프가 이런 것이다."'
+        data-ja='"8,700円で27ホール、鹿、滝、睡蓮。無駄を省いたゴルフとはこういうものだ。"'
+        data-en='"¥8,700 for 27 holes, deer, waterfalls, lotus. This is golf stripped of pretense."'>
+        "8,700엔에 27홀, 사슴, 폭포, 수련. 거품을 뺀 골프가 이런 것이다."</div>
       <div class="card-ratings">
         <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
         <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -697,7 +726,11 @@
       <div class="card-no">No. 70</div>
       <div class="card-region">야마구치현 · 시모노세키</div>
       <div class="card-name">시모노세키<br>골든 GC</div>
-      <div class="card-quote">"잭 니클라우스가 파둔 함정은 아름답다. 빠지는 것도 경험이다."</div>
+      <div class="card-quote txt"
+        data-ko='"잭 니클라우스가 파둔 함정은 아름답다. 빠지는 것도 경험이다."'
+        data-ja='"ジャック・ニクラウスが仕掛けた罠は美しい。落ちることもまた経験だ。"'
+        data-en='"The traps Nicklaus dug are beautiful. Falling in is part of the experience."'>
+        "잭 니클라우스가 파둔 함정은 아름답다. 빠지는 것도 경험이다."</div>
       <div class="card-ratings">
         <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
         <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -707,6 +740,42 @@
   </div>
 </section>
 
+<script>
+  // ── 페이지 언어 적용 ──
+  function applyLang(lang) {
+    // data-* 다국어 텍스트 교체 (.txt)
+    document.querySelectorAll('.txt[data-' + lang + ']').forEach(function(el){
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    // nav 메뉴
+    document.querySelectorAll('.nav-txt[data-' + lang + ']').forEach(function(el){
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    // 리뷰 카드 quote
+    document.querySelectorAll('.card-quote[data-' + lang + ']').forEach(function(el){
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    // html / body lang 속성
+    document.documentElement.lang = lang;
+    document.body.setAttribute('data-lang', lang);
+    // 언어 버튼 active
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+    });
+  }
 
+  function setLang(lang) {
+    localStorage.setItem('mika-lang', lang);
+    applyLang(lang);
+  }
 
-</body></html>
+  // ── 기본 언어: 일본어 (방문자가 선택한 언어가 있으면 그것을 유지) ──
+  function detectLang() {
+    var saved = localStorage.getItem('mika-lang');
+    applyLang(saved ? saved : 'ja');
+  }
+
+  detectLang();
+</script>
+</body>
+</html>

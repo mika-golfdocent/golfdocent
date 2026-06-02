@@ -163,6 +163,8 @@
     position: relative;
     grid-column: span 1;
   }
+        .card-image{margin:-22px -22px 0 -22px;aspect-ratio:3/2;overflow:hidden;border-radius:2px 2px 0 0;background:#e8e3d8;}
+        .card-image img{width:100%;height:100%;object-fit:cover;display:block;}
   .course-card:hover { border-color: var(--rule-dark); box-shadow: 0 2px 12px rgba(28,28,26,0.05); }
   .course-card.open {
     grid-column: 1 / -1;
@@ -306,6 +308,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="courses.html" class="nav-txt active" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">일본골프장 리뷰</a></li>
+    <li><a href="map.html" class="nav-txt" data-ko="방문 지도" data-ja="訪問マップ" data-en="Visited Map">방문 지도</a></li>
     <li><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門ガイド" data-en="Japan Golf Guide">일본골프 첫걸음</a></li>
     <li><a href="editorial.html" class="nav-txt" data-ko="골프 에디토리얼" data-ja="ゴルフエディトリアル" data-en="Editorial">골프 에디토리얼</a></li>
     <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
@@ -366,13 +369,14 @@
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-08.jpg" alt="니조 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 08</span>
           <span class="card-date"></span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">니조 CC</div>
-        <div class="card-name-jp">琴平カントリー倶楽部</div>
+        <div class="card-name-jp">二丈カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -445,13 +449,14 @@ for day one.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-09.jpg" alt="츠카사로얄 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 09</span>
           <span class="card-date">24.01.10</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">츠카사로얄 CC</div>
-        <div class="card-name-jp">志度カントリークラブ</div>
+        <div class="card-name-jp">司ロイヤルカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -495,13 +500,14 @@ one is the latter.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-10.jpg" alt="트라이얼 골프 앤 리조트 아소코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 10</span>
           <span class="card-date">24.01.11</span>
         </div>
         <div class="card-prefecture">구마모토현</div>
         <div class="card-name">트라이얼 골프 앤 리조트 아소코스</div>
-        <div class="card-name-jp">坂出カントリークラブ</div>
+        <div class="card-name-jp">阿蘇東急ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -569,13 +575,14 @@ MIKA’s Take: The clubhouse was small. Aso was not. That was the whole story.</
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-11.jpg" alt="아소 그랑브리오 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 11</span>
           <span class="card-date">24.01.12</span>
         </div>
         <div class="card-prefecture">구마모토현</div>
         <div class="card-name">아소 그랑브리오 GC</div>
-        <div class="card-name-jp">ルスツカントリークラブ</div>
+        <div class="card-name-jp">阿蘇グランヴィリオゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -651,13 +658,14 @@ MIKA’s Take: The side mirror broke. Aso was fine. The onsen saved the day.</p>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-12.jpg" alt="치쿠시노 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 12</span>
           <span class="card-date">24.01.13</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">치쿠시노 CC</div>
-        <div class="card-name-jp">小野ゴルフ倶楽部</div>
+        <div class="card-name-jp">筑紫野カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -703,13 +711,14 @@ days.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-13.jpg" alt="카츠야마고쇼 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 13</span>
           <span class="card-date">24.04.15</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">카츠야마고쇼 CC</div>
-        <div class="card-name-jp">高原ゴルフ倶楽部</div>
+        <div class="card-name-jp">勝山御所カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -784,13 +793,14 @@ MIKA’s Take: 15 holes in the rain, 100% bunker saves. Bad weather sharpens the
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-14.jpg" alt="니시니혼 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 14</span>
           <span class="card-date">24.04.16</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">니시니혼 CC</div>
-        <div class="card-name-jp">松山国際ゴルフ倶楽部</div>
+        <div class="card-name-jp">西日本カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -852,13 +862,14 @@ course.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-16.jpg" alt="스오나다 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 16</span>
           <span class="card-date">24.04.18</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">스오나다 CC</div>
-        <div class="card-name-jp">二丈カントリークラブ</div>
+        <div class="card-name-jp">周防灘カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -924,13 +935,14 @@ sorted.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-17.jpg" alt="벳푸 모리클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 17</span>
           <span class="card-date">24.05.27</span>
         </div>
         <div class="card-prefecture">오이타현</div>
         <div class="card-name">벳푸 모리클럽</div>
-        <div class="card-name-jp">司ロイヤルカントリークラブ</div>
+        <div class="card-name-jp">別府森ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -980,13 +992,14 @@ MIKA’s Take: The golf was solid. The onsen was excellent. In Beppu, that’s t
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-18.jpg" alt="벳푸 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 18</span>
           <span class="card-date">24.05.28</span>
         </div>
         <div class="card-prefecture">오이타현</div>
         <div class="card-name">벳푸 골프클럽</div>
-        <div class="card-name-jp">阿蘇東急ゴルフクラブ</div>
+        <div class="card-name-jp">別府ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -1048,13 +1061,14 @@ udon made it right.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-19.jpg" alt="유후고겐 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 19</span>
           <span class="card-date">24.05.29</span>
         </div>
         <div class="card-prefecture">오이타현</div>
         <div class="card-name">유후고겐 GC</div>
-        <div class="card-name-jp">阿蘇グランヴィリオゴルフクラブ</div>
+        <div class="card-name-jp">由布高原ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -1123,13 +1137,14 @@ MIKA’s Take: Golf at 800 meters, looking down at Yufuin. The weather finished 
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-20.jpg" alt="JR우치노 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 20</span>
           <span class="card-date">24.08.22</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">JR우치노 CC</div>
-        <div class="card-name-jp">筑紫野カントリークラブ</div>
+        <div class="card-name-jp">JR内野カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">C+</span></div>
@@ -1189,13 +1204,14 @@ MIKA’s Take: The heat burned the fairways. The deer didn’t care. Eventually,
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-21.jpg" alt="더 클래식 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 21</span>
           <span class="card-date">24.08.23</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">더 클래식 GC</div>
-        <div class="card-name-jp">勝山御所カントリークラブ</div>
+        <div class="card-name-jp">ザ・クラシックゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -1275,13 +1291,14 @@ wakes you up. Don’t let the scenery fool you.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-22.jpg" alt="와카미야코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 22</span>
           <span class="card-date">24.08.24</span>
         </div>
         <div class="card-prefecture">후쿠오카현</div>
         <div class="card-name">와카미야코스</div>
-        <div class="card-name-jp">西日本カントリークラブ</div>
+        <div class="card-name-jp">若宮コース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -1356,13 +1373,14 @@ the fairway from the Shinkansen.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-27.jpg" alt="오무라만 CC 올드코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 27</span>
           <span class="card-date">24.11.25</span>
         </div>
         <div class="card-prefecture">나가사키현</div>
         <div class="card-name">오무라만 CC 올드코스</div>
-        <div class="card-name-jp">山陽国際カントリークラブ</div>
+        <div class="card-name-jp">大村湾カントリークラブ オールドコース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -1431,13 +1449,14 @@ MIKA’s Take: A 46-year-old course holding the sea. This is where unhurried gol
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-28.jpg" alt="오무라만 CC 뉴코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 28</span>
           <span class="card-date">24.11.26</span>
         </div>
         <div class="card-prefecture">나가사키현</div>
         <div class="card-name">오무라만 CC 뉴코스</div>
-        <div class="card-name-jp">周防灘カントリークラブ</div>
+        <div class="card-name-jp">大村湾カントリークラブ ニューコース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -1519,13 +1538,14 @@ you from being greedy.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-29.jpg" alt="치산 CC 모리야마" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 29</span>
           <span class="card-date">24.11.27</span>
         </div>
         <div class="card-prefecture">나가사키현</div>
         <div class="card-name">치산 CC 모리야마</div>
-        <div class="card-name-jp">別府森ゴルフクラブ</div>
+        <div class="card-name-jp">チサンカントリークラブ森山</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -1595,13 +1615,14 @@ cover it.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-30.jpg" alt="와카키 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 30</span>
           <span class="card-date">24.11.28</span>
         </div>
         <div class="card-prefecture">사가현</div>
         <div class="card-name">와카키 GC</div>
-        <div class="card-name-jp">別府ゴルフ倶楽部</div>
+        <div class="card-name-jp">若木ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -1673,13 +1694,14 @@ before strategy, it’s this one.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-31.jpg" alt="사가클래식 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 31</span>
           <span class="card-date">24.11.29</span>
         </div>
         <div class="card-prefecture">사가현</div>
         <div class="card-name">사가클래식 GC</div>
-        <div class="card-name-jp">由布高原ゴルフクラブ</div>
+        <div class="card-name-jp">佐賀クラシックゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -1763,13 +1785,14 @@ delivers both.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-58.jpg" alt="시마즈 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 58</span>
           <span class="card-date">25.11.24</span>
         </div>
         <div class="card-prefecture">가고시마현</div>
         <div class="card-name">시마즈 GC</div>
-        <div class="card-name-jp">JR内野カントリークラブ</div>
+        <div class="card-name-jp">島津ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -1849,13 +1872,14 @@ right call.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-59.jpg" alt="미조베 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 59</span>
           <span class="card-date">25.11.25</span>
         </div>
         <div class="card-prefecture">가고시마현</div>
         <div class="card-name">미조베 CC</div>
-        <div class="card-name-jp">ザ・クラシックゴルフクラブ</div>
+        <div class="card-name-jp">溝辺カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -1957,13 +1981,14 @@ straight.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-60.jpg" alt="다카치호 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 60</span>
           <span class="card-date">25.11.26</span>
         </div>
         <div class="card-prefecture">가고시마현</div>
         <div class="card-name">다카치호 CC</div>
-        <div class="card-name-jp">若宮コース</div>
+        <div class="card-name-jp">高千穂カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -2062,13 +2087,14 @@ isn’t just a golf course — it’s an experience.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-61.jpg" alt="지란 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 61</span>
           <span class="card-date">25.11.27</span>
         </div>
         <div class="card-prefecture">가고시마현</div>
         <div class="card-name">지란 CC</div>
-        <div class="card-name-jp">瀬戸内ゴルフクラブ</div>
+        <div class="card-name-jp">知覧カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -2154,13 +2180,14 @@ kind of place.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-62.jpg" alt="톰왓슨 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 62</span>
           <span class="card-date">26.01.06</span>
         </div>
         <div class="card-prefecture">미야자키현</div>
         <div class="card-name">톰왓슨 GC</div>
-        <div class="card-name-jp">八千代カントリークラブ</div>
+        <div class="card-name-jp">トムワトソンゴルフコース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -2225,13 +2252,14 @@ MIKA’s Take: Black pine forest is beautiful. Eighteen holes of it starts to fe
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-63.jpg" alt="UMK CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 63</span>
           <span class="card-date">26.01.07</span>
         </div>
         <div class="card-prefecture">미야자키현</div>
         <div class="card-name">UMK CC</div>
-        <div class="card-name-jp">呉カントリークラブ</div>
+        <div class="card-name-jp">UMKカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
@@ -2317,13 +2345,14 @@ MIKA’s Take: A course the JLPGA chose. Stand on it and the reason becomes clea
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-64.jpg" alt="자론바이 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 64</span>
           <span class="card-date">26.01.08</span>
         </div>
         <div class="card-prefecture">미야자키현</div>
         <div class="card-name">자론바이 GC</div>
-        <div class="card-name-jp">白竜湖カントリークラブ</div>
+        <div class="card-name-jp">ジャロン梅花ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -2410,13 +2439,14 @@ almost sells it short.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-01.jpg" alt="고토히라 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 01</span>
           <span class="card-date">23.09.24</span>
         </div>
         <div class="card-prefecture">가가와현 다카마쓰</div>
         <div class="card-name">고토히라 CC</div>
-        <div class="card-name-jp">大村湾カントリークラブ オールドコース</div>
+        <div class="card-name-jp">琴平カントリー倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -2478,13 +2508,14 @@ MIKA’s Take: Went for udon. Found Japan golf. That was the start of 300.</p></
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-02.jpg" alt="시도 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 02</span>
           <span class="card-date">23.04.13</span>
         </div>
         <div class="card-prefecture">가가와현 다카마쓰</div>
         <div class="card-name">시도 CC</div>
-        <div class="card-name-jp">大村湾カントリークラブ ニューコース</div>
+        <div class="card-name-jp">志度カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -2556,13 +2587,14 @@ every mistake.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-03.jpg" alt="사카이데 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 03</span>
           <span class="card-date">23.04.14</span>
         </div>
         <div class="card-prefecture">가가와현 다카마쓰</div>
         <div class="card-name">사카이데 CC</div>
-        <div class="card-name-jp">チサンカントリークラブ森山</div>
+        <div class="card-name-jp">坂出カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -2635,13 +2667,14 @@ right order.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-05.jpg" alt="오즈 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 05</span>
           <span class="card-date">23.08.25</span>
         </div>
         <div class="card-prefecture">에히메현 마쓰야마</div>
         <div class="card-name">오즈 골프클럽</div>
-        <div class="card-name-jp">若木ゴルフ倶楽部</div>
+        <div class="card-name-jp">大洲ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -2708,13 +2741,14 @@ MIKA’s Take: 27 holes in midsummer is a challenge. 8,200 yen is the reward. Bo
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-06.jpg" alt="고원 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 06</span>
           <span class="card-date">23.08.26</span>
         </div>
         <div class="card-prefecture">에히메현 마쓰야마</div>
         <div class="card-name">고원 GC</div>
-        <div class="card-name-jp">佐賀クラシックゴルフクラブ</div>
+        <div class="card-name-jp">高原ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -2787,13 +2821,14 @@ understanding Japanese summer heat.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-07.jpg" alt="마쓰야마 국제 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 07</span>
           <span class="card-date">23.08.27</span>
         </div>
         <div class="card-prefecture">에히메현 마쓰야마</div>
         <div class="card-name">마쓰야마 국제 GC</div>
-        <div class="card-name-jp">セゴビアゴルフクラブ イン チヨダ</div>
+        <div class="card-name-jp">松山国際ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -2868,13 +2903,14 @@ again.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-15.jpg" alt="산요 국제 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 15</span>
           <span class="card-date">24.04.17</span>
         </div>
         <div class="card-prefecture">야마구치현</div>
         <div class="card-name">산요 국제 CC</div>
-        <div class="card-name-jp">千代田カントリークラブ</div>
+        <div class="card-name-jp">山陽国際カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -2952,13 +2988,14 @@ golf has days like that.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-23.jpg" alt="세토우치 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 23</span>
           <span class="card-date">24.09.24</span>
         </div>
         <div class="card-prefecture">히로시마현</div>
         <div class="card-name">세토우치 CC</div>
-        <div class="card-name-jp">成田東カントリークラブ</div>
+        <div class="card-name-jp">瀬戸内ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -3042,13 +3079,14 @@ Didn’t matter.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-24.jpg" alt="야치요 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 24</span>
           <span class="card-date">24.09.25</span>
         </div>
         <div class="card-prefecture">히로시마현</div>
         <div class="card-name">야치요 CC</div>
-        <div class="card-name-jp">創成ゴルフ倶楽部</div>
+        <div class="card-name-jp">八千代カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -3122,13 +3160,14 @@ course and the math gets even better.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-25.jpg" alt="쿠레 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 25</span>
           <span class="card-date">24.09.26</span>
         </div>
         <div class="card-prefecture">히로시마현</div>
         <div class="card-name">쿠레 CC</div>
-        <div class="card-name-jp">石岡ゴルフクラブ</div>
+        <div class="card-name-jp">呉カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -3202,13 +3241,14 @@ doesn’t.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-26.jpg" alt="백룡호 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 26</span>
           <span class="card-date">24.09.27</span>
         </div>
         <div class="card-prefecture">히로시마현</div>
         <div class="card-name">백룡호 CC</div>
-        <div class="card-name-jp">マリアゴルフリンクス</div>
+        <div class="card-name-jp">白竜湖カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -3283,13 +3323,14 @@ how the last day should end.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-65.jpg" alt="그린파크 다이센 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 65</span>
           <span class="card-date">26.03.26</span>
         </div>
         <div class="card-prefecture">돗토리현 요나고</div>
         <div class="card-name">그린파크 다이센 GC</div>
-        <div class="card-name-jp">成田さくらの里ゴルフクラブ</div>
+        <div class="card-name-jp">グリーンパーク大山ゴルフコース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -3381,13 +3422,14 @@ photo before you take the shot.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-66.jpg" alt="다이센 아크 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 66</span>
           <span class="card-date">26.03.27</span>
         </div>
         <div class="card-prefecture">돗토리현 요나고</div>
         <div class="card-name">다이센 아크 CC</div>
-        <div class="card-name-jp">太平洋クラブ 八千代コース</div>
+        <div class="card-name-jp">大山アークカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -3478,13 +3520,14 @@ PGMでさえ人手不足を避けられなかった。フェアウェイへの�
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-67.jpg" alt="요나고 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 67</span>
           <span class="card-date">26.03.28</span>
         </div>
         <div class="card-prefecture">돗토리현 요나고</div>
         <div class="card-name">요나고 GC</div>
-        <div class="card-name-jp">一宮カントリークラブ</div>
+        <div class="card-name-jp">米子ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -3577,13 +3620,14 @@ MIKA’s Take: The decision to stop at 15 was the best shot of the trip.</p></di
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-68.jpg" alt="간몬키쿠가와 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 68</span>
           <span class="card-date">26.05.11</span>
         </div>
         <div class="card-prefecture">야마구치현 시모노세키</div>
         <div class="card-name">간몬키쿠가와 GC</div>
-        <div class="card-name-jp">東千葉カントリークラブ</div>
+        <div class="card-name-jp">関門菊川ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -3683,13 +3727,14 @@ CCも同じ系列だった。大型資本が運営するだけあって、基本
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-69.jpg" alt="레이크스완 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 69</span>
           <span class="card-date">26.05.12</span>
         </div>
         <div class="card-prefecture">야마구치현 미네</div>
         <div class="card-name">레이크스완 CC</div>
-        <div class="card-name-jp">ココパリゾートクラブ フェニックスゴルフコース</div>
+        <div class="card-name-jp">レイクスワンカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -3799,13 +3844,14 @@ outperforms its name.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-70.jpg" alt="시모노세키 골든 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 70</span>
           <span class="card-date">26.05.13</span>
         </div>
         <div class="card-prefecture">야마구치현 시모노세키</div>
         <div class="card-name">시모노세키 골든 GC</div>
-        <div class="card-name-jp">セントレイクスゴルフクラブ</div>
+        <div class="card-name-jp">下関ゴールデンゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -3903,13 +3949,14 @@ experience.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-71.jpg" alt="토요타코 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 71</span>
           <span class="card-date">26.05.14</span>
         </div>
         <div class="card-prefecture">야마구치현 시모노세키</div>
         <div class="card-name">토요타코 GC</div>
-        <div class="card-name-jp">ネムゴルフクラブ</div>
+        <div class="card-name-jp">豊田湖ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -4008,13 +4055,14 @@ golf looks like without the markup.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-72.jpg" alt="미야코 컨트리클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 72</span>
           <span class="card-date">26.05.15</span>
         </div>
         <div class="card-prefecture">야마구치현 시모노세키</div>
         <div class="card-name">미야코 컨트리클럽</div>
-        <div class="card-name-jp">エクセレントゴルフクラブ 伊勢大鳥居コース</div>
+        <div class="card-name-jp">都カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -4130,13 +4178,14 @@ Googleマップの評価は3点台中後半。数字だけ見れば平凡なロ�
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-42.jpg" alt="코코파리조트 피닉스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 42</span>
           <span class="card-date">25.05.13</span>
         </div>
         <div class="card-prefecture">미에현</div>
         <div class="card-name">코코파리조트 피닉스 GC</div>
-        <div class="card-name-jp">石岡ウエストゴルフクラブ</div>
+        <div class="card-name-jp">ココパリゾートクラブ フェニックスゴルフコース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -4237,13 +4286,14 @@ accordingly and there’s plenty to enjoy.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-43.jpg" alt="세인트레이크스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 43</span>
           <span class="card-date">25.05.14</span>
         </div>
         <div class="card-prefecture">미에현</div>
         <div class="card-name">세인트레이크스 GC</div>
-        <div class="card-name-jp">太平洋クラブ PGAマシココース</div>
+        <div class="card-name-jp">セントレイクスゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -4365,13 +4415,14 @@ see again is thin. St. Lakes lands firmly on the right side.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-44.jpg" alt="네무 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 44</span>
           <span class="card-date">25.05.15</span>
         </div>
         <div class="card-prefecture">미에현</div>
         <div class="card-name">네무 골프클럽</div>
-        <div class="card-name-jp">鹿沼72ゴルフクラブ</div>
+        <div class="card-name-jp">ネムゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -4447,13 +4498,14 @@ about that is wrong.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-45.jpg" alt="엑셀런트GC 이세오토리" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 45</span>
           <span class="card-date">25.05.16</span>
         </div>
         <div class="card-prefecture">미에현</div>
         <div class="card-name">엑셀런트GC 이세오토리</div>
-        <div class="card-name-jp">道場パインバレーゴルフ倶楽部</div>
+        <div class="card-name-jp">エクセレントゴルフクラブ 伊勢大鳥居コース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -4529,13 +4581,14 @@ MIKA’s Take: Golf and lunch for 60,000 won. The reason Japan keeps calling is 
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-49.jpg" alt="도조 파인밸리 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 49</span>
           <span class="card-date">25.08.21</span>
         </div>
         <div class="card-prefecture">효고현</div>
         <div class="card-name">도조 파인밸리 CC</div>
-        <div class="card-name-jp">宝塚高原ゴルフクラブ</div>
+        <div class="card-name-jp">道場パインバレーゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -4616,13 +4669,14 @@ yen.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-50.jpg" alt="다카라즈카 고원 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 50</span>
           <span class="card-date">25.08.22</span>
         </div>
         <div class="card-prefecture">효고현</div>
         <div class="card-name">다카라즈카 고원 CC</div>
-        <div class="card-name-jp">藤ノ尾ゴルフクラブ</div>
+        <div class="card-name-jp">宝塚高原ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -4707,13 +4761,14 @@ description wasn’t an exaggeration.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-51.jpg" alt="후지오노 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 51</span>
           <span class="card-date">25.08.23</span>
         </div>
         <div class="card-prefecture">효고현</div>
         <div class="card-name">후지오노 GC</div>
-        <div class="card-name-jp">西脇カントリークラブ</div>
+        <div class="card-name-jp">藤ノ尾ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -4803,13 +4858,14 @@ outdoor bath. That’s summer golf completed properly.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-52.jpg" alt="니시와키 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 52</span>
           <span class="card-date">25.08.24</span>
         </div>
         <div class="card-prefecture">효고현</div>
         <div class="card-name">니시와키 CC</div>
-        <div class="card-name-jp">河口湖カントリークラブ 富士</div>
+        <div class="card-name-jp">西脇カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -4897,13 +4953,14 @@ for the last day.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-53.jpg" alt="고라카단후지 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 53</span>
           <span class="card-date">25.09.18</span>
         </div>
         <div class="card-prefecture">시즈오카현</div>
         <div class="card-name">고라카단후지 GC</div>
-        <div class="card-name-jp">富士クラシックカントリークラブ</div>
+        <div class="card-name-jp">河口湖カントリークラブ 富士</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
@@ -4979,13 +5036,14 @@ for the next visit.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-54.jpg" alt="후지클래식 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 54</span>
           <span class="card-date">25.09.19</span>
         </div>
         <div class="card-prefecture">시즈오카현</div>
         <div class="card-name">후지클래식 CC</div>
-        <div class="card-name-jp">富士天城ゴルフ倶楽部</div>
+        <div class="card-name-jp">富士クラシックカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
@@ -5059,13 +5117,14 @@ courses leave homework.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-55.jpg" alt="후지아마기 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 55</span>
           <span class="card-date">25.09.20</span>
         </div>
         <div class="card-prefecture">시즈오카현</div>
         <div class="card-name">후지아마기 CC</div>
-        <div class="card-name-jp">朝霧ジャンボリーゴルフクラブ</div>
+        <div class="card-name-jp">富士天城ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -5147,13 +5206,14 @@ find than it looks.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-56.jpg" alt="아사기리잼보리 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 56</span>
           <span class="card-date">25.09.21</span>
         </div>
         <div class="card-prefecture">시즈오카현</div>
         <div class="card-name">아사기리잼보리 GC</div>
-        <div class="card-name-jp">富士野宮ゴルフクラブ</div>
+        <div class="card-name-jp">朝霧ジャンボリーゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
@@ -5228,13 +5288,14 @@ MIKA’s Take: Fifty years old and playing at its best. Age is a number. This co
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-57.jpg" alt="후지노미야 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 57</span>
           <span class="card-date">25.09.22</span>
         </div>
         <div class="card-prefecture">시즈오카현</div>
         <div class="card-name">후지노미야 GC</div>
-        <div class="card-name-jp">島津ゴルフクラブ</div>
+        <div class="card-name-jp">富士野宮ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -5311,13 +5372,14 @@ view.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-32.jpg" alt="세고비아 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 32</span>
           <span class="card-date">25.01.15</span>
         </div>
         <div class="card-prefecture">이바라키현</div>
         <div class="card-name">세고비아 GC</div>
-        <div class="card-name-jp">溝辺カントリークラブ</div>
+        <div class="card-name-jp">セゴビアゴルフクラブ イン チヨダ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -5417,13 +5479,14 @@ whether this is golf or art.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-33.jpg" alt="치요다 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 33</span>
           <span class="card-date">25.01.16</span>
         </div>
         <div class="card-prefecture">이바라키현</div>
         <div class="card-name">치요다 CC</div>
-        <div class="card-name-jp">高千穂カントリークラブ</div>
+        <div class="card-name-jp">千代田カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -5524,13 +5587,14 @@ birdie is enough.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-34.jpg" alt="나리타히가시 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 34</span>
           <span class="card-date">25.02.18</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">나리타히가시 CC</div>
-        <div class="card-name-jp">知覧カントリークラブ</div>
+        <div class="card-name-jp">成田東カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -5597,13 +5661,14 @@ February afternoon was that kind of day.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-35.jpg" alt="소세이 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 35</span>
           <span class="card-date">25.02.19</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">소세이 GC</div>
-        <div class="card-name-jp">トムワトソンゴルフコース</div>
+        <div class="card-name-jp">創成ゴルフ倶楽部</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -5681,13 +5746,14 @@ excuse or a fact requires a return visit to find out.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-36.jpg" alt="이시오카 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 36</span>
           <span class="card-date">25.02.20</span>
         </div>
         <div class="card-prefecture">이바라키현</div>
         <div class="card-name">이시오카 GC</div>
-        <div class="card-name-jp">UMKカントリークラブ</div>
+        <div class="card-name-jp">石岡ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -5768,13 +5834,14 @@ whether that was modesty or bragging. Then a bunker answers the question.</p></d
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-37.jpg" alt="마리아 골프링크스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 37</span>
           <span class="card-date">25.02.21</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">마리아 골프링크스 GC</div>
-        <div class="card-name-jp">ジャロン梅花ゴルフクラブ</div>
+        <div class="card-name-jp">マリアゴルフリンクス</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -5868,13 +5935,14 @@ one of them.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-38.jpg" alt="나리타 사쿠라노사토 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 38</span>
           <span class="card-date">25.02.22</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">나리타 사쿠라노사토 GC</div>
-        <div class="card-name-jp">グリーンパーク大山ゴルフコース</div>
+        <div class="card-name-jp">成田さくらの里ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -5946,13 +6014,14 @@ MIKA’s Take: Worth coming back for the blossoms. On a weekday.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-39.jpg" alt="태평양클럽 야치요CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 39</span>
           <span class="card-date">25.04.18</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">태평양클럽 야치요CC</div>
-        <div class="card-name-jp">大山アークカントリークラブ</div>
+        <div class="card-name-jp">太平洋クラブ 八千代コース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">—</span></div>
@@ -6057,13 +6126,14 @@ through the entire back nine.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-40.jpg" alt="이치노미야 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 40</span>
           <span class="card-date">25.04.19</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">이치노미야 CC</div>
-        <div class="card-name-jp">米子ゴルフ倶楽部</div>
+        <div class="card-name-jp">一宮カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -6150,13 +6220,14 @@ MIKA’s Take: Looks tougher than it plays. Some courses are like that. Some peo
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-41.jpg" alt="히가시치바 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 41</span>
           <span class="card-date">25.04.20</span>
         </div>
         <div class="card-prefecture">치바현</div>
         <div class="card-name">히가시치바 CC</div>
-        <div class="card-name-jp">関門菊川ゴルフクラブ</div>
+        <div class="card-name-jp">東千葉カントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -6246,13 +6317,14 @@ trip. Golf never quite makes sense, and that’s the point.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-46.jpg" alt="이시오카 웨스트 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 46</span>
           <span class="card-date">25.06.12</span>
         </div>
         <div class="card-prefecture">이바라키현</div>
         <div class="card-name">이시오카 웨스트 GC</div>
-        <div class="card-name-jp">レイクスワンカントリークラブ</div>
+        <div class="card-name-jp">石岡ウエストゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -6331,13 +6403,14 @@ MIKA’s Take: A first impression of Japanese golf is made on the turf. 4,990 ye
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-47.jpg" alt="태평양클럽 PGA 마시코" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 47</span>
           <span class="card-date">25.06.13</span>
         </div>
         <div class="card-prefecture">도치기현</div>
         <div class="card-name">태평양클럽 PGA 마시코</div>
-        <div class="card-name-jp">下関ゴールデンゴルフクラブ</div>
+        <div class="card-name-jp">太平洋クラブ PGAマシココース</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
@@ -6416,13 +6489,14 @@ PGA. Both are honest about what they are.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-48.jpg" alt="가누마72 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 48</span>
           <span class="card-date">25.06.14</span>
         </div>
         <div class="card-prefecture">도치기현</div>
         <div class="card-name">가누마72 CC</div>
-        <div class="card-name-jp">豊田湖ゴルフクラブ</div>
+        <div class="card-name-jp">鹿沼72ゴルフクラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">C+</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
@@ -6496,13 +6570,14 @@ choice.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <div class="card-image"><img src="course-images/course-04.jpg" alt="루스츠 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 04</span>
           <span class="card-date">23.06.01</span>
         </div>
         <div class="card-prefecture">홋카이도</div>
         <div class="card-name">루스츠 CC</div>
-        <div class="card-name-jp">都カントリークラブ</div>
+        <div class="card-name-jp">ルスツカントリークラブ</div>
         <div class="card-ratings">
           <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
           <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>

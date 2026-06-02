@@ -90,6 +90,18 @@
     .legend { top:auto; bottom:16px; right:16px; max-width:160px; padding:11px 13px; }
   }
 </style>
+<script>
+  // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
+  (function(){
+    try{ var l = localStorage.getItem('mika-lang') || 'ja';
+      document.documentElement.setAttribute('data-sitelang', l); }catch(e){
+      document.documentElement.setAttribute('data-sitelang','ja'); }
+  })();
+</script>
+<style>
+  /* guide 메뉴는 한국어(ko)일 때만 노출 */
+  html:not([data-sitelang="ko"]) #nav-guide { display: none; }
+</style>
 </head>
 <body>
 
@@ -103,7 +115,7 @@
   <ul class="nav-links">
     <li><a href="courses.html" class="nav-txt" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">일본골프장 리뷰</a></li>
     <li><a href="map.html" class="nav-txt active" data-ko="방문 지도" data-ja="訪問マップ" data-en="Visited Map">방문 지도</a></li>
-    <li><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門" data-en="Beginner's Guide">일본골프 첫걸음</a></li>
+    <li id="nav-guide"><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門" data-en="Beginner's Guide">일본골프 첫걸음</a></li>
     <li><a href="editorial.html" class="nav-txt" data-ko="에디토리얼" data-ja="エディトリアル" data-en="Editorial">에디토리얼</a></li>
     <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
   </ul>
@@ -291,6 +303,10 @@
     document.querySelectorAll('.nav-txt').forEach(function(el){
       var t=el.getAttribute('data-'+lang); if(t) el.textContent=t;
     });
+    // guide 메뉴: 한국어(ko)일 때만 노출
+    var _navGuide = document.getElementById('nav-guide');
+    if (_navGuide) { _navGuide.style.display = (lang === 'ko') ? '' : 'none'; }
+    document.documentElement.setAttribute('data-sitelang', lang);
     document.querySelectorAll('.txt-i18n').forEach(function(el){
       var t=el.getAttribute('data-'+lang); if(t!=null) el.innerHTML=t;
     });

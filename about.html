@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About MIKA — MIKA 일본골프 도슨트</title>
+<title>About MIKA — MIKA <span class="L ko">일본골프 도슨트</span><span class="L ja">日本ゴルフドーセント</span><span class="L en">Japan Golf Docent</span></title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -200,6 +200,16 @@
     .section-text { font-size: 14px; line-height: 1.95; }
     .journey-grid { grid-template-columns: 1fr 1fr; }
   }
+
+  /* 다국어 본문 전환 */
+  .L{display:none;}
+  body[data-lang="ko"] .L.ko{display:revert;}
+  body[data-lang="ja"] .L.ja{display:revert;}
+  body[data-lang="en"] .L.en{display:revert;}
+  span.L{display:none;}
+  body[data-lang="ko"] span.L.ko,
+  body[data-lang="ja"] span.L.ja,
+  body[data-lang="en"] span.L.en{display:inline;}
 </style>
 <script>
   // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
@@ -241,23 +251,29 @@
   <div class="hero-left">
     <p class="hero-eyebrow">일본골프 도슨트</p>
     <div class="hero-name">MIKA<em>도슨트</em></div>
-    <p class="hero-tagline">골프클럽 들고 일본을 가장 깊이 다녀온 사람.<br>단순한 리뷰가 아닌, 코스를 읽고 기억하는 여정.</p>
+    <p class="hero-tagline"><span class="L ko">골프클럽 들고 일본을 가장 깊이 다녀온 사람.<br>단순한 리뷰가 아닌, 코스를 읽고 기억하는 여정.</span><span class="L ja">ゴルフクラブを携え、日本を最も深く巡った者。<br>単なるレビューではなく、コースを読み、記憶する旅。</span><span class="L en">The one who traveled deepest into Japan, clubs in hand.<br>Not mere reviews, but a journey of reading and remembering courses.</span></p>
     <div class="stat-row">
       <div class="stat-item">
         <span class="stat-num">72</span>
-        <span class="stat-label">방문 코스</span>
+        <span class="stat-label"><span class="L ko">방문 코스</span><span class="L ja">訪問コース</span><span class="L en">Courses Visited</span></span>
         <div class="progress-bar">
           <span class="progress-label">24%</span>
           <div class="progress-fill"></div>
         </div>
       </div>
+<div class="about-disclaimer" style="max-width:760px;margin:32px auto;padding:20px 28px;background:rgba(154,122,46,0.06);border-left:3px solid var(--gold,#9a7a2e);border-radius:2px;font-size:0.92rem;line-height:1.9;color:var(--ink-soft,#6b6864);font-style:italic;">
+<span class="L ko">저는 일본을 좋아하는 50대 한국인입니다. 일본 골프장을 다니면서 제 시선으로 기록하고 있습니다. 외국인이라 언어 표현이 서툴고 어색할 수 있습니다. 많은 양해 부탁드립니다.</span>
+<span class="L ja">日本が好きな50代の韓国人です。日本各地のゴルフ場を巡りながら、自分なりの視点で記録しています。外国人のため、日本語の表現に拙い部分や不自然な点があるかもしれませんが、どうかご容赦ください。</span>
+<span class="L en">I am a Korean in my fifties who loves Japan. I travel its golf courses and record them through my own eyes. As a foreigner, my expression may at times be clumsy or unnatural. I ask for your kind understanding.</span>
+</div>
+
       <div class="stat-item">
         <span class="stat-num">300</span>
-        <span class="stat-label">최종 목표</span>
+        <span class="stat-label"><span class="L ko">최종 목표</span><span class="L ja">最終目標</span><span class="L en">Final Goal</span></span>
       </div>
       <div class="stat-item">
         <span class="stat-num">8</span>
-        <span class="stat-label">구글맵 레벨</span>
+        <span class="stat-label"><span class="L ko">구글맵 레벨</span><span class="L ja">Googleマップ レベル</span><span class="L en">Google Maps Level</span></span>
       </div>
     </div>
     <div class="sns-row">
@@ -273,12 +289,12 @@
   <!-- 섹션 1: 여정 -->
   <div class="about-section">
     <p class="section-eyebrow">The Journey</p>
-    <h2 class="section-title" id="about-journey-title">72 / 300<br><em>여정</em></h2>
-    <p class="section-text" id="about-journey-text">2023년 봄, 분당 구미동의 한 우동집에서 시작됐습니다. 다카마쓰에 우동의 본산이 있다는 이야기가 나왔고, "그럼 가서 진짜 우동도 맛보고, 내친김에 골프도 치고 오자"는 말 한마디가 저를 지금 이 자리까지 데려왔습니다.
+    <h2 class="section-title" id="about-journey-title"><span class="L ko">72 / 300<br><em>여정</em></span><span class="L ja">72 / 300<br><em>その道のり</em></span><span class="L en">72 / 300<br><em>The Journey</em></span></h2>
+    <p class="section-text L ko">2023년 봄, 분당 구미동의 한 우동집에서 시작됐습니다. 다카마쓰에 우동의 본산이 있다는 이야기가 나왔고, "그럼 가서 진짜 우동도 맛보고, 내친김에 골프도 치고 오자"는 말 한마디가 저를 지금 이 자리까지 데려왔습니다.
 
 2005년 한국에서 골프를 시작한 이래 154곳을 다녔습니다. 좋은 코스와 그렇지 않은 코스를 구분하는 눈이 생겼고, 어느 순간 국내에서 갈 만한 곳은 어느 정도 다 가봤다는 생각이 들 무렵이었습니다.
 
-하지만 일본 골프는 달랐습니다. 첫 라운드를 마치고 바로 느꼈습니다. 이건 다르다고. 코스의 결이 다르고, 공간을 쓰는 방식이 다르고, 골프를 대하는 문화 자체가 달랐습니다. 그날 이후 10년 계획을 세웠습니다. 1년에 30곳, 총 300곳. 다채로운 매력을 품은 일본의 훌륭한 코스들을 제 눈과 발로 직접 확인하겠다는 긴 여정의 시작이었습니다.</p>
+하지만 일본 골프는 달랐습니다. 첫 라운드를 마치고 바로 느꼈습니다. 이건 다르다고. 코스의 결이 다르고, 공간을 쓰는 방식이 다르고, 골프를 대하는 문화 자체가 달랐습니다. 그날 이후 10년 계획을 세웠습니다. 1년에 30곳, 총 300곳. 다채로운 매력을 품은 일본의 훌륭한 코스들을 제 눈과 발로 직접 확인하겠다는 긴 여정의 시작이었습니다.</p><p class="section-text L ja">2023年の春、盆唐(プンダン)・九美洞(クミドン)の一軒のうどん店から始まりました。「高松にうどんの本場がある」という話が出て、「では行って本場のうどんを味わい、ついでにゴルフもしてこよう」——その一言が、私を今ここまで連れてきました。<br><br>2005年に韓国でゴルフを始めて以来、154か所を巡りました。良いコースとそうでないコースを見分ける目が養われ、ある時、国内で行くべき所はおおむね回り尽くしたと感じるようになりました。しかし日本のゴルフは違いました。最初のラウンドを終えてすぐに感じたのです。これは違う、と。コースの質感が違い、空間の使い方が違い、ゴルフへの向き合い方そのものが違っていました。<br><br>最初はただうどんを食べに海を渡りましたが、今ではこの素晴らしいコースの息吹を感じるために日本を訪れています。その日以来、10年計画を立てました。年に30か所、計300か所。多彩な魅力を秘めた日本の素晴らしいコースを、自分の目と足で確かめる——長い旅の始まりでした。</p><p class="section-text L en">It began in the spring of 2023, at a small udon restaurant in Gumi-dong, Bundang. Someone mentioned that the home of udon was in Takamatsu, and a single remark — "Then let's go taste real udon, and play some golf while we're at it" — brought me all the way here. Since taking up golf in Korea in 2005, I had played 154 courses. I developed an eye for telling good courses from the rest, and at some point I felt I had been just about everywhere worth going at home. But Japanese golf was different. I felt it the moment I finished my first round: this is different. The texture of the course, the use of space, the very culture around golf — all different. From that day, I made a ten-year plan. Thirty courses a year, three hundred in total. The long journey of confirming Japan's finest, most varied courses with my own eyes and feet had begun.</p>
     <div class="journey-grid">
       <div class="journey-item"><div class="journey-year">2023</div><div class="journey-desc">다카마쓰 우동<br>→ 일본 골프 시작<br>7곳</div></div>
       <div class="journey-item"><div class="journey-year">2024</div><div class="journey-desc">규슈·히로시마<br>·나가사키 집중<br>24곳</div></div>
@@ -291,19 +307,19 @@
   <!-- 섹션 2: MIKA는 누구인가 -->
   <div class="about-section">
     <p class="section-eyebrow">Who is MIKA</p>
-    <h2 class="section-title" id="about-who-title">MIKA는 <em>누구인가</em></h2>
-    <p class="section-text" id="about-who-text">'MIKA'는 제 세례명 미카엘에서 따온 이름입니다. 자유롭게 일하는 프리랜서이자, 아내와 아이를 둔 평범한 가장이기도 합니다. 휴일이면 골프백을 챙겨 일본행 비행기에 오르는 일이 이제 저희 가족에게는 자연스러운 일상이 되었습니다.
+    <h2 class="section-title" id="about-who-title"><span class="L ko">MIKA는 <em>누구인가</em></span><span class="L ja">MIKAとは<em>誰か</em></span><span class="L en">Who is <em>MIKA</em></span></h2>
+    <p class="section-text L ko">'MIKA'는 제 세례명 미카엘에서 따온 이름입니다. 자유롭게 일하는 프리랜서이자, 아내와 아이를 둔 평범한 가장이기도 합니다. 휴일이면 골프백을 챙겨 일본행 비행기에 오르는 일이 이제 저희 가족에게는 자연스러운 일상이 되었습니다.
 
 2005년부터 한국 골프장을 다녔습니다. 154곳. 30번 이상 찾은 곳도 있고, 한 번으로 충분했던 곳도 있습니다. 그중 가장 기억에 남는 코스는 마리아골프클럽입니다. 설계가 상당히 사악하다 싶을 정도였는데, 묘하게 다시 가고 싶어지는 코스였습니다. 도전 정신을 불러일으키는 곳이었습니다.
 
-구글맵에 코스 감상을 남기기 시작한 것은 일본 골프 여행을 본격화하면서부터입니다. 2년째 오직 일본 코스에 대한 감상만 쌓아 올렸고, 어느덧 레벨 8의 리뷰어가 되었습니다. 제가 걸어온 길을 묵묵히 기록하는 데 이보다 좋은 공간은 없었습니다.</p>
+구글맵에 코스 감상을 남기기 시작한 것은 일본 골프 여행을 본격화하면서부터입니다. 2년째 오직 일본 코스에 대한 감상만 쌓아 올렸고, 어느덧 레벨 8의 리뷰어가 되었습니다. 제가 걸어온 길을 묵묵히 기록하는 데 이보다 좋은 공간은 없었습니다.</p><p class="section-text L ja">「MIKA」は、私の洗礼名ミカエルに由来します。自由に働くフリーランサーであり、妻と子を持つごく普通の父親でもあります。休日になればゴルフバッグを担いで日本行きの飛行機に乗ることは、今や我が家にとって自然な日常になりました。<br><br>2005年から韓国のゴルフ場を巡り、154か所。30回以上訪れた所もあれば、一度で十分だった所もあります。中でも最も記憶に残るのはマリアゴルフクラブです。設計がサディスティックと思えるほどでしたが、不思議とまた行きたくなるコースでした。挑戦心をかき立てる場所でした。<br><br>Googleマップにコースの感想を残し始めたのは、日本のゴルフ場巡りを本格化させてからです。2年間ひたすら日本のコースの感想だけを積み重ね、いつしかレベル8のレビュアーになりました。自分の歩んできた道を黙々と記録するのに、これ以上の場所はありませんでした。</p><p class="section-text L en">"MIKA" comes from my baptismal name, Michael. I am a freelancer who works on my own terms, and an ordinary family man with a wife and child. Packing my golf bag and boarding a plane to Japan on holidays has become a natural part of our family life. I played Korean courses from 2005 — 154 of them. Some I visited more than thirty times; others were enough just once. The most memorable was Maria Golf Club. Its design felt almost wickedly difficult, yet strangely it made me want to return. It stirred my competitive spirit. I began leaving course impressions on Google Maps once my Japan golf travels began in earnest. For two years I have built up impressions of Japanese courses alone, and somewhere along the way became a Level 8 reviewer. There was no better place to quietly record the path I have walked.</p>
   </div>
 
   <!-- 섹션 3: 왜 일본 골프인가 -->
   <div class="about-section">
     <p class="section-eyebrow">Why Japan Golf</p>
-    <h2 class="section-title" id="about-why-title">왜 <em>일본 골프</em>인가</h2>
-    <p class="section-text" id="about-why-text">한국 골프는 대체로 속도감이 있습니다. 플레이 페이스가 빠르고, 캐디의 진행에 맞춰야 하며, 뒤 팀의 압박도 존재합니다. 18홀을 마치고 나면 자연 속에서 쉬었다기보다 무언가를 바쁘게 소비했다는 느낌이 남을 때가 많습니다.
+    <h2 class="section-title" id="about-why-title"><span class="L ko">왜 <em>일본 골프</em>인가</span><span class="L ja">なぜ<em>日本ゴルフ</em>なのか</span><span class="L en">Why <em>Japanese Golf</em></span></h2>
+    <p class="section-text L ko">한국 골프는 대체로 속도감이 있습니다. 플레이 페이스가 빠르고, 캐디의 진행에 맞춰야 하며, 뒤 팀의 압박도 존재합니다. 18홀을 마치고 나면 자연 속에서 쉬었다기보다 무언가를 바쁘게 소비했다는 느낌이 남을 때가 많습니다.
 
 반면 일본의 로컬 골프에는 여백과 사유가 있습니다. 캐디 없이 리모컨 카트를 허리에 찬 채 묵묵히 코스를 걷습니다. 앞 팀을 기다리는 여유 속에서 바람을 느끼고, 샷의 방향을 온전히 스스로 판단합니다. 비로소 자연과 코스 안에서 생각할 시간이 주어집니다.
 
@@ -311,27 +327,27 @@
 
 게다가 식사와 맥주 한 잔을 곁들이고도 9,000엔 남짓이면 충분한 합리적인 환경은, 한국에서는 상상하기 힘든 훌륭한 문화입니다.
 
-처음엔 그저 우동을 먹으러 바다를 건넜지만, 이제는 이 훌륭한 코스들의 숨결을 느끼기 위해 일본을 찾습니다.</p>
+처음엔 그저 우동을 먹으러 바다를 건넜지만, 이제는 이 훌륭한 코스들의 숨결을 느끼기 위해 일본을 찾습니다.</p><p class="section-text L ja">韓国のゴルフは概してスピード感があります。プレーペースが速く、キャディの進行に合わせる必要があり、後続組のプレッシャーもあります。18ホールを終えると、自然の中で休んだというより、何かを慌ただしく消費したような感覚が残ることが少なくありません。<br><br>一方、日本のローカルゴルフには余白と思索があります。キャディなしでカートのリモコンを腰につけ、黙々とコースを歩きます。前の組を待つ余裕の中で風を感じ、ショットの方向をすべて自分で判断します。ようやく自然とコースの中で考える時間が与えられるのです。<br><br>何より感嘆したのは、設計の誠実さでした。華やかに見せるための飾りではなく、ゴルファーが楽しく打つために造られたコースたちです。自然の地形に逆らわず動線を練り上げ、18ホールを通じてそれぞれ異なる表情を見せます。さらに、食事にビールを一杯つけても9,000円ほどで十分という合理的な環境は、韓国では想像しがたい素晴らしい文化です。</p><p class="section-text L en">Korean golf tends to move fast. The pace of play is quick, you must keep up with the caddie, and there is pressure from the group behind. After eighteen holes, I often felt less that I had rested in nature than that I had hurriedly consumed something. Japanese local golf, by contrast, has space and reflection. With no caddie and a remote-control cart at your hip, you walk the course quietly. In the ease of waiting for the group ahead, you feel the wind and judge the line of your shot entirely on your own. At last you are given time to think, within nature and the course. What impressed me most was the sincerity of the design — not ornament made to dazzle, but courses built for golfers to enjoy. Working with the natural terrain rather than against it, they show a different face across all eighteen holes. And a rational setting where a round with a meal and a beer comes to around 9,000 yen is a wonderful culture hard to imagine in Korea. At first I merely crossed the sea for udon; now I come to Japan to feel the breath of these wonderful courses.</p>
   </div>
 
   <!-- 섹션 4: 도슨트란 -->
   <div class="about-section">
     <p class="section-eyebrow">What is a Docent</p>
-    <h2 class="section-title">도슨트란 <em>무엇인가</em></h2>
-    <p class="section-text">미술관의 도슨트는 관람객을 작품 앞으로 안내합니다. 단순히 안내판을 읽어주는 것이 아니라 작가의 의도와 시대적 배경, 그리고 작품을 감상하는 방법을 전달합니다. 그 작품을 가장 깊이, 그리고 오랫동안 들여다본 사람만이 할 수 있는 역할입니다.</p>
+    <h2 class="section-title"><span class="L ko">도슨트란 <em>무엇인가</em></span><span class="L ja">ドーセントとは<em>何か</em></span><span class="L en">What is a <em>Docent</em></span></h2>
+    <p class="section-text L ko">미술관의 도슨트는 관람객을 작품 앞으로 안내합니다. 단순히 안내판을 읽어주는 것이 아니라 작가의 의도와 시대적 배경, 그리고 작품을 감상하는 방법을 전달합니다. 그 작품을 가장 깊이, 그리고 오랫동안 들여다본 사람만이 할 수 있는 역할입니다.</p><p class="section-text L ja">美術館のドーセントは、来館者を作品の前へと案内します。単に解説板を読み上げるのではなく、作家の意図や時代背景、そして作品の味わい方を伝えます。その作品を最も深く、そして最も長く見つめ続けてきた者だけができる役割です。</p><p class="section-text L en">A museum docent guides visitors to stand before a work of art. Not simply reading out the label, but conveying the artist's intent, the context of the era, and how to appreciate the piece. It is a role only someone who has gazed at that work most deeply, and longest, can fulfill.</p>
     <div class="docent-block">
       <p class="docent-quote"><span id="about-docent-quote">"골프 도슨트는 코스 앞에서 골퍼를 안내합니다. 설계가의 철학, 지형의 맥락, 그리고 바람직한 공략법을 온몸으로 겪어내고 기록합니다."</p>
     </div>
-    <p class="section-text" style="margin-top:24px">저의 글은 단순한 리뷰나 스코어 자랑이 아닙니다. 땅이 어떤 과정을 거쳐 골프 코스로 연성(鍊成)되었는지, 설계자가 어느 곳에 정교한 함정을 숨겨두었는지, 이 홀이 골퍼에게 어떤 겸손함과 도전을 요구하는지를 읽어내는 작업입니다.
+    <p class="section-text L ko">저의 글은 단순한 리뷰나 스코어 자랑이 아닙니다. 땅이 어떤 과정을 거쳐 골프 코스로 연성(鍊成)되었는지, 설계자가 어느 곳에 정교한 함정을 숨겨두었는지, 이 홀이 골퍼에게 어떤 겸손함과 도전을 요구하는지를 읽어내는 작업입니다.
 
-72곳의 코스를 순례하며 저에게도 작은 변화가 생겼습니다. 예전에는 제 스코어카드만 들여다보았다면, 지금은 코스의 풍경과 설계를 봅니다. 이 시선의 차이가 저를 일본 코스의 매력을 알리는 도슨트로 이끌었다고 생각합니다.</p>
+72곳의 코스를 순례하며 저에게도 작은 변화가 생겼습니다. 예전에는 제 스코어카드만 들여다보았다면, 지금은 코스의 풍경과 설계를 봅니다. 이 시선의 차이가 저를 일본 코스의 매력을 알리는 도슨트로 이끌었다고 생각합니다.</p><p class="section-text L ja">私の文章は、単なるレビューやスコア自慢ではありません。土地がどのような過程を経てゴルフコースへと造り上げられたのか、設計者がどこに精巧な罠を潜ませたのか、このホールがゴルファーにどのような謙虚さと挑戦を求めるのかを読み解く作業です。<br><br>72か所のコースを巡礼するうちに、私自身にも小さな変化が生まれました。かつては自分のスコアカードばかり見ていましたが、今はコースの風景と設計を見ています。この視点の変化が、私を日本コースの魅力を伝えるドーセントへと導いたのだと思います。</p><p class="section-text L en">My writing is neither a simple review nor a boast about scores. It is the work of reading how a piece of land was forged into a golf course, where the designer hid his exquisite traps, and what humility and challenge a hole demands of the golfer. Through my pilgrimage of 72 courses, a small change came over me as well. Where once I looked only at my own scorecard, now I see the landscape and design of the course. This difference in perspective, I believe, is what led me to become a docent conveying the appeal of Japan's courses.</p>
   </div>
 
   <!-- 섹션 5: 레이팅 시스템 -->
   <div class="about-section">
     <p class="section-eyebrow">MIKA Rating System</p>
-    <h2 class="section-title" id="about-rating-title">MIKA <em>레이팅 시스템</em></h2>
-    <p class="section-text" id="about-rating-text">저는 방문한 모든 코스를 세 가지 기준으로 평가합니다.
+    <h2 class="section-title" id="about-rating-title"><span class="L ko">MIKA <em>레이팅 시스템</em></span><span class="L ja">MIKA <em>レイティングシステム</em></span><span class="L en">The MIKA <em>Rating System</em></span></h2>
+    <p class="section-text L ko">저는 방문한 모든 코스를 세 가지 기준으로 평가합니다.
 
 코스 — 설계의 완성도. 자연 지형의 활용, 각 홀이 지닌 개성과 밸런스, 전략적 즐거움의 깊이.
 관리 — 페어웨이·그린·벙커의 실제 유지보수 상태. 방문 당일 기준입니다.
@@ -339,11 +355,10 @@
 
 등급은 A+부터 C까지 부여합니다. 미쉐린 가이드처럼 꽤나 엄격한 편입니다. A+는 매우 드물게 주어지며, B+만 되어도 일부러 시간을 내어 찾아갈 가치가 있는 훌륭한 코스입니다.
 
-다만 점수나 알파벳 기호에 얽매이기보다, 제가 남긴 문장을 먼저 읽어주시길 권합니다. 레이팅은 그 여정을 요약한 작은 마침표일 뿐, 진짜 이야기는 문장 속에 담겨 있습니다.</p>
+다만 점수나 알파벳 기호에 얽매이기보다, 제가 남긴 문장을 먼저 읽어주시길 권합니다. 레이팅은 그 여정을 요약한 작은 마침표일 뿐, 진짜 이야기는 문장 속에 담겨 있습니다.</p><p class="section-text L ja">私は訪れたすべてのコースを三つの基準で評価します。<br><br>コース ： 設計の完成度。自然地形の活用、各ホールが持つ個性とバランス、戦略的な楽しさの深さ。<br>管理 ： フェアウェイ・グリーン・バンカーの実際の維持管理状態（訪問当日を基準とします）。<br>コストパフォーマンス ： 支払った金額に対して経験した総合的な満足度と価値。<br><br>評価はA+からCまで付けます。ミシュランガイドのように、かなり厳格に評価しています。A+をつけることはごく稀であり、B+でもわざわざ時間を割いて訪れる価値のある素晴らしいコースです。ただ、点数やアルファベット記号にとらわれるよりも、私が残した文章を先に読んでいただきたいのです。レイティングはその旅を要約した小さな句点にすぎず、本当の物語は文章の中に込められています。</p><p class="section-text L en">I evaluate every course I visit by three criteria. Course — the completeness of the design: use of the natural terrain, the character and balance of each hole, the depth of strategic enjoyment. Condition — the actual upkeep of fairways, greens, and bunkers, as of the day of my visit. Value — the overall satisfaction and worth experienced against what I paid. I assign grades from A+ to C, and I am rather strict, like the Michelin Guide. An A+ is given only very rarely; even a B+ marks a course well worth making time to visit. Yet rather than being bound by scores or letter grades, I hope you will read my words first. The rating is only a small full stop summarizing the journey — the real story lies within the sentences.</p>
   </div>
 
 </div>
-
 <script>
   // ── about 페이지 다국어 데이터 ──
   const aboutContent = {

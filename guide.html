@@ -216,8 +216,17 @@
   }
 
   @media(max-width:768px) {
-    nav { padding: 0 16px; }
-    .nav-links { display: none; }
+    nav { padding: 0 10px; gap: 6px; }
+    .nav-links {
+      display: flex; gap: 11px; flex: 1; min-width: 0;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { font-size: 11px; padding-bottom: 1px; }
+    .nav-logo { font-size: 16px; gap: 6px; flex-shrink: 0; }
+    .lang-switcher { flex-shrink: 0; }
+    .lang-btn { padding: 5px 6px; font-size: 9px; }
     .nav-logo .sub { display: none; }
     .page-header { padding: 96px 16px 32px; }
     .cat-tabs { padding: 0 16px; }

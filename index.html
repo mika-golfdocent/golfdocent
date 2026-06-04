@@ -250,10 +250,21 @@
   @media(max-width:900px) {
     .hero { grid-template-columns: 1fr; padding: 110px 24px 60px; }
     .map-container { display: none; }
-    .nav-links { display: none; }
+    .nav-links { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; min-width: 0; }
+    .nav-links::-webkit-scrollbar { display: none; }
   }
   @media(max-width:768px) {
-    nav { padding: 0 16px; }
+    nav { padding: 0 10px; gap: 6px; }
+    .nav-links {
+      display: flex; gap: 11px; flex: 1; min-width: 0;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { font-size: 11px; }
+    .nav-logo { font-size: 16px; gap: 6px; flex-shrink: 0; }
+    .lang-switcher { flex-shrink: 0; }
+    .lang-btn { padding: 5px 6px; font-size: 9px; }
     .nav-logo .sub { display: none; }
     .hero { padding: 100px 16px 60px; min-height: auto; }
     .counter-visited { font-size: 44px; }

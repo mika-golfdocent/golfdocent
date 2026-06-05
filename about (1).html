@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About MIKA — MIKA <span class="L ko">일본골프 도슨트</span><span class="L ja">日本ゴルフドーセント</span><span class="L en">Japan Golf Docent</span></title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:    #f5f2ec;
+    --paper-2:  #ede9e0;
+    --ink:      #1c1c1a;
+    --ink-mid:  #3a3835;
+    --ink-soft: #6b6864;
+    --rule:     #c8c4bb;
+    --rule-dark:#a09c94;
+    --red:      #8b2020;
+    --gold:     #9a7a2e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .top-rule { height:3px; background:var(--red); position:fixed; top:0; left:0; width:100%; z-index:300; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 3px; width: 100%;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule-dark);
+    padding: 0 48px; height: 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 200;
+  }
+  .nav-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--ink);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo .sep { color: var(--red); font-size: 14px; font-weight: 400; }
+  .nav-logo .sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px; font-weight: 400;
+    color: var(--ink-soft); letter-spacing: 0.1em;
+  }
+  .nav-links { display:flex; gap:26px; list-style:none; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.06em;
+    color: var(--ink-soft); text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent; padding-bottom: 2px; white-space: nowrap;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--rule-dark); }
+  .lang-switcher { display:flex; align-items:center; gap:0; border:1px solid var(--rule-dark); }
+  .lang-sep { display:none; }
+  .lang-btn {
+    background: none; border: none;
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--ink-soft); cursor: pointer;
+    padding: 5px 10px; font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s; border-right: 1px solid var(--rule-dark);
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover { background: var(--paper-2); color: var(--ink); }
+  .lang-btn.active { background: var(--ink); color: var(--paper); }
+
+  /* HERO */
+  .about-hero {
+    padding: 130px 48px 60px;
+    border-bottom: 1px solid var(--rule-dark);
+    position: relative;
+  }
+  .hero-left { max-width: 920px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 10px; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-eyebrow::before { content:''; display:inline-block; width:16px; height:1px; background:var(--red); }
+  .hero-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(44px,7vw,72px);
+    font-weight: 700; line-height: 1; letter-spacing: 0.02em;
+    color: var(--ink); margin-bottom: 24px;
+  }
+  .hero-name em {
+    color: var(--red); font-style: italic;
+    font-family: 'IM Fell English', serif; font-weight: 400;
+    margin-left: 8px;
+  }
+  .hero-tagline {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px; line-height: 1.85; color: var(--ink-mid);
+    font-weight: 400; margin-bottom: 36px;
+  }
+  .stat-row { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 32px; }
+  .stat-item { display: flex; flex-direction: column; gap: 5px; min-width: 90px; }
+  .stat-num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 40px; font-weight: 700; color: var(--ink); line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; }
+  .progress-bar {
+    margin-top: 8px; position: relative;
+    height: 4px; background: var(--rule); width: 100%;
+  }
+  .progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 24%; background: var(--red); }
+  .progress-label { font-family: 'IM Fell English', serif; font-size: 11px; color: var(--red); display:block; margin-bottom: 4px; }
+  .sns-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .sns-btn {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px; letter-spacing: 0.03em;
+    color: var(--ink-mid); text-decoration: none;
+    border: 1px solid var(--rule-dark);
+    padding: 10px 18px; transition: all 0.2s;
+  }
+  .sns-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-2); }
+  .sns-btn.primary { background: var(--red); border-color: var(--red); color: var(--paper); }
+  .sns-btn.primary:hover { background: #741a1a; border-color: #741a1a; color: var(--paper); }
+
+  /* BODY */
+  .about-body { max-width: 920px; margin: 0 auto; padding: 64px 40px 100px; }
+  .about-section {
+    margin-bottom: 72px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .section-eyebrow {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 14px; color: var(--red);
+    letter-spacing: 0.06em; margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(28px,4vw,42px);
+    font-weight: 600; line-height: 1.2; letter-spacing: 0.02em;
+    color: var(--ink); margin-bottom: 28px;
+  }
+  .section-title em {
+    color: var(--red); font-style: italic;
+    font-family: 'IM Fell English', serif; font-weight: 400;
+  }
+  .section-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px; font-weight: 400; line-height: 2;
+    color: var(--ink-mid);
+  }
+  body[data-lang="ja"] .section-text { font-family: 'Noto Serif JP', serif; }
+
+  /* JOURNEY GRID */
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px; margin-top: 36px;
+  }
+  .journey-item {
+    border: 1px solid var(--rule);
+    padding: 18px 16px;
+    background: var(--paper);
+  }
+  .journey-year {
+    font-family: 'IM Fell English', serif;
+    font-size: 20px; color: var(--red); margin-bottom: 10px;
+  }
+  .journey-desc {
+    font-size: 12px; line-height: 1.6; color: var(--ink-soft);
+  }
+
+  /* DOCENT QUOTE */
+  .docent-block {
+    border-left: 3px solid var(--red);
+    padding: 4px 0 4px 24px;
+    margin: 28px 0;
+  }
+  .docent-quote {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 19px; line-height: 1.7; color: var(--ink);
+    font-weight: 500; font-style: italic;
+  }
+
+  @media(max-width:768px) {
+    nav {
+      padding: 8px 14px; height: auto; min-height: 0;
+      flex-wrap: wrap; align-items: center; row-gap: 8px;
+    }
+    .nav-logo { font-size: 17px; gap: 6px; order: 1; }
+    .lang-switcher { order: 2; margin-left: auto; flex-shrink: 0; }
+    .nav-links {
+      order: 3; width: 100%; display: flex; justify-content: space-between;
+      gap: 2px; padding-top: 8px; border-top: 1px solid var(--rule);
+    }
+    .nav-links li { flex: 1; text-align: center; }
+    .nav-links a {
+      font-size: 10px; letter-spacing: -0.02em; white-space: nowrap;
+      display: block; line-height: 1.3; border-bottom: none; padding-bottom: 0;
+    }
+    .lang-btn { padding: 5px 7px; font-size: 9px; }
+    .nav-logo .sub { display: none; }
+    .about-hero { padding: 100px 16px 48px; }
+    .stat-row { gap: 24px; }
+    .stat-num { font-size: 32px; }
+    .about-body { padding: 48px 16px 80px; }
+    .about-section { margin-bottom: 56px; padding-bottom: 56px; }
+    .section-text { font-size: 14px; line-height: 1.95; }
+    .journey-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* 다국어 본문 전환 */
+  .L{display:none;}
+  body[data-lang="ko"] .L.ko{display:revert;}
+  body[data-lang="ja"] .L.ja{display:revert;}
+  body[data-lang="en"] .L.en{display:revert;}
+  span.L{display:none;}
+  body[data-lang="ko"] span.L.ko,
+  body[data-lang="ja"] span.L.ja,
+  body[data-lang="en"] span.L.en{display:inline;}
+</style>
+<script>
+  // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
+  (function(){
+    try{ var l = localStorage.getItem('mika-lang') || 'ja';
+      document.documentElement.setAttribute('data-sitelang', l); }catch(e){
+      document.documentElement.setAttribute('data-sitelang','ja'); }
+  })();
+</script>
+<style>
+  /* guide 메뉴는 한국어(ko)일 때만 노출 */
+  html:not([data-sitelang="ko"]) #nav-guide { display: none; }
+</style>
+</head>
+<body data-lang="ja">
+
+<div class="top-rule"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    MIKA <span class="sep">|</span>
+    <span class="sub">日本ゴルフ道案内</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="courses.html" class="nav-txt" data-ko="일본골프장 리뷰" data-ja="日本ゴルフ場レビュー" data-en="Japan Golf Reviews">일본골프장 리뷰</a></li>
+    <li><a href="map.html" class="nav-txt" data-ko="방문 지도" data-ja="訪問マップ" data-en="Visited Map">방문 지도</a></li>
+    <li id="nav-guide"><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門ガイド" data-en="Japan Golf Guide">일본골프 첫걸음</a></li>
+    <li><a href="editorial.html" class="nav-txt" data-ko="골프 에디토리얼" data-ja="ゴルフエディトリアル" data-en="Editorial">골프 에디토리얼</a></li>
+    <li><a href="about.html" class="nav-txt active" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow"><span class="L ko">일본골프 도슨트</span><span class="L ja">日本ゴルフドーセント</span><span class="L en">Japan Golf Docent</span></p>
+    <div class="hero-name">MIKA<em><span class="L ko">도슨트</span><span class="L ja">ドーセント</span><span class="L en">Docent</span></em></div>
+    <p class="hero-tagline"><span class="L ko">골프클럽 들고 일본을 가장 깊이 다녀온 사람.<br>단순한 리뷰가 아닌, 코스를 읽고 기억하는 여정.</span><span class="L ja">ゴルフクラブを携え、日本を最も深く巡った者。<br>単なるレビューではなく、コースを読み、記憶する旅。</span><span class="L en">The one who traveled deepest into Japan, clubs in hand.<br>Not mere reviews, but a journey of reading and remembering courses.</span></p>
+    <div class="stat-row">
+      <div class="stat-item">
+        <span class="stat-num">72</span>
+        <span class="stat-label"><span class="L ko">방문 코스</span><span class="L ja">訪問コース</span><span class="L en">Courses Visited</span></span>
+        <div class="progress-bar">
+          <span class="progress-label">24%</span>
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+<div class="about-disclaimer" style="max-width:760px;margin:32px auto;padding:20px 28px;background:rgba(154,122,46,0.06);border-left:3px solid var(--gold,#9a7a2e);border-radius:2px;font-size:0.92rem;line-height:1.9;color:var(--ink-soft,#6b6864);font-style:italic;">
+<span class="L ko">저는 일본을 좋아하는 50대 한국인입니다. 일본 골프장을 다니면서 제 시선으로 기록하고 있습니다. 외국인이라 언어 표현이 서툴고 어색할 수 있습니다. 많은 양해 부탁드립니다.</span>
+<span class="L ja">日本が好きな50代の韓国人です。日本各地のゴルフ場を巡りながら、自分なりの視点で記録しています。外国人のため、日本語の表現に拙い部分や不自然な点があるかもしれませんが、どうかご容赦ください。</span>
+<span class="L en">I am a Korean in my fifties who loves Japan. I travel its golf courses and record them through my own eyes. As a foreigner, my expression may at times be clumsy or unnatural. I ask for your kind understanding.</span>
+</div>
+
+      <div class="stat-item">
+        <span class="stat-num">300</span>
+        <span class="stat-label"><span class="L ko">최종 목표</span><span class="L ja">最終目標</span><span class="L en">Final Goal</span></span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">8</span>
+        <span class="stat-label"><span class="L ko">구글맵 레벨</span><span class="L ja">Googleマップ レベル</span><span class="L en">Google Maps Level</span></span>
+      </div>
+    </div>
+    <div class="sns-row">
+      <a href="https://instagram.com/mika.golfdocent" target="_blank" class="sns-btn primary">Instagram @mika.golfdocent</a>
+      <a href="https://blog.naver.com/golbaengi" target="_blank" class="sns-btn">Naver Blog</a>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="about-body">
+
+  <!-- 섹션 1: 여정 -->
+  <div class="about-section">
+    <p class="section-eyebrow">The Journey</p>
+    <h2 class="section-title" id="about-journey-title"><span class="L ko">72 / 300<br><em>여정</em></span><span class="L ja">72 / 300<br><em>その道のり</em></span><span class="L en">72 / 300<br><em>The Journey</em></span></h2>
+    <p class="section-text L ko">2023년 봄, 분당 구미동의 한 우동집에서 시작됐습니다. 다카마쓰에 우동의 본산이 있다는 이야기가 나왔고, "그럼 가서 진짜 우동도 맛보고, 내친김에 골프도 치고 오자"는 말 한마디가 저를 지금 이 자리까지 데려왔습니다.
+
+2005년 한국에서 골프를 시작한 이래 154곳을 다녔습니다. 좋은 코스와 그렇지 않은 코스를 구분하는 눈이 생겼고, 어느 순간 국내에서 갈 만한 곳은 어느 정도 다 가봤다는 생각이 들 무렵이었습니다.
+
+하지만 일본 골프는 달랐습니다. 첫 라운드를 마치고 바로 느꼈습니다. 이건 다르다고. 코스의 결이 다르고, 공간을 쓰는 방식이 다르고, 골프를 대하는 문화 자체가 달랐습니다. 그날 이후 10년 계획을 세웠습니다. 1년에 30곳, 총 300곳. 다채로운 매력을 품은 일본의 훌륭한 코스들을 제 눈과 발로 직접 확인하겠다는 긴 여정의 시작이었습니다.</p><p class="section-text L ja">2023年の春、盆唐(プンダン)・九美洞(クミドン)の一軒のうどん店から始まりました。「高松にうどんの本場がある」という話が出て、「では行って本場のうどんを味わい、ついでにゴルフもしてこよう」——その一言が、私を今ここまで連れてきました。<br><br>2005年に韓国でゴルフを始めて以来、154か所を巡りました。良いコースとそうでないコースを見分ける目が養われ、ある時、国内で行くべき所はおおむね回り尽くしたと感じるようになりました。しかし日本のゴルフは違いました。最初のラウンドを終えてすぐに感じたのです。これは違う、と。コースの質感が違い、空間の使い方が違い、ゴルフへの向き合い方そのものが違っていました。<br><br>最初はただうどんを食べに海を渡りましたが、今ではこの素晴らしいコースの息吹を感じるために日本を訪れています。その日以来、10年計画を立てました。年に30か所、計300か所。多彩な魅力を秘めた日本の素晴らしいコースを、自分の目と足で確かめる——長い旅の始まりでした。</p><p class="section-text L en">It began in the spring of 2023, at a small udon restaurant in Gumi-dong, Bundang. Someone mentioned that the home of udon was in Takamatsu, and a single remark — "Then let's go taste real udon, and play some golf while we're at it" — brought me all the way here. Since taking up golf in Korea in 2005, I had played 154 courses. I developed an eye for telling good courses from the rest, and at some point I felt I had been just about everywhere worth going at home. But Japanese golf was different. I felt it the moment I finished my first round: this is different. The texture of the course, the use of space, the very culture around golf — all different. From that day, I made a ten-year plan. Thirty courses a year, three hundred in total. The long journey of confirming Japan's finest, most varied courses with my own eyes and feet had begun.</p>
+    <div class="journey-grid">
+      <div class="journey-item"><div class="journey-year">2023</div><div class="journey-desc"><span class="L ko">다카마쓰 우동<br>→ 일본 골프 시작<br>7곳</span><span class="L ja">高松うどん<br>→ 日本ゴルフ始動<br>7か所</span><span class="L en">Takamatsu udon<br>→ Japan golf begins<br>7 courses</span></div></div>
+      <div class="journey-item"><div class="journey-year">2024</div><div class="journey-desc"><span class="L ko">규슈·히로시마<br>·나가사키 집중<br>24곳</span><span class="L ja">九州・広島<br>・長崎を集中<br>24か所</span><span class="L en">Kyushu, Hiroshima<br>& Nagasaki focus<br>24 courses</span></div></div>
+      <div class="journey-item"><div class="journey-year">2025</div><div class="journey-desc"><span class="L ko">간토·긴키·<br>가고시마·시즈오카<br>30곳</span><span class="L ja">関東・近畿・<br>鹿児島・静岡<br>30か所</span><span class="L en">Kanto, Kinki,<br>Kagoshima, Shizuoka<br>30 courses</span></div></div>
+      <div class="journey-item"><div class="journey-year">2026</div><div class="journey-desc"><span class="L ko">미야자키·요나고<br>·시모노세키<br>11곳</span><span class="L ja">宮崎・米子<br>・下関<br>11か所</span><span class="L en">Miyazaki, Yonago<br>& Shimonoseki<br>11 courses</span></div></div>
+      <div class="journey-item" style="background:var(--paper-2)"><div class="journey-year" style="color:var(--rule-dark)">→</div><div class="journey-desc"><span class="L ko">228곳 남음<br>2033년까지</span><span class="L ja">残り228か所<br>2033年まで</span><span class="L en">228 to go<br>by 2033</span></div></div>
+    </div>
+  </div>
+
+  <!-- 섹션 2: MIKA는 누구인가 -->
+  <div class="about-section">
+    <p class="section-eyebrow">Who is MIKA</p>
+    <h2 class="section-title" id="about-who-title"><span class="L ko">MIKA는 <em>누구인가</em></span><span class="L ja">MIKAとは<em>誰か</em></span><span class="L en">Who is <em>MIKA</em></span></h2>
+    <p class="section-text L ko">'MIKA'는 제 세례명 미카엘에서 따온 이름입니다. 자유롭게 일하는 프리랜서이자, 아내와 아이를 둔 평범한 가장이기도 합니다. 휴일이면 골프백을 챙겨 일본행 비행기에 오르는 일이 이제 저희 가족에게는 자연스러운 일상이 되었습니다.
+
+2005년부터 한국 골프장을 다녔습니다. 154곳. 30번 이상 찾은 곳도 있고, 한 번으로 충분했던 곳도 있습니다. 그중 가장 기억에 남는 코스는 마리아골프클럽입니다. 설계가 상당히 사악하다 싶을 정도였는데, 묘하게 다시 가고 싶어지는 코스였습니다. 도전 정신을 불러일으키는 곳이었습니다.
+
+구글맵에 코스 감상을 남기기 시작한 것은 일본 골프 여행을 본격화하면서부터입니다. 2년째 오직 일본 코스에 대한 감상만 쌓아 올렸고, 어느덧 레벨 8의 리뷰어가 되었습니다. 제가 걸어온 길을 묵묵히 기록하는 데 이보다 좋은 공간은 없었습니다.</p><p class="section-text L ja">「MIKA」は、私の洗礼名ミカエルに由来します。自由に働くフリーランサーであり、妻と子を持つごく普通の父親でもあります。休日になればゴルフバッグを担いで日本行きの飛行機に乗ることは、今や我が家にとって自然な日常になりました。<br><br>2005年から韓国のゴルフ場を巡り、154か所。30回以上訪れた所もあれば、一度で十分だった所もあります。中でも最も記憶に残るのはマリアゴルフクラブです。設計がサディスティックと思えるほどでしたが、不思議とまた行きたくなるコースでした。挑戦心をかき立てる場所でした。<br><br>Googleマップにコースの感想を残し始めたのは、日本のゴルフ場巡りを本格化させてからです。2年間ひたすら日本のコースの感想だけを積み重ね、いつしかレベル8のレビュアーになりました。自分の歩んできた道を黙々と記録するのに、これ以上の場所はありませんでした。</p><p class="section-text L en">"MIKA" comes from my baptismal name, Michael. I am a freelancer who works on my own terms, and an ordinary family man with a wife and child. Packing my golf bag and boarding a plane to Japan on holidays has become a natural part of our family life. I played Korean courses from 2005 — 154 of them. Some I visited more than thirty times; others were enough just once. The most memorable was Maria Golf Club. Its design felt almost wickedly difficult, yet strangely it made me want to return. It stirred my competitive spirit. I began leaving course impressions on Google Maps once my Japan golf travels began in earnest. For two years I have built up impressions of Japanese courses alone, and somewhere along the way became a Level 8 reviewer. There was no better place to quietly record the path I have walked.</p>
+  </div>
+
+  <!-- 섹션 3: 왜 일본 골프인가 -->
+  <div class="about-section">
+    <p class="section-eyebrow">Why Japan Golf</p>
+    <h2 class="section-title" id="about-why-title"><span class="L ko">왜 <em>일본 골프</em>인가</span><span class="L ja">なぜ<em>日本ゴルフ</em>なのか</span><span class="L en">Why <em>Japanese Golf</em></span></h2>
+    <p class="section-text L ko">한국 골프는 대체로 속도감이 있습니다. 플레이 페이스가 빠르고, 캐디의 진행에 맞춰야 하며, 뒤 팀의 압박도 존재합니다. 18홀을 마치고 나면 자연 속에서 쉬었다기보다 무언가를 바쁘게 소비했다는 느낌이 남을 때가 많습니다.
+
+반면 일본의 로컬 골프에는 여백과 사유가 있습니다. 캐디 없이 리모컨 카트를 허리에 찬 채 묵묵히 코스를 걷습니다. 앞 팀을 기다리는 여유 속에서 바람을 느끼고, 샷의 방향을 온전히 스스로 판단합니다. 비로소 자연과 코스 안에서 생각할 시간이 주어집니다.
+
+무엇보다 감탄한 것은 설계의 진정성입니다. 화려하게 보여주기 위한 겉치레가 아니라, 골퍼가 즐겁게 치기 위해 만들어진 코스들입니다. 자연 지형을 거스르지 않고 동선을 짜내어 18홀 내내 각기 다른 표정을 보여줍니다.
+
+게다가 식사와 맥주 한 잔을 곁들이고도 9,000엔 남짓이면 충분한 합리적인 환경은, 한국에서는 상상하기 힘든 훌륭한 문화입니다.
+
+처음엔 그저 우동을 먹으러 바다를 건넜지만, 이제는 이 훌륭한 코스들의 숨결을 느끼기 위해 일본을 찾습니다.</p><p class="section-text L ja">韓国のゴルフは概してスピード感があります。プレーペースが速く、キャディの進行に合わせる必要があり、後続組のプレッシャーもあります。18ホールを終えると、自然の中で休んだというより、何かを慌ただしく消費したような感覚が残ることが少なくありません。<br><br>一方、日本のローカルゴルフには余白と思索があります。キャディなしでカートのリモコンを腰につけ、黙々とコースを歩きます。前の組を待つ余裕の中で風を感じ、ショットの方向をすべて自分で判断します。ようやく自然とコースの中で考える時間が与えられるのです。<br><br>何より感嘆したのは、設計の誠実さでした。華やかに見せるための飾りではなく、ゴルファーが楽しく打つために造られたコースたちです。自然の地形に逆らわず動線を練り上げ、18ホールを通じてそれぞれ異なる表情を見せます。さらに、食事にビールを一杯つけても9,000円ほどで十分という合理的な環境は、韓国では想像しがたい素晴らしい文化です。</p><p class="section-text L en">Korean golf tends to move fast. The pace of play is quick, you must keep up with the caddie, and there is pressure from the group behind. After eighteen holes, I often felt less that I had rested in nature than that I had hurriedly consumed something. Japanese local golf, by contrast, has space and reflection. With no caddie and a remote-control cart at your hip, you walk the course quietly. In the ease of waiting for the group ahead, you feel the wind and judge the line of your shot entirely on your own. At last you are given time to think, within nature and the course. What impressed me most was the sincerity of the design — not ornament made to dazzle, but courses built for golfers to enjoy. Working with the natural terrain rather than against it, they show a different face across all eighteen holes. And a rational setting where a round with a meal and a beer comes to around 9,000 yen is a wonderful culture hard to imagine in Korea. At first I merely crossed the sea for udon; now I come to Japan to feel the breath of these wonderful courses.</p>
+  </div>
+
+  <!-- 섹션 4: 도슨트란 -->
+  <div class="about-section">
+    <p class="section-eyebrow">What is a Docent</p>
+    <h2 class="section-title"><span class="L ko">도슨트란 <em>무엇인가</em></span><span class="L ja">ドーセントとは<em>何か</em></span><span class="L en">What is a <em>Docent</em></span></h2>
+    <p class="section-text L ko">미술관의 도슨트는 관람객을 작품 앞으로 안내합니다. 단순히 안내판을 읽어주는 것이 아니라 작가의 의도와 시대적 배경, 그리고 작품을 감상하는 방법을 전달합니다. 그 작품을 가장 깊이, 그리고 오랫동안 들여다본 사람만이 할 수 있는 역할입니다.</p><p class="section-text L ja">美術館のドーセントは、来館者を作品の前へと案内します。単に解説板を読み上げるのではなく、作家の意図や時代背景、そして作品の味わい方を伝えます。その作品を最も深く、そして最も長く見つめ続けてきた者だけができる役割です。</p><p class="section-text L en">A museum docent guides visitors to stand before a work of art. Not simply reading out the label, but conveying the artist's intent, the context of the era, and how to appreciate the piece. It is a role only someone who has gazed at that work most deeply, and longest, can fulfill.</p>
+    <div class="docent-block">
+      <p class="docent-quote"><span id="about-docent-quote">"골프 도슨트는 코스 앞에서 골퍼를 안내합니다. 설계가의 철학, 지형의 맥락, 그리고 바람직한 공략법을 온몸으로 겪어내고 기록합니다."</p>
+    </div>
+    <p class="section-text L ko">저의 글은 단순한 리뷰나 스코어 자랑이 아닙니다. 땅이 어떤 과정을 거쳐 골프 코스로 연성(鍊成)되었는지, 설계자가 어느 곳에 정교한 함정을 숨겨두었는지, 이 홀이 골퍼에게 어떤 겸손함과 도전을 요구하는지를 읽어내는 작업입니다.
+
+72곳의 코스를 순례하며 저에게도 작은 변화가 생겼습니다. 예전에는 제 스코어카드만 들여다보았다면, 지금은 코스의 풍경과 설계를 봅니다. 이 시선의 차이가 저를 일본 코스의 매력을 알리는 도슨트로 이끌었다고 생각합니다.</p><p class="section-text L ja">私の文章は、単なるレビューやスコア自慢ではありません。土地がどのような過程を経てゴルフコースへと造り上げられたのか、設計者がどこに精巧な罠を潜ませたのか、このホールがゴルファーにどのような謙虚さと挑戦を求めるのかを読み解く作業です。<br><br>72か所のコースを巡礼するうちに、私自身にも小さな変化が生まれました。かつては自分のスコアカードばかり見ていましたが、今はコースの風景と設計を見ています。この視点の変化が、私を日本コースの魅力を伝えるドーセントへと導いたのだと思います。</p><p class="section-text L en">My writing is neither a simple review nor a boast about scores. It is the work of reading how a piece of land was forged into a golf course, where the designer hid his exquisite traps, and what humility and challenge a hole demands of the golfer. Through my pilgrimage of 72 courses, a small change came over me as well. Where once I looked only at my own scorecard, now I see the landscape and design of the course. This difference in perspective, I believe, is what led me to become a docent conveying the appeal of Japan's courses.</p>
+  </div>
+
+  <!-- 섹션 5: 레이팅 시스템 -->
+  <div class="about-section">
+    <p class="section-eyebrow">MIKA Rating System</p>
+    <h2 class="section-title" id="about-rating-title"><span class="L ko">MIKA <em>레이팅 시스템</em></span><span class="L ja">MIKA <em>レイティングシステム</em></span><span class="L en">The MIKA <em>Rating System</em></span></h2>
+    <p class="section-text L ko">저는 방문한 모든 코스를 세 가지 기준으로 평가합니다.
+
+코스 — 설계의 완성도. 자연 지형의 활용, 각 홀이 지닌 개성과 밸런스, 전략적 즐거움의 깊이.
+관리 — 페어웨이·그린·벙커의 실제 유지보수 상태. 방문 당일 기준입니다.
+가성비 — 지불한 금액 대비 경험한 총체적인 만족도와 가치.
+
+등급은 A+부터 C까지 부여합니다. 미쉐린 가이드처럼 꽤나 엄격한 편입니다. A+는 매우 드물게 주어지며, B+만 되어도 일부러 시간을 내어 찾아갈 가치가 있는 훌륭한 코스입니다.
+
+다만 점수나 알파벳 기호에 얽매이기보다, 제가 남긴 문장을 먼저 읽어주시길 권합니다. 레이팅은 그 여정을 요약한 작은 마침표일 뿐, 진짜 이야기는 문장 속에 담겨 있습니다.</p><p class="section-text L ja">私は訪れたすべてのコースを三つの基準で評価します。<br><br>コース ： 設計の完成度。自然地形の活用、各ホールが持つ個性とバランス、戦略的な楽しさの深さ。<br>管理 ： フェアウェイ・グリーン・バンカーの実際の維持管理状態（訪問当日を基準とします）。<br>コストパフォーマンス ： 支払った金額に対して経験した総合的な満足度と価値。<br><br>評価はA+からCまで付けます。ミシュランガイドのように、かなり厳格に評価しています。A+をつけることはごく稀であり、B+でもわざわざ時間を割いて訪れる価値のある素晴らしいコースです。ただ、点数やアルファベット記号にとらわれるよりも、私が残した文章を先に読んでいただきたいのです。レイティングはその旅を要約した小さな句点にすぎず、本当の物語は文章の中に込められています。</p><p class="section-text L en">I evaluate every course I visit by three criteria. Course — the completeness of the design: use of the natural terrain, the character and balance of each hole, the depth of strategic enjoyment. Condition — the actual upkeep of fairways, greens, and bunkers, as of the day of my visit. Value — the overall satisfaction and worth experienced against what I paid. I assign grades from A+ to C, and I am rather strict, like the Michelin Guide. An A+ is given only very rarely; even a B+ marks a course well worth making time to visit. Yet rather than being bound by scores or letter grades, I hope you will read my words first. The rating is only a small full stop summarizing the journey — the real story lies within the sentences.</p>
+  </div>
+
+</div>
+<script>
+  // ── about 페이지 다국어 데이터 ──
+  const aboutContent = {
+    journey: {
+      ko: `2023년 봄, 분당 구미동의 한 우동집에서 시작됐습니다. 다카마쓰에 우동의 본산이 있다는 이야기가 나왔고, "그럼 가서 진짜 우동도 맛보고, 내친김에 골프도 치고 오자"는 말 한마디가 저를 지금 이 자리까지 데려왔습니다.\n\n2005년 한국에서 골프를 시작한 이래 154곳을 다녔습니다. 좋은 코스와 그렇지 않은 코스를 구분하는 눈이 생겼고, 어느 순간 국내에서 갈 만한 곳은 어느 정도 다 가봤다는 생각이 들 무렵이었습니다.\n\n하지만 일본 골프는 달랐습니다. 첫 라운드를 마치고 바로 느꼈습니다. 이건 다르다고. 코스의 결이 다르고, 공간을 쓰는 방식이 다르고, 골프를 대하는 문화 자체가 달랐습니다. 그날 이후 10년 계획을 세웠습니다. 1년에 30곳, 총 300곳. 다채로운 매력을 품은 일본의 훌륭한 코스들을 제 눈과 발로 직접 확인하겠다는 긴 여정의 시작이었습니다.`,
+      ja: `2023年春、京畿道・盆唐のあるうどん屋での会話から始まりました。高松にうどんの本場があるという話が出て、「じゃあ本物のうどんを味わって、ついでにゴルフもしてこよう」という一言が、今に至るまでの道を作りました。\n\n2005年に韓国でゴルフを始めて以来、154か所を回りました。良いコースとそうでないコースを見分ける目ができ、国内で行く価値のある場所はおおよそ巡ったと感じる頃でした。\n\nしかし日本のゴルフは違いました。最初のラウンドを終えてすぐに感じました。これは違う、と。コースの質感が違い、空間の使い方が違い、ゴルフに向き合う文化そのものが違いました。その日から10年計画を立てました。1年に30か所、合計300か所。多彩な魅力を秘めた日本の素晴らしいコースを、自分の目と足で確かめるという長い旅の始まりでした。`,
+      en: `It began in the spring of 2023, at a udon restaurant in Bundang. Someone mentioned that the home of udon was in Takamatsu. "Then let's go taste the real thing — and play a round of golf while we're at it." That single remark brought me all the way here.\n\nSince taking up golf in Korea in 2005, I have played 154 courses. A sense for telling fine courses from ordinary ones gradually took shape, and at some point it felt as though I had been to most of the places worth visiting at home.\n\nBut my first round in Japan was a genuine revelation. The texture of the terrain, the use of space, the very culture of enjoying the game — all of it was different. From that day, I drew up a ten-year plan: 30 courses a year, 300 in all. It was the beginning of a long journey to see, with my own eyes and feet, the remarkable Japanese courses and their endless variety.`
+    },
+    who: {
+      ko: `'MIKA'는 제 세례명 미카엘에서 따온 이름입니다. 자유롭게 일하는 프리랜서이자, 아내와 아이를 둔 평범한 가장이기도 합니다. 휴일이면 골프백을 챙겨 일본행 비행기에 오르는 일이 이제 저희 가족에게는 자연스러운 일상이 되었습니다.\n\n2005년부터 한국 골프장을 다녔습니다. 154곳. 30번 이상 찾은 곳도 있고, 한 번으로 충분했던 곳도 있습니다. 그중 가장 기억에 남는 코스는 마리아골프클럽입니다. 설계가 상당히 사악하다 싶을 정도였는데, 묘하게 다시 가고 싶어지는 코스였습니다. 도전 정신을 불러일으키는 곳이었습니다.\n\n구글맵에 코스 감상을 남기기 시작한 것은 일본 골프 여행을 본격화하면서부터입니다. 2년째 오직 일본 코스에 대한 감상만 쌓아 올렸고, 어느덧 레벨 8의 리뷰어가 되었습니다. 제가 걸어온 길을 묵묵히 기록하는 데 이보다 좋은 공간은 없었습니다.`,
+      ja: `「MIKA」は私の洗礼名ミカエルから取った名前です。自由に働くフリーランスであり、妻と子を持つ平凡な一家の主でもあります。休日になればゴルフバッグを携えて日本行きの飛行機に乗ることが、今では我が家の自然な日常になりました。\n\n2005年から韓国のゴルフ場を回ってきました。154か所。30回以上通った場所もあれば、一度で十分だった場所もあります。その中で最も印象に残っているのはマリアゴルフクラブです。設計がかなり手強いと感じるほどでしたが、不思議ともう一度行きたくなるコースでした。挑戦する気持ちを呼び起こす場所でした。\n\nGoogleマップにコースの感想を残し始めたのは、日本のゴルフ旅行を本格化してからです。2年目、ひたすら日本のコースへの感想だけを積み重ね、いつしかレベル8のレビュアーになりました。自分が歩んできた道を黙々と記録するのに、これ以上の場所はありませんでした。`,
+      en: `"MIKA" is taken from my baptismal name, Michael. I work freelance, and I am also an ordinary husband and father. On days off, packing a golf bag and boarding a plane to Japan has become a natural part of our family's routine.\n\nI have played Korean courses since 2005 — 154 in all. Some I returned to more than thirty times; others, once was enough. The most memorable of them is Maria Golf Club. The layout was almost wickedly demanding, yet it was strangely a course you want to return to. A place that stirs the will to rise to a challenge.\n\nI began leaving course impressions on Google Maps once my Japan golf travels began in earnest. For two years now I have recorded only my impressions of Japanese courses, and somewhere along the way I became a Level 8 reviewer. For quietly recording the path I have walked, there has been no better place.`
+    },
+    why: {
+      ko: `한국 골프는 대체로 속도감이 있습니다. 플레이 페이스가 빠르고, 캐디의 진행에 맞춰야 하며, 뒤 팀의 압박도 존재합니다. 18홀을 마치고 나면 자연 속에서 쉬었다기보다 무언가를 바쁘게 소비했다는 느낌이 남을 때가 많습니다.\n\n반면 일본의 로컬 골프에는 여백과 사유가 있습니다. 캐디 없이 리모컨 카트를 허리에 찬 채 묵묵히 코스를 걷습니다. 앞 팀을 기다리는 여유 속에서 바람을 느끼고, 샷의 방향을 온전히 스스로 판단합니다. 비로소 자연과 코스 안에서 생각할 시간이 주어집니다.\n\n무엇보다 감탄한 것은 설계의 진정성입니다. 화려하게 보여주기 위한 겉치레가 아니라, 골퍼가 즐겁게 치기 위해 만들어진 코스들입니다. 자연 지형을 거스르지 않고 동선을 짜내어 18홀 내내 각기 다른 표정을 보여줍니다.\n\n게다가 식사와 맥주 한 잔을 곁들이고도 9,000엔 남짓이면 충분한 합리적인 환경은, 한국에서는 상상하기 힘든 훌륭한 문화입니다.\n\n처음엔 그저 우동을 먹으러 바다를 건넜지만, 이제는 이 훌륭한 코스들의 숨결을 느끼기 위해 일본을 찾습니다.`,
+      ja: `韓国のゴルフはおおむねスピード感があります。プレーのペースが速く、キャディの進行に合わせなければならず、後ろの組のプレッシャーもあります。18ホールを終えると、自然の中で休んだというより、何かを忙しく消費したという感覚が残ることが少なくありません。\n\n一方、日本のローカルゴルフには「余白」と「思索」があります。キャディなしでリモコンカートを腰につけ、黙々とコースを歩きます。前の組を待つゆとりの中で風を感じ、ショットの方向を自分自身で判断します。ようやく自然とコースの中で考える時間が与えられるのです。\n\n何より感嘆したのは設計の誠実さです。華やかに見せるための飾りではなく、ゴルファーが楽しく「プレーするために」作られたコースたちです。自然の地形に逆らわず動線を練り上げ、18ホール通じてそれぞれ異なる表情を見せてくれます。\n\nそのうえ食事とビール一杯を添えても9,000円ほどで十分という合理的な環境は、韓国では想像しがたい素晴らしい文化です。\n\n最初はただうどんを食べに海を渡りましたが、今ではこの素晴らしいコースの息づかいを感じるために日本を訪れています。`,
+      en: `Korean golf tends to move quickly. The pace is fast, you follow the caddy's lead, and the group behind is always pressing. By the end of eighteen holes, the feeling is often less of resting in nature than of having busily consumed something.\n\nJapanese local golf, by contrast, has space and room for reflection. You walk the course quietly, no caddy, a remote-control cart at your waist. In the ease of waiting for the group ahead, you feel the wind and judge the line of each shot entirely on your own. Only then is there time to think, within nature and within the course.\n\nWhat impressed me most is the sincerity of the design. These are not courses dressed up to impress, but courses built so the golfer can genuinely enjoy playing. The routing follows the natural terrain rather than fighting it, and no two of the eighteen holes wear the same expression.\n\nAnd a reasonable setting where a round, a meal, and a beer come to little more than 9,000 yen is a wonderful culture that is hard to imagine in Korea.\n\nAt first I simply crossed the sea to eat udon. Now I travel to Japan to feel the breath of these remarkable courses.`
+    },
+    rating: {
+      ko: `저는 방문한 모든 코스를 세 가지 기준으로 평가합니다.\n\n코스 — 설계의 완성도. 자연 지형의 활용, 각 홀이 지닌 개성과 밸런스, 전략적 즐거움의 깊이.\n관리 — 페어웨이·그린·벙커의 실제 유지보수 상태. 방문 당일 기준입니다.\n가성비 — 지불한 금액 대비 경험한 총체적인 만족도와 가치.\n\n등급은 A+부터 C까지 부여합니다. 미쉐린 가이드처럼 꽤나 엄격한 편입니다. A+는 매우 드물게 주어지며, B+만 되어도 일부러 시간을 내어 찾아갈 가치가 있는 훌륭한 코스입니다.\n\n다만 점수나 알파벳 기호에 얽매이기보다, 제가 남긴 문장을 먼저 읽어주시길 권합니다. 레이팅은 그 여정을 요약한 작은 마침표일 뿐, 진짜 이야기는 문장 속에 담겨 있습니다.`,
+      ja: `訪れたすべてのコースを、次の3つの基準で評価しています。\n\nコース — 設計の完成度。自然地形の活用、各ホールの個性とバランス、戦略的な面白さの深さ。\nコンディション — フェアウェイ・グリーン・バンカーの実際の整備状態。訪問当日を基準とします。\nコスパ — 支払った金額に対して得られた総合的な満足度と価値。\n\n評価はA+からCまで付けます。ミシュランガイドのようにかなり厳しいほうです。A+はごく稀にしか与えられず、B+でもわざわざ時間を作って訪れる価値のある素晴らしいコースです。\n\nただ、点数やアルファベットの記号にとらわれるより、私が残した文章を先に読んでいただきたいと思います。レーティングはその旅を要約した小さな句点にすぎず、本当の物語は文章の中にあります。`,
+      en: `I evaluate every course I visit by three clear criteria.\n\nCourse — the completeness of the design: use of the natural terrain, the character and balance of each hole, the depth of strategic pleasure.\nCondition — the actual upkeep of fairways, greens, and bunkers, as found on the day of the visit.\nValue — the total satisfaction and worth of the experience relative to what was paid.\n\nGrades run from A+ to C. Like the Michelin guide, I am fairly strict. An A+ is given only rarely, and even a B+ marks a course well worth setting aside time to visit.\n\nStill, rather than fixating on a score or a letter, I would ask you to read the sentences I have left first. The rating is only a small period closing the journey; the real story lives in the words.`
+    }
+  };
+
+  // 다국어 about 텍스트 적용
+  function applyAboutLang(lang) {
+    const ids = {
+      'about-journey-text': aboutContent.journey[lang],
+      'about-who-text': aboutContent.who[lang],
+      'about-why-text': aboutContent.why[lang],
+      'about-rating-text': aboutContent.rating[lang],
+    };
+    Object.entries(ids).forEach(([id, text]) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = text.replace(/\n\n/g, '</p><p style="margin-top:16px">').replace(/\n/g, '<br>');
+    });
+
+    // 섹션 제목도 변경
+    const titles = {
+      'about-journey-title': { ko: '72 / 300<br><em>여정</em>', ja: '72 / 300<br><em>旅</em>', en: '72 / 300<br><em>The Journey</em>' },
+      'about-who-title': { ko: 'MIKA는 <em>누구인가</em>', ja: 'MIKAとは<em>誰か</em>', en: 'Who is <em>MIKA</em>' },
+      'about-why-title': { ko: '왜 <em>일본 골프</em>인가', ja: 'なぜ<em>日本ゴルフ</em>なのか', en: 'Why <em>Japan Golf</em>' },
+      'about-docent-quote': {
+        ko: '"골프 도슨트는 코스 앞에서 골퍼를 안내합니다. 설계가의 철학, 지형의 맥락, 그리고 바람직한 공략법을 온몸으로 겪어내고 기록합니다."',
+        ja: '"ゴルフドーセントはコースの前で語る。設計者の意図、地形の文脈、攻略の方法を体で確かめ、伝える。"',
+        en: '"A golf docent explains from in front of the course. The architect\'s intent, the context of the terrain, the method of approach — confirmed with the body, then passed on."'
+      },
+      'about-rating-title': { ko: 'MIKA <em>레이팅 시스템</em>', ja: 'MIKA <em>レーティングシステム</em>', en: 'MIKA <em>Rating System</em>' },
+    };
+    Object.entries(titles).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = texts[lang] || texts.ko;
+    });
+  }
+
+  // ── 페이지 언어 적용 (nav, 버튼, 본문) ──
+  function setLang(lang) {
+    localStorage.setItem('mika-lang', lang);
+    document.body.setAttribute('data-lang', lang);
+    // 언어 버튼 active
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+    });
+    // nav 메뉴 텍스트 전환
+    document.querySelectorAll('.nav-txt').forEach(function(el){
+      var t = el.getAttribute('data-' + lang);
+      if (t) el.textContent = t;
+    });
+    // guide 메뉴: 한국어(ko)일 때만 노출
+    var _navGuide = document.getElementById('nav-guide');
+    if (_navGuide) { _navGuide.style.display = (lang === 'ko') ? '' : 'none'; }
+    document.documentElement.setAttribute('data-sitelang', lang);
+    // about 본문/타이틀 전환
+    applyAboutLang(lang);
+  }
+
+  // ── 기본 언어: 일본어 (방문자가 선택한 언어가 있으면 그것을 유지) ──
+  function detectLang() {
+    var saved = localStorage.getItem('mika-lang');
+    setLang(saved ? saved : 'ja');
+  }
+
+  detectLang();
+</script>
+
+</body>
+</html>

@@ -309,6 +309,13 @@
     .review-text { font-size: 13px; line-height: 1.9; }
     .region-name { font-size: 20px; }
   }
+
+  .L{display:none;}
+  [data-sitelang="ko"] .L.ko{display:revert;}
+  [data-sitelang="ja"] .L.ja{display:revert;}
+  [data-sitelang="en"] .L.en{display:revert;}
+  span.L{display:none;}
+  [data-sitelang="ko"] span.L.ko,[data-sitelang="ja"] span.L.ja,[data-sitelang="en"] span.L.en{display:inline;}
 </style>
 <script>
   // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
@@ -348,27 +355,27 @@
 
 <div class="page-header">
   <div class="header-inner">
-    <p class="header-eyebrow">Course Archive — 코스 아카이브</p>
-    <h1 class="header-title">일본골프 <em>코스 아카이브</em></h1>
+    <p class="header-eyebrow">Course Archive — <span class="L ko">코스 아카이브</span><span class="L ja">コースアーカイブ</span><span class="L en">Course Archive</span></p>
+    <h1 class="header-title"><span class="L ko">일본골프</span><span class="L ja">日本ゴルフ</span><span class="L en">Japan Golf</span> <em><span class="L ko">코스 아카이브</span><span class="L ja">コースアーカイブ</span><span class="L en">Course Archive</span></em></h1>
     <div class="header-meta">
       <div class="meta-item">
         <span class="meta-num">72</span>
-        <span class="meta-label">방문 완료</span>
+        <span class="meta-label"><span class="L ko">방문 완료</span><span class="L ja">訪問済み</span><span class="L en">Visited</span></span>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item">
         <span class="meta-num">300</span>
-        <span class="meta-label">최종 목표</span>
+        <span class="meta-label"><span class="L ko">최종 목표</span><span class="L ja">最終目標</span><span class="L en">Goal</span></span>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item">
         <span class="meta-num">16</span>
-        <span class="meta-label">방문 지역</span>
+        <span class="meta-label"><span class="L ko">방문 지역</span><span class="L ja">訪問エリア</span><span class="L en">Regions</span></span>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item">
         <span class="meta-num">3</span>
-        <span class="meta-label">언어 지원</span>
+        <span class="meta-label"><span class="L ko">언어 지원</span><span class="L ja">対応言語</span><span class="L en">Languages</span></span>
       </div>
     </div>
   </div>
@@ -376,12 +383,12 @@
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
-  <button class="filter-btn active" onclick="filterRegion('all')">전체 · All</button>
-  <button class="filter-btn" onclick="filterRegion('kyushu')">규슈</button>
-  <button class="filter-btn" onclick="filterRegion('chugoku')">주고쿠·시코쿠</button>
-  <button class="filter-btn" onclick="filterRegion('kinki')">긴키·주부</button>
-  <button class="filter-btn" onclick="filterRegion('kanto')">간토</button>
-  <button class="filter-btn" onclick="filterRegion('hokkaido')">홋카이도</button>
+  <button class="filter-btn active" onclick="filterRegion('all')"><span class="L ko">전체 · All</span><span class="L ja">全て · All</span><span class="L en">All</span></button>
+  <button class="filter-btn" onclick="filterRegion('kyushu')"><span class="L ko">규슈</span><span class="L ja">九州</span><span class="L en">Kyushu</span></button>
+  <button class="filter-btn" onclick="filterRegion('chugoku')"><span class="L ko">주고쿠·시코쿠</span><span class="L ja">中国·四国</span><span class="L en">Chugoku/Shikoku</span></button>
+  <button class="filter-btn" onclick="filterRegion('kinki')"><span class="L ko">긴키·주부</span><span class="L ja">近畿·中部</span><span class="L en">Kinki/Chubu</span></button>
+  <button class="filter-btn" onclick="filterRegion('kanto')"><span class="L ko">간토</span><span class="L ja">関東</span><span class="L en">Kanto</span></button>
+  <button class="filter-btn" onclick="filterRegion('hokkaido')"><span class="L ko">홋카이도</span><span class="L ja">北海道</span><span class="L en">Hokkaido</span></button>
 </div>
 
 <!-- ARCHIVE BODY -->
@@ -389,7 +396,7 @@
 
   <div class="region-block" data-region="kyushu">
     <div class="region-header">
-      <span class="region-name">규슈</span>
+      <span class="region-name"><span class="L ko">규슈</span><span class="L ja">九州</span><span class="L en">Kyushu</span></span>
       <span class="region-name-jp">九州</span>
       <span class="region-count">26 courses</span>
     </div>
@@ -400,15 +407,15 @@
           <span class="card-no">No. 08</span>
           <span class="card-date"></span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">니조 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">니조 CC</span><span class="L ja">二丈CC</span><span class="L en">Nijo CC</span></div>
         <div class="card-name-jp">二丈カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"공항에서 50분, 겐카이나다가 눈앞에 펼쳐진다. 첫날 라운딩의 정답이다."</div>
+        <div class="card-mika"><span class="L ko">"공항에서 50분, 겐카이나다가 눈앞에 펼쳐진다. 첫날 라운딩의 정답이다."</span><span class="L ja">"空港から50分、玄界灘が目の前に広がる。初日のラウンドの正解だ。"</span><span class="L en">"50 min from the airport, the Genkai Sea opens up before you. The right call for day one."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -472,15 +479,15 @@ for day one.</p></div>
           <span class="card-no">No. 09</span>
           <span class="card-date">24.01.10</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">츠카사로얄 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">츠카사로얄 CC</span><span class="L ja">司ロイヤルCC</span><span class="L en">Tsukasa Royal CC</span></div>
         <div class="card-name-jp">司ロイヤルカントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"코스보다 클럽하우스가 더 기억에 남는 곳도 있다. 여기가 그렇다."</div>
+        <div class="card-mika"><span class="L ko">"코스보다 클럽하우스가 더 기억에 남는 곳도 있다. 여기가 그렇다."</span><span class="L ja">"コースよりクラブハウスの方が記憶に残る場所もある。ここがそうだ。"</span><span class="L en">"Some places you remember the clubhouse more than the course. This is one."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -523,15 +530,15 @@ one is the latter.</p></div>
           <span class="card-no">No. 10</span>
           <span class="card-date">24.01.11</span>
         </div>
-        <div class="card-prefecture">구마모토현</div>
-        <div class="card-name">트라이얼 골프 앤 리조트 아소코스</div>
+        <div class="card-prefecture"><span class="L ko">구마모토현</span><span class="L ja">熊本県</span><span class="L en">Kumamoto</span></div>
+        <div class="card-name"><span class="L ko">트라이얼 골프 앤 리조트 아소코스</span><span class="L ja">トライアル ASO</span><span class="L en">Trial Golf & Resort ASO</span></div>
         <div class="card-name-jp">トライアルゴルフ&リゾート ASO COURSE</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"클럽하우스는 작았다. 아소산은 작지 않았다. 그게 전부였다."</div>
+        <div class="card-mika"><span class="L ko">"클럽하우스는 작았다. 아소산은 작지 않았다. 그게 전부였다."</span><span class="L ja">"クラブハウスは小さかった。阿蘇山は小さくなかった。それが全てだった。"</span><span class="L en">"The clubhouse was small. Mt. Aso was not. That was everything."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -589,15 +596,15 @@ MIKA’s Take: The clubhouse was small. Aso was not. That was the whole story.</
           <span class="card-no">No. 11</span>
           <span class="card-date">24.01.12</span>
         </div>
-        <div class="card-prefecture">구마모토현</div>
-        <div class="card-name">아소 그랑브리오 GC</div>
+        <div class="card-prefecture"><span class="L ko">구마모토현</span><span class="L ja">熊本県</span><span class="L en">Kumamoto</span></div>
+        <div class="card-name"><span class="L ko">아소 그랑브리오 GC</span><span class="L ja">阿蘇グランヴィリオGC</span><span class="L en">Aso Grandvrio GC</span></div>
         <div class="card-name-jp">阿蘇グランヴィリオゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"사이드미러는 부서졌지만 아소산은 멀쩡했다. 온천이 그날을 구했다."</div>
+        <div class="card-mika"><span class="L ko">"사이드미러는 부서졌지만 아소산은 멀쩡했다. 온천이 그날을 구했다."</span><span class="L ja">"サイドミラーは壊れたが阿蘇山は無事だった。温泉がその日を救った。"</span><span class="L en">"The side mirror broke but Mt. Aso stood fine. The hot spring saved the day."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -661,15 +668,15 @@ MIKA’s Take: The side mirror broke. Aso was fine. The onsen saved the day.</p>
           <span class="card-no">No. 12</span>
           <span class="card-date">24.01.13</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">치쿠시노 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">치쿠시노 CC</span><span class="L ja">筑紫野CC</span><span class="L en">Chikushino CC</span></div>
         <div class="card-name-jp">筑紫野カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"골프장보다 경양식집이 더 오래 기억에 남는 날도 있다."</div>
+        <div class="card-mika"><span class="L ko">"골프장보다 경양식집이 더 오래 기억에 남는 날도 있다."</span><span class="L ja">"ゴルフ場より洋食店の方が長く記憶に残る日もある。"</span><span class="L en">"Some days you remember the diner longer than the golf course."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -712,15 +719,15 @@ days.</p></div>
           <span class="card-no">No. 13</span>
           <span class="card-date">24.04.15</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">카츠야마고쇼 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">카츠야마고쇼 CC</span><span class="L ja">勝山御所CC</span><span class="L en">Katsuyama Gosho CC</span></div>
         <div class="card-name-jp">勝山御所カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"비 속 15홀, 벙커 세이브 100%. 날씨가 나쁠수록 집중력은 올라간다."</div>
+        <div class="card-mika"><span class="L ko">"비 속 15홀, 벙커 세이브 100%. 날씨가 나쁠수록 집중력은 올라간다."</span><span class="L ja">"雨の中15ホール、バンカーセーブ100%。天気が悪いほど集中力は上がる。"</span><span class="L en">"15 holes in the rain, 100% bunker saves. The worse the weather, the sharper the focus."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -784,15 +791,15 @@ MIKA’s Take: 15 holes in the rain, 100% bunker saves. Bad weather sharpens the
           <span class="card-no">No. 14</span>
           <span class="card-date">24.04.16</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">니시니혼 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">니시니혼 CC</span><span class="L ja">西日本CC</span><span class="L en">Nishi-Nihon CC</span></div>
         <div class="card-name-jp">西日本カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"만만해 보이는 코스가 가장 무섭다. 니시니혼이 그렇다."</div>
+        <div class="card-mika"><span class="L ko">"만만해 보이는 코스가 가장 무섭다. 니시니혼이 그렇다."</span><span class="L ja">"手強くなさそうなコースが一番怖い。西日本がそうだ。"</span><span class="L en">"The course that looks easy is the scariest. Nishi-Nihon is just that."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -848,15 +855,15 @@ course.</p></div>
           <span class="card-no">No. 16</span>
           <span class="card-date">24.04.18</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">스오나다 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">스오나다 CC</span><span class="L ja">周防灘CC</span><span class="L en">Suonada CC</span></div>
         <div class="card-name-jp">周防灘カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"맑은 날 바다가 보이는 파3을 위해 가을에 다시 오고 싶다."</div>
+        <div class="card-mika"><span class="L ko">"맑은 날 바다가 보이는 파3을 위해 가을에 다시 오고 싶다."</span><span class="L ja">"晴れた日に海の見えるパー3のため、秋にまた来たい。"</span><span class="L en">"I'd return in autumn for that par-3 with its sea view on a clear day."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -915,15 +922,15 @@ sorted.</p></div>
           <span class="card-no">No. 17</span>
           <span class="card-date">24.05.27</span>
         </div>
-        <div class="card-prefecture">오이타현</div>
-        <div class="card-name">벳푸 모리클럽</div>
+        <div class="card-prefecture"><span class="L ko">오이타현</span><span class="L ja">大分県</span><span class="L en">Oita</span></div>
+        <div class="card-name"><span class="L ko">벳푸 모리클럽</span><span class="L ja">別府森GC</span><span class="L en">Beppu Mori GC</span></div>
         <div class="card-name-jp">別府森ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"골프는 무난했고 온천은 훌륭했다. 벳푸에서는 그 순서가 맞다."</div>
+        <div class="card-mika"><span class="L ko">"골프는 무난했고 온천은 훌륭했다. 벳푸에서는 그 순서가 맞다."</span><span class="L ja">"ゴルフは無難、温泉は最高だった。別府ではその順序が正しい。"</span><span class="L en">"The golf was fine, the hot spring superb. In Beppu, that order is right."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -969,15 +976,15 @@ MIKA’s Take: The golf was solid. The onsen was excellent. In Beppu, that’s t
           <span class="card-no">No. 18</span>
           <span class="card-date">24.05.28</span>
         </div>
-        <div class="card-prefecture">오이타현</div>
-        <div class="card-name">벳푸 골프클럽</div>
+        <div class="card-prefecture"><span class="L ko">오이타현</span><span class="L ja">大分県</span><span class="L en">Oita</span></div>
+        <div class="card-name"><span class="L ko">벳푸 골프클럽</span><span class="L ja">別府GC</span><span class="L en">Beppu Golf Club</span></div>
         <div class="card-name-jp">別府ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"산 위는 비, 시내는 맑음. 내려오면서 알았다. 우동이 위로해줬다."</div>
+        <div class="card-mika"><span class="L ko">"산 위는 비, 시내는 맑음. 내려오면서 알았다. 우동이 위로해줬다."</span><span class="L ja">"山の上は雨、市内は晴れ。下りて気づいた。うどんが慰めてくれた。"</span><span class="L en">"Rain on the mountain, clear in town. I realized it coming down. Udon consoled me."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1032,15 +1039,15 @@ udon made it right.</p></div>
           <span class="card-no">No. 19</span>
           <span class="card-date">24.05.29</span>
         </div>
-        <div class="card-prefecture">오이타현</div>
-        <div class="card-name">유후고겐 GC</div>
+        <div class="card-prefecture"><span class="L ko">오이타현</span><span class="L ja">大分県</span><span class="L en">Oita</span></div>
+        <div class="card-name"><span class="L ko">유후고겐 GC</span><span class="L ja">湯布高原GC</span><span class="L en">Yufu Kogen GC</span></div>
         <div class="card-name-jp">湯布高原ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"해발 800미터에서 유후인을 내려다보며 친 골프. 날씨가 모든 걸 완성했다."</div>
+        <div class="card-mika"><span class="L ko">"해발 800미터에서 유후인을 내려다보며 친 골프. 날씨가 모든 걸 완성했다."</span><span class="L ja">"標高800mから湯布院を見下ろして打つゴルフ。天気が全てを完成させた。"</span><span class="L en">"Golf played gazing down at Yufuin from 800m up. The weather completed it all."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1100,15 +1107,15 @@ MIKA’s Take: Golf at 800 meters, looking down at Yufuin. The weather finished 
           <span class="card-no">No. 20</span>
           <span class="card-date">24.08.22</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">JR우치노 CC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">JR우치노 CC</span><span class="L ja">JR内野CC</span><span class="L en">JR Uchino CC</span></div>
         <div class="card-name-jp">JR内野カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">C+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">C+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"폭염이 페어웨이를 태웠다. 사슴들은 개의치 않았다. 나도 결국 그랬다."</div>
+        <div class="card-mika"><span class="L ko">"폭염이 페어웨이를 태웠다. 사슴들은 개의치 않았다. 나도 결국 그랬다."</span><span class="L ja">"猛暑がフェアウェイを焼いた。鹿たちは気にしなかった。私も結局そうなった。"</span><span class="L en">"The heat scorched the fairway. The deer didn't mind. In the end, neither did I."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1160,15 +1167,15 @@ MIKA’s Take: The heat burned the fairways. The deer didn’t care. Eventually,
           <span class="card-no">No. 21</span>
           <span class="card-date">24.08.23</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">더 클래식 GC</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">더 클래식 GC</span><span class="L ja">ザ・クラシックGC</span><span class="L en">The Classic GC</span></div>
         <div class="card-name-jp">ザ・クラシックゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"밋밋한 일본 골프에 지루함을 느낀 당신을 일깨워 줄 곳. 경치에 속지 말 것."</div>
+        <div class="card-mika"><span class="L ko">"밋밋한 일본 골프에 지루함을 느낀 당신을 일깨워 줄 곳. 경치에 속지 말 것."</span><span class="L ja">"平凡な日本ゴルフに退屈したあなたを目覚めさせる場所。景色に騙されるな。"</span><span class="L en">"A place to wake you if Japan's golf has bored you. Don't be fooled by the scenery."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1236,15 +1243,15 @@ wakes you up. Don’t let the scenery fool you.</p></div>
           <span class="card-no">No. 22</span>
           <span class="card-date">24.08.24</span>
         </div>
-        <div class="card-prefecture">후쿠오카현</div>
-        <div class="card-name">와카미야코스</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현</span><span class="L ja">福岡県</span><span class="L en">Fukuoka</span></div>
+        <div class="card-name"><span class="L ko">와카미야코스</span><span class="L ja">トライアル WAKAMIYA</span><span class="L en">Trial WAKAMIYA</span></div>
         <div class="card-name-jp">トライアルゴルフ&リゾート WAKAMIYA</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"신칸센에서 바라보는 와카미야코스 — 언젠가 반대로 써볼 이야기."</div>
+        <div class="card-mika"><span class="L ko">"신칸센에서 바라보는 와카미야코스 — 언젠가 반대로 써볼 이야기."</span><span class="L ja">"新幹線から眺める若宮コース — いつか逆から書いてみたい物語。"</span><span class="L en">"The Wakamiya course seen from the bullet train — a story I'd tell from the other side someday."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1310,15 +1317,15 @@ the fairway from the Shinkansen.</p></div>
           <span class="card-no">No. 27</span>
           <span class="card-date">24.11.25</span>
         </div>
-        <div class="card-prefecture">나가사키현</div>
-        <div class="card-name">오무라만 CC 올드코스</div>
+        <div class="card-prefecture"><span class="L ko">나가사키현</span><span class="L ja">長崎県</span><span class="L en">Nagasaki</span></div>
+        <div class="card-name"><span class="L ko">오무라만 CC 올드코스</span><span class="L ja">大村湾CC オールド</span><span class="L en">Omurawan CC Old</span></div>
         <div class="card-name-jp">大村湾カントリークラブ オールドコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"46년 된 코스가 바다를 품고 있다. 서두를 이유가 없는 골프가 여기 있다."</div>
+        <div class="card-mika"><span class="L ko">"46년 된 코스가 바다를 품고 있다. 서두를 이유가 없는 골프가 여기 있다."</span><span class="L ja">"46年の歴史を持つコースが海を抱いている。急ぐ理由のないゴルフがここにある。"</span><span class="L en">"A 46-year-old course embracing the sea. Here is golf with no reason to rush."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1377,15 +1384,15 @@ MIKA’s Take: A 46-year-old course holding the sea. This is where unhurried gol
           <span class="card-no">No. 28</span>
           <span class="card-date">24.11.26</span>
         </div>
-        <div class="card-prefecture">나가사키현</div>
-        <div class="card-name">오무라만 CC 뉴코스</div>
+        <div class="card-prefecture"><span class="L ko">나가사키현</span><span class="L ja">長崎県</span><span class="L en">Nagasaki</span></div>
+        <div class="card-name"><span class="L ko">오무라만 CC 뉴코스</span><span class="L ja">大村湾CC ニュー</span><span class="L en">Omurawan CC New</span></div>
         <div class="card-name-jp">大村湾カントリークラブ ニューコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"13개의 벙커가 파5 하나를 지킨다. 욕심내면 안 된다는 걸 알면서도 욕심이"</div>
+        <div class="card-mika"><span class="L ko">"13개의 벙커가 파5 하나를 지킨다. 욕심내면 안 된다는 걸 알면서도 욕심이"</span><span class="L ja">"13個のバンカーがパー5を守る。欲張ってはいけないと分かっていても欲が出る。"</span><span class="L en">"13 bunkers guard a single par-5. You know not to get greedy, yet greed creeps in."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1455,15 +1462,15 @@ you from being greedy.</p></div>
           <span class="card-no">No. 29</span>
           <span class="card-date">24.11.27</span>
         </div>
-        <div class="card-prefecture">나가사키현</div>
-        <div class="card-name">치산 CC 모리야마</div>
+        <div class="card-prefecture"><span class="L ko">나가사키현</span><span class="L ja">長崎県</span><span class="L en">Nagasaki</span></div>
+        <div class="card-name"><span class="L ko">치산 CC 모리야마</span><span class="L ja">チサンCC森山</span><span class="L en">Chisan CC Moriyama</span></div>
         <div class="card-name-jp">チサンカントリークラブ森山</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"두 개의 바다가 보이는 27홀, 9,800엔. 가성비라는 말이 부족하다."</div>
+        <div class="card-mika"><span class="L ko">"두 개의 바다가 보이는 27홀, 9,800엔. 가성비라는 말이 부족하다."</span><span class="L ja">"二つの海が見える27ホールで9,800円。コスパという言葉では足りない。"</span><span class="L en">"27 holes with two seas in view for 9,800 yen. 'Value' falls short."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1525,15 +1532,15 @@ cover it.</p></div>
           <span class="card-no">No. 30</span>
           <span class="card-date">24.11.28</span>
         </div>
-        <div class="card-prefecture">사가현</div>
-        <div class="card-name">와카키 GC</div>
+        <div class="card-prefecture"><span class="L ko">사가현</span><span class="L ja">佐賀県</span><span class="L en">Saga</span></div>
+        <div class="card-name"><span class="L ko">와카키 GC</span><span class="L ja">若木GC</span><span class="L en">Wakaki GC</span></div>
         <div class="card-name-jp">若木ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"용이 그린을 지키고 있다. 공략보다 감상이 먼저인 홀이 있다면, 여기다."</div>
+        <div class="card-mika"><span class="L ko">"용이 그린을 지키고 있다. 공략보다 감상이 먼저인 홀이 있다면, 여기다."</span><span class="L ja">"龍がグリーンを守っている。攻略より鑑賞が先のホールがあるなら、ここだ。"</span><span class="L en">"A dragon guards the green. If a hole is for admiring before attacking, it's this one."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1593,15 +1600,15 @@ before strategy, it’s this one.</p></div>
           <span class="card-no">No. 31</span>
           <span class="card-date">24.11.29</span>
         </div>
-        <div class="card-prefecture">사가현</div>
-        <div class="card-name">사가클래식 GC</div>
+        <div class="card-prefecture"><span class="L ko">사가현</span><span class="L ja">佐賀県</span><span class="L en">Saga</span></div>
+        <div class="card-name"><span class="L ko">사가클래식 GC</span><span class="L ja">佐賀クラシックGC</span><span class="L en">Saga Classic GC</span></div>
         <div class="card-name-jp">佐賀クラシックゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"코스가 몸을 지치게 하고, 온천이 그걸 되돌려준다. 사가클래식은 그 두"</div>
+        <div class="card-mika"><span class="L ko">"코스가 몸을 지치게 하고, 온천이 그걸 되돌려준다. 사가클래식은 그 두"</span><span class="L ja">"コースが体を疲れさせ、温泉がそれを返してくれる。佐賀クラシックはその両方だ。"</span><span class="L en">"The course tires the body, the hot spring gives it back. Saga Classic is both."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1671,15 +1678,15 @@ delivers both.</p></div>
           <span class="card-no">No. 58</span>
           <span class="card-date">25.11.24</span>
         </div>
-        <div class="card-prefecture">가고시마현</div>
-        <div class="card-name">시마즈 GC</div>
+        <div class="card-prefecture"><span class="L ko">가고시마현</span><span class="L ja">鹿児島県</span><span class="L en">Kagoshima</span></div>
+        <div class="card-name"><span class="L ko">시마즈 GC</span><span class="L ja">島津GC</span><span class="L en">Shimazu GC</span></div>
         <div class="card-name-jp">島津ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"활화산 옆에서 골프를 쳤다. 걱정은 달나라에 두고 오는 게 맞았다."</div>
+        <div class="card-mika"><span class="L ko">"활화산 옆에서 골프를 쳤다. 걱정은 달나라에 두고 오는 게 맞았다."</span><span class="L ja">"活火山の隣でゴルフをした。心配は月にでも置いてくるのが正解だった。"</span><span class="L en">"I played golf beside an active volcano. Best to leave the worry on the moon."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1748,15 +1755,15 @@ right call.</p></div>
           <span class="card-no">No. 59</span>
           <span class="card-date">25.11.25</span>
         </div>
-        <div class="card-prefecture">가고시마현</div>
-        <div class="card-name">미조베 CC</div>
+        <div class="card-prefecture"><span class="L ko">가고시마현</span><span class="L ja">鹿児島県</span><span class="L en">Kagoshima</span></div>
+        <div class="card-name"><span class="L ko">미조베 CC</span><span class="L ja">溝辺CC</span><span class="L en">Mizobe CC</span></div>
         <div class="card-name-jp">溝辺カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"파란 갓파가 연못을 지키고 있다. 공을 빼앗기지 않으려면 정확하게 치는"</div>
+        <div class="card-mika"><span class="L ko">"파란 갓파가 연못을 지키고 있다. 공을 빼앗기지 않으려면 정확하게 치는"</span><span class="L ja">"青いカッパが池を守っている。ボールを取られたくなければ正確に打つこと。"</span><span class="L en">"A blue kappa guards the pond. Hit straight if you don't want your ball taken."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1839,15 +1846,15 @@ straight.</p></div>
           <span class="card-no">No. 60</span>
           <span class="card-date">25.11.26</span>
         </div>
-        <div class="card-prefecture">가고시마현</div>
-        <div class="card-name">다카치호 CC</div>
+        <div class="card-prefecture"><span class="L ko">가고시마현</span><span class="L ja">鹿児島県</span><span class="L en">Kagoshima</span></div>
+        <div class="card-name"><span class="L ko">다카치호 CC</span><span class="L ja">高千穂CC</span><span class="L en">Takachiho CC</span></div>
         <div class="card-name-jp">高千穂カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"화산이 보이는 티박스, 신의 산이 보이는 욕조. 다카치호는 골프장이 아니라"</div>
+        <div class="card-mika"><span class="L ko">"화산이 보이는 티박스, 신의 산이 보이는 욕조. 다카치호는 골프장이 아니라"</span><span class="L ja">"火山が見えるティ、神の山が見える湯船。高千穂はゴルフ場ではない。"</span><span class="L en">"A tee with a volcano in view, a bath with a sacred mountain. Takachiho is more than a course."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -1931,15 +1938,15 @@ isn’t just a golf course — it’s an experience.</p></div>
           <span class="card-no">No. 61</span>
           <span class="card-date">25.11.27</span>
         </div>
-        <div class="card-prefecture">가고시마현</div>
-        <div class="card-name">지란 CC</div>
+        <div class="card-prefecture"><span class="L ko">가고시마현</span><span class="L ja">鹿児島県</span><span class="L en">Kagoshima</span></div>
+        <div class="card-name"><span class="L ko">지란 CC</span><span class="L ja">知覧CC</span><span class="L en">Chiran CC</span></div>
         <div class="card-name-jp">知覧カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"몸이 최악이었던 날, 코스가 가장 아름다웠다. 지란은 그런 곳이다."</div>
+        <div class="card-mika"><span class="L ko">"몸이 최악이었던 날, 코스가 가장 아름다웠다. 지란은 그런 곳이다."</span><span class="L ja">"体は最悪だった日、コースは最も美しかった。知覧はそういう所だ。"</span><span class="L en">"On my worst day physically, the course was most beautiful. That's Chiran."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2013,15 +2020,15 @@ kind of place.</p></div>
           <span class="card-no">No. 62</span>
           <span class="card-date">26.01.06</span>
         </div>
-        <div class="card-prefecture">미야자키현</div>
-        <div class="card-name">톰왓슨 GC</div>
+        <div class="card-prefecture"><span class="L ko">미야자키현</span><span class="L ja">宮崎県</span><span class="L en">Miyazaki</span></div>
+        <div class="card-name"><span class="L ko">톰왓슨 GC</span><span class="L ja">トムワトソンGC</span><span class="L en">Tom Watson GC</span></div>
         <div class="card-name-jp">トムワトソンゴルフコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"흑송 숲은 아름답다. 18홀이 다 그러면 좀 지루하다."</div>
+        <div class="card-mika"><span class="L ko">"흑송 숲은 아름답다. 18홀이 다 그러면 좀 지루하다."</span><span class="L ja">"黒松林は美しい。18ホール全部それだと少し退屈だ。"</span><span class="L en">"The black pine forest is lovely. All 18 holes of it gets a touch dull."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2076,15 +2083,15 @@ MIKA’s Take: Black pine forest is beautiful. Eighteen holes of it starts to fe
           <span class="card-no">No. 63</span>
           <span class="card-date">26.01.07</span>
         </div>
-        <div class="card-prefecture">미야자키현</div>
-        <div class="card-name">UMK CC</div>
+        <div class="card-prefecture"><span class="L ko">미야자키현</span><span class="L ja">宮崎県</span><span class="L en">Miyazaki</span></div>
+        <div class="card-name"><span class="L ko">UMK CC</span><span class="L ja">UMK CC</span><span class="L en">UMK CC</span></div>
         <div class="card-name-jp">UMKカントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A-</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A-</span></div>
         </div>
-        <div class="card-mika">"JLPGA가 선택한 코스. 와보면 그 이유를 안다."</div>
+        <div class="card-mika"><span class="L ko">"JLPGA가 선택한 코스. 와보면 그 이유를 안다."</span><span class="L ja">"JLPGAが選んだコース。来てみればその理由が分かる。"</span><span class="L en">"A course chosen by the JLPGA. Come, and you'll see why."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2157,15 +2164,15 @@ MIKA’s Take: A course the JLPGA chose. Stand on it and the reason becomes clea
           <span class="card-no">No. 64</span>
           <span class="card-date">26.01.08</span>
         </div>
-        <div class="card-prefecture">미야자키현</div>
-        <div class="card-name">자론바이 GC</div>
+        <div class="card-prefecture"><span class="L ko">미야자키현</span><span class="L ja">宮崎県</span><span class="L en">Miyazaki</span></div>
+        <div class="card-name"><span class="L ko">자론바이 GC</span><span class="L ja">座論梅GC</span><span class="L en">Zaronbai GC</span></div>
         <div class="card-name-jp">宮崎座論梅ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"6만원에 이 관리 수준이면 가성비라는 말이 오히려 실례다."</div>
+        <div class="card-mika"><span class="L ko">"6만원에 이 관리 수준이면 가성비라는 말이 오히려 실례다."</span><span class="L ja">"6千円でこの管理水準なら、コスパという言葉がむしろ失礼だ。"</span><span class="L en">"At this conditioning for 6,000 won, 'value' is almost an insult."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2233,7 +2240,7 @@ almost sells it short.</p></div>
 
   <div class="region-block" data-region="chugoku">
     <div class="region-header">
-      <span class="region-name">주고쿠·시코쿠</span>
+      <span class="region-name"><span class="L ko">주고쿠·시코쿠</span><span class="L ja">中国·四国</span><span class="L en">Chugoku/Shikoku</span></span>
       <span class="region-name-jp">中国·四国</span>
       <span class="region-count">19 courses</span>
     </div>
@@ -2244,15 +2251,15 @@ almost sells it short.</p></div>
           <span class="card-no">No. 01</span>
           <span class="card-date">23.09.24</span>
         </div>
-        <div class="card-prefecture">가가와현 다카마쓰</div>
-        <div class="card-name">고토히라 CC</div>
+        <div class="card-prefecture"><span class="L ko">가가와현 다카마쓰</span><span class="L ja">香川県 高松</span><span class="L en">Kagawa, Takamatsu</span></div>
+        <div class="card-name"><span class="L ko">고토히라 CC</span><span class="L ja">琴平CC</span><span class="L en">Kotohira CC</span></div>
         <div class="card-name-jp">琴平カントリー倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"우동 먹으러 갔다가 일본 골프에 빠졌다. 그게 300곳의 골프 시작이었다."</div>
+        <div class="card-mika"><span class="L ko">"우동 먹으러 갔다가 일본 골프에 빠졌다. 그게 300곳의 골프 시작이었다."</span><span class="L ja">"うどんを食べに行って日本ゴルフにハマった。それが300か所巡りの始まりだった。"</span><span class="L en">"Went for udon, fell for Japanese golf. That began the journey of 300 courses."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2313,15 +2320,15 @@ MIKA’s Take: Went for udon. Found Japan golf. That was the start of 300.</p></
           <span class="card-no">No. 02</span>
           <span class="card-date">23.04.13</span>
         </div>
-        <div class="card-prefecture">가가와현 다카마쓰</div>
-        <div class="card-name">시도 CC</div>
+        <div class="card-prefecture"><span class="L ko">가가와현 다카마쓰</span><span class="L ja">香川県 高松</span><span class="L en">Kagawa, Takamatsu</span></div>
+        <div class="card-name"><span class="L ko">시도 CC</span><span class="L ja">志度CC</span><span class="L en">Shido CC</span></div>
         <div class="card-name-jp">志度カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"퍼터를 챙기는 것도 몰랐던 첫 여행. 세토내해가 그 실수를 다 덮어줬다."</div>
+        <div class="card-mika"><span class="L ko">"퍼터를 챙기는 것도 몰랐던 첫 여행. 세토내해가 그 실수를 다 덮어줬다."</span><span class="L ja">"パターを持っていくことも知らなかった初旅。瀬戸内海がその失敗を全て覆った。"</span><span class="L en">"On my first trip I didn't even know to bring a putter. The Seto Sea covered it all."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2392,15 +2399,15 @@ every mistake.</p></div>
           <span class="card-no">No. 03</span>
           <span class="card-date">23.04.14</span>
         </div>
-        <div class="card-prefecture">가가와현 다카마쓰</div>
-        <div class="card-name">사카이데 CC</div>
+        <div class="card-prefecture"><span class="L ko">가가와현 다카마쓰</span><span class="L ja">香川県 高松</span><span class="L en">Kagawa, Takamatsu</span></div>
+        <div class="card-name"><span class="L ko">사카이데 CC</span><span class="L ja">坂出CC</span><span class="L en">Sakaide CC</span></div>
         <div class="card-name-jp">坂出カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"가성비로 시작해서 눈높이가 올라갔다. 순서가 맞았다."</div>
+        <div class="card-mika"><span class="L ko">"가성비로 시작해서 눈높이가 올라갔다. 순서가 맞았다."</span><span class="L ja">"コスパから始まって目が肥えていった。順序は正しかった。"</span><span class="L en">"Began chasing value, my eye grew sharper. The order was right."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2472,15 +2479,15 @@ right order.</p></div>
           <span class="card-no">No. 05</span>
           <span class="card-date">23.08.25</span>
         </div>
-        <div class="card-prefecture">에히메현 마쓰야마</div>
-        <div class="card-name">오즈 골프클럽</div>
+        <div class="card-prefecture"><span class="L ko">에히메현 마쓰야마</span><span class="L ja">愛媛県 松山</span><span class="L en">Ehime, Matsuyama</span></div>
+        <div class="card-name"><span class="L ko">오즈 골프클럽</span><span class="L ja">大洲GC</span><span class="L en">Ozu Golf Club</span></div>
         <div class="card-name-jp">大洲ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"한여름 27홀은 도전이다. 8,200엔은 보상이다. 둘 다 맞다."</div>
+        <div class="card-mika"><span class="L ko">"한여름 27홀은 도전이다. 8,200엔은 보상이다. 둘 다 맞다."</span><span class="L ja">"真夏の27ホールは挑戦だ。8,200円は報酬だ。どちらも正しい。"</span><span class="L en">"27 holes in midsummer is a challenge. 8,200 yen is the reward. Both are true."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2546,15 +2553,15 @@ MIKA’s Take: 27 holes in midsummer is a challenge. 8,200 yen is the reward. Bo
           <span class="card-no">No. 06</span>
           <span class="card-date">23.08.26</span>
         </div>
-        <div class="card-prefecture">에히메현 마쓰야마</div>
-        <div class="card-name">고원 GC</div>
+        <div class="card-prefecture"><span class="L ko">에히메현 마쓰야마</span><span class="L ja">愛媛県 松山</span><span class="L en">Ehime, Matsuyama</span></div>
+        <div class="card-name"><span class="L ko">고원 GC</span><span class="L ja">高原GC</span><span class="L en">Kogen GC</span></div>
         <div class="card-name-jp">高原ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"해발 600미터에서 마음껏 드라이버를 쳤다. 일본 더위를 몰랐던 시절의"</div>
+        <div class="card-mika"><span class="L ko">"해발 600미터에서 마음껏 드라이버를 쳤다. 일본 더위를 몰랐던 시절의"</span><span class="L ja">"標高600mで思い切りドライバーを振った。日本の暑さを知らなかった頃の話だ。"</span><span class="L en">"I swung the driver freely at 600m. Back when I didn't know Japan's heat."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2626,15 +2633,15 @@ understanding Japanese summer heat.</p></div>
           <span class="card-no">No. 07</span>
           <span class="card-date">23.08.27</span>
         </div>
-        <div class="card-prefecture">에히메현 마쓰야마</div>
-        <div class="card-name">마쓰야마 국제 GC</div>
+        <div class="card-prefecture"><span class="L ko">에히메현 마쓰야마</span><span class="L ja">愛媛県 松山</span><span class="L en">Ehime, Matsuyama</span></div>
+        <div class="card-name"><span class="L ko">마쓰야마 국제 GC</span><span class="L ja">松山国際GC</span><span class="L en">Matsuyama Intl GC</span></div>
         <div class="card-name-jp">松山国際ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"9홀만 치려 했다가 18홀을 다 쳤다. 일본에서 이런 행운은 다시 없을 것 같다."</div>
+        <div class="card-mika"><span class="L ko">"9홀만 치려 했다가 18홀을 다 쳤다. 일본에서 이런 행운은 다시 없을 것 같다."</span><span class="L ja">"9ホールだけのつもりが18ホール回った。日本でこんな幸運はもうないだろう。"</span><span class="L en">"Meant to play just 9, ended up with 18. Such luck won't come again in Japan."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2699,15 +2706,15 @@ again.</p></div>
           <span class="card-no">No. 15</span>
           <span class="card-date">24.04.17</span>
         </div>
-        <div class="card-prefecture">야마구치현</div>
-        <div class="card-name">산요 국제 CC</div>
+        <div class="card-prefecture"><span class="L ko">야마구치현</span><span class="L ja">山口県</span><span class="L en">Yamaguchi</span></div>
+        <div class="card-name"><span class="L ko">산요 국제 CC</span><span class="L ja">山陽国際CC</span><span class="L en">Sanyo Intl CC</span></div>
         <div class="card-name-jp">山陽国際カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"지진 알람으로 시작한 아침, 27홀로 마무리했다. 일본 골프는 그런 하루도"</div>
+        <div class="card-mika"><span class="L ko">"지진 알람으로 시작한 아침, 27홀로 마무리했다. 일본 골프는 그런 하루도"</span><span class="L ja">"地震アラームで始まった朝、27ホールで締めた。日本ゴルフはそんな一日もある。"</span><span class="L en">"A morning that began with an earthquake alert, closed with 27 holes. Japan golf has such days."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2774,15 +2781,15 @@ golf has days like that.</p></div>
           <span class="card-no">No. 23</span>
           <span class="card-date">24.09.24</span>
         </div>
-        <div class="card-prefecture">히로시마현</div>
-        <div class="card-name">세토우치 CC</div>
+        <div class="card-prefecture"><span class="L ko">히로시마현</span><span class="L ja">広島県</span><span class="L en">Hiroshima</span></div>
+        <div class="card-name"><span class="L ko">세토우치 CC</span><span class="L ja">瀬戸内GC</span><span class="L en">Setouchi GC</span></div>
         <div class="card-name-jp">瀬戸内ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"세토내해를 바라보며 돈카츠 샌드위치를 먹었다. 입맛이 없었는데도"</div>
+        <div class="card-mika"><span class="L ko">"세토내해를 바라보며 돈카츠 샌드위치를 먹었다. 입맛이 없었는데도"</span><span class="L ja">"瀬戸内海を眺めながらカツサンドを食べた。食欲がなかったのに格別だった。"</span><span class="L en">"Ate a katsu sandwich gazing at the Seto Sea. No appetite, yet it was sublime."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2854,15 +2861,15 @@ Didn’t matter.</p></div>
           <span class="card-no">No. 24</span>
           <span class="card-date">24.09.25</span>
         </div>
-        <div class="card-prefecture">히로시마현</div>
-        <div class="card-name">야치요 CC</div>
+        <div class="card-prefecture"><span class="L ko">히로시마현</span><span class="L ja">広島県</span><span class="L en">Hiroshima</span></div>
+        <div class="card-name"><span class="L ko">야치요 CC</span><span class="L ja">八千代CC</span><span class="L en">Yachiyo CC</span></div>
         <div class="card-name-jp">八千代カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"964,700원으로 4일간 일본 골프 여행이 가능하다. 뷔페 점심이 포함된"</div>
+        <div class="card-mika"><span class="L ko">"964,700원으로 4일간 일본 골프 여행이 가능하다. 뷔페 점심이 포함된"</span><span class="L ja">"964,700ウォンで4日間の日本ゴルフ旅行が叶う。ビュッフェ昼食付きで。"</span><span class="L en">"964,700 won covers a 4-day Japan golf trip. Buffet lunch included."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2925,15 +2932,15 @@ course and the math gets even better.</p></div>
           <span class="card-no">No. 25</span>
           <span class="card-date">24.09.26</span>
         </div>
-        <div class="card-prefecture">히로시마현</div>
-        <div class="card-name">쿠레 CC</div>
+        <div class="card-prefecture"><span class="L ko">히로시마현</span><span class="L ja">広島県</span><span class="L en">Hiroshima</span></div>
+        <div class="card-name"><span class="L ko">쿠레 CC</span><span class="L ja">呉CC</span><span class="L en">Kure CC</span></div>
         <div class="card-name-jp">呉カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"다도해를 내려다보며 티샷을 날린다. 바람이 방향을 바꿔도 기분은 좋다."</div>
+        <div class="card-mika"><span class="L ko">"다도해를 내려다보며 티샷을 날린다. 바람이 방향을 바꿔도 기분은 좋다."</span><span class="L ja">"多島海を見下ろしてティショットを放つ。風が向きを変えても気分はいい。"</span><span class="L en">"Tee off over a sea of islands. Even when the wind shifts, it feels good."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -2997,15 +3004,15 @@ doesn’t.</p></div>
           <span class="card-no">No. 26</span>
           <span class="card-date">24.09.27</span>
         </div>
-        <div class="card-prefecture">히로시마현</div>
-        <div class="card-name">백룡호 CC</div>
+        <div class="card-prefecture"><span class="L ko">히로시마현</span><span class="L ja">広島県</span><span class="L en">Hiroshima</span></div>
+        <div class="card-name"><span class="L ko">백룡호 CC</span><span class="L ja">白竜湖CC</span><span class="L en">Hakuryuko CC</span></div>
         <div class="card-name-jp">白竜湖カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"공항 15분 거리에 호수와 소나무와 아일랜드 그린이 있다. 마지막 날은"</div>
+        <div class="card-mika"><span class="L ko">"공항 15분 거리에 호수와 소나무와 아일랜드 그린이 있다. 마지막 날은"</span><span class="L ja">"空港15分の距離に湖と松とアイランドグリーン。最終日はここだ。"</span><span class="L en">"Lake, pines and an island green, 15 min from the airport. The last day belongs here."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3070,15 +3077,15 @@ how the last day should end.</p></div>
           <span class="card-no">No. 65</span>
           <span class="card-date">26.03.26</span>
         </div>
-        <div class="card-prefecture">돗토리현 요나고</div>
-        <div class="card-name">그린파크 다이센 GC</div>
+        <div class="card-prefecture"><span class="L ko">돗토리현 요나고</span><span class="L ja">鳥取県 米子</span><span class="L en">Tottori, Yonago</span></div>
+        <div class="card-name"><span class="L ko">그린파크 다이센 GC</span><span class="L ja">グリーンパーク大山GC</span><span class="L en">Green Park Daisen GC</span></div>
         <div class="card-name-jp">グリーンパーク大山ゴルフコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"10번 홀에서 다이센이 나타난다. 스코어보다 풍경을 먼저 챙기고"</div>
+        <div class="card-mika"><span class="L ko">"10번 홀에서 다이센이 나타난다. 스코어보다 풍경을 먼저 챙기고"</span><span class="L ja">"10番ホールで大山が現れる。スコアより先に景色を味わうべきだ。"</span><span class="L en">"Mt. Daisen appears at the 10th. Take in the view before the score."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3156,15 +3163,15 @@ photo before you take the shot.</p></div>
           <span class="card-no">No. 66</span>
           <span class="card-date">26.03.27</span>
         </div>
-        <div class="card-prefecture">돗토리현 요나고</div>
-        <div class="card-name">다이센 아크 CC</div>
+        <div class="card-prefecture"><span class="L ko">돗토리현 요나고</span><span class="L ja">鳥取県 米子</span><span class="L en">Tottori, Yonago</span></div>
+        <div class="card-name"><span class="L ko">다이센 아크 CC</span><span class="L ja">大山アークCC</span><span class="L en">Daisen Ark CC</span></div>
         <div class="card-name-jp">大山アークカントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"파3 홀에서 두 클럽을 더 잡을 때 비로소 이 코스를 이해하게 된다."</div>
+        <div class="card-mika"><span class="L ko">"파3 홀에서 두 클럽을 더 잡을 때 비로소 이 코스를 이해하게 된다."</span><span class="L ja">"パー3で2クラブ多く持つとき、ようやくこのコースが分かる。"</span><span class="L en">"Only when you take two extra clubs on the par-3 do you grasp this course."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3239,15 +3246,15 @@ and a clear head are the price of admission.</p></div>
           <span class="card-no">No. 67</span>
           <span class="card-date">26.03.28</span>
         </div>
-        <div class="card-prefecture">돗토리현 요나고</div>
-        <div class="card-name">요나고 GC</div>
+        <div class="card-prefecture"><span class="L ko">돗토리현 요나고</span><span class="L ja">鳥取県 米子</span><span class="L en">Tottori, Yonago</span></div>
+        <div class="card-name"><span class="L ko">요나고 GC</span><span class="L ja">米子GC</span><span class="L en">Yonago GC</span></div>
         <div class="card-name-jp">米子ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"15홀에서 접는 결단이 이 여행의 마지막 버디였다."</div>
+        <div class="card-mika"><span class="L ko">"15홀에서 접는 결단이 이 여행의 마지막 버디였다."</span><span class="L ja">"15ホールで切り上げた決断が、この旅の最後のバーディだった。"</span><span class="L en">"Calling it at 15 holes was the last birdie of the trip."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3325,15 +3332,15 @@ MIKA’s Take: The decision to stop at 15 was the best shot of the trip.</p></di
           <span class="card-no">No. 68</span>
           <span class="card-date">26.05.11</span>
         </div>
-        <div class="card-prefecture">야마구치현 시모노세키</div>
-        <div class="card-name">간몬키쿠가와 GC</div>
+        <div class="card-prefecture"><span class="L ko">야마구치현 시모노세키</span><span class="L ja">山口県 下関</span><span class="L en">Yamaguchi, Shimonoseki</span></div>
+        <div class="card-name"><span class="L ko">간몬키쿠가와 GC</span><span class="L ja">関門菊川GC</span><span class="L en">Kanmon Kikugawa GC</span></div>
         <div class="card-name-jp">関門菊川ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"50분 비행, 9,440엔, 조용한 오후. 복잡하지 않은 첫날이었다."</div>
+        <div class="card-mika"><span class="L ko">"50분 비행, 9,440엔, 조용한 오후. 복잡하지 않은 첫날이었다."</span><span class="L ja">"50分のフライト、9,440円、静かな午後。複雑でない初日だった。"</span><span class="L en">"A 50-min flight, 9,440 yen, a quiet afternoon. An uncomplicated day one."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3416,15 +3423,15 @@ MIKA’s Take: Fifty minutes of flying, 9,440 yen, a quiet afternoon. A clean fi
           <span class="card-no">No. 69</span>
           <span class="card-date">26.05.12</span>
         </div>
-        <div class="card-prefecture">야마구치현 미네</div>
-        <div class="card-name">레이크스완 CC</div>
+        <div class="card-prefecture"><span class="L ko">야마구치현 미네</span><span class="L ja">山口県 美祢</span><span class="L en">Yamaguchi, Mine</span></div>
+        <div class="card-name"><span class="L ko">레이크스완 CC</span><span class="L ja">レイクスワンCC</span><span class="L en">Lake Swan CC</span></div>
         <div class="card-name-jp">レイクスワンカントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"백조는 없었지만 관리는 살아있었다. 이름보다 코스가 낫다."</div>
+        <div class="card-mika"><span class="L ko">"백조는 없었지만 관리는 살아있었다. 이름보다 코스가 낫다."</span><span class="L ja">"白鳥はいなかったが管理は生きていた。名前よりコースが上だ。"</span><span class="L en">"No swans, but the conditioning was alive. The course beats its name."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3513,15 +3520,15 @@ outperforms its name.</p></div>
           <span class="card-no">No. 70</span>
           <span class="card-date">26.05.13</span>
         </div>
-        <div class="card-prefecture">야마구치현 시모노세키</div>
-        <div class="card-name">시모노세키 골든 GC</div>
+        <div class="card-prefecture"><span class="L ko">야마구치현 시모노세키</span><span class="L ja">山口県 下関</span><span class="L en">Yamaguchi, Shimonoseki</span></div>
+        <div class="card-name"><span class="L ko">시모노세키 골든 GC</span><span class="L ja">下関ゴールデンGC</span><span class="L en">Shimonoseki Golden GC</span></div>
         <div class="card-name-jp">下関ゴールデンゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A-</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A-</span></div>
         </div>
-        <div class="card-mika">"잭 니클라우스가 파둔 함정은 아름답다. 빠지는 것도 경험이다."</div>
+        <div class="card-mika"><span class="L ko">"잭 니클라우스가 파둔 함정은 아름답다. 빠지는 것도 경험이다."</span><span class="L ja">"ジャック・ニクラスが掘った罠は美しい。はまるのも経験だ。"</span><span class="L en">"The traps Jack Nicklaus dug are beautiful. Falling in is part of the experience."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3602,15 +3609,15 @@ experience.</p></div>
           <span class="card-no">No. 71</span>
           <span class="card-date">26.05.14</span>
         </div>
-        <div class="card-prefecture">야마구치현 시모노세키</div>
-        <div class="card-name">토요타코 GC</div>
+        <div class="card-prefecture"><span class="L ko">야마구치현 시모노세키</span><span class="L ja">山口県 下関</span><span class="L en">Yamaguchi, Shimonoseki</span></div>
+        <div class="card-name"><span class="L ko">토요타코 GC</span><span class="L ja">豊田湖GC</span><span class="L en">Toyotako GC</span></div>
         <div class="card-name-jp">豊田湖ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"8,700엔에 27홀, 사슴, 폭포, 수련. 거품을 뺀 골프가 이런 것이다."</div>
+        <div class="card-mika"><span class="L ko">"8,700엔에 27홀, 사슴, 폭포, 수련. 거품을 뺀 골프가 이런 것이다."</span><span class="L ja">"8,700円で27ホール、鹿、滝、睡蓮。無駄をそぎ落としたゴルフだ。"</span><span class="L en">"8,700 yen for 27 holes, deer, a waterfall, water lilies. Golf with the excess stripped away."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3692,15 +3699,15 @@ golf looks like without the markup.</p></div>
           <span class="card-no">No. 72</span>
           <span class="card-date">26.05.15</span>
         </div>
-        <div class="card-prefecture">후쿠오카현 미야코군</div>
-        <div class="card-name">미야코 컨트리클럽</div>
+        <div class="card-prefecture"><span class="L ko">후쿠오카현 미야코군</span><span class="L ja">福岡県 京都郡</span><span class="L en">Fukuoka, Miyako</span></div>
+        <div class="card-name"><span class="L ko">미야코 컨트리클럽</span><span class="L ja">京都CC</span><span class="L en">Miyako CC</span></div>
         <div class="card-name-jp">京都カントリー倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"72번째 골프장. 새벽 5시 10분 티오프, 7,300엔, 2홀 스킵. 아직"</div>
+        <div class="card-mika"><span class="L ko">"72번째 골프장. 새벽 5시 10분 티오프, 7,300엔, 2홀 스킵. 아직"</span><span class="L ja">"72か所目のゴルフ場。朝5時10分ティオフ、7,300円、2ホールスキップ。まだ続く。"</span><span class="L en">"The 72nd course. 5:10am tee-off, 7,300 yen, 2 holes skipped. Still going."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3785,7 +3792,7 @@ Googleマップでの評価は3点台後半。数字だけ見れば、ごく平�
 
   <div class="region-block" data-region="kinki">
     <div class="region-header">
-      <span class="region-name">긴키·주부</span>
+      <span class="region-name"><span class="L ko">긴키·주부</span><span class="L ja">近畿·中部</span><span class="L en">Kinki/Chubu</span></span>
       <span class="region-name-jp">近畿·中部</span>
       <span class="region-count">13 courses</span>
     </div>
@@ -3796,15 +3803,15 @@ Googleマップでの評価は3点台後半。数字だけ見れば、ごく平�
           <span class="card-no">No. 42</span>
           <span class="card-date">25.05.13</span>
         </div>
-        <div class="card-prefecture">미에현</div>
-        <div class="card-name">코코파리조트 피닉스 GC</div>
+        <div class="card-prefecture"><span class="L ko">미에현</span><span class="L ja">三重県</span><span class="L en">Mie</span></div>
+        <div class="card-name"><span class="L ko">코코파리조트 피닉스 GC</span><span class="L ja">ココパリゾート三重フェニックス</span><span class="L en">Cocopa Resort Phoenix GC</span></div>
         <div class="card-name-jp">ココパリゾートクラブ三重フェニックスゴルフコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"리조트 골프장은 코스보다 분위기를 파는 곳이다. 기대치를 맞추면 충분히"</div>
+        <div class="card-mika"><span class="L ko">"리조트 골프장은 코스보다 분위기를 파는 곳이다. 기대치를 맞추면 충분히"</span><span class="L ja">"リゾートコースはコースより雰囲気を売る場所だ。期待値を合わせれば十分楽しめる。"</span><span class="L en">"A resort course sells mood over layout. Set your expectations and it delivers."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3887,15 +3894,15 @@ accordingly and there’s plenty to enjoy.</p></div>
           <span class="card-no">No. 43</span>
           <span class="card-date">25.05.14</span>
         </div>
-        <div class="card-prefecture">미에현</div>
-        <div class="card-name">세인트레이크스 GC</div>
+        <div class="card-prefecture"><span class="L ko">미에현</span><span class="L ja">三重県</span><span class="L en">Mie</span></div>
+        <div class="card-name"><span class="L ko">세인트레이크스 GC</span><span class="L ja">セントレイクスGC</span><span class="L en">St. Lakes GC</span></div>
         <div class="card-name-jp">セントレイクスゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"다시 오고 싶은 골프장과 다시 오기 싫은 골프장의 차이는 종이 한 장이다."</div>
+        <div class="card-mika"><span class="L ko">"다시 오고 싶은 골프장과 다시 오기 싫은 골프장의 차이는 종이 한 장이다."</span><span class="L ja">"また来たいコースと二度と来たくないコースの差は紙一重だ。"</span><span class="L en">"The line between a course you'd revisit and one you wouldn't is paper-thin."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -3995,15 +4002,15 @@ see again is thin. St. Lakes lands firmly on the right side.</p></div>
           <span class="card-no">No. 44</span>
           <span class="card-date">25.05.15</span>
         </div>
-        <div class="card-prefecture">미에현</div>
-        <div class="card-name">네무 골프클럽</div>
+        <div class="card-prefecture"><span class="L ko">미에현</span><span class="L ja">三重県</span><span class="L en">Mie</span></div>
+        <div class="card-name"><span class="L ko">네무 골프클럽</span><span class="L ja">ネムGC</span><span class="L en">Nemu Golf Club</span></div>
         <div class="card-name-jp">ネムゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"80대 할아버지가 드라이버 한 번 치고 퍼터로 마무리하는 골프. 그게 틀리지"</div>
+        <div class="card-mika"><span class="L ko">"80대 할아버지가 드라이버 한 번 치고 퍼터로 마무리하는 골프. 그게 틀리지"</span><span class="L ja">"80代のお爺さんがドライバー1本とパターで仕上げるゴルフ。それも間違いではない。"</span><span class="L en">"An 80-something playing with one driver and a putter. That's not wrong either."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4068,15 +4075,15 @@ NEMU GOLF CLUBは平日にもかかわらず、かなりの賑わいを見せて
           <span class="card-no">No. 45</span>
           <span class="card-date">25.05.16</span>
         </div>
-        <div class="card-prefecture">미에현</div>
-        <div class="card-name">엑셀런트GC 이세오토리</div>
+        <div class="card-prefecture"><span class="L ko">미에현</span><span class="L ja">三重県</span><span class="L en">Mie</span></div>
+        <div class="card-name"><span class="L ko">엑셀런트GC 이세오토리</span><span class="L ja">エクセレントGC 伊勢大鳥居</span><span class="L en">Excellent GC Ise-Otorii</span></div>
         <div class="card-name-jp">エクセレントゴルフクラブ 伊勢大鳥居コース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"6만원에 골프와 밥. 일본이 계속 부르는 이유는 단순하다."</div>
+        <div class="card-mika"><span class="L ko">"6만원에 골프와 밥. 일본이 계속 부르는 이유는 단순하다."</span><span class="L ja">"6千円でゴルフと食事。日本が呼び続ける理由は単純だ。"</span><span class="L en">"Golf and a meal for 6,000 won. The reason Japan keeps calling is simple."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4139,15 +4146,15 @@ MIKA’s Take: Golf and lunch for 60,000 won. The reason Japan keeps calling is 
           <span class="card-no">No. 49</span>
           <span class="card-date">25.08.21</span>
         </div>
-        <div class="card-prefecture">효고현</div>
-        <div class="card-name">도조 파인밸리 CC</div>
+        <div class="card-prefecture"><span class="L ko">효고현</span><span class="L ja">兵庫県</span><span class="L en">Hyogo</span></div>
+        <div class="card-name"><span class="L ko">도조 파인밸리 CC</span><span class="L ja">東条パインバレーGC</span><span class="L en">Tojo Pine Valley GC</span></div>
         <div class="card-name-jp">東条パインバレーゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"첫날은 몸을 푸는 날이다. 도조 파인밸리는 그 역할을 5,500엔에 완벽히"</div>
+        <div class="card-mika"><span class="L ko">"첫날은 몸을 푸는 날이다. 도조 파인밸리는 그 역할을 5,500엔에 완벽히"</span><span class="L ja">"初日は体を慣らす日。東条パインバレーはその役を5,500円で完璧にこなす。"</span><span class="L en">"Day one is for easing in. Tojo Pine Valley does that perfectly for 5,500 yen."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4216,15 +4223,15 @@ yen.</p></div>
           <span class="card-no">No. 50</span>
           <span class="card-date">25.08.22</span>
         </div>
-        <div class="card-prefecture">효고현</div>
-        <div class="card-name">다카라즈카 고원 CC</div>
+        <div class="card-prefecture"><span class="L ko">효고현</span><span class="L ja">兵庫県</span><span class="L en">Hyogo</span></div>
+        <div class="card-name"><span class="L ko">다카라즈카 고원 CC</span><span class="L ja">宝塚高原GC</span><span class="L en">Takarazuka Kogen GC</span></div>
         <div class="card-name-jp">宝塚高原ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"60년 된 코스가 한여름에도 푸르다. 상자정원이라는 표현이 과하지 않았다."</div>
+        <div class="card-mika"><span class="L ko">"60년 된 코스가 한여름에도 푸르다. 상자정원이라는 표현이 과하지 않았다."</span><span class="L ja">"60年のコースが真夏でも青い。箱庭という表現が大げさではなかった。"</span><span class="L en">"A 60-year-old course, green even in midsummer. 'A miniature garden' was no exaggeration."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4296,15 +4303,15 @@ description wasn’t an exaggeration.</p></div>
           <span class="card-no">No. 51</span>
           <span class="card-date">25.08.23</span>
         </div>
-        <div class="card-prefecture">효고현</div>
-        <div class="card-name">후지오노 GC</div>
+        <div class="card-prefecture"><span class="L ko">효고현</span><span class="L ja">兵庫県</span><span class="L en">Hyogo</span></div>
+        <div class="card-name"><span class="L ko">후지오노 GC</span><span class="L ja">富士小野GC</span><span class="L en">Fuji Ono GC</span></div>
         <div class="card-name-jp">富士小野ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"아놀드 파머가 설계한 코스에서 땀 흘리고, 노천탕에서 씻어낸다. 이게 여름"</div>
+        <div class="card-mika"><span class="L ko">"아놀드 파머가 설계한 코스에서 땀 흘리고, 노천탕에서 씻어낸다. 이게 여름"</span><span class="L ja">"アーノルド・パーマー設計のコースで汗をかき、露天風呂で流す。これが夏だ。"</span><span class="L en">"Sweat on an Arnold Palmer design, rinse it off in the open-air bath. This is summer."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4380,15 +4387,15 @@ outdoor bath. That’s summer golf completed properly.</p></div>
           <span class="card-no">No. 52</span>
           <span class="card-date">25.08.24</span>
         </div>
-        <div class="card-prefecture">효고현</div>
-        <div class="card-name">니시와키 CC</div>
+        <div class="card-prefecture"><span class="L ko">효고현</span><span class="L ja">兵庫県</span><span class="L en">Hyogo</span></div>
+        <div class="card-name"><span class="L ko">니시와키 CC</span><span class="L ja">西脇CC</span><span class="L en">Nishiwaki CC</span></div>
         <div class="card-name-jp">西脇カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"소나무 숲이 홀을 감싸고, 물이 코스를 지킨다. 마지막 날에 딱 맞는 코스였다."</div>
+        <div class="card-mika"><span class="L ko">"소나무 숲이 홀을 감싸고, 물이 코스를 지킨다. 마지막 날에 딱 맞는 코스였다."</span><span class="L ja">"松林がホールを包み、水がコースを守る。最終日にぴったりのコースだった。"</span><span class="L en">"Pine woods wrap the holes, water guards the course. A perfect course for the final day."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4462,15 +4469,15 @@ for the last day.</p></div>
           <span class="card-no">No. 53</span>
           <span class="card-date">25.09.18</span>
         </div>
-        <div class="card-prefecture">시즈오카현</div>
-        <div class="card-name">고라카단후지 GC</div>
+        <div class="card-prefecture"><span class="L ko">시즈오카현</span><span class="L ja">静岡県</span><span class="L en">Shizuoka</span></div>
+        <div class="card-name"><span class="L ko">고라카단후지 GC</span><span class="L ja">強羅花壇富士GC</span><span class="L en">Gora Kadan Fuji GC</span></div>
         <div class="card-name-jp">GORA KADAN FUJI GOLF</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"후지산이 없어도 충분했다. 있었으면 어땠을지는 다음에 확인한다."</div>
+        <div class="card-mika"><span class="L ko">"후지산이 없어도 충분했다. 있었으면 어땠을지는 다음에 확인한다."</span><span class="L ja">"富士山がなくても十分だった。あればどうだったかは次に確かめる。"</span><span class="L en">"It was enough even without Mt. Fuji. What it'd be with it, I'll check next time."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4536,15 +4543,15 @@ for the next visit.</p></div>
           <span class="card-no">No. 54</span>
           <span class="card-date">25.09.19</span>
         </div>
-        <div class="card-prefecture">시즈오카현</div>
-        <div class="card-name">후지클래식 CC</div>
+        <div class="card-prefecture"><span class="L ko">시즈오카현</span><span class="L ja">静岡県</span><span class="L en">Shizuoka</span></div>
+        <div class="card-name"><span class="L ko">후지클래식 CC</span><span class="L ja">富士クラシック</span><span class="L en">Fuji Classic</span></div>
         <div class="card-name-jp">富士クラシック</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"후지산을 못 봤다. 그래서 한 번 더 와야 한다. 숙제를 남겨두는 골프장도"</div>
+        <div class="card-mika"><span class="L ko">"후지산을 못 봤다. 그래서 한 번 더 와야 한다. 숙제를 남겨두는 골프장도"</span><span class="L ja">"富士山が見えなかった。だからもう一度来なければ。宿題を残すゴルフ場もある。"</span><span class="L en">"Couldn't see Mt. Fuji. So I must return. Some courses leave you homework."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4606,15 +4613,15 @@ courses leave homework.</p></div>
           <span class="card-no">No. 55</span>
           <span class="card-date">25.09.20</span>
         </div>
-        <div class="card-prefecture">시즈오카현</div>
-        <div class="card-name">후지아마기 CC</div>
+        <div class="card-prefecture"><span class="L ko">시즈오카현</span><span class="L ja">静岡県</span><span class="L en">Shizuoka</span></div>
+        <div class="card-name"><span class="L ko">후지아마기 CC</span><span class="L ja">フジ天城GC</span><span class="L en">Fuji Amagi GC</span></div>
         <div class="card-name-jp">フジ天城ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"낡았지만 기본에 충실하다. 골프장도, 사람도, 그게 제일 어렵다."</div>
+        <div class="card-mika"><span class="L ko">"낡았지만 기본에 충실하다. 골프장도, 사람도, 그게 제일 어렵다."</span><span class="L ja">"古いが基本に忠実だ。ゴルフ場も人も、それが一番難しい。"</span><span class="L en">"Old but true to the basics. For courses and people alike, that's the hardest thing."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4683,15 +4690,15 @@ find than it looks.</p></div>
           <span class="card-no">No. 56</span>
           <span class="card-date">25.09.21</span>
         </div>
-        <div class="card-prefecture">시즈오카현</div>
-        <div class="card-name">아사기리잼보리 GC</div>
+        <div class="card-prefecture"><span class="L ko">시즈오카현</span><span class="L ja">静岡県</span><span class="L en">Shizuoka</span></div>
+        <div class="card-name"><span class="L ko">아사기리잼보리 GC</span><span class="L ja">朝霧ジャンボリーGC</span><span class="L en">Asagiri Jamboree GC</span></div>
         <div class="card-name-jp">朝霧ジャンボリーゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B+</span></div>
         </div>
-        <div class="card-mika">"50년이 지났는데 최상이다. 나이는 숫자가 아니라는 걸 골프장이 증명한다."</div>
+        <div class="card-mika"><span class="L ko">"50년이 지났는데 최상이다. 나이는 숫자가 아니라는 걸 골프장이 증명한다."</span><span class="L ja">"50年経ったのに最高だ。年は数字に過ぎないとコースが証明する。"</span><span class="L en">"50 years on and still superb. The course proves age is just a number."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4753,15 +4760,15 @@ MIKA’s Take: Fifty years old and playing at its best. Age is a number. This co
           <span class="card-no">No. 57</span>
           <span class="card-date">25.09.22</span>
         </div>
-        <div class="card-prefecture">시즈오카현</div>
-        <div class="card-name">후지노미야 GC</div>
+        <div class="card-prefecture"><span class="L ko">시즈오카현</span><span class="L ja">静岡県</span><span class="L en">Shizuoka</span></div>
+        <div class="card-name"><span class="L ko">후지노미야 GC</span><span class="L ja">富士宮GC</span><span class="L en">Fujinomiya GC</span></div>
         <div class="card-name-jp">富士宮ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"후지산은 아침에만 얼굴을 보여준다. 일찍 오는 사람에게만 주는 선물이다."</div>
+        <div class="card-mika"><span class="L ko">"후지산은 아침에만 얼굴을 보여준다. 일찍 오는 사람에게만 주는 선물이다."</span><span class="L ja">"富士山は朝にだけ顔を見せる。早く来る者にだけ贈られる贈り物だ。"</span><span class="L en">"Mt. Fuji shows its face only in the morning. A gift only for those who come early."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4818,7 +4825,7 @@ view.</p></div>
 
   <div class="region-block" data-region="kanto">
     <div class="region-header">
-      <span class="region-name">간토</span>
+      <span class="region-name"><span class="L ko">간토</span><span class="L ja">関東</span><span class="L en">Kanto</span></span>
       <span class="region-name-jp">関東</span>
       <span class="region-count">13 courses</span>
     </div>
@@ -4829,15 +4836,15 @@ view.</p></div>
           <span class="card-no">No. 32</span>
           <span class="card-date">25.01.15</span>
         </div>
-        <div class="card-prefecture">이바라키현</div>
-        <div class="card-name">세고비아 GC</div>
+        <div class="card-prefecture"><span class="L ko">이바라키현</span><span class="L ja">茨城県</span><span class="L en">Ibaraki</span></div>
+        <div class="card-name"><span class="L ko">세고비아 GC</span><span class="L ja">セゴビアGC イン チヨダ</span><span class="L en">Segovia GC in Chiyoda</span></div>
         <div class="card-name-jp">セゴビアゴルフクラブ イン チヨダ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"가스파초 아일랜드 그린 앞에서 클럽을 잡는 순간, 이게 골프인지 예술인지"</div>
+        <div class="card-mika"><span class="L ko">"가스파초 아일랜드 그린 앞에서 클럽을 잡는 순간, 이게 골프인지 예술인지"</span><span class="L ja">"巨大なアイランドグリーンの前でクラブを握る瞬間、これはゴルフか芸術か。"</span><span class="L en">"Gripping a club before the huge island green — is this golf or art?"</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -4922,15 +4929,15 @@ whether this is golf or art.</p></div>
           <span class="card-no">No. 33</span>
           <span class="card-date">25.01.16</span>
         </div>
-        <div class="card-prefecture">이바라키현</div>
-        <div class="card-name">치요다 CC</div>
+        <div class="card-prefecture"><span class="L ko">이바라키현</span><span class="L ja">茨城県</span><span class="L en">Ibaraki</span></div>
+        <div class="card-name"><span class="L ko">치요다 CC</span><span class="L ja">千代田CC</span><span class="L en">Chiyoda CC</span></div>
         <div class="card-name-jp">千代田カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"극적인 코스가 아니어도 괜찮다. 레몬차 한 잔이 버디를 만들어주는 날도"</div>
+        <div class="card-mika"><span class="L ko">"극적인 코스가 아니어도 괜찮다. 레몬차 한 잔이 버디를 만들어주는 날도"</span><span class="L ja">"劇的なコースでなくてもいい。レモンティ一杯がバーディを生む日もある。"</span><span class="L en">"It needn't be dramatic. Some days a cup of lemon tea makes the birdie."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5015,15 +5022,15 @@ birdie is enough.</p></div>
           <span class="card-no">No. 34</span>
           <span class="card-date">25.02.18</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">나리타히가시 CC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">나리타히가시 CC</span><span class="L ja">成田東CC</span><span class="L en">Narita Higashi CC</span></div>
         <div class="card-name-jp">成田東カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"코스보다 바람이 더 기억에 남는 날이 있다. 나리타의 2월 오후가 그랬다."</div>
+        <div class="card-mika"><span class="L ko">"코스보다 바람이 더 기억에 남는 날이 있다. 나리타의 2월 오후가 그랬다."</span><span class="L ja">"コースより風の方が記憶に残る日がある。成田の2月の午後がそうだった。"</span><span class="L en">"Some days you remember the wind over the course. A February afternoon in Narita was such."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5084,15 +5091,15 @@ February afternoon was that kind of day.</p></div>
           <span class="card-no">No. 35</span>
           <span class="card-date">25.02.19</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">소세이 GC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">소세이 GC</span><span class="L ja">創成GC</span><span class="L en">Sosei GC</span></div>
         <div class="card-name-jp">創成ゴルフ倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"바람이 없었으면 달랐을 것이다. 그게 변명인지 사실인지는 다음에 다시"</div>
+        <div class="card-mika"><span class="L ko">"바람이 없었으면 달랐을 것이다. 그게 변명인지 사실인지는 다음에 다시"</span><span class="L ja">"風がなければ違っただろう。それが言い訳か事実かは次にまた確かめる。"</span><span class="L en">"Without the wind it'd be different. Excuse or fact, I'll check again next time."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5158,15 +5165,15 @@ excuse or a fact requires a return visit to find out.</p></div>
           <span class="card-no">No. 36</span>
           <span class="card-date">25.02.20</span>
         </div>
-        <div class="card-prefecture">이바라키현</div>
-        <div class="card-name">이시오카 GC</div>
+        <div class="card-prefecture"><span class="L ko">이바라키현</span><span class="L ja">茨城県</span><span class="L en">Ibaraki</span></div>
+        <div class="card-name"><span class="L ko">이시오카 GC</span><span class="L ja">石岡GC</span><span class="L en">Ishioka GC</span></div>
         <div class="card-name-jp">石岡ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"잭 니클라우스가 스스로 최고라고 했다. 코스에 서보면 그 말이 겸손이었는지"</div>
+        <div class="card-mika"><span class="L ko">"잭 니클라우스가 스스로 최고라고 했다. 코스에 서보면 그 말이 겸손이었는지"</span><span class="L ja">"ジャック・ニクラス自ら最高だと言った。立てばその言葉が謙遜だったと分かる。"</span><span class="L en">"Jack Nicklaus called it his best. Stand on it and you'll find that was modesty."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5234,15 +5241,15 @@ whether that was modesty or bragging. Then a bunker answers the question.</p></d
           <span class="card-no">No. 37</span>
           <span class="card-date">25.02.21</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">마리아 골프링크스 GC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">마리아 골프링크스 GC</span><span class="L ja">マリアゴルフリンクス</span><span class="L en">Maria Golf Links</span></div>
         <div class="card-name-jp">マリアゴルフリンクス</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"에바 치고도 기분 좋은 골프장이 있다. 마리아가 그렇다."</div>
+        <div class="card-mika"><span class="L ko">"에바 치고도 기분 좋은 골프장이 있다. 마리아가 그렇다."</span><span class="L ja">"叩いても気分のいいゴルフ場がある。マリアがそうだ。"</span><span class="L en">"Some courses feel good even when you score badly. Maria is one."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5323,15 +5330,15 @@ one of them.</p></div>
           <span class="card-no">No. 38</span>
           <span class="card-date">25.02.22</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">나리타 사쿠라노사토 GC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">나리타 사쿠라노사토 GC</span><span class="L ja">千葉桜の里GC</span><span class="L en">Chiba Sakuranosato GC</span></div>
         <div class="card-name-jp">千葉桜の里ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"벚꽃 필 때 다시 오고 싶다. 단, 평일로."</div>
+        <div class="card-mika"><span class="L ko">"벚꽃 필 때 다시 오고 싶다. 단, 평일로."</span><span class="L ja">"桜の咲く頃にまた来たい。ただし平日に。"</span><span class="L en">"I'd return when the cherry blossoms bloom. On a weekday, though."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5393,15 +5400,15 @@ MIKA’s Take: Worth coming back for the blossoms. On a weekday.</p></div>
           <span class="card-no">No. 39</span>
           <span class="card-date">25.04.18</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">태평양클럽 야치요CC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">태평양클럽 야치요CC</span><span class="L ja">太平洋クラブ 八千代</span><span class="L en">Taiheiyo Club Yachiyo</span></div>
         <div class="card-name-jp">太平洋クラブ 八千代コース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"잔디가 완전히 초록으로 바뀌는 2주 후에 다시 왔으면 어땠을까. 그 생각을"</div>
+        <div class="card-mika"><span class="L ko">"잔디가 완전히 초록으로 바뀌는 2주 후에 다시 왔으면 어땠을까. 그 생각을"</span><span class="L ja">"芝が完全に緑に変わる2週間後に来たらどうだったか。その思いが残る。"</span><span class="L en">"What if I'd come two weeks later, when the turf turned fully green? That thought lingers."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5488,15 +5495,15 @@ through the entire back nine.</p></div>
           <span class="card-no">No. 40</span>
           <span class="card-date">25.04.19</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">이치노미야 CC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">이치노미야 CC</span><span class="L ja">一の宮CC</span><span class="L en">Ichinomiya CC</span></div>
         <div class="card-name-jp">一の宮カントリー倶楽部</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A-</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A-</span></div>
         </div>
-        <div class="card-mika">"겉은 터프해 보이는데 막상 올라서면 편하다. 사람도 골프장도 그런 경우가"</div>
+        <div class="card-mika"><span class="L ko">"겉은 터프해 보이는데 막상 올라서면 편하다. 사람도 골프장도 그런 경우가"</span><span class="L ja">"見た目はタフそうなのに、立つと楽だ。人もコースもそういう場合がある。"</span><span class="L en">"Looks tough, but feels easy once you're on it. People and courses can be like that."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5569,15 +5576,15 @@ MIKA’s Take: Looks tougher than it plays. Some courses are like that. Some peo
           <span class="card-no">No. 41</span>
           <span class="card-date">25.04.20</span>
         </div>
-        <div class="card-prefecture">치바현</div>
-        <div class="card-name">히가시치바 CC</div>
+        <div class="card-prefecture"><span class="L ko">치바현</span><span class="L ja">千葉県</span><span class="L en">Chiba</span></div>
+        <div class="card-name"><span class="L ko">히가시치바 CC</span><span class="L ja">東千葉CC</span><span class="L en">Higashi Chiba CC</span></div>
         <div class="card-name-jp">東千葉カントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">C+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">C+</span></div>
         </div>
-        <div class="card-mika">"3일째 몸이 제일 힘든데 스윙은 제일 좋았다. 골프는 끝까지 알 수 없다."</div>
+        <div class="card-mika"><span class="L ko">"3일째 몸이 제일 힘든데 스윙은 제일 좋았다. 골프는 끝까지 알 수 없다."</span><span class="L ja">"3日目が体は一番きついのにスイングは一番良かった。ゴルフは最後まで分からない。"</span><span class="L en">"Day three was hardest on the body yet my swing was best. Golf is unknowable to the end."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5652,15 +5659,15 @@ trip. Golf never quite makes sense, and that’s the point.</p></div>
           <span class="card-no">No. 46</span>
           <span class="card-date">25.06.12</span>
         </div>
-        <div class="card-prefecture">이바라키현</div>
-        <div class="card-name">이시오카 웨스트 GC</div>
+        <div class="card-prefecture"><span class="L ko">이바라키현</span><span class="L ja">茨城県</span><span class="L en">Ibaraki</span></div>
+        <div class="card-name"><span class="L ko">이시오카 웨스트 GC</span><span class="L ja">石岡ウエストGC</span><span class="L en">Ishioka West GC</span></div>
         <div class="card-name-jp">石岡ウエストゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A+</span></div>
         </div>
-        <div class="card-mika">"첫 일본 골프의 첫인상은 잔디에서 결정된다. 4,990엔이 그 일을 해냈다."</div>
+        <div class="card-mika"><span class="L ko">"첫 일본 골프의 첫인상은 잔디에서 결정된다. 4,990엔이 그 일을 해냈다."</span><span class="L ja">"初の日本ゴルフの第一印象は芝で決まる。4,990円がその仕事をやってのけた。"</span><span class="L en">"A first impression of Japan golf rests on the turf. 4,990 yen pulled it off."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5729,15 +5736,15 @@ MIKA’s Take: A first impression of Japanese golf is made on the turf. 4,990 ye
           <span class="card-no">No. 47</span>
           <span class="card-date">25.06.13</span>
         </div>
-        <div class="card-prefecture">도치기현</div>
-        <div class="card-name">태평양클럽 PGA 마시코</div>
+        <div class="card-prefecture"><span class="L ko">도치기현</span><span class="L ja">栃木県</span><span class="L en">Tochigi</span></div>
+        <div class="card-name"><span class="L ko">태평양클럽 PGA 마시코</span><span class="L ja">太平洋クラブ益子PGA</span><span class="L en">Taiheiyo Club Mashiko PGA</span></div>
         <div class="card-name-jp">太平洋クラブ益子PGAコース</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">A</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">A</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">A</span></div>
         </div>
-        <div class="card-mika">"마시코의 도자기는 장인이 만들고, 이 코스는 PGA가 검증했다. 둘 다"</div>
+        <div class="card-mika"><span class="L ko">"마시코의 도자기는 장인이 만들고, 이 코스는 PGA가 검증했다. 둘 다"</span><span class="L ja">"益子の陶磁器は職人が作り、このコースはPGAが検証した。どちらも本物だ。"</span><span class="L en">"Mashiko's pottery is made by artisans, this course vetted by the PGA. Both are real."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5804,15 +5811,15 @@ PGA. Both are honest about what they are.</p></div>
           <span class="card-no">No. 48</span>
           <span class="card-date">25.06.14</span>
         </div>
-        <div class="card-prefecture">도치기현</div>
-        <div class="card-name">가누마72 CC</div>
+        <div class="card-prefecture"><span class="L ko">도치기현</span><span class="L ja">栃木県</span><span class="L en">Tochigi</span></div>
+        <div class="card-name"><span class="L ko">가누마72 CC</span><span class="L ja">鹿沼72GC</span><span class="L en">Kanuma 72 GC</span></div>
         <div class="card-name-jp">鹿沼72ゴルフクラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">C+</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">C+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"싼 게 비지떡인 날이 있다. 마지막 날은 조금 더 쓰는 게 맞았다."</div>
+        <div class="card-mika"><span class="L ko">"싼 게 비지떡인 날이 있다. 마지막 날은 조금 더 쓰는 게 맞았다."</span><span class="L ja">"安かろう悪かろうの日がある。最終日はもう少し奮発するのが正解だった。"</span><span class="L en">"Some days you get what you pay for. On the last day, spending a bit more was right."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">
@@ -5868,7 +5875,7 @@ choice.</p></div>
 
   <div class="region-block" data-region="hokkaido">
     <div class="region-header">
-      <span class="region-name">홋카이도</span>
+      <span class="region-name"><span class="L ko">홋카이도</span><span class="L ja">北海道</span><span class="L en">Hokkaido</span></span>
       <span class="region-name-jp">北海道</span>
       <span class="region-count">1 courses</span>
     </div>
@@ -5879,15 +5886,15 @@ choice.</p></div>
           <span class="card-no">No. 04</span>
           <span class="card-date">23.06.01</span>
         </div>
-        <div class="card-prefecture">홋카이도</div>
-        <div class="card-name">루스츠 CC</div>
+        <div class="card-prefecture"><span class="L ko">홋카이도</span><span class="L ja">北海道</span><span class="L en">Hokkaido</span></div>
+        <div class="card-name"><span class="L ko">루스츠 CC</span><span class="L ja">ルスツCC</span><span class="L en">Rusutsu CC</span></div>
         <div class="card-name-jp">ルスツカントリークラブ</div>
         <div class="card-ratings">
-          <div class="rating-item"><span class="rating-label">코스</span><span class="rating-value">B</span></div>
-          <div class="rating-item"><span class="rating-label">관리</span><span class="rating-value">B+</span></div>
-          <div class="rating-item"><span class="rating-label">가성비</span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">코스</span><span class="L ja">コース</span><span class="L en">Course</span></span><span class="rating-value">B</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">관리</span><span class="L ja">管理</span><span class="L en">Cond.</span></span><span class="rating-value">B+</span></div>
+          <div class="rating-item"><span class="rating-label"><span class="L ko">가성비</span><span class="L ja">コスパ</span><span class="L en">Value</span></span><span class="rating-value">B</span></div>
         </div>
-        <div class="card-mika">"리조트는 편하다. 그게 나한테는 단점이었다."</div>
+        <div class="card-mika"><span class="L ko">"리조트는 편하다. 그게 나한테는 단점이었다."</span><span class="L ja">"リゾートは楽だ。それが私には欠点だった。"</span><span class="L en">"A resort is comfortable. For me, that was the flaw."</span></div>
         <span class="card-expand-icon">↓</span>
         <div class="card-expanded">
           <div class="lang-tabs">

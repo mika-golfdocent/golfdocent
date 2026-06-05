@@ -158,6 +158,40 @@
   body[data-lang="ja"] .section-text { font-family: 'Noto Serif JP', serif; }
 
   /* JOURNEY GRID */
+  .korea-note { margin-top: 36px; }
+  .korea-lead {
+    font-size: 12px; letter-spacing: 0.12em; color: var(--red);
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .korea-list { margin-top: 16px; }
+  .korea-toggle {
+    width: 100%; text-align: left; cursor: pointer;
+    background: var(--paper); border: 1px solid var(--rule-dark);
+    padding: 12px 16px; font-size: 13px; color: var(--ink);
+    font-family: inherit; letter-spacing: 0.04em;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .korea-arrow { color: var(--red); transition: transform 0.25s; }
+  .korea-list.open .korea-arrow { transform: rotate(180deg); }
+  .korea-panel {
+    display: none; border: 1px solid var(--rule-dark); border-top: none;
+    padding: 8px 16px 16px; background: var(--paper);
+  }
+  .korea-list.open .korea-panel { display: block; }
+  .korea-grp { margin-top: 16px; }
+  .korea-grp-head {
+    font-size: 12px; color: var(--ink); letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin-bottom: 8px;
+  }
+  .korea-grp-n {
+    color: var(--red); font-family: 'IM Fell English', serif; margin-left: 4px;
+  }
+  .korea-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .korea-chip {
+    font-size: 11px; color: var(--ink-soft);
+    background: var(--paper-2); border: 1px solid var(--rule);
+    padding: 3px 9px; border-radius: 2px; white-space: nowrap;
+  }
   .journey-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -327,6 +361,201 @@
 2005년부터 한국 골프장을 다녔습니다. 154곳. 30번 이상 찾은 곳도 있고, 한 번으로 충분했던 곳도 있습니다. 그중 가장 기억에 남는 코스는 마리아골프클럽입니다. 설계가 상당히 사악하다 싶을 정도였는데, 묘하게 다시 가고 싶어지는 코스였습니다. 도전 정신을 불러일으키는 곳이었습니다.
 
 구글맵에 코스 감상을 남기기 시작한 것은 일본 골프 여행을 본격화하면서부터입니다. 2년째 오직 일본 코스에 대한 감상만 쌓아 올렸고, 어느덧 레벨 8의 리뷰어가 되었습니다. 제가 걸어온 길을 묵묵히 기록하는 데 이보다 좋은 공간은 없었습니다.</p><p class="section-text L ja">「MIKA」は、私の洗礼名ミカエルに由来します。自由に働くフリーランサーであり、妻と子を持つごく普通の父親でもあります。休日になればゴルフバッグを担いで日本行きの飛行機に乗ることは、今や我が家にとって自然な日常になりました。<br><br>2005年から韓国のゴルフ場を巡り、154か所。30回以上訪れた所もあれば、一度で十分だった所もあります。中でも最も記憶に残るのはマリアゴルフクラブです。設計がサディスティックと思えるほどでしたが、不思議とまた行きたくなるコースでした。挑戦心をかき立てる場所でした。<br><br>Googleマップにコースの感想を残し始めたのは、日本のゴルフ場巡りを本格化させてからです。2年間ひたすら日本のコースの感想だけを積み重ね、いつしかレベル8のレビュアーになりました。自分の歩んできた道を黙々と記録するのに、これ以上の場所はありませんでした。</p><p class="section-text L en">"MIKA" comes from my baptismal name, Michael. I am a freelancer who works on my own terms, and an ordinary family man with a wife and child. Packing my golf bag and boarding a plane to Japan on holidays has become a natural part of our family life. I played Korean courses from 2005 — 154 of them. Some I visited more than thirty times; others were enough just once. The most memorable was Maria Golf Club. Its design felt almost wickedly difficult, yet strangely it made me want to return. It stirred my competitive spirit. I began leaving course impressions on Google Maps once my Japan golf travels began in earnest. For two years I have built up impressions of Japanese courses alone, and somewhere along the way became a Level 8 reviewer. There was no better place to quietly record the path I have walked.</p>
+    <div class="korea-note">
+      <p class="korea-lead"><span class="L ko">일본으로 건너오기 전, 한국에서의 기록</span><span class="L ja">日本へ渡る前、韓国での記録</span><span class="L en">Before crossing to Japan — the record in Korea</span></p>
+      <div class="journey-grid">
+        <div class="journey-item"><div class="journey-year">154</div><div class="journey-desc"><span class="L ko">2005년부터 완주한<br>한국 골프장<br>(30회 이상 찾은 곳도)</span><span class="L ja">2005年から巡った<br>韓国のゴルフ場<br>(30回以上通った所も)</span><span class="L en">Korean courses played<br>since 2005<br>(some 30+ times)</span></div></div>
+        <div class="journey-item"><div class="journey-year">BEST</div><div class="journey-desc"><span class="L ko">가장 기억에 남는 코스<br>마리아 골프클럽<br>사악하지만 또 가고 싶은</span><span class="L ja">最も記憶に残るコース<br>マリアゴルフクラブ<br>サディスティックでも また行きたい</span><span class="L en">Most memorable course<br>Maria Golf Club<br>cruel, yet you return</span></div></div>
+        <div class="journey-item" style="background:var(--paper-2)"><div class="journey-year" style="color:var(--rule-dark)">→</div><div class="journey-desc"><span class="L ko">국내를 마치고<br>일본으로 무대를 옮기다<br>300곳을 향해</span><span class="L ja">国内を巡り終え<br>日本へ舞台を移す<br>300か所を目指して</span><span class="L en">Done at home,<br>the stage moves to Japan<br>toward 300</span></div></div>
+      </div>
+    <div class="korea-list">
+      <button class="korea-toggle" onclick="toggleKoreaList(this)">
+        <span class="L ko">한국 골프장 154곳 전체 목록 보기</span><span class="L ja">韓国ゴルフ場 154か所 全リストを見る</span><span class="L en">View all 154 Korean courses</span>
+        <span class="korea-arrow">▾</span>
+      </button>
+      <div class="korea-panel">
+        <div class="korea-grp">
+          <div class="korea-grp-head"><span class="L ko">30회 초과 방문</span><span class="L ja">30回超 訪問</span><span class="L en">Visited 30+ times</span> <span class="korea-grp-n">4</span></div>
+          <div class="korea-chips">
+            <span class="korea-chip">88</span>
+            <span class="korea-chip">뉴서울</span>
+            <span class="korea-chip">레이크사이드</span>
+            <span class="korea-chip">비전힐스</span>
+          </div>
+        </div>
+        <div class="korea-grp">
+          <div class="korea-grp-head"><span class="L ko">10회 초과~30회 방문</span><span class="L ja">10〜30回 訪問</span><span class="L en">Visited 10–30 times</span> <span class="korea-grp-n">23</span></div>
+          <div class="korea-chips">
+            <span class="korea-chip">360도</span>
+            <span class="korea-chip">가평베네스트</span>
+            <span class="korea-chip">골드</span>
+            <span class="korea-chip">글렌로스</span>
+            <span class="korea-chip">금강</span>
+            <span class="korea-chip">남서울</span>
+            <span class="korea-chip">렉스필드</span>
+            <span class="korea-chip">벨라스톤</span>
+            <span class="korea-chip">블랙스톤</span>
+            <span class="korea-chip">블루헤런</span>
+            <span class="korea-chip">세라지오</span>
+            <span class="korea-chip">수원</span>
+            <span class="korea-chip">신라</span>
+            <span class="korea-chip">신원</span>
+            <span class="korea-chip">은화삼</span>
+            <span class="korea-chip">중부</span>
+            <span class="korea-chip">청평마이다스</span>
+            <span class="korea-chip">코리아</span>
+            <span class="korea-chip">태광</span>
+            <span class="korea-chip">파가니카</span>
+            <span class="korea-chip">프리스틴밸리</span>
+            <span class="korea-chip">한성</span>
+            <span class="korea-chip">화산</span>
+          </div>
+        </div>
+        <div class="korea-grp">
+          <div class="korea-grp-head"><span class="L ko">5회~10회 방문</span><span class="L ja">5〜10回 訪問</span><span class="L en">Visited 5–10 times</span> <span class="korea-grp-n">25</span></div>
+          <div class="korea-chips">
+            <span class="korea-chip">금강센테리움</span>
+            <span class="korea-chip">기흥</span>
+            <span class="korea-chip">남춘천</span>
+            <span class="korea-chip">라데나</span>
+            <span class="korea-chip">라비에벨 올드</span>
+            <span class="korea-chip">마에스트로</span>
+            <span class="korea-chip">베어즈베스트</span>
+            <span class="korea-chip">비에이비스타</span>
+            <span class="korea-chip">세현</span>
+            <span class="korea-chip">솔모로</span>
+            <span class="korea-chip">송추</span>
+            <span class="korea-chip">스카이밸리</span>
+            <span class="korea-chip">써닝포인트</span>
+            <span class="korea-chip">아시아나</span>
+            <span class="korea-chip">안성베네스트</span>
+            <span class="korea-chip">안양</span>
+            <span class="korea-chip">양평TPC</span>
+            <span class="korea-chip">윈체스트안성</span>
+            <span class="korea-chip">우정힐스</span>
+            <span class="korea-chip">이포</span>
+            <span class="korea-chip">일동레이크</span>
+            <span class="korea-chip">클럽모우</span>
+            <span class="korea-chip">킹스데일</span>
+            <span class="korea-chip">페럼클럽</span>
+            <span class="korea-chip">휘닉스스프링스</span>
+          </div>
+        </div>
+        <div class="korea-grp">
+          <div class="korea-grp-head"><span class="L ko">2회~4회 방문</span><span class="L ja">2〜4回 訪問</span><span class="L en">Visited 2–4 times</span> <span class="korea-grp-n">52</span></div>
+          <div class="korea-chips">
+            <span class="korea-chip">골든베이</span>
+            <span class="korea-chip">골든비치(현 설해원)</span>
+            <span class="korea-chip">골프존H</span>
+            <span class="korea-chip">골프존Q</span>
+            <span class="korea-chip">동촌</span>
+            <span class="korea-chip">라비에벨 듄스</span>
+            <span class="korea-chip">라싸</span>
+            <span class="korea-chip">레이크우드</span>
+            <span class="korea-chip">레이크힐스</span>
+            <span class="korea-chip">레인보우힐스</span>
+            <span class="korea-chip">로드힐스</span>
+            <span class="korea-chip">마론뉴데이</span>
+            <span class="korea-chip">베어크리크춘천</span>
+            <span class="korea-chip">베어크리크포천</span>
+            <span class="korea-chip">블루원용인</span>
+            <span class="korea-chip">비발디파크</span>
+            <span class="korea-chip">쌍떼힐(현 스타CC)</span>
+            <span class="korea-chip">샤인데일</span>
+            <span class="korea-chip">세인트포</span>
+            <span class="korea-chip">스카이72</span>
+            <span class="korea-chip">아난티서울</span>
+            <span class="korea-chip">아도니스</span>
+            <span class="korea-chip">아리지</span>
+            <span class="korea-chip">알펜시아</span>
+            <span class="korea-chip">양주</span>
+            <span class="korea-chip">양지파인</span>
+            <span class="korea-chip">엘리시안강촌</span>
+            <span class="korea-chip">웰링턴</span>
+            <span class="korea-chip">이글몬트</span>
+            <span class="korea-chip">이븐데일</span>
+            <span class="korea-chip">이천마이다스</span>
+            <span class="korea-chip">이천실크밸리</span>
+            <span class="korea-chip">임패리얼레이크</span>
+            <span class="korea-chip">자유</span>
+            <span class="korea-chip">젠스필드</span>
+            <span class="korea-chip">지산</span>
+            <span class="korea-chip">진양밸리</span>
+            <span class="korea-chip">진천에머슨</span>
+            <span class="korea-chip">천룡</span>
+            <span class="korea-chip">캐슬파인</span>
+            <span class="korea-chip">큐로경기</span>
+            <span class="korea-chip">크리스탈밸리</span>
+            <span class="korea-chip">크리스탈카운티</span>
+            <span class="korea-chip">푸른솔</span>
+            <span class="korea-chip">플라자용인</span>
+            <span class="korea-chip">플레이어스</span>
+            <span class="korea-chip">해비치남양주</span>
+            <span class="korea-chip">해솔리아</span>
+            <span class="korea-chip">화성상록</span>
+            <span class="korea-chip">휘슬링락</span>
+            <span class="korea-chip">힐드로사이</span>
+            <span class="korea-chip">힐마루</span>
+          </div>
+        </div>
+        <div class="korea-grp">
+          <div class="korea-grp-head"><span class="L ko">1회 방문</span><span class="L ja">1回 訪問</span><span class="L en">Visited once</span> <span class="korea-grp-n">50</span></div>
+          <div class="korea-chips">
+            <span class="korea-chip">감곡</span>
+            <span class="korea-chip">강남300</span>
+            <span class="korea-chip">골프존W</span>
+            <span class="korea-chip">남부</span>
+            <span class="korea-chip">남양주</span>
+            <span class="korea-chip">남여주</span>
+            <span class="korea-chip">남촌</span>
+            <span class="korea-chip">뉴스프링빌</span>
+            <span class="korea-chip">뉴코리아</span>
+            <span class="korea-chip">덕평힐뷰</span>
+            <span class="korea-chip">동원썬밸리</span>
+            <span class="korea-chip">더스타휴</span>
+            <span class="korea-chip">더크로스비</span>
+            <span class="korea-chip">드림파크</span>
+            <span class="korea-chip">로얄포레</span>
+            <span class="korea-chip">리베라</span>
+            <span class="korea-chip">리앤리</span>
+            <span class="korea-chip">몽베르</span>
+            <span class="korea-chip">버드우드</span>
+            <span class="korea-chip">버치힐</span>
+            <span class="korea-chip">샴발라</span>
+            <span class="korea-chip">서원힐스</span>
+            <span class="korea-chip">센추리21</span>
+            <span class="korea-chip">소노펠리체</span>
+            <span class="korea-chip">솔라고</span>
+            <span class="korea-chip">솔트베이</span>
+            <span class="korea-chip">시그너스</span>
+            <span class="korea-chip">신안</span>
+            <span class="korea-chip">안성</span>
+            <span class="korea-chip">안성아덴힐</span>
+            <span class="korea-chip">엘리시안제주</span>
+            <span class="korea-chip">여주</span>
+            <span class="korea-chip">오너스</span>
+            <span class="korea-chip">오크밸리</span>
+            <span class="korea-chip">오크힐스</span>
+            <span class="korea-chip">용인</span>
+            <span class="korea-chip">용평</span>
+            <span class="korea-chip">웰리힐리</span>
+            <span class="korea-chip">이스트밸리</span>
+            <span class="korea-chip">임패리얼레이크</span>
+            <span class="korea-chip">잭니콜라우스</span>
+            <span class="korea-chip">제이드팰리스</span>
+            <span class="korea-chip">캐슬렉스</span>
+            <span class="korea-chip">코스카</span>
+            <span class="korea-chip">파인크리크</span>
+            <span class="korea-chip">포천힐스</span>
+            <span class="korea-chip">플라자설악</span>
+            <span class="korea-chip">한원</span>
+            <span class="korea-chip">휘닉스파크</span>
+            <span class="korea-chip">히든밸리</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
 
   <!-- 섹션 3: 왜 일본 골프인가 -->
@@ -430,6 +659,10 @@
   }
 
   // ── 페이지 언어 적용 (nav, 버튼, 본문) ──
+  function toggleKoreaList(btn){
+    var wrap = btn.closest('.korea-list');
+    if (wrap) wrap.classList.toggle('open');
+  }
   function setLang(lang) {
     localStorage.setItem('mika-lang', lang);
     document.body.setAttribute('data-lang', lang);

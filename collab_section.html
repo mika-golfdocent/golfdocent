@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>協業のご案内 — golfdocent.com</title>
+<!--
+  ============================================================
+  MIKA / golfdocent.com  協業・お問い合わせ セクション
+  ------------------------------------------------------------
+  ・公開用（数字は載せない＝交渉カードは温存）
+  ・「どんな協業が可能か」＋「連絡先」だけのインバウンドの入口
+  ・既存サイトに section 単位で貼り付け可能
+  ・3言語切り替え（JA / KO / EN）は data-lang で制御
+  ============================================================
+-->
+<style>
+  :root{
+    --ink:#16130f; --ink-soft:#2b2620;
+    --gold:#b8924a; --gold-bright:#d4ab5e;
+    --paper:#f4efe6; --paper-dim:#e7dfd0;
+    --line:rgba(184,146,74,0.30);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);}
+  .collab{
+    font-family:"Noto Serif JP",serif;
+    background:
+      radial-gradient(circle at 80% 15%, rgba(184,146,74,0.14), transparent 45%),
+      linear-gradient(165deg,var(--ink) 0%, var(--ink-soft) 100%);
+    color:var(--paper);
+    padding:110px 8vw 120px;
+  }
+  .collab-inner{max-width:1000px;margin:0 auto;}
+  .lang-switch{display:flex;gap:18px;justify-content:flex-end;margin-bottom:48px;
+    font-size:12px;letter-spacing:0.2em;}
+  .lang-switch button{
+    background:none;border:none;color:rgba(244,239,230,0.45);
+    cursor:pointer;font-family:inherit;letter-spacing:0.2em;padding:4px 2px;
+    border-bottom:1px solid transparent;transition:0.25s;}
+  .lang-switch button.active{color:var(--gold-bright);border-bottom-color:var(--gold);}
+  .eyebrow{font-size:13px;letter-spacing:0.42em;color:var(--gold-bright);
+    margin-bottom:26px;text-transform:uppercase;}
+  .collab h2{font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.45;
+    letter-spacing:0.01em;margin-bottom:30px;}
+  .collab h2 .accent{color:var(--gold-bright);}
+  .collab .lead{font-size:clamp(15px,1.6vw,18px);line-height:2.05;
+    color:rgba(244,239,230,0.8);max-width:680px;margin-bottom:64px;}
+  .rule{width:64px;height:1px;background:var(--gold);margin:0 0 64px;opacity:0.7;}
+
+  .offers{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-bottom:72px;}
+  .offer{background:linear-gradient(165deg,var(--ink) 0%,var(--ink-soft) 100%);
+    padding:38px 34px;}
+  .offer .n{font-size:12px;letter-spacing:0.3em;color:var(--gold);margin-bottom:14px;}
+  .offer .h{font-size:19px;font-weight:700;margin-bottom:12px;}
+  .offer .b{font-size:14.5px;line-height:1.95;color:rgba(244,239,230,0.72);}
+
+  .contact-box{display:flex;flex-wrap:wrap;justify-content:space-between;
+    align-items:flex-end;gap:40px;border-top:1px solid var(--line);padding-top:48px;}
+  .contact-msg{max-width:520px;}
+  .contact-msg .h{font-size:22px;font-weight:700;margin-bottom:16px;line-height:1.5;}
+  .contact-msg .h .accent{color:var(--gold-bright);}
+  .contact-msg .b{font-size:14.5px;line-height:1.95;color:rgba(244,239,230,0.72);}
+  .contact-cta a{display:inline-block;font-size:15px;letter-spacing:0.18em;
+    color:var(--ink);background:var(--gold-bright);text-decoration:none;
+    padding:16px 38px;font-weight:700;transition:0.25s;}
+  .contact-cta a:hover{background:var(--paper);}
+  .channels{margin-top:44px;font-size:13px;letter-spacing:0.12em;
+    color:rgba(244,239,230,0.55);line-height:2.2;}
+  .channels .lbl{color:var(--gold-bright);display:inline-block;min-width:96px;}
+
+  @media(max-width:680px){
+    .offers{grid-template-columns:1fr;}
+    .collab{padding:80px 7vw 90px;}
+  }
+  [data-show="false"]{display:none;}
+</style>
+</head>
+<body>
+<section class="collab">
+  <div class="collab-inner">
+    <div class="lang-switch">
+      <button data-set="ja" class="active">日本語</button>
+      <button data-set="ko">한국어</button>
+      <button data-set="en">EN</button>
+    </div>
+
+    <!-- JA -->
+    <div data-lang="ja">
+      <div class="eyebrow">Collaboration</div>
+      <h2>日本のコースの物語を、<br><span class="accent">共に届けませんか。</span></h2>
+      <p class="lead">golfdocent.com は、20年以上クラブと共に日本各地のコースを巡ってきたドーセントが、日本と韓国のゴルファーへコースの本当の魅力を伝えるメディアです。広告枠ではなく「文脈」として、貴社の価値を自然な形でお届けします。</p>
+      <div class="rule"></div>
+      <div class="offers">
+        <div class="offer"><div class="n">01</div><div class="h">コース紹介・取材</div><div class="b">ゴルフ場の魅力をドーセントの視点で深く掘り下げ、多言語で発信します。</div></div>
+        <div class="offer"><div class="n">02</div><div class="h">ゴルフツアー連携</div><div class="b">コース紹介と予約・ツアープランを自然に接続し、インバウンド送客につなげます。</div></div>
+        <div class="offer"><div class="n">03</div><div class="h">地域・観光プロモーション</div><div class="b">自治体・観光機関と連携し、地方コースと地域を一体で発信します。</div></div>
+        <div class="offer"><div class="n">04</div><div class="h">プラットフォーム連携</div><div class="b">予約プラットフォームの日本コース・キュレーターとして送客を担います。</div></div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-msg">
+          <div class="h">まずは、お気軽に<span class="accent">ご相談ください。</span></div>
+          <div class="b">貴社のご要望に応じた詳細なご提案資料（メディアキット）を個別にご用意いたします。</div>
+          <div class="channels">
+            <div><span class="lbl">E-mail</span>[ メールアドレス ]</div>
+            <div><span class="lbl">Instagram</span>[ @アカウント ]</div>
+          </div>
+        </div>
+        <div class="contact-cta"><a href="mailto:[メールアドレス]">お問い合わせ</a></div>
+      </div>
+    </div>
+
+    <!-- KO -->
+    <div data-lang="ko" data-show="false">
+      <div class="eyebrow">Collaboration</div>
+      <h2>일본 골프장의 이야기를,<br><span class="accent">함께 전하지 않겠습니까.</span></h2>
+      <p class="lead">golfdocent.com은 20년 넘게 골프채와 함께 일본 전역의 코스를 직접 다녀온 도슨트가, 일본과 한국의 골퍼에게 코스의 진짜 매력을 전하는 미디어입니다. 광고 지면이 아니라 '맥락' 속에서, 귀사의 가치를 자연스럽게 전달합니다.</p>
+      <div class="rule"></div>
+      <div class="offers">
+        <div class="offer"><div class="n">01</div><div class="h">코스 소개·취재</div><div class="b">골프장의 매력을 도슨트의 시선으로 깊이 풀어내어 다국어로 발신합니다.</div></div>
+        <div class="offer"><div class="n">02</div><div class="h">골프 투어 연계</div><div class="b">코스 소개와 예약·투어 플랜을 자연스럽게 연결해 인바운드 송객으로 이어갑니다.</div></div>
+        <div class="offer"><div class="n">03</div><div class="h">지역·관광 프로모션</div><div class="b">지자체·관광 기관과 연계해 지방 코스와 지역을 함께 발신합니다.</div></div>
+        <div class="offer"><div class="n">04</div><div class="h">플랫폼 연계</div><div class="b">예약 플랫폼의 일본 코스 큐레이터로서 송객을 담당합니다.</div></div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-msg">
+          <div class="h">우선, 편하게 <span class="accent">상담 주세요.</span></div>
+          <div class="b">귀사 요청에 맞춘 상세 제안 자료(미디어킷)를 개별로 준비해 드립니다.</div>
+          <div class="channels">
+            <div><span class="lbl">E-mail</span>[ 메일 주소 ]</div>
+            <div><span class="lbl">Instagram</span>[ @계정 ]</div>
+          </div>
+        </div>
+        <div class="contact-cta"><a href="mailto:[메일주소]">문의하기</a></div>
+      </div>
+    </div>
+
+    <!-- EN -->
+    <div data-lang="en" data-show="false">
+      <div class="eyebrow">Collaboration</div>
+      <h2>Let's tell the story of<br>Japan's courses, <span class="accent">together.</span></h2>
+      <p class="lead">golfdocent.com is a media platform by a docent who has walked Japan's golf courses for over 20 years, sharing their true character with golfers in both Japan and Korea. We offer not ad space, but context — carrying your brand's value in a way that feels natural.</p>
+      <div class="rule"></div>
+      <div class="offers">
+        <div class="offer"><div class="n">01</div><div class="h">Course Features</div><div class="b">In-depth course storytelling from a docent's perspective, delivered in three languages.</div></div>
+        <div class="offer"><div class="n">02</div><div class="h">Golf Tour Tie-ins</div><div class="b">Connecting course features with booking and tour plans to drive inbound visitors.</div></div>
+        <div class="offer"><div class="n">03</div><div class="h">Regional Promotion</div><div class="b">Partnering with municipalities and tourism bodies to showcase regional courses.</div></div>
+        <div class="offer"><div class="n">04</div><div class="h">Platform Partnership</div><div class="b">Serving as a Japan-course curator for booking platforms to channel visitors.</div></div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-msg">
+          <div class="h">Let's start <span class="accent">a conversation.</span></div>
+          <div class="b">A detailed proposal (media kit) tailored to your needs is available on request.</div>
+          <div class="channels">
+            <div><span class="lbl">E-mail</span>[ email address ]</div>
+            <div><span class="lbl">Instagram</span>[ @handle ]</div>
+          </div>
+        </div>
+        <div class="contact-cta"><a href="mailto:[email]">Get in touch</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const btns=document.querySelectorAll('.lang-switch button');
+  const blocks=document.querySelectorAll('[data-lang]');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    const set=b.dataset.set;
+    btns.forEach(x=>x.classList.toggle('active',x===b));
+    blocks.forEach(bl=>bl.dataset.show=(bl.dataset.lang===set));
+  }));
+</script>
+</body>
+</html>

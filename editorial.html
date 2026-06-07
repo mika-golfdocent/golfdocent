@@ -321,6 +321,15 @@
     .article-title { font-size: 16px; }
     .article-text { font-size: 14px; line-height: 1.9; }
   }
+
+  .article-item { position: relative; }
+  .article-item .new-badge { display: none; }
+  .article-item[data-new="1"] .new-badge {
+    display: inline-block; vertical-align: middle; margin-left: 8px;
+    background: var(--red, #8b2020); color: #fff;
+    font-family: 'IM Fell English', serif; font-size: 10px;
+    letter-spacing: 0.1em; padding: 2px 7px; border-radius: 2px;
+  }
 </style>
 <script>
   // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
@@ -402,7 +411,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 01" data-ja="マクロ経済の遺産 · 01" data-en="Legacy of Macro Economics · 01">거시경제의 유산 · 01</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 01" data-ja="マクロ経済の遺産 · 01" data-en="Legacy of Macro Economics · 01">거시경제의 유산 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="10억 회원권이 휴지조각으로? 도쿄 명문 골프장의 민낯과 한국 골프장의 미래" data-ja="1億円の会員権が紙切れに？東京近郊の名門ゴルフ場の素顔と韓国ゴルフ業界の未来" data-en="A Billion-Won Membership Turned to Paper? The Bare Face of Tokyo's Prestige Courses and Korea's Future">10억 회원권이 휴지조각으로? 도쿄 명문 골프장의 민낯과 한국 골프장의 미래</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -421,7 +430,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 02" data-ja="マクロ経済の遺産 · 02" data-en="Legacy of Macro Economics · 02">거시경제의 유산 · 02</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 02" data-ja="マクロ経済の遺産 · 02" data-en="Legacy of Macro Economics · 02">거시경제의 유산 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="무인 카운터에 노캐디가 기본, 한국이 곧 따라갈 일본 골프장의 짠내 나는 현실" data-ja="無人フロントにノーキャディ。韓国がやがて追随する日本ゴルフ場の「世知辛い」現実" data-en="Unmanned Counters and No-Caddy as Standard: Japan's Frugal Reality Korea Will Soon Follow">무인 카운터에 노캐디가 기본, 한국이 곧 따라갈 일본 골프장의 짠내 나는 현실</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -440,7 +449,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 03" data-ja="マクロ経済の遺産 · 03" data-en="Legacy of Macro Economics · 03">거시경제의 유산 · 03</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 03" data-ja="マクロ経済の遺産 · 03" data-en="Legacy of Macro Economics · 03">거시경제의 유산 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="키오스크 놔둔 골프장, 기계값 본전 뽑는데 얼마나 걸릴까 (ft. 기묘한 아날로그)" data-ja="無人精算機を導入したゴルフ場、機械代の元を取るのにどれだけかかるか？ ——ハイテクとアナログの奇妙な同居" data-en="Courses With Kiosks: How Long to Recoup the Machine? (ft. a Curious Analog)">키오스크 놔둔 골프장, 기계값 본전 뽑는데 얼마나 걸릴까 (ft. 기묘한 아날로그)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -459,7 +468,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 04" data-ja="マクロ経済の遺産 · 04" data-en="Legacy of Macro Economics · 04">거시경제의 유산 · 04</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 04" data-ja="マクロ経済の遺産 · 04" data-en="Legacy of Macro Economics · 04">거시경제의 유산 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="기름값 폭등에도 끄떡없다? 고유가 시대 일본 렌터카 골프 싸게 치는 법" data-ja="ガソリン高騰でも平気？ 高油価時代に日本のレンタカーゴルフを賢く楽しむ法" data-en="Unfazed by Soaring Fuel? Playing Japan Rental-Car Golf Cheap in a High-Oil Era">기름값 폭등에도 끄떡없다? 고유가 시대 일본 렌터카 골프 싸게 치는 법</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -478,7 +487,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 05" data-ja="マクロ経済の遺産 · 05" data-en="Legacy of Macro Economics · 05">거시경제의 유산 · 05</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 05" data-ja="マクロ経済の遺産 · 05" data-en="Legacy of Macro Economics · 05">거시경제의 유산 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="100만 원짜리 드라이버 살 돈으로, 저는 일본행 비행기를 1번 더 탑니다" data-ja="100万ウォンの最新ドライバーを買う金があるなら、私は日本行きの飛行機にもう一度乗る" data-en="With the Price of a Pricey Driver, I Take One More Flight to Japan">100만 원짜리 드라이버 살 돈으로, 저는 일본행 비행기를 1번 더 탑니다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -497,7 +506,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 06" data-ja="マクロ経済の遺産 · 06" data-en="Legacy of Macro Economics · 06">거시경제의 유산 · 06</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 06" data-ja="マクロ経済の遺産 · 06" data-en="Legacy of Macro Economics · 06">거시경제의 유산 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="감가상각 끝난 일본의 위엄, 30년 전 본전 찾은 골프장의 소름 돋는 원가 구조" data-ja="減価償却を終えた日本の貫禄。30年前に元を取ったゴルフ場の「驚異的な」原価構造" data-en="The Dignity of a Fully Depreciated Course: The Chilling Cost Structure of Recouping It 30 Years Ago">감가상각 끝난 일본의 위엄, 30년 전 본전 찾은 골프장의 소름 돋는 원가 구조</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -516,7 +525,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 07" data-ja="マクロ経済の遺産 · 07" data-en="Legacy of Macro Economics · 07">거시경제의 유산 · 07</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 07" data-ja="マクロ経済の遺産 · 07" data-en="Legacy of Macro Economics · 07">거시경제의 유산 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="골프계의 LCC 아코디아, 여성 타겟과 쪼개기 요금으로 일본을 제패하다" data-ja="ゴルフ界のLCC「アコーディア」。女性ターゲットと細分化料金で日本を制覇する" data-en="Golf's Low-Cost Carrier Accordia: Conquering Japan With Women's Targeting and Unbundled Fees">골프계의 LCC 아코디아, 여성 타겟과 쪼개기 요금으로 일본을 제패하다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -535,7 +544,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 08" data-ja="マクロ経済の遺産 · 08" data-en="Legacy of Macro Economics · 08">거시경제의 유산 · 08</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 08" data-ja="マクロ経済の遺産 · 08" data-en="Legacy of Macro Economics · 08">거시경제의 유산 · 08</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="골프계의 배달의민족? 플랫폼에 목줄 잡힌 일본 골프장의 민낯" data-ja="ゴルフ界の「出前アプリ」？ プラットフォームに首根っこを掴まれた日本ゴルフ場の素顔" data-en="Golf's Delivery App? The Bare Face of Japanese Courses Leashed to Platforms">골프계의 배달의민족? 플랫폼에 목줄 잡힌 일본 골프장의 민낯</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -554,7 +563,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 09" data-ja="マクロ経済の遺産 · 09" data-en="Legacy of Macro Economics · 09">거시경제의 유산 · 09</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 09" data-ja="マクロ経済の遺産 · 09" data-en="Legacy of Macro Economics · 09">거시경제의 유산 · 09</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="드레스코드는 사치다! 초고령화 맞은 일본 골프장이 문턱을 낮추는 경제적 이유" data-ja="ドレスコードは贅沢品だ！ 超高齢化を迎えた日本のゴルフ場が敷居を下げる「経済的理由」" data-en="Dress Codes Are a Luxury! Why Aging Japan's Courses Are Lowering the Bar">드레스코드는 사치다! 초고령화 맞은 일본 골프장이 문턱을 낮추는 경제적 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -573,7 +582,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 10" data-ja="マクロ経済の遺産 · 10" data-en="Legacy of Macro Economics · 10">거시경제의 유산 · 10</div>
+            <div class="article-num txt-i18n" data-ko="거시경제의 유산 · 10" data-ja="マクロ経済の遺産 · 10" data-en="Legacy of Macro Economics · 10">거시경제의 유산 · 10</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 골프회원권이 단돈 0원? 공짜 뒤에 숨겨진 유지비의 함정" data-ja="日本のゴルフ会員権がたった0円？ 「タダ」の裏に隠された維持費の罠" data-en="A Japanese Golf Membership for Zero? The Maintenance Trap Behind 'Free'">일본 골프회원권이 단돈 0원? 공짜 뒤에 숨겨진 유지비의 함정</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -604,7 +613,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 01" data-ja="フェアウェイの資本主義 · 01" data-en="Capitalism on the Fairway · 01">페어웨이의 자본주의 · 01</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 01" data-ja="フェアウェイの資本主義 · 01" data-en="Capitalism on the Fairway · 01">페어웨이의 자본주의 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="비밀 사이트 따윈 없다! 구글맵으로 숨은 명문 구장 찾는 법" data-ja="秘密の予約サイトなど存在しない！ Googleマップで隠れた名門コースを掘り当てる法" data-en="No Secret Site Exists! Finding Hidden Prestige Courses With Google Maps">비밀 사이트 따윈 없다! 구글맵으로 숨은 명문 구장 찾는 법</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -623,7 +632,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 02" data-ja="フェアウェイの資本主義 · 02" data-en="Capitalism on the Fairway · 02">페어웨이의 자본주의 · 02</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 02" data-ja="フェアウェイの資本主義 · 02" data-en="Capitalism on the Fairway · 02">페어웨이의 자본주의 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="노쇼와 진행 지연의 나비효과, 일본 골프장이 외국인 예약을 막는 진짜 이유" data-ja="ノーショーと進行遅延のバタフライ効果。日本のゴルフ場が「外国人お断り」にする本当の理由" data-en="The Butterfly Effect of No-Shows and Slow Play: Why Japan's Courses Block Foreign Bookings">노쇼와 진행 지연의 나비효과, 일본 골프장이 외국인 예약을 막는 진짜 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -642,7 +651,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 03" data-ja="フェアウェイの資本主義 · 03" data-en="Capitalism on the Fairway · 03">페어웨이의 자본주의 · 03</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 03" data-ja="フェアウェイの資本主義 · 03" data-en="Capitalism on the Fairway · 03">페어웨이의 자본주의 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="한국은 절대 못 하는 페어웨이 카트 진입, 일본이 허락하는 경제적 이유" data-ja="韓国では絶対不可能な「フェアウェイ乗り入れ」。日本がそれを許す経済的な理由" data-en="The Fairway Cart Entry Korea Can Never Allow, and Why Japan Does">한국은 절대 못 하는 페어웨이 카트 진입, 일본이 허락하는 경제적 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -661,7 +670,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 04" data-ja="フェアウェイの資本主義 · 04" data-en="Capitalism on the Fairway · 04">페어웨이의 자본주의 · 04</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 04" data-ja="フェアウェイの資本主義 · 04" data-en="Capitalism on the Fairway · 04">페어웨이의 자본주의 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="흐름 끊기게 왜 쉬어? 일본 골프장 1시간 강제 점심의 경제학과 최근의 반전" data-ja="流れが途切れるのになぜ休む？ 日本のゴルフ場が課す「1時間強制ランチ」の経済学と最近の異変" data-en="Why Break the Flow? The Economics of Japan's Forced One-Hour Lunch, and a Recent Reversal">흐름 끊기게 왜 쉬어? 일본 골프장 1시간 강제 점심의 경제학과 최근의 반전</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -680,7 +689,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 05" data-ja="フェアウェイの資本主義 · 05" data-en="Capitalism on the Fairway · 05">페어웨이의 자본주의 · 05</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 05" data-ja="フェアウェイの資本主義 · 05" data-en="Capitalism on the Fairway · 05">페어웨이의 자본주의 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="비행기 빈 좌석과 골프장 티타임의 공통점, 한국이 4인을 고집하는 진짜 이유" data-ja="飛行機の空席とゴルフ場のティータイムの共通点。韓国が「4人1組」にこだわる本当の理由" data-en="What Empty Plane Seats and Tee Times Share, and Why Korea Insists on Foursomes">비행기 빈 좌석과 골프장 티타임의 공통점, 한국이 4인을 고집하는 진짜 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -699,7 +708,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 06" data-ja="フェアウェイの資本主義 · 06" data-en="Capitalism on the Fairway · 06">페어웨이의 자본주의 · 06</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 06" data-ja="フェアウェイの資本主義 · 06" data-en="Capitalism on the Fairway · 06">페어웨이의 자본주의 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="작은 타투도 칼같이 쫓겨난다? 일본 골프장 목욕탕의 냉혹한 비즈니스 룰" data-ja="小さなタトゥーでも容赦なく追い出される？ 日本のゴルフ場の風呂場に潜む「冷徹なビジネスルール」" data-en="Even a Small Tattoo Gets You Out? The Cold Business Rules of Japan's Course Baths">작은 타투도 칼같이 쫓겨난다? 일본 골프장 목욕탕의 냉혹한 비즈니스 룰</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -718,7 +727,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 07" data-ja="フェアウェイの資本主義 · 07" data-en="Capitalism on the Fairway · 07">페어웨이의 자본주의 · 07</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 07" data-ja="フェアウェイの資本主義 · 07" data-en="Capitalism on the Fairway · 07">페어웨이의 자본주의 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="2024 물류 위기: 왜 송영버스는 돌아오지 않는가?" data-ja="2024年問題の波紋。なぜゴルフ場の送迎バスは姿を消したのか？" data-en="The 2024 Logistics Crisis: Why the Shuttle Bus Never Came Back">2024 물류 위기: 왜 송영버스는 돌아오지 않는가?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -737,7 +746,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 08" data-ja="フェアウェイの資本主義 · 08" data-en="Capitalism on the Fairway · 08">페어웨이의 자본주의 · 08</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 08" data-ja="フェアウェイの資本主義 · 08" data-en="Capitalism on the Fairway · 08">페어웨이의 자본주의 · 08</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="외부 음식 반입 환영? 일본 골프장과 편의점의 기묘한 공생 관계" data-ja="外部からの持ち込み大歓迎？ 日本のゴルフ場とコンビニが築く「奇妙な共生関係」" data-en="Outside Food Welcome? The Curious Symbiosis of Japan's Courses and Convenience Stores">외부 음식 반입 환영? 일본 골프장과 편의점의 기묘한 공생 관계</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -756,7 +765,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 09" data-ja="フェアウェイの資本主義 · 09" data-en="Capitalism on the Fairway · 09">페어웨이의 자본주의 · 09</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 09" data-ja="フェアウェイの資本主義 · 09" data-en="Capitalism on the Fairway · 09">페어웨이의 자본주의 · 09</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="뒤 팀에게 패스를 요청했더니 일본인이 기겁한 이유" data-ja="後ろの組に「お先にどうぞ」とパスを勧めたら、日本人が仰天した理由" data-en="Why Asking the Group Behind to Play Through Shocked the Japanese">뒤 팀에게 패스를 요청했더니 일본인이 기겁한 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -775,7 +784,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 10" data-ja="フェアウェイの資本主義 · 10" data-en="Capitalism on the Fairway · 10">페어웨이의 자본주의 · 10</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 10" data-ja="フェアウェイの資本主義 · 10" data-en="Capitalism on the Fairway · 10">페어웨이의 자본주의 · 10</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="로스트볼은 누가 줍는가? 일본 골프장의 숨은 수거 비즈니스" data-ja="ロストボールは誰が拾うのか？ 日本のゴルフ場に潜む「隠れた回収ビジネス」" data-en="Who Picks Up the Lost Balls? Japan's Hidden Recovery Business">로스트볼은 누가 줍는가? 일본 골프장의 숨은 수거 비즈니스</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -794,7 +803,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 11" data-ja="フェアウェイの資本主義 · 11" data-en="Capitalism on the Fairway · 11">페어웨이의 자본주의 · 11</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 11" data-ja="フェアウェイの資本主義 · 11" data-en="Capitalism on the Fairway · 11">페어웨이의 자본주의 · 11</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="잔디 깎는 기계도 아웃소싱? 일본 골프장 코스 관리의 분업 경제" data-ja="芝刈り機もアウトソーシング？ 日本のゴルフ場を支える「コース管理の分業経済」" data-en="Even the Mowers Are Outsourced? The Division of Labor in Japan's Course Management">잔디 깎는 기계도 아웃소싱? 일본 골프장 코스 관리의 분업 경제</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -813,7 +822,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 12" data-ja="フェアウェイの資本主義 · 12" data-en="Capitalism on the Fairway · 12">페어웨이의 자본주의 · 12</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 12" data-ja="フェアウェイの資本主義 · 12" data-en="Capitalism on the Fairway · 12">페어웨이의 자본주의 · 12</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="예약금이 없다고? 일본 골프장의 신뢰 기반 후불제가 가능한 이유" data-ja="予約金ゼロ？ 日本のゴルフ場が「信頼ベースの後払い制」を維持できる経済的理由" data-en="No Deposit? Why Japan's Trust-Based Post-Payment Works">예약금이 없다고? 일본 골프장의 신뢰 기반 후불제가 가능한 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -832,7 +841,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 13" data-ja="フェアウェイの資本主義 · 13" data-en="Capitalism on the Fairway · 13">페어웨이의 자본주의 · 13</div>
+            <div class="article-num txt-i18n" data-ko="페어웨이의 자본주의 · 13" data-ja="フェアウェイの資本主義 · 13" data-en="Capitalism on the Fairway · 13">페어웨이의 자본주의 · 13</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="그린피 8만 원의 마법, 돈은 어디서 나고 어디로 가는가" data-ja="グリーンフィー8,000円の魔法。お金はどこから湧き、どこへ流れていくのか" data-en="The Magic of the ¥8,000 Green Fee: Where the Money Comes From and Goes">그린피 8만 원의 마법, 돈은 어디서 나고 어디로 가는가</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -863,7 +872,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 01" data-ja="グリーンの上の不動産 · 01" data-en="Real Estate on the Green · 01">그린위의 부동산 · 01</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 01" data-ja="グリーンの上の不動産 · 01" data-en="Real Estate on the Green · 01">그린위의 부동산 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="강남 아파트값이면 일본 골프장을 산다? 부동산으로 본 골프장의 가치" data-ja="江南（カンナム）のマンション価格で日本のゴルフ場を買う？ 不動産的視点から読み解くゴルフ場の価値" data-en="Buy a Japanese Course for the Price of a Gangnam Apartment? A Real-Estate View">강남 아파트값이면 일본 골프장을 산다? 부동산으로 본 골프장의 가치</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -882,7 +891,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 02" data-ja="グリーンの上の不動産 · 02" data-en="Real Estate on the Green · 02">그린위의 부동산 · 02</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 02" data-ja="グリーンの上の不動産 · 02" data-en="Real Estate on the Green · 02">그린위의 부동산 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="매년 10억 적자인데 안 망한다? 세금 스펀지가 된 일본 골프장의 비밀" data-ja="毎年赤字なのに潰れない？ 「税金スポンジ」と化した日本のゴルフ場に隠された秘密" data-en="Losing Money Yearly Yet Surviving? The Secret of Courses Turned Tax Sponges">매년 10억 적자인데 안 망한다? 세금 스펀지가 된 일본 골프장의 비밀</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -901,7 +910,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 03" data-ja="グリーンの上の不動産 · 03" data-en="Real Estate on the Green · 03">그린위의 부동산 · 03</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 03" data-ja="グリーンの上の不動産 · 03" data-en="Real Estate on the Green · 03">그린위의 부동산 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="벚꽃 명소가 된 골프장, 조경비용은 어떻게 회수하는가" data-ja="「桜の名所」と化したゴルフ場。その莫大な造園費用はどう回収されるのか？" data-en="Courses Turned Cherry-Blossom Destinations: How They Recover Landscaping Costs">벚꽃 명소가 된 골프장, 조경비용은 어떻게 회수하는가</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -920,7 +929,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 04" data-ja="グリーンの上の不動産 · 04" data-en="Real Estate on the Green · 04">그린위의 부동산 · 04</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 04" data-ja="グリーンの上の不動産 · 04" data-en="Real Estate on the Green · 04">그린위의 부동산 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="왜 규슈에 골프장이 몰려 있을까? 골프장 입지의 지리학" data-ja="なぜ九州にゴルフ場が集中しているのか？ ゴルフ場立地における「地理学」" data-en="Why Are Courses Concentrated in Kyushu? The Geography of Course Location">왜 규슈에 골프장이 몰려 있을까? 골프장 입지의 지리학</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -939,7 +948,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 05" data-ja="グリーンの上の不動産 · 05" data-en="Real Estate on the Green · 05">그린위의 부동산 · 05</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 05" data-ja="グリーンの上の不動産 · 05" data-en="Real Estate on the Green · 05">그린위의 부동산 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="4조 7천억 원에 팔린 골프장 체인, PGM과 아코디아의 인수합병 드라마" data-ja="4兆7千億ウォン（約5,000億円）で買収されたゴルフ場チェーン。PGMとアコーディアのM&Aドラマ" data-en="The Course Chain Sold for Trillions: The PGM-Accordia Merger Drama">4조 7천억 원에 팔린 골프장 체인, PGM과 아코디아의 인수합병 드라마</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -958,7 +967,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 06" data-ja="グリーンの上の不動産 · 06" data-en="Real Estate on the Green · 06">그린위의 부동산 · 06</div>
+            <div class="article-num txt-i18n" data-ko="그린위의 부동산 · 06" data-ja="グリーンの上の不動産 · 06" data-en="Real Estate on the Green · 06">그린위의 부동산 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="20억 갭투자 공식, 일본 골프장 회원권으로 보는 자산의 함정" data-ja="20億ウォン（約2億円）のギャップ投資公式。日本のゴルフ会員権から学ぶ「資産の罠」" data-en="The Gap-Investment Formula and the Asset Trap Seen Through Japanese Memberships">20억 갭투자 공식, 일본 골프장 회원권으로 보는 자산의 함정</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -989,7 +998,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 01" data-ja="空間の経済学 · 01" data-en="Economics of Space · 01">공간의 경제학 · 01</div>
+            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 01" data-ja="空間の経済学 · 01" data-en="Economics of Space · 01">공간의 경제학 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="후지산이 보이는 골프장은 왜 비쌀까? 조망권의 지대 경제학" data-ja="富士山が見えるゴルフ場はなぜ高いのか？ 「眺望権」にみる地代経済学" data-en="Why Do Courses With Mt. Fuji Views Cost More? The Economics of View Rights">후지산이 보이는 골프장은 왜 비쌀까? 조망권의 지대 경제학</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1008,7 +1017,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 02" data-ja="空間の経済学 · 02" data-en="Economics of Space · 02">공간의 경제학 · 02</div>
+            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 02" data-ja="空間の経済学 · 02" data-en="Economics of Space · 02">공간의 경제학 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="간토와 간사이의 그린피가 다른 이유, 지역 경제의 장부 차이" data-ja="関東と関西でグリーンフィーが違う理由。地域経済が浮き彫りにする「帳簿の差」" data-en="Why Green Fees Differ Between Kanto and Kansai: A Ledger of Regional Economies">간토와 간사이의 그린피가 다른 이유, 지역 경제의 장부 차이</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1027,7 +1036,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 03" data-ja="空間の経済学 · 03" data-en="Economics of Space · 03">공간의 경제학 · 03</div>
+            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 03" data-ja="空間の経済学 · 03" data-en="Economics of Space · 03">공간의 경제학 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="홋카이도 골프장은 겨울에 뭘 할까? 계절 휴업과 인력 셰어링" data-ja="北海道のゴルフ場は冬の間、何をしているのか？ 「季節休業」と「人材シェアリング」の経済学" data-en="What Do Hokkaido Courses Do in Winter? Seasonal Closure and Staff Sharing">홋카이도 골프장은 겨울에 뭘 할까? 계절 휴업과 인력 셰어링</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1046,7 +1055,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 04" data-ja="空間の経済学 · 04" data-en="Economics of Space · 04">공간의 경제학 · 04</div>
+            <div class="article-num txt-i18n" data-ko="공간의 경제학 · 04" data-ja="空間の経済学 · 04" data-en="Economics of Space · 04">공간의 경제학 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="료칸과 가이세키를 묶은 골프 패키지, 공간 결합의 부가가치" data-ja="旅館と懐石を束ねたゴルフパッケージ。「空間結合」がもたらす極上の付加価値" data-en="Golf Packages Bundling Ryokan and Kaiseki: The Added Value of Combining Spaces">료칸과 가이세키를 묶은 골프 패키지, 공간 결합의 부가가치</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1077,7 +1086,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="카트밖의 유통시장 · 01" data-ja="カートの外の流通市場 · 01" data-en="Distribution Beyond the Cart · 01">카트밖의 유통시장 · 01</div>
+            <div class="article-num txt-i18n" data-ko="카트밖의 유통시장 · 01" data-ja="カートの外の流通市場 · 01" data-en="Distribution Beyond the Cart · 01">카트밖의 유통시장 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="젝시오와 마제스티는 왜 한국에서 더 비쌀까? 골프 용품 유통의 비밀" data-ja="ゼクシオとマジェスティはなぜ韓国で「割高」なのか？ 日韓ゴルフ用品に潜む「流通の秘密」" data-en="Why Are XXIO and Majesty Pricier in Korea? The Secret of Equipment Distribution">젝시오와 마제스티는 왜 한국에서 더 비쌀까? 골프 용품 유통의 비밀</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1096,7 +1105,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="카트밖의 유통시장 · 02" data-ja="カートの外の流通市場 · 02" data-en="Distribution Beyond the Cart · 02">카트밖의 유통시장 · 02</div>
+            <div class="article-num txt-i18n" data-ko="카트밖의 유통시장 · 02" data-ja="カートの外の流通市場 · 02" data-en="Distribution Beyond the Cart · 02">카트밖의 유통시장 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="ProV1 가짜가 많은 이유, 골프공 유통의 빛과 그림자" data-ja="タイトリスト「Pro V1」にはなぜ偽物が多いのか？ ゴルフボール流通市場の「光と影」" data-en="Why ProV1 Fakes Abound: The Light and Shadow of Golf Ball Distribution">ProV1 가짜가 많은 이유, 골프공 유통의 빛과 그림자</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1139,7 +1148,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 01" data-ja="Japan's Pride · 01" data-en="Japan's Pride · 01">Japan's Pride · 01</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 01" data-ja="Japan's Pride · 01" data-en="Japan's Pride · 01">Japan's Pride · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 3대 와규 — 고베규, 마쓰사카규, 오미규" data-ja="日本三大和牛 — 神戸牛、松阪牛、近江牛" data-en="Japan's Three Great Wagyu — Kobe, Matsusaka, Omi">일본 3대 와규 — 고베규, 마쓰사카규, 오미규</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1159,7 +1168,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 02" data-ja="Japan's Pride · 02" data-en="Japan's Pride · 02">Japan's Pride · 02</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 02" data-ja="Japan's Pride · 02" data-en="Japan's Pride · 02">Japan's Pride · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 3대 우동 — 사누키, 이나니와, 미즈사와" data-ja="日本三大うどん — 讃岐、稲庭、水沢" data-en="Japan's Three Great Udon — Sanuki, Inaniwa, Mizusawa">일본 3대 우동 — 사누키, 이나니와, 미즈사와</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1185,7 +1194,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 03" data-ja="Japan's Pride · 03" data-en="Japan's Pride · 03">Japan's Pride · 03</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 03" data-ja="Japan's Pride · 03" data-en="Japan's Pride · 03">Japan's Pride · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="🍙 오니기리(삼각김밥), 존맛탱의 비밀" data-ja="🍙 おにぎり、その絶品の秘密" data-en="🍙 Onigiri: The Secret Behind the Magic">🍙 오니기리(삼각김밥), 존맛탱의 비밀</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1205,7 +1214,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 04" data-ja="Japan's Pride · 04" data-en="Japan's Pride · 04">Japan's Pride · 04</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 04" data-ja="Japan's Pride · 04" data-en="Japan's Pride · 04">Japan's Pride · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="새벽 티오프의 구원자 — 일본 편의점 커피 브랜드별 추천" data-ja="早朝ティーオフの救世主 — 日本のコンビニコーヒー、ブランド別・徹底解剖" data-en="Savior of the Dawn Tee-Off — Japan's Convenience Store Coffee, by Brand">새벽 티오프의 구원자 — 일본 편의점 커피 브랜드별 추천</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1225,7 +1234,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 05" data-ja="Japan's Pride · 05" data-en="Japan's Pride · 05">Japan's Pride · 05</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 05" data-ja="Japan's Pride · 05" data-en="Japan's Pride · 05">Japan's Pride · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="🍞 일본 편의점 빵 삼국지 — 세븐 vs 훼미리 vs 로손" data-ja="🍞 日本のコンビニパン三国志 — セブン vs ファミマ vs ローソン。巨大資本が魅せる「100円の奇跡」" data-en="🍞 Japan's Convenience Store Bread Wars — 7-Eleven vs FamilyMart vs Lawson">🍞 일본 편의점 빵 삼국지 — 세븐 vs 훼미리 vs 로손</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1245,7 +1254,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 06" data-ja="Japan's Pride · 06" data-en="Japan's Pride · 06">Japan's Pride · 06</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 06" data-ja="Japan's Pride · 06" data-en="Japan's Pride · 06">Japan's Pride · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="오로지 수질로만 본, 일본 골프장 온천 TOP 10" data-ja="水質至上主義。日本のゴルフ場「極上の天然温泉」TOP10" data-en="Ranked by Water Quality Alone: Japan's Top 10 Course Hot Springs">오로지 수질로만 본, 일본 골프장 온천 TOP 10</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1265,7 +1274,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 07" data-ja="Japan's Pride · 07" data-en="Japan's Pride · 07">Japan's Pride · 07</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 07" data-ja="Japan's Pride · 07" data-en="Japan's Pride · 07">Japan's Pride · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="레몬라멘? 마트에서 발견한 보물 같은 특산물 요리 10가지" data-ja="レモンラーメン？ ローカルスーパーで発掘した「宝物」のようなご当地グルメ10選" data-en="Lemon Ramen? 10 Treasure-Like Specialty Dishes Found at the Supermarket">레몬라멘? 마트에서 발견한 보물 같은 특산물 요리 10가지</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1285,7 +1294,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 08" data-ja="Japan's Pride · 08" data-en="Japan's Pride · 08">Japan's Pride · 08</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 08" data-ja="Japan's Pride · 08" data-en="Japan's Pride · 08">Japan's Pride · 08</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="&quot;내 인생에 후회는 없다&quot; — 골프의 신 점보 오자키, 94승의 전설을 뒤로하고 떠나다" data-ja="「我が人生に悔いなし」 — ゴルフの神・ジャンボ尾崎、94勝の伝説を残して逝く" data-en="&quot;No Regrets in My Life&quot; — Golf's God Jumbo Ozaki Departs, Leaving a 94-Win Legend">"내 인생에 후회는 없다" — 골프의 신 점보 오자키, 94승의 전설을 뒤로하고 떠나다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1305,7 +1314,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 09" data-ja="Japan's Pride · 09" data-en="Japan's Pride · 09">Japan's Pride · 09</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 09" data-ja="Japan's Pride · 09" data-en="Japan's Pride · 09">Japan's Pride · 09</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 3대 온천, 그리고 온천 에티켓" data-ja="日本三名泉 — 歴史と効能に触れる「大人の温泉旅」と嗜み（たしなみ）" data-en="Japan's Three Great Hot Springs, and Onsen Etiquette">일본 3대 온천, 그리고 온천 에티켓</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1325,7 +1334,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 10" data-ja="Japan's Pride · 10" data-en="Japan's Pride · 10">Japan's Pride · 10</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 10" data-ja="Japan's Pride · 10" data-en="Japan's Pride · 10">Japan's Pride · 10</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="NHK에 매일 나오는 스모, 도대체 왜 인기일까? (ft. 요코즈나 연봉)" data-ja="「伝統」と「資本」の融合体 — なぜ相撲はこれほどまでに人々を熱狂させるのか？" data-en="Sumo on NHK Every Day — Why So Popular? (ft. a Yokozuna's Salary)">NHK에 매일 나오는 스모, 도대체 왜 인기일까? (ft. 요코즈나 연봉)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1345,7 +1354,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 11" data-ja="Japan's Pride · 11" data-en="Japan's Pride · 11">Japan's Pride · 11</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 11" data-ja="Japan's Pride · 11" data-en="Japan's Pride · 11">Japan's Pride · 11</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 스포츠의 무서운 비밀, 부카츠(部活) — 등수 없앤 한국, 오타니를 키운 일본" data-ja="日本スポーツの「恐るべき秘密」 — 部活が育てた怪物的キャリアとロングランの美学" data-en="Japan Sport's Formidable Secret, Bukatsu — Korea Erased Rankings, Japan Raised Ohtani">일본 스포츠의 무서운 비밀, 부카츠(部活) — 등수 없앤 한국, 오타니를 키운 일본</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1365,7 +1374,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Japan's Pride · 12" data-ja="Japan's Pride · 12" data-en="Japan's Pride · 12">Japan's Pride · 12</div>
+            <div class="article-num txt-i18n" data-ko="Japan's Pride · 12" data-ja="Japan's Pride · 12" data-en="Japan's Pride · 12">Japan's Pride · 12</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 골프장 가는 아침 8시, 일본 건널목 앞에서 (feat. 법보다 문화다)" data-ja="ゴルフ場への道すがら、横断歩道の前で — 「法より文化」が守る朝の風景" data-en="8 a.m. on the Way to the Course, at a Japanese Crosswalk (feat. Culture Over Law)">일본 골프장 가는 아침 8시, 일본 건널목 앞에서 (feat. 법보다 문화다)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1397,7 +1406,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 01" data-ja="Inside Japan · 01" data-en="Inside Japan · 01">Inside Japan · 01</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 01" data-ja="Inside Japan · 01" data-en="Inside Japan · 01">Inside Japan · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="20년 만의 신권 발행, 일본은 왜 아직도 '현금'에 진심일까?" data-ja="20年ぶりの新紙幣発行 — 日本はなぜ、これほどまでに「現金」を愛し続けるのか" data-en="New Banknotes After 20 Years — Why Is Japan Still So Serious About Cash?">20년 만의 신권 발행, 일본은 왜 아직도 '현금'에 진심일까?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1417,7 +1426,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 02" data-ja="Inside Japan · 02" data-en="Inside Japan · 02">Inside Japan · 02</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 02" data-ja="Inside Japan · 02" data-en="Inside Japan · 02">Inside Japan · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="2026 일본 여행, 떠나기 전 반드시 체크할 7가지" data-ja="【2026年版】日本遠征の前に必ず確認すべき「7つの必須チェックリスト」" data-en="2026 Japan Travel: 7 Things to Check Before You Go">2026 일본 여행, 떠나기 전 반드시 체크할 7가지</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1437,7 +1446,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 03" data-ja="Inside Japan · 03" data-en="Inside Japan · 03">Inside Japan · 03</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 03" data-ja="Inside Japan · 03" data-en="Inside Japan · 03">Inside Japan · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="요나고 이온몰 주차장의 노란 표지판과 '잃어버린 30년'" data-ja="米子のイオンモール駐車場にて — 黄色い標識が語る「失われた30年」の本当の意味" data-en="The Yellow Signs at Yonago Aeon Mall and the 'Lost 30 Years'">요나고 이온몰 주차장의 노란 표지판과 '잃어버린 30년'</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1457,7 +1466,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 04" data-ja="Inside Japan · 04" data-en="Inside Japan · 04">Inside Japan · 04</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 04" data-ja="Inside Japan · 04" data-en="Inside Japan · 04">Inside Japan · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="돈으로 시간을 사는 시대, FastPass가 동네 식당까지 왔다" data-ja="「お金で時間を買う」という新常識 — 町の食堂にまで及ぶ「ファストパス」の衝撃" data-en="Buying Time With Money: FastPass Reaches the Neighborhood Diner">돈으로 시간을 사는 시대, FastPass가 동네 식당까지 왔다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1477,7 +1486,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 05" data-ja="Inside Japan · 05" data-en="Inside Japan · 05">Inside Japan · 05</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 05" data-ja="Inside Japan · 05" data-en="Inside Japan · 05">Inside Japan · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="자소서는 챗GPT, 면접은 AI가 보는 일본 채용 시장" data-ja="「エントリーシートはAI、面接はアバター」 — 変容する日本の採用市場と、揺るがぬ「人間力」の価値" data-en="Cover Letters by ChatGPT, Interviews Watched by AI: Japan's Hiring Market">자소서는 챗GPT, 면접은 AI가 보는 일본 채용 시장</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1497,7 +1506,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="Inside Japan · 06" data-ja="Inside Japan · 06" data-en="Inside Japan · 06">Inside Japan · 06</div>
+            <div class="article-num txt-i18n" data-ko="Inside Japan · 06" data-ja="Inside Japan · 06" data-en="Inside Japan · 06">Inside Japan · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 소도시가 한국 골퍼들에게 목숨 거는 진짜 이유" data-ja="日本の小都市が「韓国人ゴルファー」に全力を注ぐ、切実なる経済的理由" data-en="Why Japan's Small Cities Stake Everything on Korean Golfers">일본 소도시가 한국 골퍼들에게 목숨 거는 진짜 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1525,7 +1534,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 01" data-ja="MIKAの視点 · 01" data-en="MIKA's Perspective · 01">미카의 시선 · 01</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 01" data-ja="MIKAの視点 · 01" data-en="MIKA's Perspective · 01">미카의 시선 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="데이터로 본 일본 골프, 명당은 어디인가?" data-ja="日本のゴルフ場・徹底分析 — データで読み解く「次なる遠征地」の選び方" data-en="Japan Golf by the Data: Where Are the Prime Spots?">데이터로 본 일본 골프, 명당은 어디인가?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1544,7 +1553,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 02" data-ja="MIKAの視点 · 02" data-en="MIKA's Perspective · 02">미카의 시선 · 02</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 02" data-ja="MIKAの視点 · 02" data-en="MIKA's Perspective · 02">미카의 시선 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="환상에서 깨어나라! 데이터로 본 2030년 일본 골프 생존 시나리오" data-ja="【2030年】幻想から覚めよ — データで読み解く「日本ゴルフ」の生存シナリオ" data-en="Wake from the Fantasy: A Data-Driven 2030 Survival Scenario for Japanese Golf">환상에서 깨어나라! 데이터로 본 2030년 일본 골프 생존 시나리오</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1563,7 +1572,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 03" data-ja="MIKAの視点 · 03" data-en="MIKA's Perspective · 03">미카의 시선 · 03</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 03" data-ja="MIKAの視点 · 03" data-en="MIKA's Perspective · 03">미카의 시선 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="한국 vs 일본 골프장 — 한일 7대 도시 라운딩 비용 비교" data-ja="日韓ゴルフ場 — 主要7都市別ラウンド費用徹底比較" data-en="Korea vs. Japan Courses — Round-Cost Comparison Across Seven City Pairs">한국 vs 일본 골프장 — 한일 7대 도시 라운딩 비용 비교</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1582,7 +1591,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 04" data-ja="MIKAの視点 · 04" data-en="MIKA's Perspective · 04">미카의 시선 · 04</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 04" data-ja="MIKAの視点 · 04" data-en="MIKA's Perspective · 04">미카의 시선 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="회원권 45억의 전설, 도쿄 한복판의 성역 '코가네이 CC'" data-ja="「会員権45億円の伝説」 — 東京のど真ん中に鎮座する、選ばれし者の聖域「小金井カントリー倶楽部」" data-en="The Legend of the ₩4.5 Billion Membership: Koganei CC, a Sanctuary in the Heart of Tokyo">회원권 45억의 전설, 도쿄 한복판의 성역 '코가네이 CC'</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1601,7 +1610,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 05" data-ja="MIKAの視点 · 05" data-en="MIKA's Perspective · 05">미카의 시선 · 05</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 05" data-ja="MIKAの視点 · 05" data-en="MIKA's Perspective · 05">미카의 시선 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="2026년 일본 시급의 경고 — 도쿄 1위 vs 아키타 47위 격차의 나비효과" data-ja="【2026年】日本の最低賃金が告げる警告 — 「コスパゴルフ」の黄金期は、今が終わりの始まりか？" data-en="The 2026 Wage Warning: How the Tokyo-vs-Akita Gap Ripples Through Japan Golf">2026년 일본 시급의 경고 — 도쿄 1위 vs 아키타 47위 격차의 나비효과</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1620,7 +1629,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 06" data-ja="MIKAの視点 · 06" data-en="MIKA's Perspective · 06">미카의 시선 · 06</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 06" data-ja="MIKAの視点 · 06" data-en="MIKA's Perspective · 06">미카의 시선 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="조조 다음은 나이트! 폭염과 MZ가 바꾼 일본 골프장의 밤 (1부: 소비자편)" data-ja="早朝の次はナイター！ 猛暑とMZ世代が変えた「日本の夜間ゴルフ」の正体" data-en="After Dawn Comes Night! How Heat and Gen MZ Reshaped Japan's Golf Nights (Part 1: The Consumer)">조조 다음은 나이트! 폭염과 MZ가 바꾼 일본 골프장의 밤 (1부: 소비자편)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1639,7 +1648,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 07" data-ja="MIKAの視点 · 07" data-en="MIKA's Perspective · 07">미카의 시선 · 07</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 07" data-ja="MIKAの視点 · 07" data-en="MIKA's Perspective · 07">미카의 시선 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="단 5팀만 와도 흑자? 일본 골프장이 '야간 무인화'에 사활을 거는 진짜 이유 (2부: 비즈니스편)" data-ja="【第2部】わずか5組で黒字？ 日本ゴルフ場が「夜間無人化」に社運を懸ける本当の理由" data-en="Profitable on Just Five Groups? Why Japanese Courses Bet Everything on Unmanned Nights (Part 2: The Business)">단 5팀만 와도 흑자? 일본 골프장이 '야간 무인화'에 사활을 거는 진짜 이유 (2부: 비즈니스편)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1658,7 +1667,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 08" data-ja="MIKAの視点 · 08" data-en="MIKA's Perspective · 08">미카의 시선 · 08</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 08" data-ja="MIKAの視点 · 08" data-en="MIKA's Perspective · 08">미카의 시선 · 08</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="야구에 환장하는 일본, 왜 길거리엔 '야구모자'가 씨가 말랐을까? (feat. 골프장 매너)" data-ja="「野球狂」の国なのに、なぜ街にキャップ姿がないのか？ — 野球帽と「ゴルフ場マナー」に見る日本流TPO" data-en="Baseball-Crazed Japan — So Why Are Ball Caps Nowhere on the Streets? (ft. Course Etiquette)">야구에 환장하는 일본, 왜 길거리엔 '야구모자'가 씨가 말랐을까? (feat. 골프장 매너)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1677,7 +1686,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 09" data-ja="MIKAの視点 · 09" data-en="MIKA's Perspective · 09">미카의 시선 · 09</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 09" data-ja="MIKAの視点 · 09" data-en="MIKA's Perspective · 09">미카의 시선 · 09</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="-90% 한국 vs +200% 일본, 주가 차트가 예언한 한일 골프 10년 뒤" data-ja="「-90%の韓国 vs +200%の日本」 — 株価が予言するゴルフ産業の10年後の生存シナリオ" data-en="-90% Korea vs. +200% Japan: What Stock Charts Predict for Korea-Japan Golf in Ten Years">-90% 한국 vs +200% 일본, 주가 차트가 예언한 한일 골프 10년 뒤</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1696,7 +1705,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 10" data-ja="MIKAの視点 · 10" data-en="MIKA's Perspective · 10">미카의 시선 · 10</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 10" data-ja="MIKAの視点 · 10" data-en="MIKA's Perspective · 10">미카의 시선 · 10</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="양극화 1부 — 단카이 세대가 떠난 자리, 'LCC 골프'의 천국이 열린다" data-ja="二極化1部：団塊の世代が去った跡、「LCCゴルフ」の天国が開く" data-en="Polarization, Part 1 — Where the Dankai Generation Left, an 'LCC Golf' Paradise Opens">양극화 1부 — 단카이 세대가 떠난 자리, 'LCC 골프'의 천국이 열린다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1715,7 +1724,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 11" data-ja="MIKAの視点 · 11" data-en="MIKA's Perspective · 11">미카의 시선 · 11</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 11" data-ja="MIKAの視点 · 11" data-en="MIKA's Perspective · 11">미카의 시선 · 11</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="양극화 2부 — 3년 뒤엔 이 가격에 못 칩니다. 그린피 15,000엔 시대가 온다?" data-ja="二極化2部：3年後にはこの価格で打てません。グリーンフィー15,000円時代が来る？" data-en="Polarization, Part 2 — In Three Years You Won't Play at This Price. Is a ¥15,000 Green-Fee Era Coming?">양극화 2부 — 3년 뒤엔 이 가격에 못 칩니다. 그린피 15,000엔 시대가 온다?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1734,7 +1743,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 12" data-ja="MIKAの視点 · 12" data-en="MIKA's Perspective · 12">미카의 시선 · 12</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 12" data-ja="MIKAの視点 · 12" data-en="MIKA's Perspective · 12">미카의 시선 · 12</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="골프장 오너라면 현대차를 탈까, 토요타를 탈까? '전기차 vs 하이브리드'로 보는 생존 전략" data-ja="「ゴルフ場のハイブリッド戦略」 — 華やかなEV戦略より、金を稼ぐキャッシュカウの時代" data-en="If You Owned a Course, Would You Drive a Hyundai or a Toyota? Survival Strategy Through 'EV vs. Hybrid'">골프장 오너라면 현대차를 탈까, 토요타를 탈까? '전기차 vs 하이브리드'로 보는 생존 전략</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1753,7 +1762,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 13" data-ja="MIKAの視点 · 13" data-en="MIKA's Perspective · 13">미카의 시선 · 13</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 13" data-ja="MIKAの視点 · 13" data-en="MIKA's Perspective · 13">미카의 시선 · 13</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 골프장 이중 가격제의 역설 — 오히려 1,800개의 '진짜 일본'이 열린다" data-ja="日本ゴルフ場の「二重価格制」の逆説 — 1,800の「本当の日本」を開く道標" data-en="The Paradox of Japan's Dual Pricing — 1,800 Courses of the 'Real Japan' Open Up Instead">일본 골프장 이중 가격제의 역설 — 오히려 1,800개의 '진짜 일본'이 열린다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1772,7 +1781,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카의 시선 · 14" data-ja="MIKAの視点 · 14" data-en="MIKA's Perspective · 14">미카의 시선 · 14</div>
+            <div class="article-num txt-i18n" data-ko="미카의 시선 · 14" data-ja="MIKAの視点 · 14" data-en="MIKA's Perspective · 14">미카의 시선 · 14</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="Top 50에 11명, 일본 여자 골프가 다음 단계로 가고 있다 (feat. 야구·축구)" data-ja="「日本女子ゴルフの底力」 — 華やかなスター1人より、途切れない「上位軍団」という戦略" data-en="Eleven in the Top 50: Japanese Women's Golf Is Moving to the Next Stage (ft. Baseball & Soccer)">Top 50에 11명, 일본 여자 골프가 다음 단계로 가고 있다 (feat. 야구·축구)</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1812,7 +1821,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 01" data-ja="ファクトチェック · 01" data-en="Fact Check · 01">팩트체크 · 01</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 01" data-ja="ファクトチェック · 01" data-en="Fact Check · 01">팩트체크 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="여름 골프 완벽 가이드 — 직항으로 즐기는 일본 혹서기 골프 5선" data-ja="夏ゴルフ完全ガイド — 酷暑を忘れさせる「日本の高原ゴルフ特区」5選" data-en="The Complete Summer Golf Guide — 5 Heat-Season Picks Reachable by Direct Flight">여름 골프 완벽 가이드 — 직항으로 즐기는 일본 혹서기 골프 5선</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1831,7 +1840,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 02" data-ja="ファクトチェック · 02" data-en="Fact Check · 02">팩트체크 · 02</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 02" data-ja="ファクトチェック · 02" data-en="Fact Check · 02">팩트체크 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 현지 골퍼 오피셜, 북관동(北関東) 3대장을 아십니까?" data-ja="日本の地元ゴルファー公認、北関東3大将をご存知ですか？" data-en="Endorsed by Local Golfers: Do You Know the 'Three Kings of North Kanto'?">일본 현지 골퍼 오피셜, 북관동(北関東) 3대장을 아십니까?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1850,7 +1859,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 03" data-ja="ファクトチェック · 03" data-en="Fact Check · 03">팩트체크 · 03</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 03" data-ja="ファクトチェック · 03" data-en="Fact Check · 03">팩트체크 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="비에는 피도 눈물도 없고, 눈 앞엔 쿨하다 — 우천 vs 폭설 취소 규정 비교" data-ja="「雨には情け無用、雪にはクール」 — 日韓ゴルフの天候対処法" data-en="Merciless in Rain, Cool in Snow — Comparing Rain vs. Heavy-Snow Cancellation Rules">비에는 피도 눈물도 없고, 눈 앞엔 쿨하다 — 우천 vs 폭설 취소 규정 비교</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1869,7 +1878,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 04" data-ja="ファクトチェック · 04" data-en="Fact Check · 04">팩트체크 · 04</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 04" data-ja="ファクトチェック · 04" data-en="Fact Check · 04">팩트체크 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="27년 1월 미야자키 골프 비용 시뮬레이션 — 1년 만에 15%나 오른다고?" data-ja="27年1月 宮崎ゴルフ費用シミュレーション — 1年で15%も上がる？" data-en="A Jan 2027 Miyazaki Golf Cost Simulation — Up 15% in Just One Year?">27년 1월 미야자키 골프 비용 시뮬레이션 — 1년 만에 15%나 오른다고?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1888,7 +1897,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 05" data-ja="ファクトチェック · 05" data-en="Fact Check · 05">팩트체크 · 05</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 05" data-ja="ファクトチェック · 05" data-en="Fact Check · 05">팩트체크 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="티박스 뒤에 바짝 붙은 카트, 그리고 수다 소리... 이거 비매너 아닌가요?" data-ja="ティーボックスの後ろにぴったり付けたカート、そしておしゃべり…これマナー違反では？" data-en="A Cart Hugging the Tee Box, and Chatter... Isn't That Bad Manners?">티박스 뒤에 바짝 붙은 카트, 그리고 수다 소리... 이거 비매너 아닌가요?</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1907,7 +1916,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 06" data-ja="ファクトチェック · 06" data-en="Fact Check · 06">팩트체크 · 06</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 06" data-ja="ファクトチェック · 06" data-en="Fact Check · 06">팩트체크 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="반값의 충격 — 마크앤로나 신상 한정판을 일본에서 사야만 하는 이유" data-ja="半額の衝撃 — マーク&ロナの新作限定を日本で買うべき理由" data-en="The Half-Price Shock — Why You Should Buy Mark & Lona's New Limited Edition in Japan">반값의 충격 — 마크앤로나 신상 한정판을 일본에서 사야만 하는 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1926,7 +1935,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="팩트체크 · 07" data-ja="ファクトチェック · 07" data-en="Fact Check · 07">팩트체크 · 07</div>
+            <div class="article-num txt-i18n" data-ko="팩트체크 · 07" data-ja="ファクトチェック · 07" data-en="Fact Check · 07">팩트체크 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="&quot;5월부터 35도 실화?&quot; 올여름 일본 골프 날씨 경고장" data-ja="「5月から35度って本当？」今夏の日本ゴルフ天気警告状" data-en="&quot;35°C From May, Seriously?&quot; A Weather Warning for This Summer's Japan Golf">"5월부터 35도 실화?" 올여름 일본 골프 날씨 경고장</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1957,7 +1966,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 01" data-ja="知って得する雑学 · 01" data-en="Useful Trivia · 01">알쓸신잡 · 01</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 01" data-ja="知って得する雑学 · 01" data-en="Useful Trivia · 01">알쓸신잡 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="라쿠텐 GORA 쿠폰 경쟁, 갈수록 치열해진다" data-ja="「楽天GORA」のクーポン攻勢の裏側 — 見かけの安さに惑わされない予約の極意" data-en="The Rakuten GORA Coupon War Keeps Heating Up">라쿠텐 GORA 쿠폰 경쟁, 갈수록 치열해진다</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1976,7 +1985,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 02" data-ja="知って得する雑学 · 02" data-en="Useful Trivia · 02">알쓸신잡 · 02</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 02" data-ja="知って得する雑学 · 02" data-en="Useful Trivia · 02">알쓸신잡 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 골프장 에티켓 10가지 — 한국인이 가장 자주 놓치는 것들" data-ja="日本ゴルフ場のエチケット10ヶ条 — スマートに楽しむための「大人の流儀」" data-en="10 Etiquette Rules at Japanese Golf Courses — What Koreans Miss Most">일본 골프장 에티켓 10가지 — 한국인이 가장 자주 놓치는 것들</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -1995,7 +2004,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 03" data-ja="知って得する雑学 · 03" data-en="Useful Trivia · 03">알쓸신잡 · 03</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 03" data-ja="知って得する雑学 · 03" data-en="Useful Trivia · 03">알쓸신잡 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="돌의자의 비밀과 100만엔짜리 홀인원 영수증" data-ja="石のベンチに刻まれた誇り — 日本のゴルフ場が守る「伝統の美学」" data-en="The Secret of the Stone Bench, and a Million-Yen Hole-in-One Receipt">돌의자의 비밀과 100만엔짜리 홀인원 영수증</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2014,7 +2023,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 04" data-ja="知って得する雑学 · 04" data-en="Useful Trivia · 04">알쓸신잡 · 04</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 04" data-ja="知って得する雑学 · 04" data-en="Useful Trivia · 04">알쓸신잡 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="요나고(米子) 골프장 영수증 까보기 — 8,000엔은 어떻게 구성될까" data-ja="領収書に刻まれた「ゴルフの真実」 — 米子（よなご）の8,000円を分解する" data-en="Cracking Open a Yonago (米子) Receipt — How 8,000 Yen Breaks Down">요나고(米子) 골프장 영수증 까보기 — 8,000엔은 어떻게 구성될까</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2033,7 +2042,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 05" data-ja="知って得する雑学 · 05" data-en="Useful Trivia · 05">알쓸신잡 · 05</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 05" data-ja="知って得する雑学 · 05" data-en="Useful Trivia · 05">알쓸신잡 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="일본 편의점에 네팔·인도 알바생이 많은 이유" data-ja="コンビニのレジに「南アジア系」が多い本当の理由 — 日本の労働市場が見せる風景" data-en="Why So Many Nepalese and Indian Clerks Staff Japan's Convenience Stores">일본 편의점에 네팔·인도 알바생이 많은 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2052,7 +2061,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 06" data-ja="知って得する雑学 · 06" data-en="Useful Trivia · 06">알쓸신잡 · 06</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 06" data-ja="知って得する雑学 · 06" data-en="Useful Trivia · 06">알쓸신잡 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="타이어 회사가 골프공을 만드는 이유" data-ja="タイヤ会社がなぜゴルフボールを作るのか？ — 100年の技術が紡ぐ「小さな奇跡」" data-en="Why Tire Companies Make Golf Balls">타이어 회사가 골프공을 만드는 이유</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2071,7 +2080,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 07" data-ja="知って得する雑学 · 07" data-en="Useful Trivia · 07">알쓸신잡 · 07</div>
+            <div class="article-num txt-i18n" data-ko="알쓸신잡 · 07" data-ja="知って得する雑学 · 07" data-en="Useful Trivia · 07">알쓸신잡 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="2026 하반기, 일본 여행이 확 바뀐다 — 핵심 변화 5가지" data-ja="2026年下半期、日本旅行の「5つの重要ルール」 — 知っておくべき旅の羅針盤" data-en="Late 2026 Reshapes Travel to Japan — Five Key Changes">2026 하반기, 일본 여행이 확 바뀐다 — 핵심 변화 5가지</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2102,7 +2111,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 01" data-ja="MIKA流まねっこ · 01" data-en="Do It Like MIKA · 01">미카 따라하기 · 01</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 01" data-ja="MIKA流まねっこ · 01" data-en="Do It Like MIKA · 01">미카 따라하기 · 01</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="기타큐슈 11시 55분 비행기! 귀국일 '새벽 조조 골프' 작전의 짜릿한 결말" data-ja="北九州発11時55分のフライト！ 帰国日の「早朝スルー」作戦、そのスリリングな結末" data-en="An 11:55 Flight Out of Kitakyushu: The Thrilling Finale of a Departure-Day Dawn Golf Run">기타큐슈 11시 55분 비행기! 귀국일 '새벽 조조 골프' 작전의 짜릿한 결말</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2121,7 +2130,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 02" data-ja="MIKA流まねっこ · 02" data-en="Do It Like MIKA · 02">미카 따라하기 · 02</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 02" data-ja="MIKA流まねっこ · 02" data-en="Do It Like MIKA · 02">미카 따라하기 · 02</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="LCC 직항이 뚫리면 그린피는 왜 오를까? 도슨트가 짚는 일본 골프의 역설" data-ja="LCC直行便が就航するとなぜグリーンフィーが高騰するのか？ ドーセント（案内人）が読み解く日本ゴルフの逆説" data-en="Why Do Green Fees Rise When a Budget Direct Flight Opens? A Docent's Take on Japan Golf's Paradox">LCC 직항이 뚫리면 그린피는 왜 오를까? 도슨트가 짚는 일본 골프의 역설</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2140,7 +2149,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 03" data-ja="MIKA流まねっこ · 03" data-en="Do It Like MIKA · 03">미카 따라하기 · 03</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 03" data-ja="MIKA流まねっこ · 03" data-en="Do It Like MIKA · 03">미카 따라하기 · 03</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="3년 전과 다른 일본 골프? 현지 물가 이기는 가성비 실전 팁 10선" data-ja="3年前とは激変した日本ゴルフ。現地の「インフレ」に打ち勝つ、コスパ防衛の実戦テクニック10選" data-en="Japan Golf Isn't What It Was Three Years Ago: 10 Field-Tested Tips to Beat Local Prices">3년 전과 다른 일본 골프? 현지 물가 이기는 가성비 실전 팁 10선</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2159,7 +2168,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 04" data-ja="MIKA流まねっこ · 04" data-en="Do It Like MIKA · 04">미카 따라하기 · 04</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 04" data-ja="MIKA流まねっこ · 04" data-en="Do It Like MIKA · 04">미카 따라하기 · 04</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="어차피 일본 구장은 다 좋다! 비행기값 반토막 내는 '목적지 변경'의 마법" data-ja="どうせ日本のコースはハズレがない。航空券を半額に叩き落とす「デスティネーション（目的地）変更」の魔法" data-en="Japan's Courses Are All Good Anyway: The Magic of Changing Your Destination to Halve the Airfare">어차피 일본 구장은 다 좋다! 비행기값 반토막 내는 '목적지 변경'의 마법</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2178,7 +2187,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 05" data-ja="MIKA流まねっこ · 05" data-en="Do It Like MIKA · 05">미카 따라하기 · 05</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 05" data-ja="MIKA流まねっこ · 05" data-en="Do It Like MIKA · 05">미카 따라하기 · 05</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="풀부킹 식당 뚫는 '빈틈 공략법' — 요나고 사바샤브 성공기" data-ja="予約困難店を突破する「ニッチタイム攻略法」—— 米子・絶品サバしゃぶ成功記" data-en="Cracking a Fully Booked Restaurant — The Yonago Mackerel-Shabu Success Story">풀부킹 식당 뚫는 '빈틈 공략법' — 요나고 사바샤브 성공기</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2197,7 +2206,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 06" data-ja="MIKA流まねっこ · 06" data-en="Do It Like MIKA · 06">미카 따라하기 · 06</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 06" data-ja="MIKA流まねっこ · 06" data-en="Do It Like MIKA · 06">미카 따라하기 · 06</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="소도시 직항 100% 활용법 — 첫날 18홀 뚫는 요령과 막날 조조 골프의 진실" data-ja="小都市への直行便を100%使い倒す！ 初日の「18ホール強行突破」と最終日「アーリーバード」の真実" data-en="Squeezing 100% Out of a Small-City Direct Flight — Cracking 18 on Day One and the Truth About Departure-Day Dawn Golf">소도시 직항 100% 활용법 — 첫날 18홀 뚫는 요령과 막날 조조 골프의 진실</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2216,7 +2225,7 @@
       <div class="article-item" onclick="toggleArticle(this)">
         <div class="article-top">
           <div class="article-meta">
-            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 07" data-ja="MIKA流まねっこ · 07" data-en="Do It Like MIKA · 07">미카 따라하기 · 07</div>
+            <div class="article-num txt-i18n" data-ko="미카 따라하기 · 07" data-ja="MIKA流まねっこ · 07" data-en="Do It Like MIKA · 07">미카 따라하기 · 07</div><span class="new-badge">NEW</span>
             <div class="article-title txt-i18n" data-ko="타협할 수 없는 단 하나의 원칙, 그리고 100만 원으로 완성하는 행복한 일본 골프" data-ja="妥協できないただ一つの原則。そして予算100万ウォン（約11万円）で完成させる「至福の日本ゴルフ旅」" data-en="The One Principle I Won't Compromise, and a Happy Japan Golf Trip Built on a Million Won">타협할 수 없는 단 하나의 원칙, 그리고 100만 원으로 완성하는 행복한 일본 골프</div>
           </div>
           <span class="article-expand-icon">↓</span>
@@ -2252,6 +2261,25 @@
   }
 
   // 서브 시리즈 탭 전환
+
+  // 각 시리즈(article-list) 안에서 data-date 있는 새 글을 최신순으로 맨 위에 배치
+  function sortEditorialByDate(){
+    document.querySelectorAll('.article-list').forEach(function(list){
+      var items = Array.prototype.slice.call(list.querySelectorAll(':scope > .article-item'));
+      items.sort(function(a,b){
+        var da = a.getAttribute('data-date') || '';
+        var db = b.getAttribute('data-date') || '';
+        // 날짜 있는 글이 위로, 둘 다 있으면 최신순, 날짜 없으면 기존 순서 유지
+        if (da && db) return db.localeCompare(da);
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+        return 0;
+      });
+      items.forEach(function(it){ list.appendChild(it); });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', sortEditorialByDate);
+
   function switchSubTab(btn, id) {
     var wrap = btn.closest('.tab-section');
     wrap.querySelectorAll('.sub-tab').forEach(function(t){ t.classList.remove('active'); });

@@ -271,6 +271,31 @@
     .latest-section { padding: 16px 16px 80px; }
     .cards-grid { grid-template-columns: 1fr; }
   }
+
+  .site-footer {
+    border-top: 1px solid var(--rule, #c8c4bb);
+    padding: 32px 24px 40px; margin-top: 60px;
+    text-align: center; background: var(--paper, #f5f2ec);
+  }
+  .site-footer .foot-links {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px 20px; margin-bottom: 14px;
+  }
+  .site-footer .foot-links a {
+    font-size: 12px; color: var(--ink-soft, #6b6864);
+    text-decoration: none; letter-spacing: 0.04em;
+  }
+  .site-footer .foot-links a:hover { color: var(--red, #8b2020); }
+  .site-footer .foot-copy {
+    font-size: 11px; color: var(--rule-dark, #a09c94); letter-spacing: 0.06em;
+  }
+
+  .L{display:none;}
+  [data-sitelang="ko"] .L.ko{display:revert;}
+  [data-sitelang="ja"] .L.ja{display:revert;}
+  [data-sitelang="en"] .L.en{display:revert;}
+  span.L{display:none;}
+  [data-sitelang="ko"] span.L.ko,[data-sitelang="ja"] span.L.ja,[data-sitelang="en"] span.L.en{display:inline;}
 </style>
 <script>
   (function(){
@@ -755,6 +780,16 @@
     </div>
   </div>
 </section>
+
+
+<footer class="site-footer">
+  <div class="foot-links">
+    <a href="about.html"><span class="L ko">About MIKA</span><span class="L ja">MIKAについて</span><span class="L en">About MIKA</span></a>
+    <a href="contact.html"><span class="L ko">문의</span><span class="L ja">お問い合わせ</span><span class="L en">Contact</span></a>
+    <a href="privacy.html"><span class="L ko">개인정보처리방침</span><span class="L ja">プライバシーポリシー</span><span class="L en">Privacy Policy</span></a>
+  </div>
+  <div class="foot-copy">© 2026 MIKA · golfdocent.com</div>
+</footer>
 
 <script>
   // ── 페이지 언어 적용 ──

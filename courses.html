@@ -316,6 +316,15 @@
   [data-sitelang="en"] .L.en{display:revert;}
   span.L{display:none;}
   [data-sitelang="ko"] span.L.ko,[data-sitelang="ja"] span.L.ja,[data-sitelang="en"] span.L.en{display:inline;}
+
+  .course-card { position: relative; }
+  .course-card .new-badge { display: none; }
+  .course-card[data-new="1"] .new-badge {
+    display: block; position: absolute; top: 10px; left: 10px; z-index: 5;
+    background: var(--red, #8b2020); color: #fff;
+    font-family: 'IM Fell English', serif; font-size: 11px;
+    letter-spacing: 0.12em; padding: 3px 9px; border-radius: 2px;
+  }
 </style>
 <script>
   // 깜빡임 방지: 렌더 전에 저장된 언어를 html에 표시
@@ -402,6 +411,7 @@
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-08.jpg" alt="니조 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 08</span>
@@ -474,6 +484,7 @@ for day one.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-09.jpg" alt="츠카사로얄 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 09</span>
@@ -525,6 +536,7 @@ one is the latter.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-10.jpg" alt="트라이얼 골프 앤 리조트 아소코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 10</span>
@@ -591,6 +603,7 @@ MIKA’s Take: The clubhouse was small. Aso was not. That was the whole story.</
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-11.jpg" alt="아소 그랑브리오 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 11</span>
@@ -663,6 +676,7 @@ MIKA’s Take: The side mirror broke. Aso was fine. The onsen saved the day.</p>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-12.jpg" alt="치쿠시노 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 12</span>
@@ -714,6 +728,7 @@ days.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-13.jpg" alt="카츠야마고쇼 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 13</span>
@@ -786,6 +801,7 @@ MIKA’s Take: 15 holes in the rain, 100% bunker saves. Bad weather sharpens the
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-14.jpg" alt="니시니혼 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 14</span>
@@ -850,6 +866,7 @@ course.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-16.jpg" alt="스오나다 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 16</span>
@@ -917,6 +934,7 @@ sorted.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-17.jpg" alt="벳푸 모리클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 17</span>
@@ -971,6 +989,7 @@ MIKA’s Take: The golf was solid. The onsen was excellent. In Beppu, that’s t
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-18.jpg" alt="벳푸 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 18</span>
@@ -1034,6 +1053,7 @@ udon made it right.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-19.jpg" alt="유후고겐 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 19</span>
@@ -1102,6 +1122,7 @@ MIKA’s Take: Golf at 800 meters, looking down at Yufuin. The weather finished 
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-20.jpg" alt="JR우치노 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 20</span>
@@ -1162,6 +1183,7 @@ MIKA’s Take: The heat burned the fairways. The deer didn’t care. Eventually,
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-21.jpg" alt="더 클래식 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 21</span>
@@ -1238,6 +1260,7 @@ wakes you up. Don’t let the scenery fool you.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-22.jpg" alt="와카미야코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 22</span>
@@ -1312,6 +1335,7 @@ the fairway from the Shinkansen.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-27.jpg" alt="오무라만 CC 올드코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 27</span>
@@ -1379,6 +1403,7 @@ MIKA’s Take: A 46-year-old course holding the sea. This is where unhurried gol
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-28.jpg" alt="오무라만 CC 뉴코스" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 28</span>
@@ -1457,6 +1482,7 @@ you from being greedy.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-29.jpg" alt="치산 CC 모리야마" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 29</span>
@@ -1527,6 +1553,7 @@ cover it.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-30.jpg" alt="와카키 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 30</span>
@@ -1595,6 +1622,7 @@ before strategy, it’s this one.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-31.jpg" alt="사가클래식 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 31</span>
@@ -1673,6 +1701,7 @@ delivers both.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-58.jpg" alt="시마즈 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 58</span>
@@ -1750,6 +1779,7 @@ right call.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-59.jpg" alt="미조베 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 59</span>
@@ -1841,6 +1871,7 @@ straight.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-60.jpg" alt="다카치호 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 60</span>
@@ -1933,6 +1964,7 @@ isn’t just a golf course — it’s an experience.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-61.jpg" alt="지란 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 61</span>
@@ -2015,6 +2047,7 @@ kind of place.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-62.jpg" alt="톰왓슨 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 62</span>
@@ -2078,6 +2111,7 @@ MIKA’s Take: Black pine forest is beautiful. Eighteen holes of it starts to fe
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-63.jpg" alt="UMK CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 63</span>
@@ -2159,6 +2193,7 @@ MIKA’s Take: A course the JLPGA chose. Stand on it and the reason becomes clea
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-64.jpg" alt="자론바이 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 64</span>
@@ -2246,6 +2281,7 @@ almost sells it short.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-01.jpg" alt="고토히라 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 01</span>
@@ -2315,6 +2351,7 @@ MIKA’s Take: Went for udon. Found Japan golf. That was the start of 300.</p></
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-02.jpg" alt="시도 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 02</span>
@@ -2394,6 +2431,7 @@ every mistake.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-03.jpg" alt="사카이데 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 03</span>
@@ -2474,6 +2512,7 @@ right order.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-05.jpg" alt="오즈 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 05</span>
@@ -2548,6 +2587,7 @@ MIKA’s Take: 27 holes in midsummer is a challenge. 8,200 yen is the reward. Bo
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-06.jpg" alt="고원 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 06</span>
@@ -2628,6 +2668,7 @@ understanding Japanese summer heat.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-07.jpg" alt="마쓰야마 국제 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 07</span>
@@ -2701,6 +2742,7 @@ again.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-15.jpg" alt="산요 국제 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 15</span>
@@ -2776,6 +2818,7 @@ golf has days like that.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-23.jpg" alt="세토우치 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 23</span>
@@ -2856,6 +2899,7 @@ Didn’t matter.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-24.jpg" alt="야치요 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 24</span>
@@ -2927,6 +2971,7 @@ course and the math gets even better.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-25.jpg" alt="쿠레 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 25</span>
@@ -2999,6 +3044,7 @@ doesn’t.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-26.jpg" alt="백룡호 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 26</span>
@@ -3072,6 +3118,7 @@ how the last day should end.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-65.jpg" alt="그린파크 다이센 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 65</span>
@@ -3158,6 +3205,7 @@ photo before you take the shot.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-66.jpg" alt="다이센 아크 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 66</span>
@@ -3241,6 +3289,7 @@ and a clear head are the price of admission.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-67.jpg" alt="요나고 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 67</span>
@@ -3327,6 +3376,7 @@ MIKA’s Take: The decision to stop at 15 was the best shot of the trip.</p></di
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-68.jpg" alt="간몬키쿠가와 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 68</span>
@@ -3418,6 +3468,7 @@ MIKA’s Take: Fifty minutes of flying, 9,440 yen, a quiet afternoon. A clean fi
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-69.jpg" alt="레이크스완 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 69</span>
@@ -3515,6 +3566,7 @@ outperforms its name.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-70.jpg" alt="시모노세키 골든 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 70</span>
@@ -3604,6 +3656,7 @@ experience.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-71.jpg" alt="토요타코 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 71</span>
@@ -3694,6 +3747,7 @@ golf looks like without the markup.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-72.jpg" alt="미야코 컨트리클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 72</span>
@@ -3798,6 +3852,7 @@ Googleマップでの評価は3点台後半。数字だけ見れば、ごく平�
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-42.jpg" alt="코코파리조트 피닉스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 42</span>
@@ -3889,6 +3944,7 @@ accordingly and there’s plenty to enjoy.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-43.jpg" alt="세인트레이크스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 43</span>
@@ -3997,6 +4053,7 @@ see again is thin. St. Lakes lands firmly on the right side.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-44.jpg" alt="네무 골프클럽" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 44</span>
@@ -4070,6 +4127,7 @@ NEMU GOLF CLUBは平日にもかかわらず、かなりの賑わいを見せて
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-45.jpg" alt="엑셀런트GC 이세오토리" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 45</span>
@@ -4141,6 +4199,7 @@ MIKA’s Take: Golf and lunch for 60,000 won. The reason Japan keeps calling is 
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-49.jpg" alt="도조 파인밸리 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 49</span>
@@ -4218,6 +4277,7 @@ yen.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-50.jpg" alt="다카라즈카 고원 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 50</span>
@@ -4298,6 +4358,7 @@ description wasn’t an exaggeration.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-51.jpg" alt="후지오노 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 51</span>
@@ -4382,6 +4443,7 @@ outdoor bath. That’s summer golf completed properly.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-52.jpg" alt="니시와키 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 52</span>
@@ -4464,6 +4526,7 @@ for the last day.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-53.jpg" alt="고라카단후지 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 53</span>
@@ -4538,6 +4601,7 @@ for the next visit.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-54.jpg" alt="후지클래식 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 54</span>
@@ -4608,6 +4672,7 @@ courses leave homework.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-55.jpg" alt="후지아마기 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 55</span>
@@ -4685,6 +4750,7 @@ find than it looks.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-56.jpg" alt="아사기리잼보리 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 56</span>
@@ -4755,6 +4821,7 @@ MIKA’s Take: Fifty years old and playing at its best. Age is a number. This co
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-57.jpg" alt="후지노미야 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 57</span>
@@ -4831,6 +4898,7 @@ view.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-32.jpg" alt="세고비아 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 32</span>
@@ -4924,6 +4992,7 @@ whether this is golf or art.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-33.jpg" alt="치요다 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 33</span>
@@ -5017,6 +5086,7 @@ birdie is enough.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-34.jpg" alt="나리타히가시 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 34</span>
@@ -5086,6 +5156,7 @@ February afternoon was that kind of day.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-35.jpg" alt="소세이 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 35</span>
@@ -5160,6 +5231,7 @@ excuse or a fact requires a return visit to find out.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-36.jpg" alt="이시오카 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 36</span>
@@ -5236,6 +5308,7 @@ whether that was modesty or bragging. Then a bunker answers the question.</p></d
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-37.jpg" alt="마리아 골프링크스 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 37</span>
@@ -5325,6 +5398,7 @@ one of them.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-38.jpg" alt="나리타 사쿠라노사토 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 38</span>
@@ -5395,6 +5469,7 @@ MIKA’s Take: Worth coming back for the blossoms. On a weekday.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-39.jpg" alt="태평양클럽 야치요CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 39</span>
@@ -5490,6 +5565,7 @@ through the entire back nine.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-40.jpg" alt="이치노미야 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 40</span>
@@ -5571,6 +5647,7 @@ MIKA’s Take: Looks tougher than it plays. Some courses are like that. Some peo
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-41.jpg" alt="히가시치바 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 41</span>
@@ -5654,6 +5731,7 @@ trip. Golf never quite makes sense, and that’s the point.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-46.jpg" alt="이시오카 웨스트 GC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 46</span>
@@ -5731,6 +5809,7 @@ MIKA’s Take: A first impression of Japanese golf is made on the turf. 4,990 ye
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-47.jpg" alt="태평양클럽 PGA 마시코" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 47</span>
@@ -5806,6 +5885,7 @@ PGA. Both are honest about what they are.</p></div>
         </div>
       </div>
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-48.jpg" alt="가누마72 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 48</span>
@@ -5881,6 +5961,7 @@ choice.</p></div>
     </div>
     <div class="course-grid">
       <div class="course-card" onclick="toggleCard(this)">
+        <span class="new-badge">NEW</span>
         <div class="card-image"><img src="course-images/course-04.jpg" alt="루스츠 CC" loading="lazy"></div>
         <div class="card-top">
           <span class="card-no">No. 04</span>

@@ -158,6 +158,27 @@
     color: var(--ink-mid);
   }
   body[data-lang="ja"] .section-text { font-family: 'Noto Serif JP', serif; }
+  /* 協業 collab grid */
+  .collab-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--rule);
+    border: 1px solid var(--rule); margin-top: 30px;
+  }
+  .collab-item { background: var(--paper); padding: 26px 24px; }
+  .collab-item .ci-n {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 13px; color: var(--red); letter-spacing: 0.08em; margin-bottom: 10px;
+  }
+  .collab-item .ci-h {
+    font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 600;
+    color: var(--ink); margin-bottom: 8px; letter-spacing: 0.02em;
+  }
+  .collab-item .ci-b {
+    font-family: 'Noto Serif KR', serif; font-size: 13.5px; line-height: 1.85;
+    color: var(--ink-soft);
+  }
+  body[data-lang="ja"] .collab-item .ci-b { font-family: 'Noto Serif JP', serif; }
+  @media (max-width: 680px) { .collab-grid { grid-template-columns: 1fr; } }
 
   /* JOURNEY GRID */
   .korea-note { margin-top: 36px; }
@@ -306,8 +327,8 @@
     <li><a href="map.html" class="nav-txt" data-ko="방문 지도" data-ja="訪問マップ" data-en="Visited Map">방문 지도</a></li>
     <li id="nav-guide"><a href="guide.html" class="nav-txt" data-ko="일본골프 첫걸음" data-ja="日本ゴルフ入門ガイド" data-en="Japan Golf Guide">일본골프 첫걸음</a></li>
     <li><a href="editorial.html" class="nav-txt" data-ko="골프 에디토리얼" data-ja="ゴルフエディトリアル" data-en="Editorial">골프 에디토리얼</a></li>
-    <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a>
-        <a href="contact.html" class="nav-txt active" data-ko="문의" data-ja="お問い合わせ" data-en="Contact">문의</a></li>
+    <li><a href="about.html" class="nav-txt" data-ko="About MIKA" data-ja="MIKAについて" data-en="About MIKA">About MIKA</a></li>
+    <li><a href="contact.html" class="nav-txt active" data-ko="문의" data-ja="お問い合わせ" data-en="Contact">문의</a></li>
   </ul>
   <div class="lang-switcher">
     <button class="lang-btn" onclick="setLang('ko')">KO</button>
@@ -325,6 +346,36 @@
 </div>
 
 <div class="about-body">
+  <div class="about-section">
+    <p class="section-eyebrow">Collaboration</p>
+    <h2 class="section-title"><span class="L ko">함께할 수 있는 일</span><span class="L ja">ご一緒できること</span><span class="L en">Ways to collaborate</span></h2>
+    <p class="section-text L ko">광고 지면이 아니라, 도슨트의 신뢰 안에 자연스럽게 녹아드는 '맥락'을 제공합니다. 일본 코스를 한국 골퍼에게 잇는 다음과 같은 협업이 가능합니다.</p>
+    <p class="section-text L ja">広告枠ではなく、ドーセントの信頼の中に自然に溶け込む「文脈」をご提供します。日本のコースを韓国のゴルファーへつなぐ、次のような協業が可能です。</p>
+    <p class="section-text L en">Not ad space, but context — woven naturally into the trust of the docent's voice. The following collaborations connect Japanese courses to Korean golfers.</p>
+    <div class="collab-grid">
+      <div class="collab-item">
+        <div class="ci-n">01</div>
+        <div class="ci-h"><span class="L ko">코스 소개·취재</span><span class="L ja">コース紹介・取材</span><span class="L en">Course Features</span></div>
+        <div class="ci-b"><span class="L ko">골프장의 매력을 도슨트의 시선으로 깊이 풀어내어 다국어로 발신합니다.</span><span class="L ja">ゴルフ場の魅力をドーセントの視点で深く掘り下げ、多言語で発信します。</span><span class="L en">In-depth course storytelling from a docent's perspective, in three languages.</span></div>
+      </div>
+      <div class="collab-item">
+        <div class="ci-n">02</div>
+        <div class="ci-h"><span class="L ko">골프 투어 연계</span><span class="L ja">ゴルフツアー連携</span><span class="L en">Golf Tour Tie-ins</span></div>
+        <div class="ci-b"><span class="L ko">코스 소개와 예약·투어 플랜을 자연스럽게 연결해 인바운드 송객으로 이어갑니다.</span><span class="L ja">コース紹介と予約・ツアープランを自然に接続し、インバウンド送客につなげます。</span><span class="L en">Connecting course features with booking and tour plans to drive inbound visitors.</span></div>
+      </div>
+      <div class="collab-item">
+        <div class="ci-n">03</div>
+        <div class="ci-h"><span class="L ko">지역·관광 프로모션</span><span class="L ja">地域・観光プロモーション</span><span class="L en">Regional Promotion</span></div>
+        <div class="ci-b"><span class="L ko">지자체·관광 기관과 연계해 지방 코스와 지역을 함께 발신합니다.</span><span class="L ja">自治体・観光機関と連携し、地方コースと地域を一体で発信します。</span><span class="L en">Partnering with municipalities and tourism bodies to showcase regional courses.</span></div>
+      </div>
+      <div class="collab-item">
+        <div class="ci-n">04</div>
+        <div class="ci-h"><span class="L ko">플랫폼 연계</span><span class="L ja">プラットフォーム連携</span><span class="L en">Platform Partnership</span></div>
+        <div class="ci-b"><span class="L ko">예약 플랫폼의 일본 코스 큐레이터로서 한국 사용자 송객을 담당합니다.</span><span class="L ja">予約プラットフォームの日本コース・キュレーターとして送客を担います。</span><span class="L en">Serving as a Japan-course curator for booking platforms to channel users.</span></div>
+      </div>
+    </div>
+  </div>
+
   <div class="about-section">
     <p class="section-eyebrow">Email</p>
     <h2 class="section-title"><span class="L ko">이메일로 연락하기</span><span class="L ja">メールで連絡する</span><span class="L en">Email Me</span></h2>
